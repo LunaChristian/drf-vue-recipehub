@@ -1,2 +1,10 @@
 # drf-vue-recipehub
-Web app para la gestión de recetas de pizzería. Construida con Django REST Framework (backend) y Vue.js (frontend). Permite al chef crear y modificar recetas, calcular consumo según la producción y mantener un historial por restaurante.
+Proyecto fullstack con Django REST Framework y Vue.js para la gestión de recetas de pizzería.
+
+El chef puede crear y modificar recetas.
+
+Permite calcular automáticamente el consumo de ingredientes según la cantidad de pizzas producidas.
+
+Incluye historial de producción y consumo para planificación de compras.
+
+Pensado como un sistema multi-restaurante con control de usuarios y permiso
