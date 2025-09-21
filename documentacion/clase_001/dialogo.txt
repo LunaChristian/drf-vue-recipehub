@@ -1,0 +1,131 @@
+Hola.
+
+Hola.
+
+Qué tal?
+
+Cómo estás?
+
+Te habla tu servidor de siempre, César Cancino Zapata, desde Viña del Mar, en Chile.
+
+Te doy la más cordial de las bienvenidas a otro de los cursos que tenemos publicados en la plataforma
+
+de Udemy.
+
+En esta ocasión.
+
+Qué es lo que nos convoca?
+
+Nos convoca al desarrollo de este proyecto llamado Receta Fitness, el cual va a estar construido a
+
+nivel de backend con el framework Django de Python.
+
+Acá lo tenemos corriendo el framework Django de Python y a nivel de frontend vamos a utilizar el framework
+
+View en su versión tres.
+
+Acá también en el caso de Django vamos a utilizar directamente la última versión a la fecha actual,
+
+que es la versión número cinco.
+
+Bien, vamos a partir desde cero construyendo todas las APIs que tenemos que disponibilizar desde Django.
+
+Vamos a apoyarnos en el framework Django llamado Django REST para poder disponibilizar todas las APIs.
+
+Vamos a ver cómo poder crear APIs para generar registros, editar, eliminar lo básico, cierto?
+
+Vamos a ver cómo crear campos relacionados.
+
+Vamos a ver cómo poder subir archivos al servidor son muy importantes dentro del mundo del desarrollo
+
+de las APIs.
+
+Vamos a ver como también poder crear Serializables.
+
+Un concepto bien interesante dentro del mundo de Django, mediante lo cual vas a poder formatear los
+
+datos que vas a retornar en los endpoints que vas a construir.
+
+Vamos a dedicar un bloque completo también a la parte de implementación de seguridad.
+
+Básicamente ahí vamos a construir un token JWT para poder utilizarlo después acá en nuestro frontend.
+
+Eso nos va a servir para poder ir construyendo cada una de las secciones.
+
+Por ejemplo, acá en la página principal vamos a mostrar las últimas tres recetas creadas.
+
+Vamos a tener algunas páginas estáticas, vamos a listar todas las recetas con su respectiva imagen.
+
+Vamos a poder ver también el detalle de la receta.
+
+Muy importante, vamos a agregar algunas validaciones en el caso de que no exista el registro para mostrar
+
+ahí una página de error.
+
+Vamos a ver también cómo crear un pequeño motor de búsqueda acá, un buscador interno que nos va a permitir
+
+poder generar filtros dentro de los registros que tenemos creados.
+
+Vamos a ver también cómo crear un formulario de contacto para poder enviarle data al servidor y a través
+
+de esto poder enviar un correo electrónico.
+
+Acá en View vamos a aprender a integrar validaciones mediante validate a través de la construcción de
+
+esquemas de validación.
+
+Creando validaciones simples.
+
+Y también vamos a ver cómo crear validaciones de tipo custom, algo que es bien interesante de aprender.
+
+Vamos también a ver cómo implementar un login dentro de nuestra aplicación.
+
+Fíjate, acá los usuarios se van a poder registrar también en la aplicación.
+
+Este registro va a estar asociado a la activación de una cuenta mediante el envío de un enlace al correo
+
+electrónico informado por el usuario, para también poder aprender cómo se hace eso.
+
+Y una vez que el usuario se loguee, va a poder entrar acá y va a poder ver todas las recetas que él
+
+ha creado, las va a poder administrar, va a poder trabajarlas, crear sus recetas también acá a través
+
+de una ventana modal, las va a poder editar también aquí, fíjate, las va a poder eliminar y las va
+
+a poder también ver acá a nivel de la implementación de una ventana modal de tipo Fancybox.
+
+Y por último, le agregamos acá a esto la opción de poder modificar la foto.
+
+En el caso de View utilizamos dos librerías para trabajar la librería de.
+
+Me refiero a las librerías con las cuales nos vamos a conectar al backend.
+
+Vimos cómo hacerlo acá lo vamos a ver con Fetchapp y también con Actions, de tal manera de poder aprender
+
+a utilizar ambos, ambos conceptos.
+
+Todo eso lo vamos a aprender a trabajar mediante, en primera instancia a través de la implementación
+
+de servicios.
+
+Después lo vamos a hacer a través de la implementación de Composables dentro del mismo View y finalmente
+
+vamos a ver cómo hacer todo en un mismo componente, cargando todo ahí de forma inline, que es algo
+
+que se suele hacer también mucho.
+
+Entonces la idea es mostrarte todas esas distintas maneras de tal forma de que puedas aumentar las herramientas
+
+que tienes dentro de esa que yo siempre le llamo la cajita de herramientas, con la cual al final del
+
+día tú te vas a ir a enfrentar al mercado laboral.
+
+Así que nada, te dejo la invitación extendida.
+
+El curso está bastante completo en relación a la mayoría de los elementos que se necesitan para salir
+
+al mercado laboral y desde luego siempre lo estamos mejorando, siempre estamos subiendo actualizaciones,
+
+así que te dejo extendida la invitación.
+
+Nos estamos viendo en los próximos videos.

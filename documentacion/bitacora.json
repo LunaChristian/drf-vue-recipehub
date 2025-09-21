@@ -1,0 +1,53 @@
+{
+  "clases": [
+    {
+      "numero": 1,
+      "tema": "Introducción al curso y presentación del proyecto Receta Fitness",
+      "archivo_dialogo": "documentacion/clase_01/dialogo.txt",
+      "archivo_notas": "documentacion/clase_01/notas.json"
+    },
+    {
+      "numero": 2,
+      "tema": "Definición de dependencias y compatibilidad de librerías",
+      "archivo_dialogo": "documentacion/clase_02/dialogo.txt",
+      "archivo_notas": "documentacion/clase_02/notas.json",
+      "archivo_requirements": "requirements.txt"
+    },
+    {
+      "numero": 3,
+      "tema": "Uso de clientes para probar APIs REST",
+      "archivo_dialogo": "documentacion/clase_03/dialogo.txt",
+      "archivo_notas": "documentacion/clase_03/notas.json"
+    },
+    {
+      "numero": 4,
+      "tema": "Uso de Insomnia como cliente alternativo para APIs",
+      "archivo_dialogo": "documentacion/clase_04/dialogo.txt",
+      "archivo_notas": "documentacion/clase_04/notas.json"
+    },
+    {
+      "numero": 5,
+      "tema": "Introducción teórica a Django y Vue.js",
+      "archivo_dialogo": "documentacion/clase_05/dialogo.txt",
+      "archivo_notas": "documentacion/clase_05/notas.json"
+    },
+    {
+      "numero": 6,
+      "tema": "Creación y uso de entornos virtuales en Python",
+      "archivo_dialogo": "documentacion/clase_06/dialogo.txt",
+      "archivo_notas": "documentacion/clase_06/notas.json"
+    },
+    {
+      "numero": 7,
+      "tema": "Instalación de Django en el entorno virtual",
+      "archivo_dialogo": "documentacion/clase_07/dialogo.txt",
+      "archivo_notas": "documentacion/clase_07/notas.json"
+    },
+    {
+      "numero": 8,
+      "tema": "Creación del proyecto inicial en Django",
+      "archivo_dialogo": "documentacion/clase_08/dialogo.txt",
+      "archivo_notas": "documentacion/clase_08/notas.json"
+    }
+  ]
+}

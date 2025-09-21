@@ -1,0 +1,19 @@
+{
+  "clase": 7,
+  "tema": "Instalación de Django en el entorno virtual",
+  "objetivo": "Instalar Django dentro del entorno virtual, aprender a manejar versiones específicas y validar la instalación.",
+  "nivel": "Intermedio",
+  "conceptos": [
+    "Instalación de Django con pip",
+    "Uso de pip list para verificar dependencias",
+    "Desinstalación de librerías con pip uninstall",
+    "Instalación de versiones específicas con pip install django==x.y.z",
+    "Compatibilidad entre Django 3 y Django 5 en el mercado laboral"
+  ],
+  "sugerencias_modificacion": [
+    "Instalar Django 5.2.5 como versión base del proyecto.",
+    "Aprender a forzar instalaciones de versiones específicas para compatibilidad.",
+    "Usar pip uninstall en caso de errores o versiones innecesarias.",
+    "Verificar instalación de Django siempre con pip list."
+  ]
+}

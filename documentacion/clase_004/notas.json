@@ -1,0 +1,20 @@
+{
+  "clase": 4,
+  "tema": "Uso de Insomnia como cliente alternativo para APIs",
+  "objetivo": "Presentar Insomnia como alternativa a Postman para probar APIs REST y reforzar el uso de métodos HTTP.",
+  "nivel": "Intermedio",
+  "conceptos": [
+    "Insomnia como cliente REST",
+    "Métodos HTTP: GET, POST, PUT, DELETE",
+    "Uso del body con JSON y Form Data",
+    "Cabeceras en respuestas HTTP",
+    "Equivalencias entre Postman e Insomnia",
+    "Flexibilidad en la elección de clientes"
+  ],
+  "sugerencias_modificacion": [
+    "Instalar Insomnia si trabajas en Linux (está en repositorios oficiales).",
+    "Si ya usas Postman, puedes continuar con él sin problemas.",
+    "Familiarizarse con JSON y Form Data, ya que serán claves en las APIs que implementaremos.",
+    "Prepararse: desde la próxima clase se empieza a trabajar directamente con código en Django/DRF."
+  ]
+}

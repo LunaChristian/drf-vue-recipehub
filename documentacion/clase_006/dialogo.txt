@@ -1,0 +1,267 @@
+Bien.
+
+Comenzamos entonces a tocar el código, a meter las manos en el código para ya empezar a trabajar,
+
+porque creo que hemos hablado demasiado y eso termina aburriendo al final, cierto?
+
+Ok, y para poder trabajar con Python tenemos varias alternativas.
+
+Una es bueno hacerlo directamente acá en la terminal e ir creando las cosas.
+
+Por ejemplo no sé, con Pip, acá podríamos ir ir a ver acá no sé, dependiendo de lo que tengamos instalado.
+
+Yo tengo pip tres acá instalado, podríamos ir a ver ahí con Pip Freeze todas las librerías que tengo
+
+instaladas acá en mi local y está perfecto.
+
+Tú puedes hacer lo mismo en tu Windows, de hecho también lo puedes hacer con pip tres ls también y
+
+te las va a mostrar acá.
+
+De esta manera no hay ningún problema con eso.
+
+Pero qué pasa que hoy día no es tan recomendado hacer esto?
+
+Hoy día, de hecho, una de las recomendaciones es utilizar Docker, por ejemplo.
+
+Puede ser una buena alternativa contenerizar todo esto, pero también en el caso de Django o de Python
+
+en sí, te ofrece otra alternativa adicional a lo que es Dockers.
+
+Que es esto?
+
+La implementación de un entorno virtual.
+
+Cuál es la ventaja?
+
+Que en qué consiste esto de la instalación de un entorno virtual?
+
+Básicamente lo que te permite es que tú te instalas acá un entorno virtual y en ese entorno virtual
+
+tú le vas a instalar solamente aquellas librerías que tú vas a necesitar, independiente de las que
+
+tengas instaladas en tu sistema operativo.
+
+Me refiero a librerías de Python.
+
+Bien, entonces eso te da la ventaja de que después tú puedas llevarte todo eso a un requirements.txt.
+
+TXT.
+
+Ya vamos a ver qué es eso.
+
+Y eso lo puedes subir al repositorio Git.
+
+Entonces cualquier persona que quiera tomar tu proyecto y desplegarlo en otro lado simplemente toma
+
+ese requirement, punto, txt lo lo lo ejecuta y ahí se deberían instalar todas las librerías que necesita
+
+el proyecto para poder ejecutarse de manera correcta.
+
+Entonces es una herramienta bastante buena que tiene el mundo de Python, así que nosotros la vamos
+
+a utilizar.
+
+De hecho es lo que se recomienda.
+
+No cometas el error de ponerte a instalar librerías acá en tu localhost, Porque ojo, puede que te
+
+funcione todo, pero mañana quizás quieres hacer otra cosa y puede que tengas incompatibilidad de versiones
+
+y todo.
+
+Entonces mejor ya las ruedas redondas hace rato.
+
+Entonces aprendamos a usar esto.
+
+Ahora, cómo se usa esto?
+
+Tienes que instalarlo acá desde pip punto org.
+
+Entonces aquí está la línea.
+
+Pip install virtualenv En tu caso, si es que tienes python tres, tienes que decirle pip pip install.
+
+Debería ser así.
+
+En este caso debería ser así.
+
+Colocas ese código ahí y le colocamos ahí pip3 pip tres y eso te debería instalar directamente este
+
+virtualenv.
+
+Yo ya lo tengo instalado así que no lo voy a instalar.
+
+De hecho, si yo hago acá un pip tres list seguramente debe estar por acá el virtualenv ahí está, viste?
+
+Justamente tengo ese que es la versión 20, que es la que creo que es la que trae instalada por defecto
+
+el Ubuntu, así que no hay ningún problema, pero si no está es la forma de poder instalarlo.
+
+Ojo, recuerda lo que te comenté en una clase anterior, debes trabajar con la versión 3.10 de Python
+
+en adelante y eso te va a exigir tener Python tres instalado.
+
+De hecho, te lo instala por defecto, lo tienes que hacer nada.
+
+Así que ahí para que lo tengas en consideración y una vez que tengas instalado eso, vas a posicionarte
+
+en alguna carpeta en donde vayas a guardar tus proyectos.
+
+En mi caso acá yo lo tengo en esta ruta, en mi, en mi Ubuntu, en mi sistema operativo, en tu Windows.
+
+Lo puedes colocar donde tú quieras, no hay ningún problema y ahí vas a hacer.
+
+Vas a crear a través del comando virtualenv, te vas a crear un entorno virtual, vas a poder escribir
+
+directamente virtualenv.
+
+Una vez que hayas hecho la instalación que dijimos hace un rato, la del pip install pip tres, en este
+
+caso install virtualenv, entonces eso te instala todo el CGI de este comando.
+
+Entonces ahí está virtualenv.
+
+De hecho si lo ejecutamos ahí fíjate que te da todas las opciones, podrías ver incluso hasta la versión
+
+que tiene, no sé, lo que sea.
+
+Y si tú quieres que esto te cree directamente un entorno virtual, le vas a decir acá virtualenv y le
+
+vas a colocar el nombre, por ejemplo entorno Bien.
+
+Presionamos Enter y ahí el ya te debería haber creado algo que te debería haber creado.
+
+Te debería haber creado esta carpeta que está aquí.
+
+Bien.
+
+Esta carpeta que está acá, tú no la vas a tocar para nada, No le vas a hacer nada a esa carpeta,
+
+simplemente la vas a tener ahí.
+
+Ahora fíjate una cosa importante voy a hacer algo acá que te va a permitir un poco ver de qué se trata
+
+esto.
+
+Para entenderlo bien voy a abrir acá otra pestaña en la misma ruta.
+
+Aquí vamos a entrar rápidamente a la misma ruta.
+
+Entonces fíjate lo siguiente.
+
+Mira, aquí tengo en esta pestaña de la izquierda, si yo ejecuto acá un pip3 list.
+
+Tengo todas esas librerías instaladas ahora acá, en esta otra pestaña de la derecha, voy a hacer lo
+
+siguiente Voy a entrar a este entorno virtual, Ahí lo tengo, fíjate, ahí está el entorno y cómo,
+
+cómo entro, cómo lo activo.
+
+De la siguiente forma.
+
+Y esta nota.
+
+Pero porque este es el comando que se usa justamente para esto.
+
+Entonces vas a utilizar el comando source.
+
+Esto funciona Ojo, igual en Linux.
+
+En Windows esto es transparente.
+
+Entonces vas a escribir Source.
+
+Este source te va a funcionar en la medida de que hayas instalado el pip3 install virtualenv, automáticamente
+
+te disponibiliza este comando source.
+
+Entonces le vas a decir source entorno o como la hayas colocado.
+
+Y creo que en el Windows no me acuerdo bien, pero creo que la carpeta no se llama bin.
+
+En el caso de Windows se llama bin.
+
+Ahí vayan comentandome.
+
+Hace rato no lo hago en Windows, voy a revisarlo porque hace rato no lo hago ahí, pero acá en Linux
+
+se llama bin la carpeta.
+
+Pero ahora que me acuerdo creo que en Windows parece que te la crea con otro nombre y dentro de esa
+
+carpeta hay un elemento que se llama activate.
+
+Bien, entonces fíjate que lo que va a pasar voy a limpiar acá para que veas lo que va a pasar, qué
+
+es lo que va a suceder?
+
+Una vez que lo ejecute.
+
+Y de hecho, si más de alguien ya le ganó la ansiedad y lo ejecutó, si lo ejecutaste te debiera haber
+
+aparecido acá adelante en el prompt, el nombre de tu entorno.
+
+Vamos a ver si es verdad.
+
+A ver, vamos a presionar ahí Source y fíjate ahora te dice acá en torno a y significa que ahora estás
+
+dentro de tu entorno virtual.
+
+Y ahora qué significa esto?
+
+Significa varias cosas.
+
+Me voy a volver acá a la izquierda y fíjate que aquí a la izquierda.
+
+Como no estoy dentro del entorno, si yo escribo Python me dice que no lo tengo instalado.
+
+Por qué?
+
+Porque yo tengo instalada la versión tres, tengo que escribir Python tres directamente.
+
+Ahí está.
+
+Ahora, si yo vengo a donde tengo desplegado o corriendo, mi entorno virtual es distinto porque el
+
+entorno virtual automáticamente toma la configuración nativa que yo tengo del Python.
+
+Entonces yo le digo simplemente acá Python y él asume que ya tengo la versión tres instalada, te fijas?
+
+Y además lo otro que te decía mira, voy a volver aquí a mi local, voy a ejecutar el PIP tres.
+
+Listo.
+
+Fíjate, todas las librerías que tengo instaladas son bastantes, pero si vengo acá pip tres list cambia
+
+la cosa Aquí.
+
+Aquí no tengo instalado nada porque el entorno no tiene nada y para eso está pensado, justamente para
+
+que solamente acá instales lo que necesitás, porque por ejemplo, yo te digo, te lo digo desde ya.
+
+Acá muchas de estas librerías que yo tengo instaladas aquí no tienen nada que ver con tango.
+
+Te lo comento muchas que utilizo acá yo para temas de pentesting y todo, o para temas de big data,
+
+pero no necesariamente están pensadas para trabajar con Django.
+
+Entonces aquí la idea es no solamente utilizar lo que realmente voy a necesitar.
+
+Así que muy importante eso que te acabo de comentar más de alguien me lo va a preguntar, así que lo
+
+voy a responder de manera anticipada.
+
+César Y qué pasa si yo no quiero instalar ese entorno virtual?
+
+No hay problema.
+
+Instálate Django en tu localhost de la misma forma en la que lo vamos a hacer en las próximas clases
+
+y te va a funcionar todo igual.
+
+No vas a tener ningún tipo de dificultad, pero la recomendación siempre que te voy a hacer, por lo
+
+menos en mi caso, es que lo hagas a través de un entorno virtual, porque esto te permite no no tocar
+
+la configuración nativa que tienes en tu sistema operativo.

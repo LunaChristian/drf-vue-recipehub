@@ -1,0 +1,23 @@
+{
+  "clase": 2,
+  "tema": "Definición de dependencias y compatibilidad de librerías",
+  "objetivo": "Establecer el archivo requirements.txt asegurando compatibilidad entre Django 5.2, DRF y Python 3.13.",
+  "nivel": "Intermedio",
+  "conceptos": [
+    "Gestión de dependencias en proyectos Django",
+    "Compatibilidad entre Django y Python",
+    "Uso de mysqlclient como conector de base de datos",
+    "dotenv para variables de entorno",
+    "autoslug para generar slugs automáticamente",
+    "JWT con python-jose",
+    "CORS con django-cors-headers",
+    "Documentación de APIs con drf-spectacular"
+  ],
+  "sugerencias_modificacion": [
+    "Reemplazar drf-yasg por drf-spectacular, dado que tiene mejor soporte para Django 5.2.",
+    "Mantener django-autoslug==1.9.9 pero estar atento a fallos; considerar alternativas si surgen incompatibilidades.",
+    "Asegurarse de instalar dependencias del sistema para compilar mysqlclient (ej. libmysqlclient-dev en Debian/Ubuntu).",
+    "Dejar setuptools con versión mínima, no fija, para mayor flexibilidad."
+  ],
+  "archivo_requirements": "requirements.txt"
+}

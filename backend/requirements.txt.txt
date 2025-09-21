@@ -1,0 +1,9 @@
+Django==5.2.5
+djangorestframework==3.16.1
+mysqlclient==2.2.7          # Requiere tener instalados los headers de MySQL/MariaDB en el sistema
+python-dotenv==1.0.1
+django-autoslug==1.9.9      # Verificar en uso real con Django 5.2; si falla, considerar django-autoslug-field
+python-jose==3.3.0
+django-cors-headers==4.4.0
+drf-spectacular==0.27.2     # Alternativa moderna a drf-yasg, más mantenida
+setuptools>=65.5.0          # No fija exacto, deja actualizar a versiones recientes y compatibles

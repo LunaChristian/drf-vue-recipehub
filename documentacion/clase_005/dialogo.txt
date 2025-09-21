@@ -1,0 +1,313 @@
+Bien.
+
+Antes de empezar a meter las manos en el código, vamos a conversar un poquito sobre algunas cosas que
+
+vamos a revisar acá en el curso.
+
+Primero, bueno, está este slide, ya te lo había mostrado, así que no lo vamos a ver.
+
+Primero vamos a ver un poquito de qué se trata todo lo que vamos a utilizar, ya sea Django y la parte
+
+de Front.
+
+Entonces, primero vamos a respondernos la típica pregunta de qué es Yango?
+
+Que de qué se trata esto?
+
+Esto no tiene que ver con el asesino del viejo oeste que salía a matar vaquero.
+
+Cierto?
+
+No tiene nada que ver con eso.
+
+Django es un framework o Django, como lo llaman algunos.
+
+Es un framework que se creó hace bastante tiempo.
+
+Es mantenido y potenciado por el equipo de Python del ecosistema de Python.
+
+Está trabajado en un entorno de código abierto, por lo tanto, perfectamente no se puede descargar
+
+el código fuente y trabajarlo y o mejorarlo sin ningún tipo de problema.
+
+Bien, y al ser un framework, trae la mayoría de las herramientas esenciales que un desarrollador necesita
+
+para poder construir una aplicación en formato web.
+
+Y la verdad, a nivel personal es uno de los frameworks que considero más completos en el mercado junto
+
+con Laravel.
+
+Creo que por lo menos en la experiencia que yo tengo, son los dos frameworks que encuentro un poquito
+
+más completos que los demás.
+
+Por ahí Spring Boot también tiene bastante cosas, aunque ahí creo que al ORM de Spring Boot le falta
+
+un poquito de controlador de versiones, pero lo demás acá la verdad es que ya tiene bastantes cosas.
+
+De hecho se habla mucho en el mercado de que Jango está amarrado al término elegancia.
+
+A muchos programadores les gusta precisamente por eso.
+
+Además, no es un dato menor esto.
+
+El nivel de performance que te proporciona Django para la construcción de aplicaciones es muy robusto,
+
+muy potente.
+
+No está solo pensado para hacer aplicaciones sencillas, sino también para construir aplicaciones en
+
+un formato bastante grande.
+
+Por eso es importante conocerlo.
+
+Además que hay mucha demanda hoy día en el mercado sobre este framework Framework es un perdón.
+
+Django es un framework que se habla de que respeta el famoso patrón del modelo vista controlador, en
+
+que ellos hicieron un pequeño cambio, porque no necesariamente puedes trabajar con el modelo vista
+
+controlador, sino que ellos crearon otro modelo que se llama modelo vista Template.
+
+Es decir, que en lugar de crearte un controlador te vas a crear una vista y en esa vista es en donde
+
+vas a poder administrar cada uno de los métodos que van a representar las diferentes rutas que tú vas
+
+a trabajar.
+
+Lo puedes hacer directamente con métodos o con clases y objetos, que es lo que vamos a hacer nosotros,
+
+porque nos vamos a apoyar en el objeto API View que trae Django REST, precisamente para poder ir construyendo
+
+la estructura de endpoint o de navegación de rutas de cada una de nuestras APIs, que en definitiva
+
+es lo que vamos a disponibilizar dentro de nuestro backend.
+
+Suena interesante.
+
+También suena suena un poco intimidante, sobre todo para quienes nunca han visto eso, pero tranqui,
+
+ya lo vamos a ir viendo, Ojo!
+
+Django es el framework más demandado en el mercado laboral del ecosistema de.
+
+Ahí me equivoqué y mira con lo que ecosistema que soy -- con lo que ecosistema con C.
+
+Perdóname.
+
+Y eso no es el framework, no es uno, es el framework más demandado hoy día en el mercado laboral del
+
+mundo de Python.
+
+Por ahí hay otro que tiene bastante fuerza que es Flask, pero la verdad es que hoy día está muy por
+
+encima de Flask, sobre todo a nivel de las herramientas que tiene, porque por ejemplo Flask no tiene
+
+implementado un ORM por defecto.
+
+Por ahí Faceapp también tiene bastante mercado, pero tampoco tiene herramientas por defecto, entonces
+
+ahí uno tiene que estar eligiendo y decidiendo y cuando le das mucha, mucha opción de decidir al ser
+
+humano, de repente cometemos muchos errores por no ocupar otro concepto para seguir siendo un poquito
+
+más formales.
+
+Qué características esenciales tiene Django?
+
+Primero está escrito en Python.
+
+Bien.
+
+Cuenta con un motor de ORM propio y es un motor de ORM de los más completos que hay hoy día en el mercado.
+
+Aquí está lo que te decía, trabaja bajo el modelo de vista template.
+
+Ya vamos, ya vamos a ver de qué se trata eso.
+
+Cuenta con una enorme, una amplia comunidad de desarrolladores y también de personas que trabajan con
+
+este framework, porque por una parte está la gente que está ahí metiendo las manos, construyéndole
+
+mejoras a este framework.
+
+Y por otro lado, también está la enorme comunidad de desarrolladores en el mundo que nos gusta trabajar
+
+con este framework porque es bastante completo para poder trabajar.
+
+Otro dato importante que tienes que conocer es que el Microframework Django REST es uno de los mejores
+
+que existen en el mercado para trabajar, EH o para el trabajo, en este caso de microservicios y API
+
+REST.
+
+La verdad es que tiene la mayoría de las cosas que se necesitan para poder disponibilizar herramientas
+
+de ese tipo.
+
+Desde luego nosotros lo vamos a aprender a trabajar y en 1/2 del curso vamos a trabajar con un framework
+
+Spa, uno de los más utilizados en el mercado.
+
+Me refiero a View.
+
+Entonces, es importante también que nosotros conozcamos un poquito de qué es lo que vamos a hacer con
+
+ese framework y de qué se trata.
+
+Entonces, la primera pregunta ahí que nos van a hacer es qué es View?
+
+Por ejemplo, View es un framework y aquí me río un poco porque cuando estaba haciendo el curso de React
+
+me cuesta un poco decir que no es un framework, porque en realidad sí lo es, pero no lo es.
+
+Bueno, View sí es un framework View.
+
+JS es un framework de JavaScript, es de código abierto y está pensado para la construcción de interfaces
+
+y aplicaciones en una sola página.
+
+Ahí viene el famoso concepto de las Spa la sangre Page Application, es decir, que todas las peticiones
+
+carguen a través de una sola página.
+
+Ya vamos a llegar a eso.
+
+Este framework fue creado por este señor Evan Yu, eh?
+
+En realidad no sé si es hombre o mujer, así que pido disculpas por eso y es mantenido por el mismo
+
+y por un equipo que bueno, ha crecido muchísimo hoy día la comunidad de View.
+
+De hecho aquí se muestra un poco de donde proviene esto de Netlify y de NET Group.
+
+cuáles son las características de View o como lo quieras llamar.
+
+La curva de aprendizaje que tiene en relación a los otros dos frameworks del mercado es bastante liviana.
+
+Eso no es menor.
+
+Te permite manejar enrutamiento con y sin lazyload, es decir, sin carga perezosa.
+
+Ya lo vamos a revisar.
+
+Eso también.
+
+Al igual que Angular y React también trabajan en base a componentes también, al igual que Angular y
+
+React.
+
+Perfectamente se puede trabajar a través de la implementación de servicios.
+
+De hecho, en la versión dos, cuando trabajabas con el APS, con el Option App, todo se hacía a través
+
+de servicios.
+
+Ahora, en la versión tres apareció un concepto que se llama Los Composables, que es algo que vamos
+
+a revisar nosotros en detalle.
+
+Vamos a ver cómo crearnos composables a través de API Fetch y también a través de la librería Actions,
+
+que es una de las más utilizadas precisamente para que puedas tener claridad respecto de cómo se usan
+
+cada una de las dos librerías.
+
+Cosa de que si te toca utilizar una u otra en el mercado no tengas ninguna dificultad para hacerlo.
+
+Maneja el concepto de UX.
+
+Aunque hoy día los UX dentro del mundo de hoy son muy importantes, están también envueltos dentro de
+
+esto de los composables.
+
+Así que ojo con eso.
+
+Hoy día también View te permite trabajar state.
+
+Hasta hace poco se estaba utilizando esta herramienta que se llama Vuex, pero hoy día la herramienta
+
+que ha cobrado mayor protagonismo en el mundo de los desarrolladores es una que se llama Pinia.
+
+Desde luego, nosotros vamos a aprender a utilizar Pinia, que es la que se utiliza hoy día para la
+
+construcción del logging, para la administración de los métodos de logging y todo eso.
+
+Y una cosa que yo siempre digo y con esto voy a terminar aquí, esto de para para terminar de aburrirte,
+
+pero esto siempre yo lo comento tanto View como Angular o como React.
+
+Lo sé, React no es un framework, pero cualquiera de los tres es agnóstico a nivel del lenguaje de
+
+programación con el que se desarrolla el backend.
+
+Por ahí a veces yo he visto personas que te dicen no, es que si no usas Spring boot con Angular no
+
+te va a funcionar bien.
+
+Si no usas Laravel con view no te va a funcionar bien.
+
+Si no usas Django con React no te va a funcionar bien y la verdad es que eso esta muy alejado hoy día
+
+de la realidad.
+
+Hoy día el Alba que lo que le interesa es que tu le disponibilice APIs y él conectarse a esas mismas
+
+apis que tu le disponibilizarse en el backend y y trabajarlas internamente.
+
+Pero para el para el front end en este caso es completamente irrelevante el lenguaje de programación
+
+con el que se trabajó.
+
+Así que hay un mito ahí que tenemos que derribar.
+
+Y eso es también a veces se usa mucho para venderte cursos y todo, y tienes que tener mucho cuidado
+
+con esa información a veces o desinformación que existe en el mercado.
+
+Y View es un framework gratuito y open source no es menor eso, así que es bueno saberlo.
+
+Ahora, qué necesitamos para seguir este curso?
+
+Necesitamos conocimientos básicos de HTML, Algo sencillo.
+
+Conocimientos básicos de CSS.
+
+Conocimientos básicos de Python.
+
+Por ahí en mi página yo te voy a mostrar.
+
+Tengo ahí unos cursos gratis que te van a servir sobre Python para que puedas ahí ver toda la parte
+
+de la sintaxis y todo también conceptos básicos de JavaScript.
+
+Un servidor backend en el caso de que lo requieras, pero acá no es obligatorio porque ya lo trae un
+
+servidor embebido para poder hacer pruebas.
+
+Vas a necesitar un editor de código.
+
+A mí no me gusta cazar al alumno o la alumna.
+
+Con Visual Studio, si tú quieres utilizar cualquier otro editor, no hay ningún problema.
+
+Lo digo porque hoy día, sobre todo con la irrupción del mundo de la BigData del data, análisis de
+
+la data ciencia, de los datos científicos, de la inteligencia artificial y todo, han irrumpido en
+
+el mercado muchos IDEs distintos a Visual Studio, sobre todo en el ecosistema de Python.
+
+Entonces, si tú, no sé, quieres utilizar Jupyter, quieres utilizar Anaconda?
+
+El que tú quieras, no hay ningún problema, te va a servir igual.
+
+Sublimetext el que sea te va a servir igual para poder seguir todas las clases que vamos a ver acá en
+
+el curso.
+
+Recuerda, vas a necesitar node y npm y lo que siempre les digo, muchas pero muchas ganas de aprender.
+
+Así que nada, aquí comencemos la aventura.
+
+Y vamos entonces a colocar las manos en el código.

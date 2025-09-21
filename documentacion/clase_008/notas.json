@@ -1,0 +1,20 @@
+{
+  "clase": 8,
+  "tema": "Creación del proyecto inicial en Django",
+  "objetivo": "Aprender a usar django-admin para crear el proyecto base y diferenciar entre proyectos y aplicaciones en Django.",
+  "nivel": "Intermedio",
+  "conceptos": [
+    "Uso de django-admin como CLI",
+    "Comando startproject para crear proyectos",
+    "Comando startapp para crear aplicaciones",
+    "Diferencia entre proyecto principal y aplicaciones internas",
+    "Estructura inicial de un proyecto Django",
+    "Problemas de permisos en Linux y solución con chmod"
+  ],
+  "sugerencias_modificacion": [
+    "Crear el proyecto con django-admin startproject backend dentro del entorno virtual.",
+    "Verificar que la estructura del proyecto incluye manage.py y la carpeta backend con settings.py.",
+    "Recordar que se pueden crear múltiples aplicaciones con startapp según la necesidad del backend.",
+    "Si se usan Linux/Ubuntu y aparecen carpetas bloqueadas, corregir con chmod -R 777."
+  ]
+}

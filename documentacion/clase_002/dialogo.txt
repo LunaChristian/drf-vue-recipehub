@@ -1,0 +1,12 @@
+Aqui esta lo que necesitamos para nuestro proyecto. Estoy lo dejaremos en nuestro archivo requirements.
+Django==5.2.5
+djangorestframework==3.16.1
+mysqlclient==2.2.7
+python-dotenv==1.0.1
+django-autoslug==1.9.9
+python-jose==3.3.0
+django-cors-headers==4.4.0
+drf-yasg==1.21.7
+setuptools==65.5.0
+
+Tambien utilizaremos Nodejs y npm. Obviamente tambien python compatible para todas estas biblitecas que en nuestro caso sera Python 3.13.1

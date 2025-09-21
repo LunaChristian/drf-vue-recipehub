@@ -1,0 +1,16 @@
+{
+  "clase": 1,
+  "tema": "Introducción al curso y presentación del proyecto Receta Fitness",
+  "objetivo": "Explicar qué se va a construir, qué tecnologías se usarán (Django 5, DRF, Vue 3) y qué funcionalidades tendrá el proyecto.",
+  "nivel": "Intermedio",
+  "conceptos": [
+    "Presentación de Django 5 y Django REST Framework",
+    "Uso de Vue.js 3 como frontend",
+    "APIs REST para CRUD",
+    "Seguridad con JWT",
+    "Validaciones y formularios",
+    "Subida de archivos",
+    "Autenticación y activación por email"
+  ],
+  "metodologia": "Curso práctico, progresivo, orientado a un proyecto realista con funcionalidades de mercado laboral."
+}

@@ -1,0 +1,23 @@
+{
+  "clase": 5,
+  "tema": "Introducción teórica a Django y Vue.js",
+  "objetivo": "Explicar qué son Django y Vue.js, su importancia en el mercado laboral, sus características principales y los conocimientos previos necesarios.",
+  "nivel": "Intermedio",
+  "conceptos": [
+    "Django como framework backend",
+    "Patrón MTV (Model-Template-View)",
+    "ORM integrado en Django",
+    "Django REST Framework para APIs",
+    "Vue.js como framework frontend SPA",
+    "Componentes, services y composables en Vue",
+    "Pinia como gestor de estado en Vue 3",
+    "Conocimientos previos necesarios (HTML, CSS, Python, JS)",
+    "Herramientas necesarias (editor de código, Node.js, npm)"
+  ],
+  "sugerencias_modificacion": [
+    "Confirmar instalación de Node.js y npm antes de iniciar la parte frontend.",
+    "Elegir un editor de código cómodo (VS Code recomendado, pero no obligatorio).",
+    "Revisar conocimientos básicos de HTML, CSS, Python y JS para no tener dificultades.",
+    "Preparar entorno de Django para empezar a programar en la siguiente clase."
+  ]
+}

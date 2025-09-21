@@ -1,0 +1,155 @@
+Bien
+
+Te decía que vamos a necesitar algún cliente que te permita probar o testear las APIs REST que vas a
+
+construir, sobre todo en la parte del backend de tu aplicación.
+
+Entonces hay muchísimos en el mercado.
+
+Nosotros vamos a trabajar eventualmente.
+
+En realidad voy a usar la mayoría del tiempo Insomnia, pero también puedes utilizar Postman.
+
+Así que aquí está la página oficial, si es que te lo quieres descargar, que tiene una versión gratuita,
+
+así que no pasa nada.
+
+Y una vez que lo tengas instalado, independientemente del sistema operativo con el que tú trabajes,
+
+ya sea Windows, Mac o Linux, te va a aparecer algo como esto.
+
+No te asustes, si a mí me aparece negro es porque yo le cambié el tema por aquí no me acuerdo ya dónde
+
+lo hice.
+
+No te pasa a ti que hiciste un cambio en alguna aplicación y después te olvidaste de dónde lo hiciste?
+
+O soy el único loco?
+
+No lo sé.
+
+Ahí anda comentando.
+
+Pero bueno, desde acá fíjate, ahí entré a Settings Teams y ahí te te permite poder E cambiarle eventualmente
+
+el que tú quieras le puedes colocar ahí te fijas?
+
+Este en mi caso, para que no me duelan los ojos, lo coloco en Dark.
+
+Bien, cómo funciona esto?
+
+Fíjate que puedes ir creando pestañas aquí y en estas pestañas puedes ir consumiendo o llamando APIs
+
+o URLs en formato de endpoint.
+
+Por ejemplo, podríamos ir a buscar la DNS, que yo de hecho la tengo aquí en el en el portapapeles.
+
+Fíjate esta que es HTTP dos puntos slash slash, esta dirección IP que es mi IP local, Bien en un puerto
+
+que es en donde estoy corriendo, tengo esta ruta API v1 Ejemplo.
+
+Entonces aquí esta es la barra de direcciones en donde yo voy a colocar el nombre de la URL.
+
+Y bueno, aquí con este botón send yo la puedo consumir.
+
+Ese término consumir va de la mano de los distintos métodos HTTP que tengo disponibles.
+
+Esto también se les suele llamar los verbos http, pero eso no está bien.
+
+Lo correcto, lo correcto es hablar de métodos del protocolo HTTP.
+
+Entonces acá yo le puedo enviar peticiones GET, peticiones POST también.
+
+Fíjate.
+
+Ahí está.
+
+Por ahí me está llorando por algunas cosas, pero ya vamos a ver esto que está haciendo aquí.
+
+Está bien, pero César, como está bien Si mira.
+
+Y de hecho ahí me está dando un estado http 400 tranqui, pero yo lo programé así.
+
+Lo que pasa es que esto está esperando unos datos, por eso me está.
+
+Tengo una validación acá, por eso me está llorando.
+
+También le puedo pasar algún parámetro o le puedo enviar una petición PUT?
+
+En general las peticiones PUT van con un valor en la URL, aunque no es obligatorio.
+
+También le puedo enviar peticiones en formato delete si quiero.
+
+Bien, en fin, ahí puedo ir haciendo varias pruebas.
+
+Y también acá en la parte de body puedo enviar información, fíjate aquí en formato RAW, que aquí es
+
+donde uno generalmente coloca los clásicos JSON.
+
+Acá fíjate, no sé nombre.
+
+César.
+
+Lo que sea.
+
+Bien, puedo enviar formatos en Form Data.
+
+Este Form data.
+
+No lo infravalores porque este es el que se usa para cuando quieres probar una API que tenga la embebida
+
+incorporada la funcionalidad de hacer upload de archivos.
+
+Entonces ojo con eso.
+
+Desde luego también te voy a enseñar a crear una API que te permita subir archivos al servidor, así
+
+que no te preocupes por eso.
+
+También puedes enviar cabeceros aquí.
+
+Nosotros después vamos a crear en una.
+
+En uno de los módulos del curso vamos a crear toda una funcionalidad, una una maquinaria que nos permita
+
+poder manejar protección de rutas a través de la implementación de tokens con formato JWT, JSON, Web
+
+token.
+
+Bien, entonces para eso vamos a enviar datos aquí a través de cabeceros a cada una de las APIs que
+
+vamos a tener disponibles dentro de la aplicación.
+
+Y bueno, tiene una serie de cosas Acá hay eso.
+
+No quiero hacer algo tan largo tampoco, porque este no es un curso de Postman, pero sí es bueno que
+
+le des una vuelta.
+
+Igual tranqui, porque en la medida de que vamos a ir avanzando, vamos a ir testeando las diferentes
+
+APIs en distintos formatos y ahí vas a ir viendo.
+
+Ah, mira, y ahora entendí como cómo se le se le consume.
+
+Se habla mucho de que le pegas a la API.
+
+De hecho escuchaba cada término.
+
+Tengo muchos alumnos en Perú y ahí escuché el término de que una API te escupe algo.
+
+Se lo escuché a unos compañeros peruanos.
+
+Lo escuché también eso en México, en algunos colegas mexicanos también, que hablan de que la las APIs
+
+te escupen.
+
+Un dato, acá en Chile también lo lo he escuchado un par de veces.
+
+Lo digo porque vas a escuchar mucha terminología alrededor del consumo de APIs.
+
+Yo prefiero tratar de usar un lenguaje un poco más estándar para también para hacerme entender, porque
+
+si me pongo a hablar en chileno la verdad es que no me vas a entender nada, pero eso.
+
+Entonces acá ya tenemos lista la explicación de Postman y nada, vámonos al otro editor.

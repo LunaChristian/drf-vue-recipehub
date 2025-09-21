@@ -1,0 +1,107 @@
+Bien, ya tenemos el entorno, ya tenemos instalado Django.
+
+Entonces llegó el momento de crearnos nuestro primer proyecto con Django y para eso, para crearnos
+
+el proyecto, hay varias formas de hacerlo, pero en general para eso hay que utilizar esto que se llama
+
+Django.
+
+John Admin Este Django admin es una especie de ley que tiene Django y que te permite a través de distintos
+
+comandos poder ejecutar diferentes tareas.
+
+Por ejemplo acá si miramos algunas, así como al azar, por ejemplo, podemos crearnos, checkear acá,
+
+fíjate, vamos a ejecutar, eso es un ejecutador, che, creo que se te dice un poco la la distribución
+
+y las versiones que tienen, pero acá me falló, así que no lo voy a probar.
+
+Pero si es importante saber que este Django admin justamente te permite hacer a través de comandos mediante
+
+live poder interactuar, poder crear proyectos, poder hacer varias cosas, a saber eso primero.
+
+Ahora otra cosa importante, ese Django admin tiene dos comandos que son muy importantes que son estos
+
+dos.
+
+Start app y Start Project.
+
+Qué pasa con estos dos comandos?
+
+Nosotros lo que vamos a hacer ahora y de hecho te lo voy a mostrar acá en el repositorio para que se
+
+entienda mejor.
+
+Mira, nosotros vamos a crear un proyecto llamado backend.
+
+Le puedes colocar el nombre que tú quieras, no tiene por qué llamarse backend.
+
+Él lo que va a hacer te va a crear esta carpeta llamada backend con el mismo nombre del proyecto.
+
+Bien, y para crear cada uno de estos otros elementos lo vamos a hacer a través de la creación de aplicaciones
+
+dentro de ese proyecto.
+
+Entonces yo tengo por un lado el proyecto Django.
+
+Exacto, y dentro de ese proyecto Django yo puedo tener n aplicaciones creadas.
+
+Exacto.
+
+Entonces, dicho eso, aquí ya creo que queda más claro para qué sirve cada uno de los comandos.
+
+Entonces yo primero me tengo que crear un proyecto.
+
+Bien.
+
+Y dentro de ese proyecto me tengo que crear las aplicaciones.
+
+Eso está pensado para modularizar un poco, para desacoplar las aplicaciones, aunque la verdad es que
+
+hoy día igual uno las mezcla, Entonces el final del día llegas a lo mismo.
+
+Pero es importante tener bien clarito esto porque si no por ahí te puede generar algún tipo de confusión.
+
+Entonces nos vamos a crear nuestro proyecto, lo vamos a hacer con Django Admin, vamos a decir acá
+
+Start Project y le vamos a colocar un nombre.
+
+En este caso le vamos a decir que se llame vacuné.
+
+Le puedes colocar el que tú quieras.
+
+No tiene por qué llamarse de backend.
+
+Presionamos Enter y ahí está.
+
+No me dijo nada, pero tampoco me dio ningún error.
+
+Y ahí está Backend.
+
+En mi caso, y solo en mi caso, los que han visto clases conmigo saben que me pasa esto, que me quedan
+
+con el candadito.
+
+Entonces para que no me pase eso, yo voy a entrar a la carpeta backend y le voy a cambiar los permisos.
+
+Voy a hacer esto rápidamente.
+
+Se hmod 77 menos R Y ahí para que le cambiemos los permisos y ahí ya desaparece ese ese candadito.
+
+En tu caso no pasa nada, pero es bueno que sepas que eventualmente a mí me pasa.
+
+Y por qué lo tengo que hacer?
+
+Y aquí fíjate que ya él me creó el proyecto, aquí está mi proyecto backend, ya vamos a revisar un
+
+poco de qué se trata cada cosa, pero este es el proyecto en particular.
+
+De ahora en adelante nosotros vamos a comenzar a ir creando aplicaciones mediante la implementación
+
+del otro comando del start App.
+
+Vamos a ir creando diferentes aplicaciones con las cuales vamos a ir desarrollando las distintas funcionalidades
+
+que tiene que tener disponible nuestro backend para ofrecérsela, disponibilizarlas, valga la redundancia,
+
+al front end, en donde finalmente vamos a mostrar la aplicación que vamos a desarrollar.

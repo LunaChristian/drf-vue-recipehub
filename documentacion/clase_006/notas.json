@@ -1,0 +1,21 @@
+{
+  "clase": 6,
+  "tema": "Creación y uso de entornos virtuales en Python",
+  "objetivo": "Aprender a instalar y configurar un entorno virtual para aislar las dependencias del proyecto y evitar conflictos con librerías globales.",
+  "nivel": "Intermedio",
+  "conceptos": [
+    "Uso de pip3 freeze y pip3 list para listar dependencias",
+    "Instalación de virtualenv con pip",
+    "Creación de un entorno virtual con virtualenv",
+    "Activación del entorno virtual en Linux/Mac (source bin/activate)",
+    "Activación del entorno virtual en Windows (Scripts/activate)",
+    "Diferencias entre librerías globales y librerías en entorno virtual",
+    "Reproducibilidad con requirements.txt"
+  ],
+  "sugerencias_modificacion": [
+    "Crear un entorno virtual dedicado para el proyecto drf-vue-recipehub.",
+    "Instalar siempre las dependencias dentro del entorno virtual, nunca en global.",
+    "En Windows usar el comando .\\entorno\\Scripts\\activate en lugar de source.",
+    "Generar más adelante un requirements.txt desde este entorno virtual."
+  ]
+}

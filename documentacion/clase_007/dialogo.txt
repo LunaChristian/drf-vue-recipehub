@@ -1,0 +1,201 @@
+Bien, vamos entonces aquí, siempre dentro de nuestro entorno virtual, a comenzar a crear nuestro
+
+primer proyecto.
+
+En realidad el único que vamos a generar.
+
+Entonces primero recuerda posiciónate en alguna carpeta de tu sistema operativo.
+
+Yo te recomiendo que te crees un directorio y en ese directorio tengas ahí lo que es el entorno, tu
+
+proyecto backend y tu proyecto front en cosa de que te queden ahí disponibles por ahí en una clase anterior
+
+te disponibiliza también estos repositorios de GitHub que tienen todo el código fuente tanto del proyecto
+
+que hicimos con Django cinco para que te lo puedas descargar e irlo comparando con lo que tú vas haciendo.
+
+Y también te dejé otro repositorio acá con el código fuente del proyecto trabajado en View en View tres,
+
+para que lo tengas ahí también y lo puedas descargar.
+
+Muy importante eso.
+
+Entonces vamos a crearnos nuestro primer proyecto que sería este sería el proyecto backend.
+
+Entonces vamos a venir acá a la terminal y como lo hacemos siempre, cuando le vas a instalar alguna
+
+librería a Python o algún paquete, tienes que hacerlo siempre a través del pip.
+
+Por lo tanto, vas a venir acá y puedes escribir directamente aquí Django, por ejemplo, o Django como
+
+lo quieras llamar.
+
+Y ahí fíjate que te muestra acá las instrucciones con las cuales tú vas a trabajar.
+
+En este caso debería ser esta la versión 5.2.5
+
+De hecho se instala directamente acá, te dice que lo instale directamente con pip install django.
+
+Entonces acá ojo, uno por ahí no lo comenté y fíjate que acá en el local como no tengo nada, no tengo
+
+entorno virtual ni nada.
+
+Yo para poder procesar todo lo tengo que hacer a través de PIP tres.
+
+De hecho acá le coloco menos versión y te va a decir ahí la versión.
+
+En el caso del entorno virtual ya no es necesario, acá simplemente puedo decir pip y esto también va
+
+a estar asociado a Python tres, a Python 3.2 también para que lo tengas en consideración.
+
+Entonces aquí para cualquier instalación lo vamos a hacer directamente con Pip.
+
+Dicho eso, aquí la documentación de pip punto org te dice que para instalar la última versión de Django
+
+lo hagas con pip install django.
+
+Entonces vas a decir pip install.
+
+Siempre va a ser así pip pip install y le vas a decir ahí el nombre de la librería.
+
+Ya bien, vamos a instalarlo.
+
+Vamos a decir que queremos instalar ya.
+
+Vamos a presionar Enter y ahí él te va a descargar todo lo necesario para trabajar con Django.
+
+Ahí ya lo hizo.
+
+Ahora yo podría probar esto, podría limpiar acá la terminal y escribir pip list, por ejemplo, para
+
+ver.
+
+Mira, ahí tengo instalado Django 5.2.5 punto uno que es la última versión de echo lo podríamos ir a ver
+
+acá a la página Django Project y si es que está en línea, ahí está.
+
+Esa es la última versión que tenemos disponible.
+
+Bien, ahora si yo quisiera desinstalar eso, también lo podría hacer.
+
+Lo podría hacer con Pip.
+
+Creo que es pip Remove.
+
+Ya se me olvidó Pip Remove.
+
+Django.
+
+Y creo que eso te instala Pip uninstall.
+
+Entonces.
+
+Ahí está.
+
+Y él te va a preguntar si está seguro de que desea desinstalar la librería.
+
+Le dices que sí y listo.
+
+Y luego ejecutamos un pip list y ya no está la librería.
+
+Bien.
+
+Interesante también.
+
+Si quieres tú le puedes decir que te instale una versión específica de Django.
+
+Por ejemplo, le puedes decir acá Django igual a 3.1.
+
+Por ejemplo, quiero tener instalado Django 3.1, aunque justamente ese no existe.
+
+Le voy a decir que me instalé Django tres, creo que tengo que ponerle tres uno punto algo 20.5.
+
+Creo que ahí me lo va a instalar.
+
+No recuerdo los números de las versiones, así que perdóname por eso.
+
+Tengo que contar el número de la versión, pero así se hace.
+
+De hecho acá si le decimos Django punto 5.1, él te lo debería instalar bien.
+
+Y sabes que aquí si tengo un problema porque no era así, tengo que ver ahí la línea porque no me acuerdo.
+
+Lo que pasa es que la costumbre de instalarlo directamente, pero acá creo que era con un signo igual
+
+y eso para poder indicarle y forzarle más que todo.
+
+La versión de cuál distribución de Jango era la que tú querías instalar.
+
+No hay problema.
+
+Ahí ya me acordé.
+
+Es así?
+
+Es con doble signo igual.
+
+Por eso no me funciona.
+
+Es con doble signo igual.
+
+Vamos a instalar, por ejemplo, la tres punto 0.5.
+
+Ahí está.
+
+Entonces fíjate que te la instala directamente, sin ningún tipo de problema.
+
+Ahí está.
+
+Entonces ahora si ejecutamos un pip list, ahí te va a decir que tienes instalada la versión Django
+
+3.5.
+
+Esto te lo comento porque hoy día todavía hay muchas empresas que siguen trabajando con la versión tres
+
+de Django, porque todavía la.
+
+La verdad es que esa versión tiene bastantes cosas buenas y para ser honestos, tampoco es que la versión
+
+cinco traiga tantos cambios.
+
+Entonces la verdad es que todo lo que hace es en la versión tres, te va a funcionar perfectamente la
+
+versión cinco.
+
+Vamos a desinstalar esto porque no lo necesito.
+
+Yo quiero instalar la última versión, pero te quería mostrar eso porque creo que era importante.
+
+En mi caso voy a volver a ejecutar pip install django para que me instale la última versión estable,
+
+la última versión release.
+
+Así que esto me debería instalar ahí el Django punto cinco, punto 1.1.
+
+Ahí está perfecto.
+
+Y si revisamos acá pip list, ahí debería aparecer.
+
+Cierto?
+
+Ahí está Django cinco punto 5.1.
+
+Esto se instala a nivel de sistema operativo, pero como estamos acá en todo el entorno, todas esas
+
+configuraciones se las va a pasar aquí directamente al entorno.
+
+Aquí tú no tienes que hacer nada.
+
+Mira aquí si quieres mirar un poco por curiosidad y todo, puedes venir acá al paquete, a la carpeta
+
+side package y ahí él te va a decir las cosas que te va a ir instalando.
+
+Pero la verdad no es obligación.
+
+No, no pasa nada, no, no, no hay ningún tipo de problema con eso.
+
+Ok, con esto ya nosotros dejamos instalado el Python, ahí está instalado, cierto, tenemos también
+
+instalado Django, tenemos instalado el entorno virtual, por lo tanto ya estamos en condiciones de
+
+empezar a crear nuestro primer proyecto.

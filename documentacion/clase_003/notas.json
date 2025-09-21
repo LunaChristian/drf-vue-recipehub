@@ -1,0 +1,19 @@
+{
+  "clase": 3,
+  "tema": "Uso de clientes para probar APIs REST",
+  "objetivo": "Introducir herramientas como Insomnia y Postman para consumir y probar APIs creadas con Django REST Framework.",
+  "nivel": "Intermedio",
+  "conceptos": [
+    "Clientes REST para testeo (Insomnia, Postman)",
+    "Métodos HTTP (GET, POST, PUT, DELETE)",
+    "Uso del body en formato JSON",
+    "Uso de Form Data para subida de archivos",
+    "Cabeceras HTTP para autenticación (ejemplo: JWT)",
+    "Buenas prácticas de terminología al hablar de consumo de APIs"
+  ],
+  "sugerencias_modificacion": [
+    "Instalar Insomnia como cliente principal para pruebas de endpoints.",
+    "Tener Postman como alternativa opcional.",
+    "Familiarizarse con el envío de cabeceras y datos en distintos formatos antes de llegar a los módulos de autenticación y subida de archivos."
+  ]
+}

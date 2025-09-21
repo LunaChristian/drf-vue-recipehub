@@ -1,0 +1,93 @@
+Bien.
+
+Otro cliente de APIs REST muy popular es este que se llama Insomnia.
+
+Este es muy popular en el mundo de Linux.
+
+A la gente que nos gusta Linux solemos tratar de buscar siempre software alternativo y bueno, este
+
+es uno de los que más te recomienda.
+
+Por lo menos viene incluso instalado por defecto dentro de la tienda de Ubuntu y eso yo creo que es
+
+el principal indicador de que es justamente lo que ellos te recomiendan usar.
+
+Así que te lo puedes descargar aquí y me da la opción de descargarlo directamente para para Ubuntu porque
+
+estoy en ese sistema operativo, pero seguramente si tú estás en Windows te va a decir que la descarga
+
+para Windows y para Mac.
+
+En el caso de que estés en ese sistema operativo.
+
+Una vez que te lo descargas, vas a vas a tener algo como esto.
+
+Bien.
+
+Muy parecido al Postman.
+
+Bien acá arriba, fíjate, vas a consumir la URL y acá puedes indicar cualquiera de los métodos del
+
+protocolo HTTP con el cual vas a consumir la API.
+
+Esta es la misma que consumimos en el Postman, así que puedes ir ahí, fíjate y consumirla vía GET.
+
+Puedes hacerlo también vía post.
+
+Aquí si me dio datos es porque yo le estoy enviando información y acá la información se envía en el
+
+formato acá body y aquí tienes distintas opciones.
+
+Lo puedes enviar en formato for data for Urlencode o JSON.
+
+En general nosotros vamos a trabajar con estos dos, con Jason y con Formdata.
+
+Dependiendo de cuál sea la estructura con la que estemos trabajando.
+
+Bien.
+
+También le puedes enviar información vía put.
+
+Acá fíjate eso, por ejemplo, y él te debería responder.
+
+Vamos a ver, después que esto te retorna.
+
+Cabecero Fíjate, eso lo vamos a ir viendo después, en su momento de eso, esto es, esto que te acabo
+
+de comentar, de que te retorne cabeceras, es independiente al estar consumiendo la API desde Insomnia
+
+o desde Postman da lo mismo.
+
+Eso es propio del desarrollo del backend que construiste.
+
+Bien, también puedes hacer las peticiones en formato delete.
+
+Fíjate, sin ningún tipo de dificultad.
+
+Entonces puedes seguir el curso con cualquiera de los dos.
+
+Si tú utilizas otro, coméntanos para que lo probemos y veamos si la idea acá es que no sea solamente
+
+yo el que enseñe, sino que al final créeme que es el que más termina aprendiendo.
+
+Cuando hacemos cursos es quien enseña y en este caso sería mi persona.
+
+Aprendo.
+
+De hecho en estos años que llevo haciendo clases con ustedes, créanme que he aprendido más de lo que
+
+ustedes mismos han aprendido de mí.
+
+Así que imagínense cómo uno se va enriqueciendo con todo este tipo de cosas.
+
+Así que nada, con esta pequeña introducción que hicimos, ya estamos en condiciones de empezar a meter
+
+las manos en el código.
+
+Ya basta de cosas, basta de vueltas, basta de palabrería y nada, porque yo sé que lo que tú quieres
+
+es empezar a empaparte de código, a llenarte de código.
+
+Entonces nada.
+
+A partir de la próxima clase empezamos a trabajar con código directamente.
