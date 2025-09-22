@@ -96,6 +96,12 @@
       "tema": "Configuración de rutas con Django REST Framework",
       "archivo_dialogo": "documentacion/clase_16/dialogo.txt",
       "archivo_notas": "documentacion/clase_16/notas.json"
+    },
+    {
+      "numero": 17,
+      "tema": "Implementación de múltiples métodos HTTP en APIView",
+      "archivo_dialogo": "documentacion/clase_17/dialogo.txt",
+      "archivo_notas": "documentacion/clase_17/notas.json"
     }
 
   ]

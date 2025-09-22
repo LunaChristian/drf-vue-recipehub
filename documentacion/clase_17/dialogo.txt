@@ -1,0 +1,161 @@
+Bien.
+
+Mucha atención acá, porque esta clase es clave para todo lo que tienes que hacer de aquí en adelante.
+
+Fíjate que la URL que nosotros creamos está configurada por defecto con el método http get.
+
+Bien, y eso no es una casualidad, es porque nosotros cuando implementamos esto, el API View.
+
+La idea es que acá a través de cada uno de los métodos HTTP, nosotros vamos llamando a los diferentes
+
+métodos HTTP que nosotros queramos utilizar.
+
+Lo repetimos porque acá hablamos de métodos y en el HTTP también hablamos de métodos.
+
+Por eso.
+
+Entonces, Por eso, por esa razón aquí esto.
+
+Yo le dije que sea get precisamente porque yo quiero que ese sea el método HTTP a través del cual quiero
+
+que cargue esto.
+
+Vamos a cambiarle el texto a esto, vamos a colocarle que esto va a ser una salida con el método HTTP
+
+o método get solamente.
+
+Bien, ahora fíjate, voy a copiar esto aquí, voy a sacarle una copia al método y le voy a decir acá
+
+ahora que esto cargue a través del método Post.
+
+Ahora quiero que cargue a través del método Post.
+
+Le voy a decir que la salida en pantalla va a ser post.
+
+Bien, vamos a hacer lo mismo acá con el post también aquí.
+
+Fíjate post también para tener una petición http post.
+
+Lo voy a decir acá que la salida en pantalla diga put, más que todo para que tengamos la visual después.
+
+Y acá le voy a decir que esto cargue a través del método http delete.
+
+Entonces aquí le vamos a decir delete.
+
+Entonces fíjate, dentro de la misma clase yo puedo tener definidas llamadas a cualquiera de los métodos
+
+HTTP que tengo disponibles.
+
+Entonces, si revisamos acá en el en el insomnio o en el Postman donde tú estés probando tu API.
+
+Revisamos acá el método GET.
+
+Ahí está perfecto.
+
+Revisamos el método POST.
+
+Ahí está el método Post.
+
+Perfecto.
+
+Revisamos el método Put.
+
+Ahí está.
+
+Perfecto.
+
+Revisamos el método Delete.
+
+Ahí está perfecto.
+
+Te fijas?
+
+Entonces de esta manera yo puedo hacer las configuraciones para la implementación de cualquiera de los
+
+métodos HTTP que yo tenga disponibles acá.
+
+Ahora, en general, aquí también lo que se va haciendo es.
+
+Es crear diferentes clases en general.
+
+Uno Se crea dos, una para los métodos que no reciben parámetros en la URL y otra para aquellos métodos
+
+que reciben parámetros en la URL.
+
+Un dato freak, un dato anecdótico acá, pero importante.
+
+Primero quiero mostrarte otra cosa que tiene que ver con el F1.
+
+Si no me equivoco aquí si es que aquí te aparecen errores, si te aparecen errores acá por ejemplo errores
+
+de identación y todo en el Visual Studio.
+
+Eso porque el Visual Studio trae sangría.
+
+Entonces si te pasa eso y te aparecen acá unas líneas rojas diciendo y de hecho te debes estar dando
+
+cabezazos contra la pared ahora, verdad?
+
+Bueno, no te preocupes.
+
+Mira, presiona F1 y búscate esto que se llama convertir sangría en espacios.
+
+Entonces al presionar ahí automáticamente te debería sacar esos errores, porque esos errores son de
+
+la creación de sangría acá y eso a veces estorba con la sintaxis especial que tiene Python, porque
+
+Python no usa llaves ni nada de eso, sino que utiliza la sintaxis basada en identación.
+
+De hecho, aquí se supone que son cuatro caracteres.
+
+Cierto, Aquí el estándar dice que te tienes que saltar dos líneas por cada elemento.
+
+En fin, eso es importante que lo tengas en consideración.
+
+Otra cosa muy importante también, y estos son los cuatro métodos HTTP que en general nosotros vamos
+
+a utilizar.
+
+Nosotros en cada uno de los métodos podemos crear registros, guardarlos, editarlos, listarlos, lo
+
+que sea, pero hay un cierto estándar, el estándar, que dice.
+
+En general, cuando utilizas el método get, siempre se debería usar solo para listar registros.
+
+Cuando se usa el método POST, solamente se debería usar para crear registros.
+
+Cuando se usa el método put, solamente se debería usar para editar registros.
+
+Cuando se usa el método delete, ya te imaginarás.
+
+Exacto.
+
+Se usa solamente para eliminar registros.
+
+Ahora, eso es el estándar, pero yo perfectamente desde el put, desde no sé, desde el método POST.
+
+Por ejemplo, yo puedo usarlo para listar un registro sin ningún tipo de problema.
+
+Desde el método put, yo puedo crear un registro desde el método delete, puedo listar lo que sea,
+
+pero eso que te acabo de comentar del estándar es importante porque hoy día la mayoría de la gente es
+
+estándar si le aplica.
+
+Yo nunca he sido muy amigo de las buenas prácticas y los estándares, o sea, hay que usarlo.
+
+Pero a lo que voy es que no hay que obsesionarse.
+
+A eso quiero apuntar.
+
+Entonces lo digo porque mucha gente que se termina obsesionando con las buenas prácticas y a veces es
+
+un poco te quita el foco de la realidad.
+
+Pero este estándar sí creo que es importante respetarlo porque te ayuda un poco a trabajar de manera
+
+homogénea también como se desarrolla la mayoría de las APIs REST en las otras aplicaciones.
+
+Entonces eso anótatelo por ahí lo que te acabo de comentar.
+
+

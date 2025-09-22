@@ -1,1 +1,16 @@
-{}
+{
+  "numero": 17,
+  "tema": "Implementación de múltiples métodos HTTP en APIView",
+  "resumen": [
+    "Se amplió la clase `Ejemplo(APIView)` para soportar los métodos HTTP más usados.",
+    "Ahora se definen `get`, `post`, `put` y `delete`, cada uno retornando un mensaje simple.",
+    "Se explicó que en una misma clase se pueden definir varios métodos HTTP.",
+    "Se destacó el estándar de uso:",
+    "- GET: listar registros",
+    "- POST: crear registros",
+    "- PUT: actualizar registros",
+    "- DELETE: eliminar registros",
+    "Se mencionó la importancia de la indentación en Python y cómo corregir problemas desde VS Code (Convertir sangría en espacios).",
+    "Aunque técnicamente se puede usar cualquier método para cualquier acción, se recomienda respetar el estándar REST para mantener consistencia."
+  ]
+}
