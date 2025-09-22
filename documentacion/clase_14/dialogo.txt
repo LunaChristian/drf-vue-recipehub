@@ -1,0 +1,97 @@
+Bien, vamos a ver ahora y de aquí en adelante, en realidad, cómo empezar a crear URLs dentro de nuestra
+
+aplicación, pero al estilo APIs porque esta que generamos es una con salida en pantalla normal.
+
+Aquí hay un tecnicismo asociado porque esto está generado con un Document Object Model, un DOM.
+
+Nosotros no queremos eso.
+
+Nosotros queremos que trabajemos a través de la implementación de contratos JSON.
+
+Entonces, para eso vamos a utilizar este microframework que se llama Django REST, que tiene toda una
+
+batería de funcionalidades que nos permite poder construir APIs, APIs REST, en este caso completamente
+
+funcionales.
+
+Entonces esta es la página oficial ahí para que te la anotes.
+
+Django REST Framework punto org.
+
+Vamos a ir a donde dice installation ahí y aquí está la línea que tienes que ejecutar pip install django
+
+rest framework.
+
+Entonces vamos a venir a la terminal, detenemos la ejecución acá, ejecutamos.
+
+Ahí está pip install Django rest framework sin miedo al éxito.
+
+Recuerda eso sí, si estás en el entorno virtual, ejecuta pip directamente.
+
+Si lo estás haciendo en tu local, tiene que ser con pip tres.
+
+Vamos a instalar esto.
+
+No debiera romper nada.
+
+Ahí está.
+
+Me lo instalo?
+
+Podríamos probar.
+
+Voy a cambiar los permisos primero.
+
+Podríamos probar acá, por ejemplo, con pip list.
+
+Y ahí debería estar Django REST Framework.
+
+Fíjate el tres punto 15.2.
+
+Me quedé pensando.
+
+Por eso me quedé como es que está también el freeze.
+
+Pero eso lo vamos a ver en otra clase mejor.
+
+Perdón?
+
+Entonces ahí está instalado el Django REST.
+
+Ahora, para poder utilizarlo el Django REST tenemos que crear endpoint y todo, pero antes de eso y
+
+para poder tenerlo disponible tenemos que ir acá al Settings punto Py.
+
+Recuerda que el settings está en el directorio principal de la aplicación.
+
+Aquí este archivo es archivo.
+
+Tenemos que ir a verlo acá y a la parte donde dice installed app.
+
+Aquí le vamos a decir la aplicación que nosotros queremos cargar, que en este caso se llama REST Framework.
+
+Así sin nada más.
+
+Simplemente con esto ya él te la debería reconocer.
+
+Vamos a ver si es verdad.
+
+A ver, venimos aquí, actualizamos, déjame ver aquí qué le pasa esto a Bueno, porque no lo tenemos
+
+levantado por eso.
+
+Pero no debería dar ningún error.
+
+La aplicación debería estar arriba sin ningún tipo de problema.
+
+Ahora tampoco hay ningún cambio.
+
+Y eso está bien, porque nosotros, perfectamente independiente de que tengamos instalado Django REST
+
+o no, podemos convivir con rutas en este formato en modelo vista template y también podemos tener rutas
+
+creadas, ya lo vamos a ver en las próximas clases con la estructura que te pide Django REST para trabajar.
+
+Así que de esta forma nosotros hacemos la instalación y la implementación.
+
+La configuración básica de Django REST Framework en nuestra aplicación.
