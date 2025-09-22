@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from django.http import HttpResponse, JsonResponse
+from django.http import Http404, HttpResponse, JsonResponse
 from rest_framework.response import Response
 
 # Create your views here.
@@ -21,7 +21,19 @@ class Class_Ejemplo_View(APIView):
         })
         
     def post(self, request):
-        return HttpResponse("Salida con el método POST")
+        #Respuesta con HttpResponse
+        #return HttpResponse("Salida con el método POST")
+        
+        #Respuesta con JsonResponse
+        correo = request.data.get('correo', None)
+        password = request.data.get('password', None)
+        
+        if correo == None or password == None:
+            raise Http404
+        return JsonResponse({
+            "estado": "ok",
+            "mensaje": f"Salida con el metodo GET | correo={correo} | password={password}"
+        })
 
     def put(self, request):
         return HttpResponse("Salida con el método PUT")

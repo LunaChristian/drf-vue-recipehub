@@ -1,1 +1,15 @@
-{}
+{
+  "numero": 21,
+  "tema": "Recepción de JSON en métodos POST",
+  "resumen": [
+    "Se muestra cómo recibir datos JSON enviados en el body de una request, especialmente en métodos POST.",
+    "Los datos se acceden a través de `request.data.get('campo')`.",
+    "Ejemplo típico: login → correo y password enviados en JSON.",
+    "La respuesta debe retornarse en JSON utilizando `JsonResponse`.",
+    "Validaciones básicas deben implementarse manualmente, ya que DRF no ofrece un validador automático en este nivel.",
+    "Se puede utilizar `raise Http404` si faltan datos requeridos.",
+    "JsonResponse se puede importar tanto desde `django.http` como desde `django.http.response`.",
+    "Convención: JSON se puede recibir en POST, PUT y DELETE. No en GET.",
+    "Buenas prácticas: validar exhaustivamente para evitar entradas incompletas o maliciosas."
+  ]
+}

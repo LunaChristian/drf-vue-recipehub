@@ -1,0 +1,263 @@
+Bien, veamos ahora cómo poder recibir JSON en nuestros métodos.
+
+A qué me refiero con recibir JSON?
+
+Me refiero a esto habitualmente en el método post.
+
+La URL viene así viene limpia.
+
+Método post.
+
+Así, de esta manera.
+
+Y viene aquí en el body.
+
+Se le envía un formato JSON De esta manera.
+
+Así entonces.
+
+Por ejemplo.
+
+Uno de los casos más populares en donde se usa el método POST es cuando te logueas.
+
+Entonces en un login debería ir el correo.
+
+Por ejemplo, yo arroba césar cansino punto com por ejemplo, y un password acá 123456 por ejemplo.
+
+Entonces la idea es que nosotros seamos capaces de poder recibir esta información aquí.
+
+Entonces, si enviamos ahí todavía solamente dice método post, entonces vamos a venir acá a nuestro
+
+método POST y lo vamos a modificar.
+
+Esto te lo voy a dejar ahí para que te quede y vamos a retornar.
+
+Entonces.
+
+Recuerda, siempre vamos a utilizar Jsonresponse.
+
+Si quieres utilizar Response, no pasa nada.
+
+Nadie te va a ir a golpear a tu casa, ni te van a demandar, ni se van a querellar nada.
+
+Simplemente hoy día lo que te recomienda la documentación oficial es esto.
+
+Entonces vamos a retornar aquí, vamos a retornar lo mismo de siempre, vamos a decir acá por ejemplo
+
+Estado ok.
+
+Y en el mensaje vamos a jugar Mensaje dos puntos y aquí vamos a jugar, vamos a vamos a recibir entonces
+
+estos valores que nosotros tenemos aquí, los valores que estamos recibiendo de esta manera.
+
+Perfecto, déjame ver por qué me está dando error esto aquí que no le gustó?
+
+No, está bien.
+
+Está todo bien.
+
+No debería tener ningún tipo de problema, pero el tamaño solamente.
+
+Ok, entonces.
+
+Cómo recibo estos argumentos aquí?
+
+Primero hay que ver los nombres, correo y password.
+
+Entonces cómo lo hago?
+
+Voy a colocar aquí en el mensaje, por ejemplo, método post primero y le vamos a colocar aquí correo
+
+igual a y lo vamos a hacer con el objeto request siempre request punto data, punto get.
+
+Te acuerdas que los string son con el método HTTP de por medio?
+
+Aquí la data que viene en formato Request body lo vas a recibir así con data punto get y aquí le vas
+
+a colocar el nombre del argumento, en este caso correo.
+
+Bien, vamos a ver.
+
+No sé qué es lo que no le gusta esto.
+
+Ah, ya sé lo que pasa.
+
+Lo que pasa es que aquí me faltaron las llaves.
+
+Me faltó una llave acá adelante.
+
+Es por eso que me está molestando ahí.
+
+Me falta una llave.
+
+Ahí adelante.
+
+Claro.
+
+Está esa llave ahí.
+
+Y me falta la llave de cierre.
+
+Acá también.
+
+Por eso me está.
+
+Me está dando error.
+
+Ok.
+
+Listo, entonces.
+
+Ahí está.
+
+Estado.
+
+Ok.
+
+Mensaje, método, post correo y el valor del correo mediante request data.gov get.
+
+Y ahí el nombre del dato.
+
+Vamos a ver, venimos acá, enviamos y ahora primero me retorna esto en formato application JSON.
+
+Y ahí tengo método POST y ahí está el correo que me están enviando.
+
+Excelente.
+
+Significa que de esta manera estoy recibiendo la información y vamos a recibir el otro valor.
+
+El password también, solo para que quede ahí lo mismo Request, punto, data, punto.
+
+Y aquí le decimos password.
+
+Perfecto.
+
+Entonces si venimos aquí.
+
+Ahí está.
+
+Password.
+
+123456.
+
+Maravilloso.
+
+Espectacular.
+
+Ahora, algo que vas a necesitar hacer mucho en esto es agregar validaciones.
+
+Aquí, en esto.
+
+Si le falta un poco.
+
+A este framework le falta trabajar un poquito más el tema de las validaciones.
+
+Entonces como no tiene así como una cosa buena de validaciones, acá las tienes que hacer a mano.
+
+Entonces, por ejemplo, podríamos colocar aquí una condición que diga que si request, punto data,
+
+punto get de correo.
+
+Es igual a non o request.
+
+Punto data, Punto get de password es igual a no significa que yo debería mostrar algo acá.
+
+Por ejemplo, un error.
+
+Voy a colocar ahí pass el la la cláusula pass o la línea pass.
+
+Lo que hace es decirle que colocas una marca aquí a nivel de sintaxis para que no te dé error de tentación,
+
+pero no va a ser nada bien.
+
+Ahora yo no quiero eso, yo quiero que pase algo.
+
+Entonces, por ejemplo, podría utilizar un comando acá que tiene Python que se llama raise para que
+
+me retorne un estado http404.
+
+Entonces lo voy a hacer con http 404.
+
+Ahora, de dónde sale ese HTTP?
+
+HTTP perdón?
+
+404 es parte aquí de Django punto HTTP.
+
+Entonces aquí también le vamos a decir que quiero que me agregue la línea de o el objeto llamado http
+
+404.
+
+Estoy viendo ahí que el json response el json response en el en la clase que hice lo retorne desde otro
+
+lado.
+
+De hecho lo voy a mostrar acá en las clases que tengo en el repositorio.
+
+También se puede hacer así.
+
+Por eso te lo voy a colocar aquí.
+
+Se puede retornar también el jsonresponse.
+
+Desde acá, desde Django hace lo mismo http jango, punto http pero punto response y ahí también se
+
+puede retornar ese jsonresponse lo voy a dejar ahí también porque seguramente te lo vas a encontrar
+
+así en el repositorio que te dejé.
+
+Entonces ahí para que no te genere ninguna confusión.
+
+Entonces probemos esta validación que hicimos.
+
+A ver, vamos a venir acá al insomnio, enviamos todo bien, vamos a enviar el valor vacío.
+
+A ver, en realidad el vacío no lo estamos tomando como tal, así que ahí me lo debería tomar, pero
+
+me lo debe mostrar vacío.
+
+No se lo mandemos.
+
+Vamos a pasarle el correo, pero vamos a colocarle otro nombre.
+
+Entonces ahí debería ir, como no.
+
+Entonces me va a decir Estado 404.
+
+Y bueno, ese mensaje ahí es propio de los mensajes que utiliza el Yang.
+
+Perfecto.
+
+Significa que todo marcha según los planes porque me está retornando un estado 404 porque no está.
+
+No le estoy pasando uno de los valores que él necesita para trabajar.
+
+Ahora sí se lo paso.
+
+Ahora, si me retorna la información y ejecuta toda la lógica que yo le dije que ejecutara el método
+
+lógica.
+
+Suena complejo, verdad?
+
+Porque suena que yo estoy haciendo algo complejo acá, pero la verdad no, pero de igual manera es lógica
+
+porque estoy aplicando una regla de negocio que le estoy diciendo que si esto está vacío significa que
+
+yo quiero o viene como no significa que yo no quiero que siga la ejecución del script hacia adelante.
+
+Entonces, de esta manera nosotros vamos a trabajar la recuperación, la obtención de los valores que
+
+me vengan en formato JSON desde las API REST.
+
+Antes de terminar, recuerda lo que te mencioné al inicio.
+
+Esto si bien es cierto, aquí estamos cumpliendo el estándar, pero yo perfectamente Aquí en un método
+
+PUT también puedo recibir valores JSON en el DELETE también en el que no se reciben datos JSON es en
+
+los métodos GET para que también ahí te lo anotes, ahí la rodilla, la espalda ahí, para que no se
+
+te olvide.
+
+

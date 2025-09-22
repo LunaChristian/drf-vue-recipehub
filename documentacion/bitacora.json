@@ -120,6 +120,12 @@
       "tema": "Retornar respuestas en formato JSON",
       "archivo_dialogo": "documentacion/clase_20/dialogo.txt",
       "archivo_notas": "documentacion/clase_20/notas.json"
+    },
+    {
+      "numero": 21,
+      "tema": "Recepción de JSON en métodos POST",
+      "archivo_dialogo": "documentacion/clase_21/dialogo.txt",
+      "archivo_notas": "documentacion/clase_21/notas.json"
     }
 
   ]
