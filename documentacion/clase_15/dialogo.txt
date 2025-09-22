@@ -1,0 +1,41 @@
+Este es un soporte para el filtrado.
+
+En mi caso te aseguro que simplemente con esto te va a funcionar todo ok.
+
+Dicho eso, entonces vamos a crear nuestra aplicación llamada Ejemplo.
+
+Para qué va a servir esta aplicación?
+
+Para poder antes de empezar a construir todo lo de las recetas y todo, ver un poquito los primeros
+
+pasos del framework.
+
+Cierto?
+
+Como crear APIs al estilo Django rest y todo.
+
+Así que venimos a nuestra terminal de comandos, paramos la ejecución y nos creamos una aplicación,
+
+eso ya lo sabes hacer.
+
+Puede ser con Django admin, de hecho mira, lo puedes hacer también con Python Manage.
+
+No, mejor hagámoslo con Django admin porque si no después vamos a tener problemas Django admin y Start
+
+app y la vamos a llamar ejemplo.
+
+Precisamente nos va a servir, como te decía, para poder hacer pruebas y poder construir la base de
+
+lo que necesitas saber, de los pasos esenciales, los elementos esenciales que tiene que tener una
+
+API REST en Django.
+
+Así que aquí está, la creamos.
+
+Voy a cambiar acá los permisos y levantamos la aplicación.
+
+Ahí está.
+
+Debería estar generado el directorio, ahí lo tenemos y no deberíamos tener ningún cambio.
+
+Acá debería estar todo bien, así que en la próxima clase ya empezamos a hacer las principales configuraciones.

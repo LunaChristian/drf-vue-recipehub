@@ -1,1 +1,18 @@
-{}
+{
+  "clase": 15,
+  "tema": "Creación de la aplicación 'ejemplo'",
+  "resumen": [
+    "Se crea la aplicación llamada 'ejemplo' dentro del proyecto.",
+    "Se aclara que existen librerías adicionales opcionales como 'markdown' y 'django-filter', pero no son necesarias para el curso.",
+    "La aplicación 'ejemplo' servirá como espacio de prueba para comprender los primeros pasos con Django REST Framework.",
+    "Se utiliza el comando `django-admin startapp ejemplo` para crear la app.",
+    "No se producen cambios visibles aún; la aplicación queda lista para configuraciones posteriores."
+  ],
+  "comandos": [
+    "django-admin startapp ejemplo"
+  ],
+  "archivos_creados": [
+    "documentacion/clase_15/dialogo.txt",
+    "documentacion/clase_15/notas.json"
+  ]
+}

@@ -84,6 +84,13 @@
       "tema": "Instalación de Django REST Framework",
       "archivo_dialogo": "documentacion/clase_14/dialogo.txt",
       "archivo_notas": "documentacion/clase_14/notas.json"
+    },
+    {
+      "numero": 15,
+      "tema": "Creación de la aplicación 'ejemplo'",
+      "archivo_dialogo": "documentacion/clase_15/dialogo.txt",
+      "archivo_notas": "documentacion/clase_15/notas.json"
     }
+
   ]
 }
