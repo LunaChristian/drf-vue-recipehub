@@ -1,1 +1,27 @@
-{}
+{
+  "clase": 16,
+  "tema": "Configuración de rutas con Django REST Framework",
+  "resumen": [
+    "Se configura la ruta principal para la nueva aplicación 'ejemplo'.",
+    "En el archivo `urls.py` del proyecto se crea un prefijo `/api/v1/` para organizar las APIs.",
+    "Se añade la ruta `api/v1/ejemplo/` que apunta a una clase en `views.py`.",
+    "En `views.py` se crea la clase `Ejemplo` que hereda de `APIView` y define el método `get`.",
+    "El método retorna un `HttpResponse` con el texto 'Hola ejemplo'.",
+    "Se explica la diferencia entre rutas que devuelven `HttpResponse` (Content-Type: text/html) y el estándar deseado (Content-Type: application/json).",
+    "Se realizan pruebas con Insomnia/Postman para verificar el endpoint.",
+    "Se destaca la importancia de siempre retornar JSON en APIs modernas."
+  ],
+  "comandos": [
+    "django-admin startapp ejemplo",
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "backend/urls.py",
+    "ejemplo/urls.py",
+    "ejemplo/views.py"
+  ],
+  "archivos_creados": [
+    "documentacion/clase_16/dialogo.txt",
+    "documentacion/clase_16/notas.json"
+  ]
+}

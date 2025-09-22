@@ -90,6 +90,12 @@
       "tema": "Creación de la aplicación 'ejemplo'",
       "archivo_dialogo": "documentacion/clase_15/dialogo.txt",
       "archivo_notas": "documentacion/clase_15/notas.json"
+    },
+    {
+      "numero": 16,
+      "tema": "Configuración de rutas con Django REST Framework",
+      "archivo_dialogo": "documentacion/clase_16/dialogo.txt",
+      "archivo_notas": "documentacion/clase_16/notas.json"
     }
 
   ]

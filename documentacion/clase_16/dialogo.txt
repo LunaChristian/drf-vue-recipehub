@@ -1,0 +1,377 @@
+Vamos entonces a configurar la ruta para esta nueva aplicación.
+
+La mecánica es parecida, entonces vamos a ir al archivo URL principal.
+
+Recuerda, el archivo URL principal está dentro de la carpeta principal que se llama backend.
+
+Este archivo URL y la idea es que acá hagamos lo mismo que hicimos con él con el job.
+
+Entonces de hecho es lo mismo, así que copiamos acá, coma y lo pegamos eso abajo.
+
+Ahora yo quiero que la aplicación diga algo hacia adelante.
+
+Entonces para no tener problemas a todas las APIs yo les voy a colocar esto.
+
+Mira, les voy a colocar happy slash V1.
+
+Así, entonces para qué?
+
+Para que cuando yo después lo vaya a escribir en el navegador, escriba esto por ejemplo localhost slash
+
+api slash v1 y acá va a decir.
+
+Ejemplo.
+
+No sé.
+
+Categorías.
+
+Va a decir también recetas.
+
+En fin.
+
+Así, de esa manera.
+
+Eso es lo que yo quiero hacer bien, lo demás se mantiene.
+
+Pero acá en lugar de home debería decir ejemplo.
+
+Perfecto, Todo bien.
+
+Vamos a construir ahora el archivo URL que necesita el ejemplo.
+
+Entonces aquí el la la aplicación llamada ejemplo.
+
+Vamos a crear ese archivo URLs.
+
+Punto py.
+
+Perfecto, Aquí lo voy a correr para acá.
+
+Podrías copiarle todo lo que tiene en el home, por ejemplo.
+
+Esto, que la verdad es lo mismo.
+
+Aquí me quedo con el URL path, el view, cierto, todo eso.
+
+Muy bien, ahí está todo perfecto.
+
+No debería tener ningún tipo de problema.
+
+Ahora para configurar las rutas acá voy a necesitar hacer un pequeño cambio.
+
+Voy a necesitar hacer una pequeña modificación porque en el ejemplo anterior nosotros lo hicimos a través
+
+de http response.
+
+Aquí hay una variante.
+
+Mira, voy a abrir aquí el archivo views del ejemplo y vamos a ver cómo se hace.
+
+Primero coloquémosle la ruta acá en el URL de ejemplo.
+
+Entonces vamos a ir a ese archivo y aquí vamos a hacer lo siguiente.
+
+Mira, le vas a decir, partiendo de la premisa de que el enrutador principal le colocaste aquí API
+
+slash v1.
+
+Aquí le vas a decir que cuando escriban ejemplo así Ejemplo Yo quiero que llegue acá desde API v1 slash
+
+ejemplo va a llegar aquí y en lugar de ir a llamar a un método que dentro del archivo views va a ir
+
+a buscar una clase, la vamos a llamar class, por ejemplo class.
+
+Ejemplo.
+
+Después vamos a crear otra que se llama class categoría y así sucesivamente punto As guión bajo view.
+
+Bien, entonces esto va a saber, va a conocer ya internamente que va a tener que utilizar Django REST
+
+para trabajar.
+
+Hay otras formas de hacerlo, pero la documentación oficial hoy día te recomienda hacerlo así.
+
+Este clase ejemplo también tiene que estar creado de estar creado dentro de views.
+
+Te comenté en una clase anterior que no siempre se le coloca asterisco, acá uno puede irle colocando
+
+también ahí, por ejemplo clase ejemplo.
+
+Y bueno, ahí lo único que después aquí eventualmente vas a ir creando más clases, entonces tendría
+
+que irlas colocando aquí separadas por comas, pero te lo comento ahí para que lo tengas en consideración.
+
+De hecho en el en el repositorio si vamos a ver el repositorio que tengo, que es bueno hacer esto para
+
+que veas también porque te vas a encontrar con estas diferencias.
+
+Justamente si miramos el archivo URL está igual como lo estamos haciendo, pero acá si venimos al.
+
+A ver si de hecho el archivo URL es lo que quiero ver.
+
+Entonces aquí yo lo tengo con asterisco este aquí está, lo tengo con directamente con un asterisco
+
+cargado ahí Entonces de las dos formas funciona, de las dos maneras te va a funcionar, pero acá lo
+
+voy a dejar así solamente para que veas que funciona.
+
+Ahora esto seguramente el bosque aquí debe estar todo incendiado y claro, primero porque no me reconoce
+
+el ejemplo, así que voy a tener que parar la ejecución y volver a ejecutar y nuevamente se va a incendiar
+
+el bosque, pero ahora es por otra cosa, porque me va a decir oye, está todo bien, pero yo no conozco
+
+ese class ejemplo.
+
+Bueno, para eso vamos a ir acá a la vista y vamos a crear esa clase de ejemplo para poder trabajar.
+
+Entonces esto primero este render ya no lo vas a necesitar, así que lo vamos a quitar, vamos a importar
+
+aquí otra cosa, desde REST Framework punto views vamos a importar un objeto que se llama API View,
+
+así con esa sintaxis.
+
+Vale, entonces acá debajo vamos a crearnos esa clase class.
+
+Ejemplo aquí es class ejemplo le coloqué.
+
+Abro paréntesis.
+
+Le decimos que esto extienda.
+
+Cuando le colocas aquí entre paréntesis una clase, el nombre de otro objeto significa que le estás
+
+diciendo que extienda, que extienda de este apiview que es parte del Django rest.
+
+Y aquí le vas a ir diciendo los métodos.
+
+En este caso yo quiero un método que se va a llamar GET.
+
+Ya vamos a ver por qué se llama GET.
+
+Abrimos paréntesis y le voy a colocar acá por ahora.
+
+Por ahora un http response igual como lo teníamos acá en el home, voy a ocupar este mismo httpresponse
+
+y le voy a colocar.
+
+Hola ejemplo solo para que se vea.
+
+Ahora este get también recibe dos parámetros, uno que se llama self y otro que se llama request.
+
+Ya vamos a hablar de eso.
+
+Entonces aquí ya tengo configurada mi ruta, ahora esto tengo que importar también este Django Httpresponse
+
+porque si no esto va a fallar, así que lo vamos a importar acá arriba.
+
+Ahora aquí ya está creada mi ruta principal.
+
+Mira, primero recuerda, siempre le tienes que configurar aquí, en la ruta, en el URL principal,
+
+después en el URL que pertenece a la aplicación, le voy a generar la primera ruta.
+
+Esa ruta va a estar asociada a una clase y a todos sus métodos.
+
+Este significa que él va a tomar todos los métodos que yo coloque acá dentro de esta clase y en principio
+
+tengo este que se llama GET.
+
+Ya vamos a ver por qué se llama GET y no se llama de otra manera.
+
+Bien, y cuando ejecuten esto en pantalla debiera mostrar este texto.
+
+Por ahora, como yo sé lo que tienen que ejecutar en pantalla, por lo que te comenté aquí debieran
+
+escribir API slash v1, ejemplo.
+
+Vamos a ver, a ver, a ver, cómo está el bosque.
+
+El bosque ya no está incendiado.
+
+Vamos a venir al navegador aquí actualizamos y escribimos slash API slash v1 ejemplo y ahí está, ahí
+
+está perfecto.
+
+Qué pasa aquí?
+
+Que no me está funcionando, Pero déjame ver por qué no me está funcionando.
+
+Porque seguramente hay algo que no le está gustando.
+
+A ver.
+
+Ahí está.
+
+API V1.
+
+Ejemplo.
+
+Déjame ver.
+
+Aquí.
+
+Aquí.
+
+Me tengo que haber equivocado en algo, así que déjame ver ese ejemplo.
+
+Está bien.
+
+Asview.
+
+Eso está bien.
+
+Acá le decimos class ejemplo.
+
+Eso está bien.
+
+Si no lo reconociera, me estaría dando error.
+
+Veamos aquí.
+
+El método también está perfecto.
+
+Debería reconocerlo acá también.
+
+Return Httpresponse.
+
+Debería tomármelo también ahí sin ningún problema.
+
+Y el Hola ejemplo Esto está bien, pero no sé por qué no me lo quiere reconocer.
+
+Veamos, veamos, veamos.
+
+Déjame ver el bosque acá.
+
+A ver.
+
+Ahí está.
+
+Sabes lo que puede ser aquí?
+
+Puede que sea otra cosa.
+
+Mira, puede ser que.
+
+Fíjate lo siguiente.
+
+Mira, acá hay un tema que tiene que ver con el enrutamiento.
+
+Mira, en algunos casos aquí.
+
+Y de hecho yo tuve que hacer las pruebas acá en Yango cinco.
+
+Hay unos cambios en relación al enrutamiento, pero vamos a ir a ver el de categorías acá y en algunos
+
+casos en bueno, acá no lo alcancé a subir.
+
+Este es el primer commit, pero yo había hecho en unos ejemplos porque en las versiones anteriores de
+
+Django tú le tenías que colocar el slash acá adelante.
+
+Entonces, claro, acá no me está reconociendo ese slash.
+
+No es necesario colocarle ese slash porque ahora ya se lo agrega por defecto.
+
+Eso como primera cosa.
+
+Entonces ahí nosotros ya lo tenemos hecho así y en el URL.
+
+Acá nosotros tampoco, en teoría debemos indicarle acá eso, pero sin embargo aún así no me lo quiere
+
+reconocer.
+
+Entonces déjame ver a qué se debe esto.
+
+Ahí está el API V1.
+
+A lo mejor me faltó un slash al final.
+
+Acá puede ser, Claro, eso me faltó, acá me faltó colocar un slash al final.
+
+Eso por eso no me está reconociendo la ruta.
+
+Lo que pasa es que este slash tiene que ir acá o eventualmente acá adelante para que él reconozca,
+
+porque claro, porque si no fíjate lo que estaba pasando, lo que estaba pasando Él es que le estaba
+
+interpretando esto.
+
+Él estaba interpretando esto que yo estaba escribiendo API V1 con ejemplo, todo junto, por eso no
+
+me reconocía la ruta.
+
+De hecho, ahí me la reconoce.
+
+Entonces Claro, yo no necesito eso, yo necesito que escriban Slash acá.
+
+Ahí me va a dar error, pero ahora si lo cargo así con el slash, ahí sí me lo va a tomar.
+
+Entonces de esta forma es como tú vas a ir generando las rutas ahora al estilo de Django REST.
+
+Se ve confuso al principio, pero ya después uno empieza prácticamente a copiar y pegar todo.
+
+Ahora cosas importantes acá.
+
+Primero, nosotros no vamos a utilizar un navegador para trabajar.
+
+En mi caso voy a utilizar Insomnia, pero podríamos hacerlo también desde Django REST, desde Postman,
+
+sin ningún tipo de problema.
+
+Entonces me voy a crear acá un directorio newfolder.
+
+Lo voy a llamar Django cinco curso así.
+
+Y acá adentro me voy a crear la primera URL http request y voy a colocar ahí y hasta la voy a llamar
+
+ejemplo.
+
+Claro, para que me queden todas ordenaditas.
+
+Entonces fíjate esto primero nosotros vamos a ejecutar todo desde Insomnia o desde Postman, no desde
+
+el navegador.
+
+Y si yo lo ejecuto acá, esto ahí me dice hola ejemplo, todo bien, pero quiero hacer hincapié en una
+
+cosa.
+
+Mira, fíjate que aquí en los headers en donde dice content type, al utilizar httpresponse, este Content-Type
+
+me lo está retornando en un formato text html, es decir, un texto plano, un texto plano HTML no es
+
+lo que yo quiero, yo necesito que esto me retorne un JSON.
+
+Ya vamos a ver más adelante cómo hacer eso.
+
+Pero este tipo de detalles es bueno que ya lo vayas planificando en tu cabeza, porque siempre cuando
+
+hagas API REST la idea es que tus endpoints siempre te retornen un dato en un formato JSON, porque
+
+eso representa el estándar de acuerdo a cómo se trabaja en la actualidad?
+
+Desde luego, todavía no lo hemos hecho porque primero la idea era mostrarte cómo se generaba la ruta,
+
+cómo se generaban acá las URL y la configuración del urlpatterns en el archivo urls.py, cómo se hacía
+
+la implementación de la clase con el API View y todo eso?
+
+Bien, y ahora ya empezamos simplemente de aquí en adelante a crear más rutas y vamos a ir haciéndole
+
+varias cositas a las rutas para ir viendo, por ejemplo, cómo recibir parámetros path, cómo recibir
+
+un JSON y procesarlo, cómo recibir datos en query String, cómo retornar un JSON como te lo mencioné,
+
+cómo retornar un estado HTTP personalizado que son las cosas que en general vas a necesitar hacer en
+
+la construcción de APIs a nivel básico dentro del mundo del backend.
+
+Más allá de que incluso esto se extrapola al uso de Django de Next js de Laravel, de Springboot, punto
+
+net, lo que sea.
+
+Al final eso que te acabo de comentar es transversal para la mayoría de los frameworks que trabajan
+
+en formato web.
