@@ -1,1 +1,16 @@
-{}
+{
+  "numero": 19,
+  "tema": "Uso de parámetros en query string",
+  "resumen": [
+    "Se introdujo la diferencia entre parámetros en PATH y en QUERY STRING.",
+    "Los parámetros query string se pasan en la URL después de un `?` (ej: `/api/v1/ejemplo?id=1&slug=hola`).",
+    "No requieren configuración en `urls.py`, se leen directamente desde la petición HTTP.",
+    "Se utilizan con `request.GET.get('campo', 'valor_por_defecto')`.",
+    "Ejemplo implementado con `id` y `slug`.",
+    "Si el parámetro no está presente → retorna `None` (salida nula).",
+    "Si el parámetro está presente pero vacío → retorna cadena vacía.",
+    "Esto permite diferenciar entre parámetros ausentes y presentes sin valor.",
+    "Se explicó que no hay que caer en debates sobre si usar query string o path parameters; ambos tienen usos válidos.",
+    "El query string es muy útil para textos largos, filtros o búsquedas."
+  ]
+}

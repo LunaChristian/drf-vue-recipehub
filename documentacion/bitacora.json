@@ -108,6 +108,12 @@
       "tema": "Manejo de parámetros en rutas y separación de clases para APIView",
       "archivo_dialogo": "documentacion/clase_18/dialogo.txt",
       "archivo_notas": "documentacion/clase_18/notas.json"
+    },
+    {
+      "numero": 19,
+      "tema": "Uso de parámetros en query string",
+      "archivo_dialogo": "documentacion/clase_19/dialogo.txt",
+      "archivo_notas": "documentacion/clase_19/notas.json"
     }
 
   ]

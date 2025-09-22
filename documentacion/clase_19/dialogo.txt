@@ -1,0 +1,225 @@
+Bien, ya sabemos cómo configurar parámetros establecidos.
+
+Parámetros formales Esta es la manera formal de definir parámetros, el formato PATH, pero también
+
+en una URL te pueden pasar parámetros de esta manera.
+
+Mira, lo vamos a hacer aquí, por ejemplo con el método GET.
+
+Imagínate que tú tienes listado registros acá y te pasan un ID por acá arriba, por ejemplo, o te pasan
+
+una paginación.
+
+Acá la página número uno, por ejemplo.
+
+Ahí es una cosa rara el el insomnio, pero bueno, ahí está.
+
+Fíjate que estos parámetros no intervienen en la implementación, no, no intervienen en la configuración
+
+de la ruta, pero es muy común que te pasen parámetros en este formato.
+
+El formato llamado query string.
+
+No caigas en ese debate que hay personas que dicen de que no se debe hacer o que es mejor usar parámetros
+
+path y no parámetros string porque las páginas se ven feas?
+
+La verdad es que no, eso está muy alejado de la realidad, de lo que si te tienes que preocupar es
+
+de validar todo lo que llega.
+
+Esa es la clave del éxito.
+
+Ahora, independiente de todo eso, ya sabemos recuperar parámetros.
+
+PATH.
+
+Veamos cómo se recuperan estos valores en formato query String.
+
+En el ejemplo acá del repositorio, yo lo hice con un parámetro llamado id y otro parámetro llamado
+
+slug, si no me equivoco.
+
+Déjame ver aquí si es que en mi mente no me falla.
+
+Lo que pasa es que acá estaba pensando hacer un cambio.
+
+Lo vamos a hacer aquí en el ejemplo.
+
+Déjame ver aquí.
+
+Aquí lo hice con ya te digo, lo hice con un parámetro que se llama slug y otro que se llama ID.
+
+Ok, hagámoslo de la misma manera, no hay problema, Entonces este lo vamos a llamar id también, que
+
+no tiene nada que ver con el ID que recibe, es en formato path.
+
+Le voy a pasar dos, le voy a pasar el ID y el slug Aquí por ejemplo.
+
+Hola.
+
+Bien, fíjate, ahí.
+
+No pasa nada, está todo bien.
+
+Ahora, cómo recibo estos argumentos?
+
+Muy fácil.
+
+Vamos a venir acá a tu método.
+
+Esto debería ser acá, en este método get que tenemos aquí.
+
+Recuerda habértelo guardado por cualquier error que se te pueda presentar.
+
+Entonces, cómo recuperar esos parámetros?
+
+Lo voy a colocar acá con Format y voy a colocar aquí, por ejemplo ID.
+
+Igual lo voy a hacer aquí dentro de las llaves para poder trabajar con cualquier elemento que te llegue
+
+a través de la petición HDP.
+
+Siempre vas a utilizar este objeto request que viene acá, que justamente está pensado para eso.
+
+Este es el que te procesa todos los recursos que vienen embebidos dentro de la petición HTTP que venga,
+
+ya sea get, post, post, put, delete, lo que sea.
+
+Todo bien acá, entonces como todo bien aquí vamos a utilizar ese request.
+
+Perdón, aquí.
+
+Request.
+
+Y ahí tengo copiada en el portapapeles la URL del Django rest porque la estaba anotando ahí para dejártela
+
+disponible.
+
+Entonces vamos a colocar aquí Request, punto, set, punto, Set con mayúscula, luego get con minúscula.
+
+Esto a qué se refiere?
+
+Aquí.
+
+Aquí recibo todo desde la petición HTTP.
+
+Todo lo que venga a través del método http get.
+
+Y voy a utilizar un método que se llama get.
+
+Que ya estés para acceder.
+
+No confundir no tiene nada que ver.
+
+Es un alcance de nombres.
+
+Y aquí dentro de GET le vas a colocar el nombre del campo en este caso.
+
+Y por buenas prácticas se le suele colocar un segundo parámetro a modo de valor por defecto.
+
+Como no, no es obligatorio, pero lo voy a hacer porque seguramente te lo vas a encontrar por ahí en
+
+muchos manuales, tutoriales, videos que veas por ahí o cursos.
+
+Entonces vamos a ver.
+
+A ver, vamos a mirar acá al Insomnia.
+
+Ahí ejecutamos y ahí está.
+
+A y B igual a uno.
+
+Ahí está.
+
+Voy a cambiarle el valor.
+
+Por ejemplo, A 33.
+
+333.
+
+Ahí está.
+
+Ahí te lo toma sin ningún tipo de problema.
+
+Creo que no sé por qué no me toma el 333.
+
+Ahí está.
+
+Perfecto.
+
+Ok.
+
+Y tomemos el segundo.
+
+Muy sencillo.
+
+Lo mismo.
+
+No, no hay ninguna variante.
+
+Entonces vamos a colocar aquí eso y le vamos a decir acá es look igual a lo mismo acá.
+
+Esto lo podríamos haber guardado en una variable también.
+
+En fin, da lo mismo.
+
+No, no es relevante eso.
+
+Y acá le decimos es look.
+
+Fíjate que no es obligatorio tampoco pasarle el segundo argumento.
+
+Entonces, si venimos acá, ahí está, es look.
+
+Ahora, qué pasa si no viene alguno de ellos?
+
+Qué pasa?
+
+A ver, en teoría debería mostrarte el valor como no, automáticamente.
+
+Por eso te digo que no es obligatorio colocarle ese no.
+
+Porque él se lo asume por defecto.
+
+Te fijas?
+
+Ahí está.
+
+No viene el look y te lo toma por defecto de una vez.
+
+Qué pasa si el valor viene vacío?
+
+Acá vamos a pasarle el slug igual a algo, pero vacío.
+
+Y también ahí te lo toma, pero ahora te lo interpreta como vacío.
+
+Fíjate también esa diferencia.
+
+Esta diferencia es importante al None, porque esto eventualmente te podría permitir a ti plantearte
+
+una estrategia de validación.
+
+Preguntar si es no en el caso de que no venga el registro, por ejemplo, y preguntar derechamente si
+
+está vacío.
+
+Eso quiere decir que acá viene el dato, pero viene sin información.
+
+Son dos validaciones distintas que eventualmente tendrías que hacer para que lo tengas ahí en consideración.
+
+Pero más allá de aquello, de esta manera puedes recibir argumentos, ya sea en formato query, string
+
+o en formato path.
+
+No caigas como te dije en ese debate de cuál es mejor y cuál es peor.
+
+De hecho, te voy a pasar un dato.
+
+En general el path se usa para la configuración que hicimos en la clase anterior y el query string.
+
+Sabes para qué se usa mucho Para cuando necesitas pasar argumentos de texto grande que tenga espacios
+
+y cosas raras, porque ahí el path derechamente no te sirve para eso.
+
+Entonces ahí el query string cobra mucha relevancia y cobra mucha fuerza.
