@@ -2,7 +2,7 @@
   "clases": [
     {
       "numero": 1,
-      "tema": "Introducción al curso y presentación del proyecto Receta Fitness",
+      "tema": "Introducción al curso y presentación del proyecto Receta",
       "archivo_dialogo": "documentacion/clase_01/dialogo.txt",
       "archivo_notas": "documentacion/clase_01/notas.json"
     },
@@ -48,6 +48,30 @@
       "tema": "Creación del proyecto inicial en Django",
       "archivo_dialogo": "documentacion/clase_08/dialogo.txt",
       "archivo_notas": "documentacion/clase_08/notas.json"
+    },
+    {
+      "numero": 9,
+      "tema": "Estructura del proyecto Django y repaso de archivos clave",
+      "archivo_dialogo": "documentacion/clase_09/dialogo.txt",
+      "archivo_notas": "documentacion/clase_09/notas.json"
+    },
+    {
+      "numero": 10,
+      "tema": "Ejecución del servidor de desarrollo y ALLOWED_HOSTS",
+      "archivo_dialogo": "documentacion/clase_10/dialogo.txt",
+      "archivo_notas": "documentacion/clase_10/notas.json"
+    },
+    {
+      "numero": 11,
+      "tema": "Creación de la primera aplicación (app Home)",
+      "archivo_dialogo": "documentacion/clase_11/dialogo.txt",
+      "archivo_notas": "documentacion/clase_11/notas.json"
+    },
+    {
+      "numero": 12,
+      "tema": "Creación de la primera ruta en la aplicación Home",
+      "archivo_dialogo": "documentacion/clase_12/dialogo.txt",
+      "archivo_notas": "documentacion/clase_12/notas.json"
     }
   ]
 }

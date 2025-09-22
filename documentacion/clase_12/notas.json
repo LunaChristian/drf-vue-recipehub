@@ -1,0 +1,24 @@
+{
+  "clase": 12,
+  "tema": "Creación de la primera ruta en la aplicación 'home'",
+  "objetivo": "Configurar la primera ruta de la aplicación Home, aprender a conectar views con urls y entender el impacto de DEBUG en los errores.",
+  "nivel": "Básico",
+  "conceptos": [
+    "Archivo urls.py en cada aplicación",
+    "Conexión entre urls.py del proyecto y urls.py de la app",
+    "Uso de include() y path()",
+    "Declaración de vistas en views.py",
+    "Función HttpResponse como respuesta básica",
+    "Diferencia entre DEBUG=True y DEBUG=False en settings.py"
+  ],
+  "sugerencias_modificacion": [
+    "En lugar de 'pass', retornar un HttpResponse básico para confirmar que la ruta funciona.",
+    "Organizar rutas por aplicación desde el inicio para evitar mezclas en urls.py del proyecto.",
+    "Mantener DEBUG en True solo en desarrollo y en False al pasar a producción."
+  ],
+  "comandos_clave": [
+    "python manage.py runserver",
+    "django-admin startapp home",
+    "touch home/urls.py"
+  ]
+}
