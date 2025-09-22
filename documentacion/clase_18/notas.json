@@ -1,1 +1,21 @@
-{}
+{
+  "numero": 18,
+  "tema": "Manejo de parámetros en rutas y separación de clases para APIView",
+  "resumen": [
+    "Se explicó el estándar de métodos en APIs REST:",
+    "- GET (sin argumentos): listar todos los registros",
+    "- GET (con argumento): obtener un registro específico",
+    "- POST (sin argumento): crear un registro",
+    "- POST (con argumento): en algunos casos se usa, aunque no es común",
+    "- PUT (con argumento): actualizar un registro específico",
+    "- DELETE (con argumento): eliminar un registro específico",
+    "Se implementó la separación en dos clases:",
+    "- `Ejemplo`: métodos sin argumentos (GET y POST)",
+    "- `EjemploParametros`: métodos con argumentos en la URL (GET, PUT, DELETE)",
+    "Se mostró cómo recibir parámetros en la URL con `path('<int:id>/', ...)`.",
+    "En los métodos de la clase con parámetros, se agregó el argumento `id` en la firma.",
+    "Se corrigió un error con paréntesis en la declaración de `urlpatterns`.",
+    "Se explicó que los métodos HTTP sin definir correctamente generan error 405 (Method Not Allowed).",
+    "Se comentó la importancia de esta clase como plantilla base para futuros endpoints."
+  ]
+}

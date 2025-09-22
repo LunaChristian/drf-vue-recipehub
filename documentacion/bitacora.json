@@ -102,6 +102,12 @@
       "tema": "Implementación de múltiples métodos HTTP en APIView",
       "archivo_dialogo": "documentacion/clase_17/dialogo.txt",
       "archivo_notas": "documentacion/clase_17/notas.json"
+    },
+    {
+      "numero": 18,
+      "tema": "Manejo de parámetros en rutas y separación de clases para APIView",
+      "archivo_dialogo": "documentacion/clase_18/dialogo.txt",
+      "archivo_notas": "documentacion/clase_18/notas.json"
     }
 
   ]

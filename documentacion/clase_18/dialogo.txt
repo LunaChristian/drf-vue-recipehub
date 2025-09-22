@@ -1,0 +1,89 @@
+En general, cuando desarrollas API REST, las API REST en una API REST que cumple el estándar, debería tener cinco métodos siempre. Debería tener un método GET como este.
+
+(...)
+
+Este debería hacer para listar todos los registros. Debería tener un método GET que recibe un argumento en la URL, que todavía no lo tenemos configurado. Este debería usarse a nivel de base de datos para listar un solo registro asociado a este IBI.(...) Deberíamos tener un método POS de esta manera, sin ningún argumento en la URL.
+
+(...)
+
+Deberíamos tener un método POS también, con un argumento en la URL.
+
+(...)
+
+Y el método DELEAD generalmente, también recibe un argumento en la URL. Ese es el estándar. De hecho, viste la clase pasada que no es necesario y puede que funciona, pero un poco para seguir el estándar. Entonces, vamos a ver cómo poder crear métodos que reciban argumento y poder recuperar ese argumento en formato PAD, también en la URL. Entonces, eso lo podríamos hacer acá mismo, pero generalmente se hace así. Mira, se deja esta clase, de hecho la vamos a copiar, se deja esta clase para los métodos que no tienen parámetros y se crea otra para los que tienen parámetros. Y como yo soy poco creativo, a la segunda le coloco parámetros al final.(...) Sentirle, yo sé que parámetros son las palabras drúgulas, pero acá me va a generar problemas. Y acá me quedo con estos tres métodos, que sería el PUT, el GET y el DILIT, pero este va a recibir un argumento. Y acá arriba solamente me quedo con el POST y el GET, que no recibe ningún argumento, me quedo solamente con esos dos. Entonces, a estos tres le voy a hacer la configuración necesaria para poder recibir un argumento. Entonces, para eso, voy a ir al archivo URL de la aplicación ejemplo.
+
+(...)
+
+Vamos a colocar como acá PAD, lo mismo, vamos a decir aquí ejemplo también.
+
+(...)
+
+Pasé la misma URL, pero va a tener una pequeña variante, SLAT. Y aquí le voy a pasar un argumento en la URL. ¿Y cómo hacemos eso? Con sintaxis de diamante, le decimos el tipo de dato. En este caso, yo quiero que sea un entero y al valor, lo voy a llamar ID. Ah, así. Si yo le quiero pasar más argumentos, lo puedes hacer así. SLAT. Y ahí le pasa a hacer el argumento. En este caso, me quedo con dos slats ahí, pero bueno. Puede también ser un argumento de tipo de CTR. También no sé, un slug. También ahí si quieres pasárselo, también puede ser sin ningún tipo de dificultad para que te la note eso. Ahora voy a hacer esta, viviendo pegada al estándar. Entonces, lo vas a recibir solamente un argumento. Vamos a decirle que esto queda asociado a clas ejemplo parámetros.
+
+(...)
+
+Bien, punto as view.
+
+(...)
+
+Y cerramos ahí. Lo que sí, creo que me equivoqué acá. Esto no debería haberlo cerrado ahí. Listo, ahí está.
+
+(...)
+
+Ahora, como no le coloque a este disco acá arriba, me toca tomar esto y colocar. Se lo hay separado por coma.
+
+(...)
+
+Las buenas prácticas dicen que en Python te tienes que saltar una coma después de él, un espacio, perdón, después de una coma. Así que para que lo tengas en consideración. Aunque si no lo haces, tampoco va a pasar nada. Bien? Entonces, ahora, todos los métodos que están aquí van a recibir ese argumento. ¿Cómo lo recibo? ¿Cómo lo proceso el argumento? Muy fácil. Aquí simplemente, después del valor request, le vas a pasar el valor. En este caso se tiene que llamar ID. ¿Por qué se tiene que llamar ID y no manzana ni durazno? Porque aquí le colocaste ID. Si aquí le hubieras colocado otro nombre, aquí le colocas otro nombre. Entonces, aquí le vamos a decir response get y le vamos a colocar ahí parámetro.(...) Igual a y le vamos a colocar el ID. Para no estar concatenando, podrías colocar aquí format ahí adelante y con llaves aquí decirle ID, por ejemplo. A y. Entonces, podemos copiar esto mismo acá abajo también, en los demás, para no estar escribiendo tanto. Ahí le decimos método put.
+
+(...)
+
+Y acá le decimos método delete.
+
+(...)
+
+Y nos faltaría pasarle el argumento acá, ¿cierto? ID y ID. Listo. Entonces, ahora, aquí tienes el método get para listar todo el método post que no reciba argumentos en la borrera, en teoría, porque perfectamente ya podría crear un post que reciba argumentos. Aquí tengo el método get que sí va a recibir un argumento, el método put que también lo va a recibir y el método delete que de igual manera lo va a recibir. A ver, vamos a mirar el bosque, no está incendiado, vamos a ir al insomnio.(...) Veamos de una a cada el delete. A ver.
+
+(...)
+
+¿Y qué me pasó acá?
+
+(...)
+
+Ah, bueno.(...) Deja de ver por qué. Ah, ya sé, es por el format. Por eso no me está me está molestando por el format aquí.
+
+(...)
+
+Yo creo que es eso.
+
+(...)
+
+No va a ser raro porque no debería darle problemas con esto.(...) Déjame parar la aplicación acá. A ver.
+
+(...)
+
+No debería darte problemas con eso. Pero tranqui, si te da ese problema yo te voy a decir cómo sacártelo.
+
+(...)
+
+Ahí está. Déjame probar acá el get. Lo que pasa es que aquí tengo una duda porque esto no debería estar pasando. Ahí está el método get.
+
+(...)
+
+Le pasamos ahí el argumento. OK, está bien. Ahí me lo reconoció pero me está dando un error aquí porque(...) en la declaración está pidiendo me dos argumentos. Dejame ver por qué. Ahora, está bien. Fíjate, importante. Mira, acá me está reconociendo la primera ruta, el ejemplo. Aquí está. La ruta de ejemplo. Esta que está aquí me la reconoce. Ahí está el método get. Me está reconociendo esta ruta. Sin embargo, si yo vengo acá y le paso un argumento a esto,(...) aquí, ahora me está dando este error, pero ese error está bien. Lo que pasa es que él me está diciendo, oye, ahora yo vine acá, pero no conozco ese dato que tú estás pasando aquí. Entonces no sé qué hacer. Bueno, seguramente ese error debe estar aquí.(...) Seguramente ese error debe estar aquí en la configuración. Y seguramente es porque me tengo que dar el equivocado a algo. Claro, aquí me faltaron las paréntesis. Por eso yo creo que estaba fallando.
+
+(...)
+
+Entonces ahí lo probamos y ahí está. Mira, método get para metro 15. Entonces ahí él ya hace la diferenciación sin ningún tipo de problema. Si no le paso ningún argumento, fíjate, solamente hice método get, lo procesa acá arriba, pero si ahora yo le paso un argumento, me procesa el método que yo tengo acá abajo. Wow.
+
+(...)
+
+Probemos ahora esto mismo, por ejemplo, para el método put. También que le habíamos hecho el cambio. Ahí le va a cambiar el valor a 44 y voy a probar el delete también.
+
+(...)
+
+Ahí está. Perfecto. método delete 44. Si ahora si yo ejecuto el delete sin argumento, me va a decir que el método no existe. Me va a dar un error 405 método not al ovoid, porque el método delete sin argumento no está declarado. Debería declararlo acá arriba. Entonces, eso es un poco la configuración. Te vas a encontrar, yo te doy la herdeza de que te vas a encontrar con uno y otro escenario en el mercado. Entonces te vas a encontrar con que algunos desarrolladores le colocan a este argumento como opcionar. También se puede hacer. A mí no me gusta, yo prefiero dejarlo así, porque de esta manera tienen más controlado algún eventual e intruso que pueda entrar ahí a tratar de hacerse un sandwich en tu cocina. Entonces mejor hazle la vida más difícil a un hacker y intentó bien separadito, bien ordenado para que te evite cualquier tipo de dificultad. Ahora, otra cosa, antes de terminar, guardate esta clase como plantilla para que te quede ahí, porque esta va a ser la base de todo lo que vas a hacer hacia adelante. Ya después simplemente vamos a empezar a modificar esto, el retorno y todo, pero bueno, desde luego los métodos van a empezar a crecer en cuanto a lógica de de luego, porque ahora solamente estamos mostrando data, repetorando data sencilla, pero todo esto va a crecer, de acuerdo a las distintas lógicas que vamos a ir implementando.
+
+(...)
+
+Lo último para que no te quedes con la duda de ese error que nos apareció de CSRF es porque como había un error en la(...) configuración que yo tenía acá, él estaba tratando de hacer una salida en pantalla HTML en un formato POS. Entonces ahí cuando trabajas con el motor de plantillas, necesitas tener implementado CSRFS, porque aquí es el error que me estaba dando ahí. Se desapareció el error, porque claro, porque acá después él dijo, oye, en realidad todo estás utilizando el método POS, pero al estilo de lo que necesita, el mismo yango res, por lo tanto, yo asumo que no voy a utilizar esa variación de tipo CSRF para validar formularas HTML, así que ya no me dio más ese error.
