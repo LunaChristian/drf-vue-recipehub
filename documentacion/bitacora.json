@@ -78,6 +78,12 @@
       "tema": "Uso de HttpResponse en la aplicación Home",
       "archivo_dialogo": "documentacion/clase_13/dialogo.txt",
       "archivo_notas": "documentacion/clase_13/notas.json"
+    },
+    {
+      "numero": 14,
+      "tema": "Instalación de Django REST Framework",
+      "archivo_dialogo": "documentacion/clase_14/dialogo.txt",
+      "archivo_notas": "documentacion/clase_14/notas.json"
     }
   ]
 }

@@ -1,1 +1,23 @@
-{}
+{
+  "clase": 14,
+  "tema": "Instalación y configuración inicial de Django REST Framework",
+  "objetivo": "Instalar Django REST Framework, configurarlo en el proyecto y preparar la base para crear endpoints tipo API.",
+  "nivel": "Básico",
+  "conceptos": [
+    "Diferencia entre salida DOM (HTML) y contratos JSON",
+    "Qué es Django REST Framework",
+    "Instalación con pip install djangorestframework",
+    "Registro de 'rest_framework' en INSTALLED_APPS",
+    "Compatibilidad entre rutas tradicionales y rutas DRF"
+  ],
+  "sugerencias_modificacion": [
+    "Asegurar que se use pip dentro del entorno virtual y pip3 en el sistema global.",
+    "Agregar drf a requirements.txt para mantener consistencia del proyecto.",
+    "Verificar después con pip freeze > requirements.txt para registrar versiones exactas."
+  ],
+  "comandos_clave": [
+    "pip install djangorestframework",
+    "pip list | grep djangorestframework",
+    "Agregar 'rest_framework' en INSTALLED_APPS"
+  ]
+}
