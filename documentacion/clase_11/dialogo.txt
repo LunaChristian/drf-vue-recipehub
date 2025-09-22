@@ -1,0 +1,113 @@
+Bien, Vamos entonces a crear nuestra primera aplicación para hacer nuestro primer Hola mundo dentro
+
+de Django, porque esto no lo podemos modificar porque es la página inicial que trae el framework por
+
+ahí.
+
+En otros frameworks si se puede, pero en esta página la tiene bloqueada así que no la puedes utilizar.
+
+Pero tranqui, Nosotros vamos a ver ahora cómo poder crear nuestra primera aplicación y cómo configurarle
+
+la ruta y hacer que diga algo acá.
+
+Incluso vamos a hacerlo para cambiar la página de inicio.
+
+Entonces vamos a venir acá a la terminal, Paramos la ejecución con control C, Ahí estamos listos.
+
+Lo que pasa que me quedé pensando porque te iba a comentar otra cosa, no sé si te fijaste y si no te
+
+vas a fijar ahora que cuando ejecutaste la aplicación con el Manage Manage Runserver te creó este archivo
+
+de V Sqlite3 Y eso es porque recuerda que aquí en el settings él viene configurado por defecto para
+
+que haga eso, para que utilice esa base de datos.
+
+Tranqui, eso lo puedes ir borrando porque no lo vas a necesitar igual aunque lo borre ahora 50 veces
+
+me lo volverá a crear en la medida que no haga la configuración para MySQL, pero anda borrándolo porque
+
+no lo vas a necesitar.
+
+Ahora vamos a crear entonces nuestro primer proyecto.
+
+Si revisamos acá el Django admin, te acuerdas que yo te había dicho que habían varios comandos pero
+
+habían dos especiales, estaba startproject con el cual creamos el proyecto.
+
+Bueno, ahora vamos a utilizar el otro, el start up, para poder crear una aplicación.
+
+Entonces vamos a hacerlo, vamos a decir Django guión admin, admin, start app y acá le vas a dar el
+
+nombre a tu aplicación.
+
+En mi caso lo voy a llamar Home, puede llamarse Manzana María como tu quieras.
+
+Entonces Home ahí está, ahí me la creó.
+
+Voy a cambiar los permisos porque si no esto me lo va a quedar con el candadito no hay problema y voy
+
+a levantar la aplicación con la dirección IP.
+
+Listo, Ahí está la aplicación, Ahí está el proyecto.
+
+Voy a venir a mis directores y ahora fíjate, me creó esta carpetita acá home y esta carpetita tiene
+
+la estructura base de una aplicación.
+
+Entonces también es importante que lo miremos un poquito.
+
+Mira, aquí tiene varias cosas interesantes.
+
+Primero trae este directorio que se llama Migrations, que es un módulo que es en donde van a irse alojando
+
+las migraciones que eventualmente vas a crear.
+
+Ya vamos a hablar de lo que son las migraciones, Todas las aplicaciones que tú te crees también traen
+
+como mínimo estos archivos.
+
+Así a la rápida te comento, este admin punto PG es el que te va a permitir poder interactuar con la
+
+herramienta admin del framework.
+
+Nosotros en este curso no vamos a ver muchas cosas del admin, al menos por ahora.
+
+Este apps punto PG te permite administrar las eventuales configuraciones de aplicación, así que por
+
+acá tampoco te vas a meter mucho.
+
+Esto ya sabes, es para que él sepa que este directorio es un módulo.
+
+Aquí en este models.py es en donde nosotros eventualmente vamos a ir generando los modelos para las
+
+tablas que eventualmente van a estar asociadas a esta aplicación.
+
+Bien, está pensado para eso.
+
+Es decir, que cada aplicación trae este models.py para que tú le puedas declarar sus propios modelos.
+
+También trae este archivo tspi que te permite hacer pruebas unitarias, tests unitarios.
+
+En mi caso no lo vamos a utilizar.
+
+Y trae este archivo que se llama views punto pg que te permite acá poder ir generando todas las vistas
+
+de tu aplicación, todas las vistas de tu proyecto.
+
+Aquí.
+
+Nosotros de hecho, vamos a crear todas nuestras APIs, Toda la lógica de nuestra aplicación la vamos
+
+a ir metiendo acá en los diferentes archivos views de cada una de las aplicaciones que vamos a ir generando.
+
+Por ahora esta aplicación llamada Home que creamos dentro de nuestro proyecto llamado Backend, no se
+
+está utilizando para nada, por lo tanto la aplicación sigue funcionando tal cual como se desplegó por
+
+defecto de acuerdo a la configuración base que trae el framework.
+
+En las próximas clases vamos a ver cómo cambiar esta página inicial a través de la creación de una ruta
+
+propia para para que primero entiendas cómo se hace.
+
+Y bueno, ahí desde luego, ya después vamos a ir agregándole cositas entre medio.

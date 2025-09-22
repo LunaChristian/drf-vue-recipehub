@@ -1,0 +1,139 @@
+Ya está lista la ruta.
+
+Ya está listo el retorno.
+
+Entonces nos falta ver este.
+
+Cómo corregir este error?
+
+Entonces para eso vamos a venir acá, a nuestra vista.
+
+Y acá podemos hacer muchas cosas.
+
+Podríamos, por ejemplo, retornar un archivo HTML, que es lo que habitualmente se hace en Django,
+
+retornar una plantilla HTML para poder aprovechar el motor de plantillas que tiene implementado el framework,
+
+pero en nuestro caso no es lo que queremos porque nosotros queremos utilizar Django solamente como backend.
+
+No vamos a hacer uso de su motor de plantillas.
+
+Entonces aquí una cosa importante.
+
+En esta clase te voy a enseñar a retornar un texto básico, un texto sencillo.
+
+Y para poder entender también cómo funciona esto del enrutamiento, en las próximas clases vamos a hacerlo
+
+al estilo de Django REST, Es decir, vamos a instalar el framework y nos vamos a apoyar en la generación
+
+de endpoint encapsulados a través de un objeto que se llama API View.
+
+Por lo tanto, esto que te voy a enseñar acá lo vamos a hacer solamente en esta clase.
+
+Pensado un poco para que se entienda, pero todo lo demás lo vamos a enfocar al uso de Django REST.
+
+Entonces, en resumen, qué tendríamos que hacer acá?
+
+Utilizar algún objeto Django que te permita retornar alguna salida HTML.
+
+Entonces para eso podríamos utilizar una que se llama Httpresponse.
+
+Y aquí le podemos colocar Hola mundo desde Django 5.1, por ejemplo.
+
+Ahora si yo pruebo esto me va a dar un error porque me va a decir oye, está todo bien, pero yo no
+
+conozco ese httpresponse.
+
+Y claro, porque tenemos que venir a importarlo acá arriba.
+
+Entonces vamos a decir acá from django, punto http import y vamos a importar ahí el httpresponse.
+
+Entonces ahora sí actualizamos.
+
+Ahí está.
+
+Hola mundo desde Django 5.1.
+
+A esto si quieres le puedes colocar incluso código HTML.
+
+Le podríamos colocar acá un H1 si quieres hacerlo no hay problema.
+
+Solo para que veas que perfectamente le puedes incorporar al código HTML sin ningún tipo de dificultad.
+
+Ahora, generalmente esto no es lo que se hace cuando quieres retornar acá.
+
+Código HTML.
+
+Generalmente eso se hace a través del motor de plantillas, se retorna un HTML, se configura un template
+
+a nivel de de de template general de layout, perdón, un template a nivel de layout se hacen varias
+
+configuraciones, pero como nosotros no queremos utilizar ese motor de plantillas por ahora, solo para
+
+que vieras cómo se hace aquí lo vamos a hacer de esta manera.
+
+Ya después en las próximas clases vamos a empezar a hacerlo al estilo Django REST.
+
+La idea de nosotros es que podamos hacer todas las configuraciones y las rutas necesarias para cumplir
+
+este objetivo que es desarrollar este sitio web que tenemos aquí.
+
+Este sitio web te va a permitir poder hacer varias cosas.
+
+Mira, a pesar de que el diseño es horrible, lo sé, pero te va a permitir poder ver cómo cargar un
+
+template en el framework.
+
+Esto lo hicimos con Angular, pero el resultado es el mismo en View o en React.
+
+Vamos a ver cómo cargar elementos, ya sea con actions o con fecha y de forma encapsulada.
+
+Eso te va a permitir aprender a trabajarlos ambos.
+
+Vas a ver cómo crear páginas estáticas, cómo cargar recursos, imágenes y todo eso, cómo enrutar también,
+
+y muy importante, ir utilizando las APIs que nosotros vamos a generar.
+
+Entonces, mira, vamos a crear APIs para retornar acá las distintas recetas con su respectiva imagen,
+
+para poder también retornar acá el detalle de la receta.
+
+Muy importante.
+
+Vamos a ver cómo hacer un formulario de contacto.
+
+Esto Esto se ve sencillo, pero por debajo tiene bastante ciencia porque esto lo recibe a través de
+
+una API POST y hace el envío de un correo.
+
+Por lo tanto, vamos a aprender a hacer todo eso.
+
+También vamos a aprender a cómo generar un login dentro de nuestra aplicación para que el usuario pueda
+
+administrar todas las recetas que él ha creado y bueno, crearlas, editarlas, eliminarlas, modificarlas
+
+en la imagen del usuario.
+
+Acá también se va a poder registrar.
+
+Todo esto nos va a permitir y nos va a demandar también poder generar y construir dentro de la aplicación
+
+Django toda la maquinaria de batería que necesitamos para eso.
+
+Porque imagínate, vamos a necesitar crear endpoint para que se registre el usuario utilizando un hash
+
+de contraseña.
+
+Vamos a necesitar crear una implementación a través de decoradores.
+
+Lo vamos a hacer a través de decoradores para proteger rutas mediante la implementación de JWT de JSON
+
+web token.
+
+Entonces, al final todo eso lo vamos a construir con este objetivo.
+
+Este objetivo va a ser el final de alimentar todo este sitio web que se ve sencillo, pero créeme que
+
+tiene una lógica bien interesante por debajo que nos permite poder hacer un recorrido por las principales
+
+funcionalidades que en general se necesitan para construir una aplicación estándar.

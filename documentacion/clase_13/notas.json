@@ -1,0 +1,22 @@
+{
+  "clase": 13,
+  "tema": "Uso de HttpResponse para retornar texto/HTML básico",
+  "objetivo": "Aprender a retornar texto y HTML básico desde una vista en Django usando HttpResponse, antes de pasar a Django REST Framework.",
+  "nivel": "Básico",
+  "conceptos": [
+    "Importación y uso de HttpResponse",
+    "Retorno de texto plano y HTML desde una vista",
+    "Diferencia entre retornar HTML con HttpResponse vs. usar el motor de plantillas",
+    "Introducción a la idea de usar Django solo como backend (sin plantillas)",
+    "Adelanto de uso de APIView en Django REST Framework"
+  ],
+  "sugerencias_modificacion": [
+    "Usar HttpResponse solo para pruebas rápidas y no en proyectos grandes.",
+    "En proyectos reales retornar HTML mediante plantillas o JSON mediante DRF.",
+    "Mantener el código claro y eliminar pruebas temporales (como pass) una vez verificado que funciona."
+  ],
+  "comandos_clave": [
+    "from django.http import HttpResponse",
+    "return HttpResponse('<h1>Hola mundo desde Django 5.1</h1>')"
+  ]
+}

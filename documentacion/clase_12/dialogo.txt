@@ -1,0 +1,264 @@
+
+Miniatura de la clase
+0:00 / 8:12
+Bien.
+
+Veamos entonces cómo poder crear nuestra primera ruta para esta aplicación que creamos, la que se llama
+
+Job.
+
+Entonces aquí tenemos que hacer varias cosas.
+
+Primero vamos a utilizar este URL, por lo tanto me lo voy a traer para acá, para adelante.
+
+Ese URL vamos a utilizar y qué es lo que vamos a hacer aquí?
+
+Vamos a decirle que queremos que aquí, en este archivo se configure una ruta general para todas las
+
+rutas que va a tener esta aplicación.
+
+Y eso lo vamos, eso mismo lo vamos a extrapolar para todas las demás aplicaciones que vamos a desarrollar.
+
+Entonces, cómo lo vamos a hacer?
+
+Aquí mismo, debajo de Urlpatterns, vamos a saltarnos un espacio, vamos a colocar Path, abrimos paréntesis.
+
+En este caso particular, la ruta que queremos configurar es para esta misma path para cuando no escriben
+
+nada acá en la URL.
+
+Así que vamos a configurar la ruta inicial para la ruta inicial.
+
+Siempre déjalo vacío.
+
+Esto nos lleva Slash ni nada.
+
+De hecho, si le colocas Slash, él te va a reclamar.
+
+Mira, de hecho voy a dejarlo con Slash ahí para que veas luego coma y aquí le vas a colocar include.
+
+Así include y aquí le vas a colocar comillas, el nombre de la aplicación punto y URLs.
+
+Este include va tiene que importarse desde django punto url import path y acá al ladito le colocas include.
+
+Bien, ahí está para que se pueda utilizar.
+
+Ahora una cosa importante este home.
+
+Este es el nombre de la aplicación que nosotros acabamos de crear y este punto URL en realidad es un
+
+archivo de URLs que nosotros tenemos que crear dentro del proyecto, dentro de la aplicación.
+
+Entonces tenemos que venir acá a Home y crearnos ese archivo.
+
+Entonces vamos a decir acá URLs, punto py Bien, ahí está nuestro archivo, entonces siempre vamos
+
+a hacer lo mismo en a cada aplicación le vamos a venir a crear un archivo llamado Urls.py.
+
+Muy importante eso.
+
+A todas nuestras aplicaciones le vamos a crear este archivo y le vamos a hacer una declaración acá en
+
+el URL general para que él entienda y conozca la ruta.
+
+Y creo que deberíamos tener error acá.
+
+Sí, claro, y está bien porque no existe ese archivo URL.
+
+De hecho ahí te dice mira, no existe.
+
+Entonces en realidad existe, pero tenemos que parar esto aquí y volverlo a ejecutar para que lo conozca
+
+y ahí te va a dar otro error y está bien.
+
+Qué es lo que pasó en el error anterior?
+
+Él estaba llorando porque no existía el archivo URL porque no lo conocía.
+
+Acá está llorando porque el archivo estaba vacío.
+
+Por eso tiene acá todo el bosque incendiado.
+
+Vamos a apagar el fuego del bosque.
+
+Vamos a venir acá al archivo Urls.py, pero al que tenemos creado dentro de la aplicación.
+
+Entonces aquí vamos a decir lo siguiente.
+
+Y esto también te va a servir como base para todo lo que vamos a hacer hacia adelante.
+
+Déjame ver una cosa aquí que quiero mostrártelo desde otro, uno que esté más sencillo.
+
+Vamos a abrirlo desde el que está aquí.
+
+Ok, lo que pasa es que en el otro tengo la implementación del core.
+
+Entonces ahí quizás nos podemos enredar.
+
+Tranqui que eso también te lo voy a enseñar.
+
+Esa es la última parte del del voy a enseñarte cómo manejar, no?
+
+En los core.
+
+Perdón?
+
+Los.
+
+La implementación de Swagger.
+
+Entonces aquí vas a hacer lo siguiente.
+
+Vamos a importar aquí Django punto URL.
+
+Bien, import path.
+
+Es decir, vamos a ocupar ese recurso Path.
+
+Vale.
+
+Luego vamos a importar acá punto views.
+
+Ese punto views va a ser importado con un asterisco acá.
+
+Qué es lo que estoy haciendo aquí?
+
+Muy importante, mucha atención.
+
+Mira, fíjate que dentro de la aplicación que nosotros creamos viene este archivo llamado views.
+
+Por lo tanto, a eso es lo que le estoy haciendo referencia acá.
+
+De hecho, si yo le coloco acá homeview va a funcionar igual para que lo tengas en consideración.
+
+Ahí te lo va a tomar igual, vale?
+
+Pero generalmente aquí se coloca de esta manera.
+
+Ese es como el estándar y acá no siempre se le coloca asterisco, allá vamos a ver esa parte, pero
+
+por lo pronto dejémoslo así.
+
+Luego acá vas a crear lo mismo que tenías en este otro URL, así que lo podríamos copiar acá.
+
+Lo mismo yo arreglé patterns, pero aquí.
+
+Ahora la ruta que vamos a configurar va a ser asociada a la ruta propiamente tal de la aplicación.
+
+Entonces, en este caso mi aplicación también debería estar vacío acá, así que la voy a dejar vacío.
+
+Y aquí en lugar de include le vas a decir el nombre del método que va a estar declarado acá en la vista
+
+que va a servir para desplegar el contenido de la ruta.
+
+En este caso yo le voy a colocar por ejemplo Home Guión bajo Inicio, Bien así.
+
+Y para que esto me funcione, este método tengo que venir acá al archivo views.py y tengo que crear
+
+ese método de esta manera.
+
+Def home inicio Acá no me acuerdo como era, tengo que colocarle request acá se me ha olvidado request
+
+dos puntos que esta es la sintaxis básica y acá por ahora lo voy a colocar un pass, que eso es una
+
+salida vacía.
+
+Una salida sencilla.
+
+Bien, entonces.
+
+De esta manera es como siempre.
+
+Tú vas a configurar cada una de las rutas de tus aplicaciones.
+
+Bien, primero generas una referencia en tu archivo URL base dentro de tu carpeta principal.
+
+Acuérdate lo que te dije.
+
+Ese slash para.
+
+De hecho nunca hay que colocar el slash acá, pero lo coloqué para mostrarte el error que te va a mostrar.
+
+Y en cada una de las aplicaciones que vas a generar tienes que crearte este archivo llamado Urls.py
+
+y dentro tienes que ir definiendo cada una de las rutas aquí separadas por comas y en primera instancia,
+
+cada una de las rutas va a estar directamente relacionada a un método que va a estar creado aquí en
+
+el archivo views.
+
+Bien, esto se llama modelo vista Template, y es por eso, porque aquí esto se le llama template.
+
+Bien, entonces si nosotros probamos esto, vamos a tener algunos errores.
+
+Está bien.
+
+Esto está perfecto.
+
+Primero, si miramos aquí, está bien.
+
+Y te dice Oye, está todo bien, pero yo no conozco esa ruta.
+
+Entonces eso porque aquí a él no le está gustando eso, entonces lo voy a quitar de ahí.
+
+Y ahí desaparece automáticamente el error.
+
+Y si vengo acá ahora está todo bien, Pero César, como dice que está todo bien.
+
+Si te está mostrando un error, si lo que pasa aquí es otra cosa.
+
+Lo que pasa es que mira, me reconoce la ruta que yo configuré para la página principal, es decir,
+
+cuando no escriban nada después del dominio.
+
+Pero qué pasa?
+
+Que como yo le coloqué aquí paz, esto me lo está tomando como una ruta vacía.
+
+Entonces eso es lo que pasa ya en realidad no está retornando nada esto.
+
+Entonces claro, aquí me está diciendo oye, yo te reconozco la ruta, pero no está retornando ningún
+
+contenido a nivel de un httpresponse, entonces el contenido que está retornando es nulo.
+
+Y si es primera vez que trabaja con Python cuando hablas de nulos en otros lenguajes, acá en Python
+
+hablas de objetos de tipo non.
+
+Partiendo de la premisa de que Python es un lenguaje que se ha orientado bastante a objetos, entonces
+
+la mayoría de los errores hoy día de los procesos a través de excepciones y clases y objetos.
+
+Entonces ya aquí él te está reconociendo la ruta.
+
+Lo que pasa es que como te digo, como no estamos retornando nada, te está diciendo este mensaje y
+
+eso me da pie para mostrarte otra cosa.
+
+Mira, voy a ir acá al Settings y vamos a cambiar aquí la variable.
+
+Te acuerdas de esta variable de back que te mostré?
+
+Vamos a cambiarla a false.
+
+Bien, vamos a cambiarla a false.
+
+Venimos acá y ahora fíjate el formato en el que te muestre el error.
+
+Te lo muestra claramente más, más genérico, sin tanto detalle.
+
+Y a eso se refiere ese, esa variable de back justamente para eso.
+
+Por eso es importante.
+
+La voy a volver a true.
+
+Por eso es importante cuando después subas a producción esa variable la coloques en false, porque si
+
+no mira toda la información que le muestras a un eventual jaque.
+
+La verdad es que aquí con esto es mejor que le entregue las llaves de la bodega donde tiene la plata,
+
+porque el hacker que sepa va a poder entrar acá y hacer desastres y hacerse un sándwich en tu cocina,
+
+eso te lo aseguro.

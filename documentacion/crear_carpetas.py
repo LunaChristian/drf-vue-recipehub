@@ -1,29 +1,25 @@
 import os
-import json
 
-def crear_carpetas(inicio: int = 1, fin: int = 170, prefijo: str = "clase_") -> None:
+def crear_dialogos(inicio: int = 12, fin: int = 170, prefijo: str = "clase_") -> None:
     """
-    Crea carpetas con nombres consecutivos tipo 'clase_001' hasta 'clase_170'
-    y dentro de cada carpeta un archivo vacío 'notas.json'.
-
-    Args:
-        inicio (int): Número inicial.
-        fin (int): Número final.
-        prefijo (str): Prefijo del nombre de la carpeta.
+    Crea un archivo 'dialogo.txt' en cada carpeta desde 'clase_12' hasta 'clase_170'.
+    No modifica ni crea otros archivos.
     """
     for i in range(inicio, fin + 1):
-        nombre = f"{prefijo}{i:03d}"  # clase_001, clase_002, ...
-        os.makedirs(nombre, exist_ok=True)
-
-        # Ruta al archivo notas.json dentro de la carpeta
-        ruta_json = os.path.join(nombre, "notas.json")
-
-        # Crear archivo vacío (si no existe ya)
-        if not os.path.exists(ruta_json):
-            with open(ruta_json, "w", encoding="utf-8") as f:
-                json.dump({}, f, ensure_ascii=False, indent=4)  # archivo vacío con {}
+        nombre_carpeta = f"{prefijo}{i}"  # clase_12, clase_13, ...
         
-        print(f"Carpeta creada: {nombre} | Archivo: {ruta_json}")
+        if os.path.exists(nombre_carpeta) and os.path.isdir(nombre_carpeta):
+            ruta_txt = os.path.join(nombre_carpeta, "dialogo.txt")
+            
+            # Crear el archivo solo si no existe
+            if not os.path.exists(ruta_txt):
+                with open(ruta_txt, "w", encoding="utf-8") as f:
+                    f.write("")  # archivo vacío
+                print(f"Archivo creado: {ruta_txt}")
+            else:
+                print(f"Ya existía: {ruta_txt}")
+        else:
+            print(f"No existe la carpeta: {nombre_carpeta}")
 
 if __name__ == "__main__":
-    crear_carpetas()
+    crear_dialogos()

@@ -1,0 +1,25 @@
+{
+  "clase": 9,
+  "tema": "Estructura del proyecto Django y repaso de archivos clave",
+  "objetivo": "Comprender qué genera `django-admin startproject`, el rol de cada archivo (manage.py, settings.py, urls.py, asgi.py, wsgi.py, __init__.py) y qué configuraciones se tocarán más adelante.",
+  "nivel": "Intermedio",
+  "conceptos": [
+    "manage.py como lanzador de comandos (migraciones, runserver, etc.)",
+    "Diferencia entre directorio raíz del proyecto y paquete interno con el mismo nombre",
+    "__init__.py marcando el paquete Python",
+    "asgi.py / wsgi.py para despliegue (no se tocan en el curso, pero saber para qué sirven)",
+    "urls.py: enrutador global; cada app tendrá su propio urls.py que se incluye aquí",
+    "settings.py: configuraciones globales (SECRET_KEY, DEBUG, ALLOWED_HOSTS, INSTALLED_APPS, MIDDLEWARE, DATABASES, i18n, TIME_ZONE, STATIC)",
+    "Plantillas no usadas (frontend será Vue)",
+    "Base de datos por defecto sqlite3; luego se migrará a MySQL",
+    "DEFAULT_AUTO_FIELD para tipo de PK por defecto"
+  ],
+  "sugerencias_modificacion": [
+    "Mover SECRET_KEY y DEBUG a variables de entorno con python-dotenv.",
+    "Configurar ALLOWED_HOSTS según el entorno.",
+    "Añadir desde ya apps como 'rest_framework' y 'corsheaders' en INSTALLED_APPS.",
+    "Insertar 'corsheaders.middleware.CorsMiddleware' al inicio de MIDDLEWARE.",
+    "Ajustar LANGUAGE_CODE e TIME_ZONE a tu región (por ejemplo 'es' y 'Europe/Rome').",
+    "Mantener sqlite3 en desarrollo y preparar la sección DATABASES para MySQL más adelante."
+  ]
+}

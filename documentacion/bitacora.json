@@ -72,6 +72,12 @@
       "tema": "Creación de la primera ruta en la aplicación Home",
       "archivo_dialogo": "documentacion/clase_12/dialogo.txt",
       "archivo_notas": "documentacion/clase_12/notas.json"
+    },
+    {
+      "numero": 13,
+      "tema": "Uso de HttpResponse en la aplicación Home",
+      "archivo_dialogo": "documentacion/clase_13/dialogo.txt",
+      "archivo_notas": "documentacion/clase_13/notas.json"
     }
   ]
 }

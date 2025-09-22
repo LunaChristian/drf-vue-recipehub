@@ -1,0 +1,187 @@
+Bien, veamos ahora cómo poder desplegar nuestro proyecto, porque aquí tenemos la carpeta.
+
+Está todo bien?
+
+César, yo te entendí lo del setting hasta la mitad de lo que dijiste, pero la verdad que no me interesa
+
+mucho eso.
+
+Yo quiero desplegar el proyecto.
+
+Bueno, para eso vas a venir acá a la terminal, tienes que estar posicionado dentro de la carpeta en
+
+donde está tu proyecto.
+
+Recuerda lo que te conversé de los entornos virtuales.
+
+En mi caso tengo el entorno virtual, por lo tanto acá ya tengo cargado Django y para ejecutar hay varias
+
+maneras.
+
+Lo puedes hacer utilizando django admin.
+
+John Admin vas a llamar el archivo que se llama Manage.py y vas a utilizar el comando que se llama Run
+
+server.
+
+Automáticamente eso te va a tomar tranqui, no pasa nada si tienes este error aquí.
+
+Déjame ver una cosa aquí que tengo una pequeña duda.
+
+Si ya si tienes este error acá no te preocupes porque a veces dependiendo de cómo se levante esto,
+
+a veces él te pide aquí y este es un cambio que habían hecho ellos.
+
+En lugar de utilizar el Django admin, te pide utilizar Python directamente delante para la ejecución
+
+del archivo manage.py.
+
+Ejecutamos y ahí él te va a dar la URL.
+
+Ojo, no, no pienses que este jango admin manage no funciona porque en versiones anteriores se hacía.
+
+Lo que pasa es que aquí en la versión cinco como que parece que no lo dejaron inhabilitado.
+
+Por eso yo más que todo en mi cabeza, por costumbre, lo vine a hacer.
+
+Pero te lo comento porque si en más de algún.
+
+De hecho, la mayoría de las personas que ven clases conmigo ven clases en otros lados también.
+
+Eso está perfecto que sea así.
+
+Es importante que siempre busque diferentes fuentes de información.
+
+Entonces en más de algún curso sí o no debes estar, Debes haber visto que lo ejecutan con Django admin
+
+y después el nombre del Manage.py, así que también ahí para que lo tengas en consideración.
+
+De hecho, mira, voy a hacer una prueba.
+
+Esto no sé si funciona, pero me huele a mí que si le quita el run server, No, tampoco.
+
+No va a funcionar.
+
+Tranqui, que hagámoslo con Python Manage.py Runserver.
+
+Ahora esto te va a mostrar este mensaje aquí en la terminal.
+
+No te preocupes por esto, porque esto es lo que te está diciendo es que él necesita que cree las tablas
+
+base que necesita, que requiere Django para poder trabajar.
+
+Eso lo tenemos que hacer a través de una migración, pero no lo vamos a hacer todavía.
+
+Y aquí te dice Starting Development Server Add y te dice esta URL.
+
+Entonces, si tú haces clic acá en esta URL vuala.
+
+Ahí está la instalación funcionó con éxito.
+
+Felicitaciones!
+
+Ahí dice Ya puedes correr desnudo o desnuda por la casa porque acabas de ejecutar y desplegar tu aplicación
+
+desarrollada con Django 5.1.
+
+Espectacular.
+
+Maravilloso.
+
+Ahora, qué pasa aquí?
+
+Lo que siempre te digo.
+
+Y bueno, esto va para las personas que han tomado clases conmigo, los que no siempre se los comento.
+
+Y esta IP el 127.0 punto uno es lo mismo que escribir localhost y está perfecto.
+
+Pero en ocasiones, imagínate este escenario que siempre se los planteo.
+
+Está haciendo una red interna con tu jefatura y tú le quieres mandar algún estado de avance?
+
+Entonces no necesariamente lo quieres subir al servidor de producción.
+
+Por lo tanto, eventualmente tú quisieras aquí colocar la IP de tu servidor local.
+
+En mi caso la mía es 192.100 68.1, punto 1.88 Esa es mi IP local, pero la aplicación no me funciona.
+
+Sin embargo, aquí sigue operativa.
+
+Entonces, qué pasa?
+
+Qué tengo que hacer para que él me tome la dirección IP en el caso de que yo la quiera ejecutar?
+
+Bueno, para eso presionamos Control C para detener la ejecución.
+
+Volvemos a correr el python manage.py runserver y hacemos lo siguiente.
+
+Le colocas acá al ladito la IP 198 168 punto 1.82 puntos y colocar el puerto.
+
+Listo, ahí está.
+
+Ahora si con eso él te debería reconocer, acá la URL.
+
+Oh, pero tenemos problemas aquí.
+
+Mira, te va a aparecer este error.
+
+Disabled.
+
+Y una cosa rara.
+
+Tenemos problemas.
+
+Ya, Esto pasa porque nosotros tenemos que venir acá a tu archivo Settings y decirle que quieres trabajar
+
+con esa dirección IP aquí.
+
+Entonces aquí donde dice allowed host, vas a colocar comillas y le vas a colocar la IP.
+
+Y bueno, si te pasa lo mismo, si lo subes a un dominio te va a pasar lo mismo.
+
+Tienes que colocar acá el nombre del dominio.
+
+De hecho, lo que se sugiere acá, acá hay dos caminos.
+
+Tu le puedes decir así como lo estoy haciendo yo, el localhost también, aunque localhost lo toma por
+
+defecto, así que no es necesario, lo puedes colocar así y automáticamente te lo va a tomar.
+
+Ahí está.
+
+Fíjate, esa es una opción también esta, esta otra alternativa que no sé si en Django cinco la habrán
+
+deshabilitado, que es utilizar el asterisco también también te lo toma.
+
+Ahora se habla de que esto expone a nivel de seguridad, entonces es mejor.
+
+Lo recomendado es hacerlo de esta manera para evitar cualquier tipo de ataque que te puedan hacer o
+
+mal uso de eso eventualmente.
+
+Entonces ahí estas son las formas a través de las cuales puedes ir desplegando tu aplicación con Jango.
+
+Cuál de las dos es mejor?
+
+La verdad es que las dos llegan a lo mismo, pero a mi me gusta usar esta, más que todo porque estoy
+
+acostumbrado.
+
+Sabes por qué también me gusta esto?
+
+Porque eso me permite que se me active los wappalyzer y yo puedo ir mirando más o menos qué recursos
+
+me detecta la aplicación.
+
+Eso me sirve mucho, sobre todo cuando quiero ejecutar algún formato de pentesting y cosas como esa
+
+que claramente no forma parte del alcance del curso, pero un poco para responder Por qué hago eso?
+
+Porque seguramente más de alguien acá me lo va a preguntar.
+
+Ok, con esto ya sabemos cómo crear el proyecto, sabemos la estructura de los directorios que te crea
+
+un proyecto a nivel inicial, sabemos también desplegar el proyecto con y sin la dirección IP.
+
+Entonces estamos en condiciones de empezar a crear nuestra primera aplicación.

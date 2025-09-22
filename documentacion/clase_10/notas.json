@@ -1,0 +1,25 @@
+{
+  "clase": 10,
+  "tema": "Ejecución del servidor de desarrollo y ALLOWED_HOSTS",
+  "objetivo": "Aprender a iniciar el servidor de desarrollo de Django, entender los mensajes iniciales (migraciones pendientes) y configurar ALLOWED_HOSTS para acceso local y en red.",
+  "nivel": "Intermedio",
+  "conceptos": [
+    "Ejecución con `python manage.py runserver`",
+    "Mensajes iniciales: migraciones pendientes",
+    "Host/puerto por defecto (127.0.0.1:8000 / localhost)",
+    "Servir en una IP específica o en toda la interfaz (0.0.0.0)",
+    "Configuración de `ALLOWED_HOSTS` en `settings.py`",
+    "Buenas prácticas: no usar `*` en producción"
+  ],
+  "sugerencias_modificacion": [
+    "Usar `python manage.py runserver 0.0.0.0:8000` para acceso en red local durante desarrollo.",
+    "Configurar `ALLOWED_HOSTS` con la IP local al probar desde otros dispositivos de la LAN.",
+    "Mantener `DEBUG=True` solo en desarrollo; poner `DEBUG=False` y `ALLOWED_HOSTS` explícito en producción.",
+    "Dejar `sqlite3` por ahora; migrar a MySQL más adelante."
+  ],
+  "comandos_clave": [
+    "python manage.py runserver",
+    "python manage.py runserver 192.168.x.y:8000",
+    "python manage.py runserver 0.0.0.0:8000"
+  ]
+}

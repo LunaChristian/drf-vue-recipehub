@@ -1,0 +1,26 @@
+{
+  "clase": 11,
+  "tema": "Creación de la primera aplicación (app Home)",
+  "objetivo": "Aprender a crear una aplicación dentro de un proyecto Django, revisar su estructura básica y comprender para qué sirve cada archivo generado.",
+  "nivel": "Básico",
+  "conceptos": [
+    "Comando `startapp` para crear aplicaciones",
+    "Estructura mínima de una app Django",
+    "`migrations/` para cambios en base de datos",
+    "`admin.py` para registrar modelos en el panel de administración",
+    "`apps.py` configuración de la aplicación",
+    "`models.py` definición de tablas/modelos",
+    "`tests.py` pruebas unitarias",
+    "`views.py` definición de vistas y lógica de negocio",
+    "Importancia de modularizar el proyecto en apps"
+  ],
+  "sugerencias_modificacion": [
+    "Registrar la app recién creada en `INSTALLED_APPS` de `settings.py`.",
+    "Crear una primera vista en `views.py` y mapearla en `urls.py` para reemplazar la página inicial de Django.",
+    "Usar nombres de apps claros y semánticos (ej. `home`, `users`, `recipes`)."
+  ],
+  "comandos_clave": [
+    "django-admin startapp home",
+    "python manage.py startapp home"
+  ]
+}

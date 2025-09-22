@@ -1,0 +1,315 @@
+Bien, Miremos un poquito cómo es la estructura de un proyecto como qué es lo que te instala la creación
+
+o la ejecución de este comando startproject.
+
+Primero, fíjate que te quedó solamente dos cosas por ahí.
+
+Si has trabajado con otro framework, no sé, Laravel, Spring Boot o Node, no sé, ahí generalmente
+
+se te crea más cosas, acá no, acá es más resumido esto.
+
+De hecho se habla de que también de que Django es un framework minimalista justamente por esto.
+
+Entonces, qué es lo que te crea?
+
+Te crea este archivo llamado manage.py, que es un archivo en donde él internamente administra toda
+
+la implementación del módulo que te crea asociado al proyecto.
+
+Por lo tanto acá esto en general tú no lo vas a tocar para nada, así que no hay ningún tipo de problema
+
+con esto, pero es bueno que sepas que ahí está.
+
+Pero nosotros sí vamos a ocupar este archivo muchas veces para la ejecución de los diferentes comandos
+
+del Cialis, es decir, en la terminal para poder ejecutar cosas, por ejemplo para poder desplegar
+
+la aplicación para poder hacer migraciones.
+
+Vamos a ir haciendo varias cosas llamando, invocando este archivo, mas no lo vamos a tocar y dependiendo
+
+del nombre que tú le hayas dado al proyecto, él te va a crear un directorio con el mismo nombre, o
+
+sea, te crea el proyecto con la carpeta asociada al nombre que tú le indicaste y dentro te crea, te
+
+crea perdón, otro directorio con el mismo nombre.
+
+Y aquí es donde tiene toda la configuración base que necesita el framework y aquí trae varias cosas
+
+interesantes.
+
+Primero trae este archivo que se llama Aeseg y que básicamente este archivo está pensado para poder
+
+hacer configuraciones a nivel de WCG o de SGA a nivel modular.
+
+A nivel de aplicaciones nosotros no lo vamos a utilizar, pero es bueno que sepas lo que hace.
+
+Está pensado justamente para eso.
+
+Nosotros en este proyecto no lo vamos a tocar porque no es necesario, pero a veces, por ejemplo,
+
+cuando se utilizan herramientas como Signal o Celery o cosas como esa, a veces si es necesario tocar
+
+este archivo, te trae este otro archivito que se llama Init.py, que si no has trabajado nunca con
+
+Python, esto lo que hace es es un archivo que generalmente se crea vacío y le indica.
+
+Le informa a Python que este directorio debe ser tratado como un módulo.
+
+Bien, muy importante eso.
+
+Por ahí te comenté que aquí en mi blog que tengo un curso gratuito de Python para que lo puedas ver.
+
+Acá está, perdón, está aquí donde dice videotutoriales se llama Taller práctico de Python.
+
+Ahí está.
+
+Entonces aquí puedes ver un poquito la sintaxis básica, cierto?
+
+La verdad que hicimos varios videos acá, creo que son 26.
+
+Te van a servir para conocer todo esto que estoy comentando, lo de los módulos y alguna que otra cosita
+
+más para que no llegues también ahí.
+
+En el caso de que no tenías idea de Python.
+
+Bueno, aquí tienes el conocimiento gratuito a tu disposición.
+
+Ok, sigamos entonces este archivo Punto init, Punto.
+
+Perdón.
+
+Guion bajo init, punto py.
+
+Justamente lo que hace es eso Le indica el informe a Python que este directorio va a ser tratado como
+
+un módulo.
+
+Este archivo wsg es un recurso que trae implementado por defecto Django para el despliegue de la aplicación.
+
+Hoy día, si no lo sabías, esto lo vas a saber ahora.
+
+Django por defecto utiliza un servidor embebido para desplegarse en formato de pruebas.
+
+Ese servidor es una especie de módulo del mismo Apache.
+
+Es un módulo de Apache que justamente se llama así, se llama Wsg.
+
+Y de hecho, si nosotros quisiéramos, después de desplegar el proyecto en producción en Apache, lo
+
+tendríamos que hacer a través de este módulo llamado Wsg.
+
+Bien, entonces este archivo nosotros tampoco lo vamos a tocar, pero es bueno que sepas lo que hace.
+
+Está este otro archivo que ya es todo.
+
+Si le vas a meter bastante las manos, están estos dos que se llaman URL.
+
+Lo vamos a abrir acá y vamos a abrir este que se llama Settings.
+
+Este URL es en donde nosotros vamos a hacer todas las configuraciones de los enrutamiento generales
+
+de nuestra aplicación.
+
+En otras palabras, aquí van todas las rutas de tu proyecto.
+
+Lo primero que podrías hacer es borrarle todos esos comentarios ahí porque no los vamos a necesitar,
+
+así que no hay ningún tipo de problema, los borras y no pasa absolutamente nada.
+
+Eso como primer elemento importante.
+
+Eso por ahí te puede servir.
+
+Lo otro, aquí, como te decía, vienen todas las configuraciones esenciales que va a utilizar el framework
+
+a nivel de rutas.
+
+De hecho, él te trae una ruta creada por defecto.
+
+Esta ruta es la que trae toda la configuración del módulo llamado admin que tiene Django, que de hecho
+
+no le puede cambiar el nombre y todo, pero es un módulo interno que tiene Django que te permite poder
+
+administrar las tablas de tu aplicación con una interfaz gráfica a nivel web.
+
+Hoy día eso ha crecido bastante.
+
+De hecho, uno le puede meter las manos y todo, pero igual aún sigue siendo un poco tosco para trabajar.
+
+Entonces al final igual te te toca terminar haciendo una interfaz tú mismo, así que tampoco pensemos
+
+o no nos No nos hagamos la idea de que esta aplicación te va a evitar meter las manos en el código porque
+
+no es así.
+
+Ahora, independiente de eso, aquí es donde tú vas a definir todas las rutas.
+
+Ahora hay una recomendación que te hace la misma gente de Django y es que por cada aplicación tú te
+
+crees un archivo de ruta distinto.
+
+Entonces vamos a ver que después que nos vamos a crear todas las aplicaciones internas dentro de este
+
+proyecto, a cada una de ellas le vamos a configurar un manejador de rutas independiente.
+
+Y desde luego lo vamos a enlazar acá.
+
+Pero ese ese manejador de rutas interno que va a tener cada aplicación va a estar directamente conectado
+
+aquí.
+
+Por lo tanto, también vamos a ir agregando líneas acá en este archivo URL del proyecto.
+
+Este es el URL general del proyecto para poder informar que dentro de cada una de las aplicaciones tenemos
+
+también presente un archivo URL y está este otro que se llama settings.
+
+que este.
+
+Este es importantísimo porque este representa todas las configuraciones generales que hay que hacer
+
+dentro del framework para poder trabajar.
+
+Entonces aquí por ejemplo, las cosas que están.
+
+Está el Secret Key, que este no es menor porque este es la llave que utiliza Django para validar el
+
+proyecto que te creo.
+
+O sea, esto es en teoría debería ser único por cada, eh, por cada aplicación, por cada, es decir,
+
+por cada proyecto que te creas.
+
+Iba a decir aplicación, claro, pero por cada proyecto que te creas él te genera este archivo settings
+
+y acá te crea un identificador único para eso.
+
+Tiene varias funcionalidades, varias variables.
+
+Acá si, si vemos algunas.
+
+Por ejemplo, tiene este debug que viene configurado por defecto en true.
+
+Qué quiere decir esto?
+
+Que los errores que tengas en pantalla te van a aparecer con un formato más detallado.
+
+Ojo con eso.
+
+Cuando después lleves tu aplicación a producción, esto hay que colocarlo en false.
+
+Así.
+
+Bien, ojo con ese detalle, porque de esa manera evitas que esa información pueda ser mal utilizada
+
+por algún hacker.
+
+Ten mucho cuidado con eso.
+
+Este host es el que le va a informar a el framework cuales van a ser los host permitidos a través de
+
+los cuales vas a desplegar tu aplicación.
+
+Esto en la próxima clase lo vamos a revisar también.
+
+Él aquí tiene esta variable que se llama Installedapps, que son los módulos que vas a que va a utilizar
+
+por defecto Django para poder trabajar módulos o aplicaciones.
+
+Entonces él trae algunos configurados por defecto.
+
+Pero en la medida de que nosotros empecemos a crear aplicaciones dentro de nuestro proyecto, eventualmente
+
+también los vamos a venir a notar aquí.
+
+Por qué digo eventualmente?
+
+Porque no es obligación, es Hay ciertas situaciones en donde solamente hay que hacerlo.
+
+En nuestro caso, la mayoría de los casos si lo vamos a hacer, porque vamos a tener modelos y migraciones
+
+asociados a eso.
+
+Entonces para poder ejecutar esas migraciones es necesario tener las aplicaciones que nosotros vamos
+
+los si, y las aplicaciones que tenemos que crear dentro de nuestro proyecto las tenemos que ir registrando.
+
+Aquí también te da una serie de middle words cargados por defecto.
+
+Por ahí nosotros vamos a hacer.
+
+Vamos a cargar un par más, sobre todo uno que se llama CORS, que es para manejar justamente eso,
+
+la implementación de los CORS.
+
+Este le define cómo va a ser, cómo se llama el archivo de rutas general del framework.
+
+Esto es más que todo para el manejo de los templates, así que esto en este curso no lo vamos a tocar
+
+porque no vamos a utilizar el motor de plantillas nativo que tiene Django, sino que vamos a utilizar
+
+un front, en este caso View, pero podría ser también React o Angular sin ningún tipo de dificultad.
+
+Esta es la ruta básica que tiene hacia el Wsg Applications, así que ya te mostré ese archivo.
+
+Esto es muy importante porque aquí trae la configuración base que él necesita para la base de datos
+
+por defecto.
+
+Él dice Ok, yo voy a trabajar con SQL y Td3.
+
+Por defecto la configuración viene asociada a esto.
+
+Después nosotros le vamos a cambiar esta configuración para decirle que queremos que trabaje con MySQL,
+
+pero eso lo vamos a hacer después.
+
+Pero a modo de spoiler te comento esto que es bien importante.
+
+Esto que está acá no lo vamos a tocar porque son también validadores que utiliza el internamente, sobre
+
+todo para la generación y la administración de password, que eso lo vamos a ver después nosotros cuando
+
+utilicemos hash de contraseñas.
+
+Esta internacionalización es para para que le digas al framework cómo quieres trabajar.
+
+Por defecto viene en inglés, pero si tú quieres trabajarlo en español lo puedes hacer acá.
+
+Le puedes cambiar esto por es y acá es, le puedes colocar el timezone tuyo.
+
+En mi caso es América Slash Santiago que vivo acá en Chile y esto lo vamos a dejar en True este también
+
+Sabes que yo siempre le agrego otro que se llama Ius ion lion creo que es así.
+
+Y esto entró también ahí para que me quede bien la configuración del Time zone.
+
+Entonces esto me va a tomar la hora y fecha de mi país que son muy importantes para mí.
+
+Y esto de acá abajo, este que está aquí es la configuración que nosotros vamos a hacer para administrar
+
+los el el renderizado de recursos estáticos dentro de nuestra aplicación.
+
+Por ahora no lo vamos a tocar, lo vamos a ver más adelante, pero a modo de spoiler te lo comento.
+
+Y esto que está acá es una configuración nueva, no viene.
+
+Por ejemplo, si vienes has trabajado alguna vez con Django tres?
+
+Esto no venía en Django tres.
+
+Esto se refiere a la configuración base que va a utilizar el framework para las llaves primarias de
+
+la aplicación.
+
+Bien, entonces esto básicamente lo que va a hacer es que los campos ID de cada uno de los modelos te
+
+los va a crear con esta tipología.
+
+Así que básicamente se refiere a eso.
+
+Entonces no hay más nada más.
+
+Lo demás vamos a ir generándolo en la medida de que le vamos agregando aplicaciones a nuestro proyecto.
