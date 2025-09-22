@@ -1,0 +1,281 @@
+Bien, veamos ahora cómo poder retornar valores pero en formato JSON, porque acuérdate que el httpresponse
+
+se está retornando la información pero con un content type text html y no es lo que generalmente se
+
+hace en un API REST.
+
+Recuerda lo que te mencioné de guardarte estos métodos.
+
+De hecho yo lo había hecho acá en el repositorio.
+
+Creo que te había dejado acá comentado los métodos ahí para que te queden, así que no hay ningún problema.
+
+Ok, entonces vamos a hacerlo.
+
+Aquí hay dos maneras de hacerlo.
+
+De hecho hay un debate re sabroso ahí también hay dos objetos que tú puedes utilizar.
+
+Lo vamos a probar acá con el método GET.
+
+Voy a comentar esto aquí y debajo.
+
+Vamos a colocar aquí return.
+
+Primero lo vamos a hacer con el que mucha gente recomienda una clase que se llama Response.
+
+Bien.
+
+Y aquí dentro del response vamos a retornar un objeto JSON.
+
+Por ejemplo, vamos a decir acá estado dos puntos.
+
+Ok?
+
+Ahí está.
+
+Y Mensaje.
+
+Dos puntos y le podríamos pasar este texto que tengo acá arriba, por ejemplo al mensaje dos puntos
+
+ahí creo que el dos puntos aquí no iba adentro.
+
+Ahí está, dos puntos y le puedo pasar el mismo texto.
+
+Veamos qué es lo que nos retorna esto ahora para que esto funcione.
+
+Ese response lo tengo que importar acá arriba.
+
+Entonces vamos a decir acá From Restframework.
+
+Punto, punto, response.
+
+Import response.
+
+Ahí está.
+
+Perfecto.
+
+Vamos a ver qué me retorna esto y cuál es la otra variante que te quiero plantear.
+
+Vamos a venir aquí.
+
+Esto sería el método GET.
+
+Voy así.
+
+Voy a mantener los parámetros.
+
+Da lo mismo.
+
+Entonces retornamos ahí.
+
+Me dice Application slash JSON y está bien.
+
+Mira, ahí me retorna estado mensaje en un formato JSON y me cambió acá el Content-Type Application
+
+JSON.
+
+Y está bien, está perfecto esto no hay ningún problema.
+
+De hecho es algo que se usa habitualmente.
+
+Lo vas a perdonar y lo vas a encontrar en muchos foros, en muchos cursos.
+
+Mucha gente que utiliza esto.
+
+Sin embargo, si nosotros nos vamos a la documentación oficial de Django REST, ellos te recomiendan
+
+usar otra clase que disponibiliza para esto que en teoría viene más optimizada.
+
+Y aquí hay un tema.
+
+Mira, un tema importante, si nosotros probamos esta URL aquí en el navegador, él te la va a mostrar
+
+así, bien con esta especie de navegación y está todo bien, está perfecto.
+
+Sin embargo.
+
+Sin embargo, aquí lo que te iba a mostrar la documentación oficial te muestra esto.
+
+Mira, te muestra aquí que los retornos de las APIs, esto lo hagas con un objeto que se llama voy a
+
+buscarlo acá, se llama JSON Response.
+
+Déjame ver si está por acá.
+
+Quickstart.
+
+Dónde estaba eso?
+
+Support Requirement.
+
+Vamos a buscarlo acá adentro para tenerlo acá en el buscador.
+
+Ahí está.
+
+Entonces acá fijate que ellos te recomiendan los retornos de tus APIs REST, manejarlos con esta clase
+
+que se llama Jsonresponse, que es una clase que está en teoría optimizada, optimizada para el retorno
+
+de elementos en Django REST.
+
+Bien.
+
+De hecho, esta no es Django REST como tal, este es Django, pero es la que te recomiendan ellos utilizar,
+
+entonces te la recomiendan ellos.
+
+Lo más probable es que más adelante siempre cuando pasa eso, después capaz que el response quede sin
+
+soporte.
+
+Entonces es mejor que utilicemos esta.
+
+Así que en lugar de usar eso ahí vamos a hacer lo mismo acá.
+
+Voy a copiarlo acá, pero ahora vamos a decir acá jsonresponse así tal como está ahí.
+
+Y ese jsonresponse lo tenemos que importar de esta manera Acá arriba.
+
+Ahora, este httpresponse no lo voy a utilizar.
+
+De hecho, no.
+
+Esto va.
+
+Esto va con esto mismo.
+
+Acá arriba.
+
+Son de la misma.
+
+La misma familia.
+
+Ahí está.
+
+Perfecto.
+
+Entonces, ojo con eso.
+
+Ojo con este detalle.
+
+Ahora vamos a ver qué pasa.
+
+Qué diferencia tiene con el.
+
+Con el anterior?
+
+Vamos a ver primero desde acá, desde el Insomnia.
+
+Aparentemente no hay ninguna diferencia.
+
+Me retorna el mismo Content-Type.
+
+Vamos a ver en el navegador Acá.
+
+Y ahora fíjate que el retorno acá en el navegador es diferente.
+
+Y aquí un poco viene la la clave de lo que te quiero plantear.
+
+Este jsonresponse está optimizado para este tipo de situaciones.
+
+Por qué?
+
+Porque el formato anterior.
+
+Voy a volver.
+
+Perdón.
+
+Déjame volver adelante.
+
+Voy a comentar este.
+
+Aunque creo que me va a dar error de sintaxis.
+
+Voy a ver si me va a dar error de sintaxis acá.
+
+Vamos a hacer lo siguiente.
+
+Mira, voy a colocarle a este de abajo.
+
+Voy a dejarlo solo ahí por ahora.
+
+Vamos a venir a probarlo acá.
+
+Déjame ver aquí que no le gustó esto.
+
+Ah, bueno, es que.
+
+Aquí.
+
+Creo que borré algo ahí.
+
+Esto sería.
+
+Ahí.
+
+Listo?
+
+Ok.
+
+Entonces qué pasa?
+
+Mira que esto está bonito.
+
+Pero de acuerdo a unos a lo que se dice en el mundillo del mundo de redes y todo, se habla de que esto
+
+le entrega muchas pistas a los hackers.
+
+Porque aquí tú puedes probar las APIs testearlas y todo sin necesidad de tener ninguna validación.
+
+Incluso se te entrega información sobre los contratos de los ricos y los response que te va a entregar,
+
+los métodos que tiene configurado y todo.
+
+Entonces por eso la gente de Django dijo Django Red dijo No sabes qué?
+
+Yo.
+
+Esto está bonito.
+
+Es como la marca registrada.
+
+De hecho, si has trabajado alguna vez con Django REST, esto ya lo debes haber visto alguna vez.
+
+Pero claro, esta es la marca registrada.
+
+Pero está generando a veces mucha información para un eventual intruso.
+
+Entonces ellos dijeron No, no más y te vamos a perdonar.
+
+Y pensé que presionando Control Z K iba a llegar al Jsonresponse.
+
+Mejor ellos te dicen utiliza este que te retorna un formato más tradicional y apegado a lo que habitualmente
+
+hoy día hacen los demás frameworks de otros lenguajes de programación.
+
+Retornarte directamente el JSON acá sin formato y de código HTML y de toda la ayuda que te da el navegador.
+
+Es solamente por eso.
+
+No sé si uno sea mejor que el otro.
+
+Ahora hay algunas variantes que vamos a ver más adelante.
+
+Por ejemplo, vamos a ver más adelante lo que se denomina los serializables.
+
+Y en el caso de los response, tú puedes aquí cargar directamente un serializable.
+
+Acá no, acá lo tienes que envolver en un en una variable.
+
+Entonces hay una diferencia ahí en relación.
+
+Y también tiene que ver un dato muy importante.
+
+Eso tiene que ver con cómo te quedan los contratos de los jsonresponse.
+
+Pues ya vamos a hablar de eso.
+
+Pero era importante hacer esta diferenciación entre lo que es el response y el jsonresponse.

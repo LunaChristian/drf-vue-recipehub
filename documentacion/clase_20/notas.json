@@ -1,1 +1,16 @@
-{}
+{
+  "numero": 20,
+  "tema": "Retornar respuestas en formato JSON",
+  "resumen": [
+    "Hasta ahora las respuestas eran HttpResponse → Content-Type: text/html.",
+    "En APIs REST el estándar es retornar datos en JSON (Content-Type: application/json).",
+    "Existen dos formas comunes:",
+    "  1. Usar `Response` de `rest_framework.response`. Muy utilizado, permite integrar fácilmente serializadores.",
+    "  2. Usar `JsonResponse` de `django.http`. Recomendado en la documentación oficial de Django para respuestas JSON simples.",
+    "Diferencias:",
+    "- Response: integra con Django REST Framework, soporta serializadores directamente, pero expone endpoints navegables que pueden dar pistas a un atacante.",
+    "- JsonResponse: más 'crudo', retorna solo JSON sin HTML extra. Menos información para un posible intruso.",
+    "Buenas prácticas: usar JsonResponse cuando se quiere seguridad y respuestas simples; usar Response cuando se trabaja con serializadores y APIs más complejas.",
+    "Próximos pasos: introducir serializadores para estructurar la salida JSON de manera formal."
+  ]
+}

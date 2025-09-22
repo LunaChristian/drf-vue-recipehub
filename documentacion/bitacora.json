@@ -114,6 +114,12 @@
       "tema": "Uso de parámetros en query string",
       "archivo_dialogo": "documentacion/clase_19/dialogo.txt",
       "archivo_notas": "documentacion/clase_19/notas.json"
+    },
+    {
+      "numero": 20,
+      "tema": "Retornar respuestas en formato JSON",
+      "archivo_dialogo": "documentacion/clase_20/dialogo.txt",
+      "archivo_notas": "documentacion/clase_20/notas.json"
     }
 
   ]

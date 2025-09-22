@@ -1,11 +1,25 @@
 from rest_framework.views import APIView
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from rest_framework.response import Response
 
 # Create your views here.
 class Class_Ejemplo_View(APIView):
     def get(self, request):
-        return HttpResponse(f"Salida con el método GET | id={request.GET.get('id', None)} | slug={request.GET.get('slug', None)}")
+        #Respuesta con HttpResponse
+        #return HttpResponse(f"Salida con el método GET | id={request.GET.get('id', None)} | slug={request.GET.get('slug', None)}")
 
+        #Respuesta con Response (DRF)
+        """ return Response({
+            "estado": "ok",
+            "mensaje": f"Salida con el método GET | id={request.GET.get('id', None)} | slug={request.GET.get('slug', None)}"
+        }) """
+        
+        #Respuesta con JsonResponse
+        return JsonResponse({
+            "estado": "ok",
+            "mensaje": f"Salida con el método GET | id={request.GET.get('id', None)} | slug={request.GET.get('slug', None)}"
+        })
+        
     def post(self, request):
         return HttpResponse("Salida con el método POST")
 
