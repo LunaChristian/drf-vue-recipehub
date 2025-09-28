@@ -1,6 +1,8 @@
+import datetime
 from rest_framework.views import APIView
 from django.http import Http404, HttpResponse, JsonResponse
-from rest_framework.response import Response
+from django.core.files.storage import FileSystemStorage
+import os
 
 # Create your views here.
 class Class_Ejemplo_View(APIView):
@@ -53,3 +55,43 @@ class Class_Ejemplo_View_Parametros(APIView):
 
     def delete(self, request, id: int):
         return HttpResponse(f"Salida con el método DELETE | parametro={id}")
+    
+class Class_Ejemplo_Upload(APIView):
+    def post(self, request):
+        """
+        fs = FileSystemStorage()
+        fecha = datetime.now()
+        foto = f"{datetime.timestamp(fecha)}{os.path.splitext(str(request.FILES['file']))[1]}"
+        #Para la siguiente linea sera en fs guardar lo que reciba por el request.
+        #En este caso esta recibiendo un archivo llamado 'file'
+        fs.save(f"ejemplo/{foto}", request.FILES['file'])  #Sintaxis .save(filename, file)
+        fs.url(request.FILES['file'])
+        return JsonResponse({
+            "estado": "ok",
+            "mensaje": "Subido correctamente"
+        })
+        """
+        
+        try:
+            file = request.FILES["file"]
+
+            # Generar nombre único
+            timestamp = int(datetime.now().timestamp())
+            _, extension = os.path.splitext(file.name)
+            filename = f"{timestamp}{extension}"
+
+            # Guardar archivo
+            fs = FileSystemStorage(location="upload/ejemplo")
+            fs.save(filename, file)
+
+            return JsonResponse({
+                "estado": "ok",
+                "mensaje": "Archivo subido correctamente",
+                "archivo": filename
+            })
+            
+        except Exception as e:
+            return JsonResponse({
+                "estado": "error",
+                "mensaje": str(e)
+            }, status=400)
