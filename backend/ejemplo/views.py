@@ -75,8 +75,10 @@ class Class_Ejemplo_Upload(APIView):
         try:
             file = request.FILES["file"]
 
-            # Generar nombre único
+            # Generar nombre único. Ver tambien UUID
             timestamp = int(datetime.now().timestamp())
+            
+            # Obtener el nombre y la extension con splitext. En este caso se descarta el nombre (variable _ )
             _, extension = os.path.splitext(file.name)
             filename = f"{timestamp}{extension}"
 
