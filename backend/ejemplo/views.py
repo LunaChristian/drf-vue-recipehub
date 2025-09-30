@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from rest_framework.views import APIView
 from django.http import Http404, HttpResponse, JsonResponse
 from django.core.files.storage import FileSystemStorage
@@ -80,7 +80,7 @@ class Class_Ejemplo_Upload(APIView):
             
             # Obtener el nombre y la extension con splitext. En este caso se descarta el nombre (variable _ )
             _, extension = os.path.splitext(file.name)
-            filename = f"{timestamp}{extension}"
+            filename = f"{timestamp}{extension}"    
 
             # Guardar archivo
             fs = FileSystemStorage(location="upload/ejemplo")
