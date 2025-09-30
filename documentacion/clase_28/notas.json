@@ -1,1 +1,24 @@
-{}
+{
+  "clase": 28,
+  "tema": "Uso de requirements.txt para administrar dependencias",
+  "contenido": {
+    "problema": "Necesidad de compartir entorno y dependencias con otros programadores.",
+    "comandos": {
+      "pip_list": "Muestra librerías instaladas con versiones.",
+      "pip_freeze": "Entrega las librerías en formato adecuado para generar requirements.txt.",
+      "crear_requirements": "pip freeze > requirements.txt",
+      "instalar_desde_requirements": "pip install -r requirements.txt"
+    },
+    "ejemplo_librerías": [
+      "Django",
+      "djangorestframework",
+      "mysqlclient",
+      "requests"
+    ],
+    "ventajas": [
+      "Estandariza dependencias del proyecto.",
+      "Facilita compartir proyectos con otros desarrolladores.",
+      "Es requerido en pruebas técnicas, despliegues y entornos Docker."
+    ]
+  }
+}

@@ -126,7 +126,46 @@
       "tema": "Recepción de JSON en métodos POST",
       "archivo_dialogo": "documentacion/clase_21/dialogo.txt",
       "archivo_notas": "documentacion/clase_21/notas.json"
+    },
+    {
+      "numero": 22,
+      "tema": "Estados HTTP personalizados en JsonResponse",
+      "archivo_dialogo": "documentacion/clase_22/dialogo.txt",
+      "archivo_notas": "documentacion/clase_22/notas.json"
+    },
+    {
+      "numero": 23,
+      "tema": "Configuración de archivos estáticos y media en Django",
+      "archivo_dialogo": "documentacion/clase_23/dialogo.txt",
+      "archivo_notas": "documentacion/clase_23/notas.json"
+    },
+    {
+      "numero": 24,
+      "tema": "Creación de API para subir archivos al servidor",
+      "archivo_dialogo": "documentacion/clase_24/dialogo.txt",
+      "archivo_notas": "documentacion/clase_24/notas.json"
+    },
+    {
+      "numero": 25,
+      "tema": "Configuración para servir archivos subidos desde el navegador",
+      "archivo_dialogo": "documentacion/clase_25/dialogo.txt",
+      "archivo_notas": "documentacion/clase_25/notas.json"
+    },
+        {
+      "numero": 26,
+      "tema": "Definición de objetivos del proyecto Recetario",
+      "archivo_dialogo": "documentacion/clase_26/dialogo.txt",
+      "archivo_notas": "documentacion/clase_26/notas.json"
+    },
+    {
+      "numero": 27,
+      "tema": "Se preparó el entorno para trabajar con MySQL/MariaDB en Django. Se explicó cómo instalar mysqlclient en Windows (XAMPP/WAMP) y en Linux (usando apt para dependencias del sistema y luego pip install mysqlclient). Se aclaró que la librería se instala en el entorno virtual pero el proyecto aún no la utiliza. Próximamente se configurará la base de datos en settings.py."
+    },
+    {
+      "numero": 28,
+      "tema": "Uso de requirements.txt para gestionar y compartir dependencias",
+      "archivo_dialogo": "documentacion/clase_28/dialogo.txt",
+      "archivo_notas": "documentacion/clase_28/notas.json"
     }
-
   ]
 }
