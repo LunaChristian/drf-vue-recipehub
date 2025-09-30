@@ -166,6 +166,13 @@
       "tema": "Uso de requirements.txt para gestionar y compartir dependencias",
       "archivo_dialogo": "documentacion/clase_28/dialogo.txt",
       "archivo_notas": "documentacion/clase_28/notas.json"
+    },
+    {
+      "numero": 29,
+      "tema": "Configuración de base de datos MySQL en Django",
+      "archivo_dialogo": "documentacion/clase_29/dialogo.txt",
+      "archivo_notas": "documentacion/clase_29/notas.json"
     }
+
   ]
 }

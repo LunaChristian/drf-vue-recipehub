@@ -1,1 +1,14 @@
-{}
+{
+  "clase": 29,
+  "titulo": "Configuración de base de datos MySQL en Django",
+  "contenido": [
+    "Se configuró la conexión a la base de datos en settings.py modificando la constante DATABASES.",
+    "Para MySQL se utiliza: 'ENGINE': 'django.db.backends.mysql'.",
+    "Se deben definir: NAME (nombre de la BD), USER, PASSWORD, HOST y PORT.",
+    "Se agregó la opción 'OPTIONS': {'autocommit': True} para habilitar autocommit.",
+    "Si aparece un error relacionado a la BD, significa que la librería mysqlclient está bien instalada, pero falta crear la base de datos.",
+    "La base de datos se puede crear desde phpMyAdmin, DBeaver u otra herramienta.",
+    "Ejemplo de configuración: NAME='django2', USER='root', PASSWORD='123456', HOST='localhost', PORT='3306'.",
+    "Para PostgreSQL solo cambia el ENGINE a 'django.db.backends.postgresql' y el puerto por defecto es 5432."
+  ]
+}
