@@ -15,8 +15,11 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(dotenv_path=Path(BASE_DIR) / ".env")
 
 
 # Quick-start development settings - unsuitable for production
@@ -81,11 +84,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "recetarios_django_drf",
-        "USER": "root",
-        "PASSWORD": "",
+        "NAME": os.getenv("DATABASE_BD"),
+        "USER": os.getenv("DATABASE_USER"),
+        "PASSWORD": os.getenv("DATABASE_PASSWORD"),
         "HOST": "127.0.0.1",
-        "PORT": "3306",
+        #"HOST": os.getenv("DATABASE_SERVER"),
+        "PORT": os.getenv("DATABASE_PORT"),
         "OPTIONS": {
             "autocommit": True
         }
@@ -128,7 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/assets/'
-STATIC_FILES_DIRS = (
+STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
 MEDIA_URL = '/uploads/'

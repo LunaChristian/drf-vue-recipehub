@@ -172,7 +172,12 @@
       "tema": "Configuración de base de datos MySQL en Django",
       "archivo_dialogo": "documentacion/clase_29/dialogo.txt",
       "archivo_notas": "documentacion/clase_29/notas.json"
+    },
+    {
+      "numero": 30,
+      "tema": "Uso de variables de entorno con dotenv en Django",
+      "archivo_dialogo": "documentacion/clase_30/dialogo.txt",
+      "archivo_notas": "documentacion/clase_30/notas.json"
     }
-
   ]
 }

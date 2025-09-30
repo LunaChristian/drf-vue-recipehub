@@ -1,1 +1,14 @@
-{}
+{
+  "clase": 30,
+  "titulo": "Uso de variables de entorno con dotenv en Django",
+  "contenido": [
+    "Se instaló la librería `python-dotenv` para manejar variables de entorno.",
+    "Se creó el archivo `.env` en la raíz del proyecto para almacenar credenciales sensibles (DB, usuario, password, host, puerto).",
+    "Se añadió `.env` a `.gitignore` para evitar subirlo al repositorio.",
+    "Se creó un archivo `.env.example` como referencia, con las variables pero sin valores, para compartir en el repo.",
+    "En `settings.py` se agregó: `from dotenv import load_dotenv` y `load_dotenv()`.",
+    "Las credenciales de base de datos ahora se leen con `os.getenv('NOMBRE_VARIABLE')`.",
+    "Esto permite mantener configuraciones distintas para desarrollo, pruebas o producción sin modificar el código.",
+    "Buenas prácticas: nunca subir `.env` al repo, siempre compartir `.env.example`."
+  ]
+}
