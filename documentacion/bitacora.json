@@ -184,6 +184,12 @@
       "tema": "Configuración dinámica de DEBUG con dotenv",
       "archivo_dialogo": "documentacion/clase_31/dialogo.txt",
       "archivo_notas": "documentacion/clase_31/notas.json"
+    },
+    {
+      "numero": 32,
+      "tema": "Creación de la aplicación Categorías y configuración inicial de rutas y vistas",
+      "archivo_dialogo": "documentacion/clase_32/dialogo.txt",
+      "archivo_notas": "documentacion/clase_32/notas.json"
     }
   ]
 }

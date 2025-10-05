@@ -1,1 +1,14 @@
-{}
+{
+  "clase": 32,
+  "titulo": "Creación de la aplicación Categorías y configuración inicial de rutas y vistas",
+  "contenido": [
+    "Se inicia la construcción del proyecto 'Repositorio Flight' (Recetario) trabajando con bases de datos mediante el ORM de Django.",
+    "Se crea una nueva aplicación llamada 'categorias' con el comando `django-admin startapp categorias` (sin tilde para evitar problemas).",
+    "Se registra la ruta principal de la app en el archivo `urls.py` del proyecto: `'api/v1/categorias/'`.",
+    "Dentro de la app `categorias`, se crea un archivo `urls.py` para definir sus rutas locales.",
+    "Se importan los módulos necesarios: `path` de `django.urls` y `APIView` desde `rest_framework.views`.",
+    "Se define una vista inicial `ClaseUno` que hereda de `APIView` con un método `get()` vacío (usando `pass`).",
+    "Se importa también `JsonResponse` desde `django.http` para manejar respuestas en formato JSON.",
+    "Finalmente se prueba la app, verificando que el servidor reconozca la nueva ruta y la aplicación esté correctamente registrada y funcional."
+  ]
+}
