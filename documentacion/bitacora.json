@@ -151,7 +151,7 @@
       "archivo_dialogo": "documentacion/clase_25/dialogo.txt",
       "archivo_notas": "documentacion/clase_25/notas.json"
     },
-        {
+    {
       "numero": 26,
       "tema": "Definición de objetivos del proyecto Recetario",
       "archivo_dialogo": "documentacion/clase_26/dialogo.txt",
@@ -178,6 +178,12 @@
       "tema": "Uso de variables de entorno con dotenv en Django",
       "archivo_dialogo": "documentacion/clase_30/dialogo.txt",
       "archivo_notas": "documentacion/clase_30/notas.json"
+    },
+    {
+      "numero": 31,
+      "tema": "Configuración dinámica de DEBUG con dotenv",
+      "archivo_dialogo": "documentacion/clase_31/dialogo.txt",
+      "archivo_notas": "documentacion/clase_31/notas.json"
     }
   ]
 }

@@ -29,7 +29,7 @@ load_dotenv(dotenv_path=Path(BASE_DIR) / ".env")
 SECRET_KEY = 'django-insecure-r!@f&=t$@uodl(#f-3^jlv##)00m#+wo7nqj3!67@h&-n4$9$j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -87,8 +87,8 @@ DATABASES = {
         "NAME": os.getenv("DATABASE_BD"),
         "USER": os.getenv("DATABASE_USER"),
         "PASSWORD": os.getenv("DATABASE_PASSWORD"),
-        "HOST": "127.0.0.1",
-        #"HOST": os.getenv("DATABASE_SERVER"),
+        #"HOST": "127.0.0.1",
+        "HOST": os.getenv("DATABASE_SERVER"),
         "PORT": os.getenv("DATABASE_PORT"),
         "OPTIONS": {
             "autocommit": True

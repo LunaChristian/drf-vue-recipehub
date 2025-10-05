@@ -1,1 +1,12 @@
-{}
+{
+  "clase": 31,
+  "titulo": "Configuración dinámica de DEBUG con dotenv",
+  "contenido": [
+    "Se configuró la variable DEBUG en el archivo `.env` para definir si el proyecto se ejecuta en modo desarrollo o producción.",
+    "En `.env` se agregó la línea `DEBUG=True` (o `False` según el entorno).",
+    "En `settings.py` se reemplazó el valor fijo de `DEBUG = True` por `DEBUG = os.getenv('DEBUG')`.",
+    "De esta forma, Django leerá automáticamente el valor desde las variables de entorno.",
+    "Esto permite que al cambiar de entorno (por ejemplo, a producción), solo se modifique el `.env` sin tocar el código fuente.",
+    "Buena práctica: mantener `DEBUG=False` en producción para evitar exposición de información sensible."
+  ]
+}
