@@ -1,1 +1,28 @@
-{}
+{
+  "clase": 33,
+  "titulo": "Modelo Category (categorías) con AutoSlug y registro de la app",
+  "contenido": [
+    "Antes de usar modelos, la app debe estar registrada en INSTALLED_APPS de settings.py (por ejemplo: 'categorias').",
+    "Se define el modelo de categorías en categorias/models.py:",
+    "- Campo 'nombre': models.CharField(max_length=100, null=False).",
+    "- Campo 'slug': AutoSlugField(populate_from='nombre') para generar automáticamente el slug SEO-friendly.",
+    "Import necesario para slug: from autoslug import AutoSlugField.",
+    "Buenas prácticas en el modelo:",
+    "- __str__(self) devuelve el nombre para una representación legible.",
+    "- class Meta: db_table (opcional), verbose_name y verbose_name_plural.",
+    "Recordatorio: el campo 'id' lo maneja Django por defecto (auto increment).",
+    "La app 'categorias' ya tenía rutas base; ahora el foco es el modelo. Las migraciones y creación física de la tabla se harán en la próxima clase."
+  ],
+  "requisitos": [
+    "Registrar 'categorias' en INSTALLED_APPS.",
+    "Asegurar dependencia 'django-autoslug' presente en requirements.txt (>=1.9.9)."
+  ],
+  "referencias_archivos": [
+    "backend/settings.py",
+    "backend/urls.py",
+    "categorias/models.py",
+    "categorias/views.py",
+    "categorias/urls.py",
+    "requirements.txt"
+  ]
+}

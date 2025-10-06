@@ -1,1 +1,14 @@
-{}
+{
+  "numero": 25,
+  "tema": "Configuración para servir archivos subidos desde el navegador",
+  "resumen": [
+    "Se configuró el archivo `backend/urls.py` para permitir el acceso a los archivos almacenados en la carpeta definida como `MEDIA_ROOT`.",
+    "Se importó `settings` desde `django.conf` y `static` desde `django.conf.urls.static`.",
+    "Se concatenó a `urlpatterns` una nueva regla con `static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`.",
+    "Esto habilita el acceso vía navegador a los archivos subidos (ej: imágenes).",
+    "Por convención Django suele usar la carpeta `media/`, pero nosotros la personalizamos como `upload/`.",
+    "Ahora es posible acceder a los archivos subidos escribiendo en el navegador la URL completa (ej: `http://localhost:8000/upload/ejemplo/archivo.png`).",
+    "Con esto se completan las configuraciones básicas para manejar archivos en Django REST.",
+    "Próximo paso: comenzar el desarrollo del proyecto **Recetario**."
+  ]
+}

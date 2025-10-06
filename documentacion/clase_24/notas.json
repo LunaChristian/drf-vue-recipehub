@@ -1,1 +1,17 @@
-{}
+{
+  "numero": 24,
+  "tema": "Creación de API para subir archivos al servidor",
+  "resumen": [
+    "Se corrigió un warning en settings.py: faltaba la coma en STATICFILES_DIRS y había que crear la carpeta `assets/`.",
+    "Se creó un nuevo endpoint `/api/v1/ejemplo/upload/` para manejar uploads vía POST.",
+    "Se agregó la clase `EjemploUpload(APIView)` en `views.py`.",
+    "Se utilizó `FileSystemStorage` para guardar los archivos en el directorio configurado.",
+    "Los archivos deben enviarse en el body como `form-data`, no como JSON.",
+    "Inicialmente se probó guardar con nombre fijo, pero eso sobrescribía archivos.",
+    "Se implementó un esquema para nombres únicos usando `datetime.now().timestamp()` + extensión original.",
+    "El nombre final se genera con `os.path.splitext` para conservar la extensión.",
+    "Cada upload se guarda en la carpeta `upload/ejemplo/` bajo un nombre único.",
+    "Spoiler: más adelante será necesario guardar la referencia del archivo en la base de datos.",
+    "Próximo paso: aprender a servir estos archivos desde el navegador (configuración de `MEDIA_URL`)."
+  ]
+}

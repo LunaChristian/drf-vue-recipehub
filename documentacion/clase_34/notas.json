@@ -1,1 +1,31 @@
-{}
+{
+  "clase": 34,
+  "titulo": "Migraciones en Django (makemigrations y migrate)",
+  "contenido": [
+    "Las migraciones en Django funcionan como un sistema de control de versiones para los modelos. Permiten registrar y aplicar los cambios realizados en las tablas de la base de datos.",
+    "Cada aplicación tiene una carpeta 'migrations' donde se guardan los archivos generados por las migraciones.",
+    "Flujo de trabajo recomendado:",
+    "1. Crear o modificar un modelo en models.py.",
+    "2. Ejecutar 'python manage.py makemigrations' para generar la migración.",
+    "3. Ejecutar 'python manage.py migrate' para aplicar la migración y crear/modificar las tablas en la base de datos.",
+    "Al ejecutar migrate por primera vez, Django crea sus propias tablas internas necesarias para la administración, autenticación y sesiones (por ejemplo: auth_user, django_migrations, etc.).",
+    "Cada migración se registra en la tabla 'django_migrations' para evitar que se ejecute más de una vez.",
+    "El comando 'makemigrations' detecta automáticamente los cambios en los modelos y crea un nuevo archivo numerado dentro de la carpeta migrations de la app correspondiente.",
+    "Ejemplo de comandos utilizados:",
+    "- python manage.py makemigrations",
+    "- python manage.py migrate",
+    "Después de ejecutar migrate, la tabla 'categorias' se creó correctamente con los campos 'id', 'nombre' y 'slug'.",
+    "El campo 'id' se genera automáticamente por Django como un entero (BigIntegerField por defecto en versiones recientes)."
+  ],
+  "requisitos": [
+    "Tener la app 'categorias' registrada en INSTALLED_APPS.",
+    "Haber configurado correctamente la base de datos en settings.py.",
+    "Ejecutar los comandos dentro del entorno virtual."
+  ],
+  "referencias_archivos": [
+    "categorias/migrations/0001_initial.py",
+    "categorias/models.py",
+    "db.sqlite3 o base de datos configurada (MySQL/Postgres)",
+    "backend/settings.py"
+  ]
+}

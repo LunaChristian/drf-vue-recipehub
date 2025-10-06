@@ -1,1 +1,30 @@
-{}
+{
+  "clase": 35,
+  "titulo": "Listar registros desde un modelo utilizando el ORM de Django",
+  "contenido": [
+    "En esta clase se implementó un endpoint para listar las categorías almacenadas en la base de datos mediante el ORM de Django.",
+    "Primero se insertaron registros manuales en la tabla 'categorias' desde phpMyAdmin o DBeaver, por ejemplo: 'Carnes y Pollos', 'Pescados y Mariscos', 'Tragos y Cócteles', 'Frutas y Verduras'.",
+    "Se modificó la vista en la aplicación 'categorias' para obtener los datos desde el modelo 'Categoria' usando el ORM.",
+    "Importación del modelo:",
+    "from .models import *",
+    "Creación de la variable que consulta los registros:",
+    "datos = Categoria.objects.order_by('-id').all()",
+    "Explicación:",
+    "- 'objects' es el administrador del ORM de Django que permite acceder a la base de datos.",
+    "- 'order_by('-id')' indica orden descendente por el campo 'id'.",
+    "- '.all()' obtiene todos los registros.",
+    "Se intentó retornar los resultados directamente con 'Response(datos)', pero Django arrojó un error de serialización indicando que los objetos del modelo no pueden convertirse automáticamente a JSON.",
+    "El mensaje de error fue: 'Object of type Categoria is not JSON serializable'.",
+    "Esto se debe a que los modelos deben transformarse en tipos de datos nativos (diccionarios o listas) antes de enviarse como JSON. En la próxima clase se implementará un 'serializer' para resolver este problema."
+  ],
+  "comandos_consola": [
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "categorias/views.py"
+  ],
+  "referencias": [
+    "Django ORM - QuerySet API",
+    "Documentación oficial de Django REST Framework sobre serialización de objetos"
+  ]
+}

@@ -190,6 +190,31 @@
       "tema": "Creación de la aplicación Categorías y configuración inicial de rutas y vistas",
       "archivo_dialogo": "documentacion/clase_32/dialogo.txt",
       "archivo_notas": "documentacion/clase_32/notas.json"
+    },
+    {
+      "numero": 33,
+      "tema": "Modelo de categorías con AutoSlug y registro de la app",
+      "archivo_dialogo": "documentacion/clase_33/dialogo.txt",
+      "archivo_notas": "documentacion/clase_33/notas.json"
+    },
+    {
+      "numero": 34,
+      "tema": "Migraciones en Django (makemigrations y migrate)",
+      "archivo_dialogo": "documentacion/clase_34/dialogo.txt",
+      "archivo_notas": "documentacion/clase_34/notas.json"
+    },
+    {
+      "numero": 35,
+      "tema": "Listar registros desde un modelo utilizando el ORM de Django",
+      "archivo_dialogo": "documentacion/clase_35/dialogo.txt",
+      "archivo_notas": "documentacion/clase_35/notas.json"
+    },
+    {
+      "numero": 36,
+      "tema": "Serialización de modelos con Django REST Framework",
+      "archivo_dialogo": "documentacion/clase_36/dialogo.txt",
+      "archivo_notas": "documentacion/clase_36/notas.json"
     }
+
   ]
 }

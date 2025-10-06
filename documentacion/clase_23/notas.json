@@ -1,1 +1,15 @@
-{}
+{
+  "numero": 23,
+  "tema": "Configuración de archivos estáticos y media en Django",
+  "resumen": [
+    "Django diferencia entre archivos estáticos (CSS, JS, imágenes de la app) y archivos media (subidos por usuarios).",
+    "Los archivos estáticos se configuran con `STATIC_URL` y `STATICFILES_DIRS`.",
+    "Ejemplo: `STATIC_URL = '/assets/'` y `STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]`.",
+    "Los archivos subidos por usuarios se manejan con `MEDIA_URL` y `MEDIA_ROOT`.",
+    "Ejemplo: `MEDIA_URL = '/upload/'` y `MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')`.",
+    "Django, por defecto, crea la carpeta `media/`, pero se puede personalizar con otro nombre.",
+    "Es necesario importar `os` en `settings.py` para manejar las rutas con `os.path.join`.",
+    "La variable `BASE_DIR` ya está definida al inicio del `settings.py` y sirve como base para las rutas.",
+    "Con esta configuración, Django sabrá dónde buscar y almacenar archivos estáticos y subidos."
+  ]
+}

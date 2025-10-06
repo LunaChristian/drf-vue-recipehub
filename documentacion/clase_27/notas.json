@@ -1,1 +1,27 @@
-{}
+{
+  "clase": 27,
+  "tema": "Instalación y configuración inicial de MySQL en el proyecto",
+  "contenido": {
+    "opciones_bd": [
+      "PostgreSQL",
+      "MySQL / MariaDB (XAMPP, WAMP, Docker o instalación directa en Linux)"
+    ],
+    "instalación_en_linux": {
+      "problema": "En Ubuntu no viene preinstalado python-dev ni librerías necesarias",
+      "solución": "Ejecutar en terminal: sudo apt install python3-dev default-libmysqlclient-dev build-essential"
+    },
+    "instalación_en_windows": {
+      "solución": "Usar XAMPP o WAMP para tener MariaDB/MySQL"
+    },
+    "librería_python": {
+      "paquete": "mysqlclient",
+      "instalación": "pip install mysqlclient",
+      "verificación": "pip list (debería aparecer mysqlclient instalado)"
+    },
+    "notas": [
+      "La instalación de librerías del sistema con apt no depende del entorno virtual de Python.",
+      "La librería mysqlclient se instala en el entorno virtual, pero el proyecto aún no está configurado para usarla.",
+      "La configuración de la base de datos en settings.py se realizará en próximas clases."
+    ]
+  }
+}

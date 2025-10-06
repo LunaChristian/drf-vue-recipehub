@@ -1,0 +1,131 @@
+Bien, ya vimos el tema de los retornos del retorno a través del uso de la clase Response o de la clase
+
+Jsonresponse y una de las buenas ventajas que tiene la clase Jsonresponse, además de lo que vimos,
+
+es que te permite utilizar las implementaciones que trae configuradas y una de ellas es la posibilidad
+
+de decirle al framework que quieres retornar un estado HTTP personalizado.
+
+Con el response igual lo puedes hacer, pero te tienes que dar una vuelta más larga.
+
+Entonces aquí en el Jsonresponse le puedes decir directamente el método HTTP que tú quieras retornar,
+
+por ejemplo.
+
+Por ejemplo, aquí por defecto en el método GET.
+
+Bueno, en realidad todos como yo le estoy diciendo, ningún retorno HTTP por defecto en todos me está
+
+retornando el método HTTP 200.
+
+En el método GET también fíjate, acá me está retornando el estado http 200.
+
+Entonces, si yo quiero por ejemplo forzar eso aquí que siempre el en el en el método GET el estado
+
+HTTP 200.
+
+Fíjate en el json response al final del JSON vamos a colocar coma status igual y le vas a colocar el
+
+número del método por ahora.
+
+Así por ahora, de esta forma, así, sin ningún tipo de problema.
+
+Déjame ver una cosa.
+
+Acá no está bien, está perfecto.
+
+Vamos a probarlo.
+
+Y está bien.
+
+Ok, imaginemos que este método post lo estamos usando para crear un registro.
+
+Entonces, generalmente cuando creas registros, seguimos un poco el estándar.
+
+El estado HTTP que se retorna es el 201.
+
+En general, siempre cuando veas API REST en donde creen registros, te van a retornar al estado HTTP
+
+201.
+
+Entonces vamos a probar ahora el método POST.
+
+A ver, debería retornar en lugar de 200, debería decir 201 created.
+
+Perfecto, Todo bien.
+
+Ahora nosotros podríamos trabajar así y de hecho esta forma te la vas a encontrar muchísimo porque muchas
+
+personas lo usan.
+
+También se puede hacer el estilo del response, pero nosotros lo vamos a hacer al estilo de la versión
+
+actual de Django REST.
+
+Por lo tanto, esta es la manera.
+
+Ahora lo puedes encontrar así como número, pero también te lo vas a encontrar a través de la implementación
+
+de esta clase que se llama HTTP con mayúscula.
+
+HTTP Status Punto.
+
+Y acá le colocas el nombre del estado HTTP.
+
+Si nosotros venimos acá al navegador y buscamos el status http list, aquí nosotros deberíamos ver en
+
+la página de Microsoft todos los estados HTTP con sus nombres.
+
+Ahí está el 100 es continuo, el 101 switching protocols, processing, en fin.
+
+Entonces ese es el nombre con el cual nosotros deberíamos retornar a través de este método http status.
+
+Entonces el 200 se llama OK.
+
+Bien, y el 201 se llama Created.
+
+Entonces aquí le vas a colocar Quédate así.
+
+Ahora, para que esto te funcione también.
+
+Adivina.
+
+Tienes que importar ese http status.
+
+Entonces lo vamos a tomar.
+
+Vamos a venir acá arriba y vamos a decir From de donde era esto desde http import http status.
+
+Ahí está.
+
+Perdón.
+
+Entonces si probamos esto.
+
+A ver, vamos a ver.
+
+Acá todo bien?
+
+No se ha roto nada.
+
+Vamos a mirar el bosque.
+
+Acá el bosque está bien.
+
+A pesar de eso, ya vamos a arreglar eso de ahí.
+
+Pero más allá de eso, todo funciona bien.
+
+De hecho, si vemos acá el GET seguramente te va a retornar acá a un estado HTTP 200.
+
+Perfecto.
+
+Todo bien.
+
+Y como tarea trata de a estos métodos que están acá agregarle un retorno en formato JSON response con
+
+el estado 200 y con un JSON que diga estado OK.
+
+Y este texto que vaya en el mensaje de el JSON de respuesta trata de hacer eso.
+
+Yo creo que sería una buena práctica para que vayas metiendo las manitos en el código.

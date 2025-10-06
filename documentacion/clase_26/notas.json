@@ -1,1 +1,20 @@
-{}
+{
+  "numero": 26,
+  "tema": "Definición de objetivos del proyecto Recetario",
+  "resumen": [
+    "Se estableció la visión general del proyecto Recetario, que integrará backend en Django REST Framework y frontend (ejemplo en Angular, pero aplicable a React/Vue/etc).",
+    "El frontend contará con páginas estáticas básicas con Bootstrap y funcionalidades dinámicas a través de APIs.",
+    "Se desarrollarán varias APIs REST en Django:",
+    "- Listar las 3 últimas recetas.",
+    "- Listar todas las recetas por categorías.",
+    "- Buscar recetas mediante parámetros.",
+    "- API de formulario de contacto con envío de correos SMTP.",
+    "- Registro de usuarios con activación por email.",
+    "- Autenticación de usuarios con login y manejo de contraseñas con hash.",
+    "- Gestión de recetas personales (CRUD completo).",
+    "- Manejo de archivos asociados a recetas (estrategia correcta para performance).",
+    "- Implementación de rutas protegidas mediante JWT (generación, validación y uso de tokens).",
+    "Se abordarán modelos relacionales en base de datos y la protección de endpoints.",
+    "Tras finalizar el backend, se construirá el frontend para consumir estas APIs."
+  ]
+}

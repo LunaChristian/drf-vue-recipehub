@@ -1,1 +1,13 @@
-{}
+{
+  "numero": 22,
+  "tema": "Estados HTTP personalizados en JsonResponse",
+  "resumen": [
+    "Por defecto, JsonResponse retorna estado HTTP 200 en todas las respuestas.",
+    "Se puede personalizar el código de estado con el parámetro `status` en JsonResponse.",
+    "Ejemplo: en POST (cuando se crea un recurso) se suele retornar HTTP 201 (Created).",
+    "Existen dos formas de definir el estado: directamente con el número (200, 201) o con la clase `HTTPStatus`.",
+    "`HTTPStatus` ofrece constantes legibles como `HTTPStatus.OK` o `HTTPStatus.CREATED`.",
+    "Buenas prácticas en APIs REST: GET retorna 200, POST (creación) retorna 201, PUT suele retornar 200 o 204, DELETE retorna 204.",
+    "Se sugiere adaptar cada método a los códigos adecuados para mantener estándares en desarrollo de APIs."
+  ]
+}

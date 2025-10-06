@@ -1,1 +1,41 @@
-{}
+{
+  "clase": 36,
+  "titulo": "Serialización de modelos con Django REST Framework",
+  "contenido": [
+    "En esta clase se resolvió el error de 'Object of type Categoria is not JSON serializable' creando un serializador personalizado.",
+    "Se explicó el concepto de serialización: proceso mediante el cual los objetos de Django se transforman en estructuras de datos compatibles con JSON (listas, diccionarios).",
+    "Para implementar esto, se creó un nuevo archivo llamado serializers.py dentro de la aplicación 'categorias'.",
+    "Dentro de serializers.py se definió un serializador basado en ModelSerializer:",
+    "from rest_framework import serializers",
+    "from .models import *",
+    "class CategoriaSerializer(serializers.ModelSerializer):",
+    "    class Meta:",
+    "        model = Categoria",
+    "        fields = ('id', 'nombre', 'slug')",
+    "Este serializador envuelve los datos del modelo y define los campos que se devolverán en la respuesta.",
+    "En la vista se importó el serializador y se aplicó sobre los datos obtenidos desde el ORM:",
+    "from .serializers import *",
+    "datos_json = CategoriaSerializer(data, many=True)",
+    "Luego, se retornaron los resultados correctamente serializados:",
+    "return Response(datos_json.data)",
+    "Se probó el endpoint en Postman, confirmando que los registros se mostraban correctamente en formato JSON.",
+    "Posteriormente se demostró la diferencia entre 'Response' y 'JsonResponse':",
+    "- 'Response' es propio de Django REST Framework y gestiona automáticamente los serializadores.",
+    "- 'JsonResponse' pertenece a Django estándar y requiere que los datos estén completamente convertidos a tipos JSON nativos.",
+    "Se explicó que según la documentación oficial, se recomienda usar JsonResponse por razones de seguridad, aunque Response es más flexible para pruebas.",
+    "También se agregó un estado HTTP a la respuesta con 'status=status.HTTP_200_OK' y se importó:",
+    "from rest_framework import status",
+    "Finalmente, se mostró que eliminando campos del serializador (por ejemplo 'slug') cambia directamente los datos retornados, y que este patrón se usará más adelante para endpoints POST y otros tipos de datos (como imágenes o llaves foráneas)."
+  ],
+  "comandos_consola": [
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "categorias/serializers.py",
+    "categorias/views.py"
+  ],
+  "referencias": [
+    "https://www.django-rest-framework.org/api-guide/serializers/",
+    "Documentación oficial de Django REST Framework sobre serialización y Response vs JsonResponse"
+  ]
+}

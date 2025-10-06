@@ -3,7 +3,7 @@ from autoslug import AutoSlugField
 
 # Create your models here.
 class Categoria(models.Model):
-    titulo = models.CharField(max_length=50, null=False)
+    titulo = models.CharField(max_length=50, null=True)
     slug = AutoSlugField(populate_from=titulo)
     
     def __str__(self):
