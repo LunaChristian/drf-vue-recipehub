@@ -1,1 +1,24 @@
-{}
+{
+  "clase": 37,
+  "titulo": "GET por ID con manejo de excepciones (Categoria)",
+  "contenido": [
+    "Se creó un endpoint para obtener una categoría por su ID usando Django REST + ORM.",
+    "Se definió una segunda clase de vista para rutas con parámetro path (id) y se agregó la ruta correspondiente en urls.py.",
+    "Consulta ORM: Categoria.objects.get(id=id). Alternativamente se puede usar pk=id.",
+    "Respuesta: se devolvió un JsonResponse con un objeto plano (sin corchetes) que incluye id, nombre y slug.",
+    "Errores: se manejó Categoria.DoesNotExist con try/except y se levantó Http404 para IDs inexistentes.",
+    "Diferencia con el listado: el listado usa many=True y devuelve una lista; el detalle por id devuelve un objeto.",
+    "Pruebas: se verificó con Insomnia/Postman: /api/v1/categorias/<id>. Si <id> no existe → 404."
+  ],
+  "comandos_consola": [
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "categorias/urls.py",
+    "categorias/views.py"
+  ],
+  "snippet_cambios_relevantes": [
+    "urls.py: path(\"categorias/<int:id>\", ClaseDos.as_view()),",
+    "views.py: class ClaseDos(APIView): def get(self, request, id): try: data = Categoria.objects.get(id=id); return JsonResponse({\"id\": data.id, \"nombre\": data.nombre, \"slug\": data.slug}, status=200) except Categoria.DoesNotExist: raise Http404"
+  ]
+}

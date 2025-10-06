@@ -214,7 +214,12 @@
       "tema": "Serialización de modelos con Django REST Framework",
       "archivo_dialogo": "documentacion/clase_36/dialogo.txt",
       "archivo_notas": "documentacion/clase_36/notas.json"
+    },
+    {
+      "numero": 37,
+      "tema": "GET /categorias/<id> con manejo de DoesNotExist → Http404",
+      "archivo_dialogo": "documentacion/clase_37/dialogo.txt",
+      "archivo_notas": "documentacion/clase_37/notas.json"
     }
-
   ]
 }
