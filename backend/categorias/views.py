@@ -1,6 +1,7 @@
 from http import HTTPStatus
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.utils.text import slugify
 from django.http import Http404, HttpResponse, JsonResponse
 from .models import Categoria
 from .serializers import CategoriaSerializer
@@ -28,5 +29,15 @@ class Class_Categoria_View2(APIView):
         try:
             data = Categoria.objects.filter(pk=id).get()
             return JsonResponse({"data": {"id": data.id, "titulo":data.titulo, "slug":data.slug}}, status=HTTPStatus.OK)
+        except Categoria.DoesNotExist:
+            raise Http404
+        
+    def put(self, request, id):
+        if request.data.get('titulo')==None or not request.data['titulo']:
+            return JsonResponse({"estado":"error", "mensaje":"campo obligatorio"}, status=HTTPStatus.BAD_REQUEST)
+        try:
+            data = Categoria.objects.filter(pk=id).get()
+            Categoria.objects.filter(pk=id).update(titulo=request.data['titulo'], slug=slugify(request.data.get('titulo')))
+            return JsonResponse({"estado":"ok", "mensaje":"modificacion exitosa"}, status=HTTPStatus.OK)
         except Categoria.DoesNotExist:
             raise Http404

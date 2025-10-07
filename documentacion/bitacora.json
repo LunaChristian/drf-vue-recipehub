@@ -232,7 +232,14 @@
       "tema": "Validación del campo 'nombre' en POST de categorías con respuesta HTTP 400",
       "archivo_dialogo": "documentacion/clase_39/dialogo.txt",
       "archivo_notas": "documentacion/clase_39/notas.json"
+    },
+    {
+      "numero": 40,
+      "tema": "Implementación del método PUT para editar categorías con regeneración de slug",
+      "archivo_dialogo": "documentacion/clase_40/dialogo.txt",
+      "archivo_notas": "documentacion/clase_40/notas.json"
     }
+
 
   ]
 }

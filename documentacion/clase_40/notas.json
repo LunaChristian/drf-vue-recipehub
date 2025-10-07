@@ -1,1 +1,38 @@
-{}
+{
+  "clase": 40,
+  "titulo": "Actualización de registros con método PUT en Django REST Framework",
+  "contenido": [
+    "En esta clase se implementó el método PUT en la vista para actualizar registros existentes en la tabla de categorías.",
+    "El endpoint usado fue: /api/v1/categorias/<id>/ con método PUT y un JSON en el cuerpo de la petición.",
+    "Se agregó el método put(self, request, id) en la clase de vista correspondiente al manejo de categorías con ID.",
+    "Se validó primero que el campo 'nombre' no venga vacío o nulo, reutilizando la validación implementada en el POST.",
+    "Se envolvió la búsqueda del registro en un bloque try/except para manejar excepciones Categoria.DoesNotExist y devolver un HTTP 404 si el registro no existe.",
+    "Consulta ORM utilizada:",
+    "Categoria.objects.filter(pk=id).update(nombre=request.data.get('nombre'), slug=slugify(request.data.get('nombre')))",
+    "Para generar el nuevo slug se utilizó la función slugify, importada desde django.utils.text.",
+    "from django.utils.text import slugify",
+    "Se retornó una respuesta JSON indicando el éxito de la operación junto con el estado HTTP 200 (OK).",
+    "Pruebas realizadas con Insomnia/Postman:",
+    "- PUT /api/v1/categorias/5 con JSON {'nombre': 'Ensaladas frescas'} → respuesta 200 y actualización correcta en base de datos.",
+    "- Verificación posterior con GET muestra el registro actualizado y el nuevo slug generado correctamente.",
+    "Nota: El AutoSlugField del modelo solo actúa en la creación, por eso se fuerza la regeneración manual del slug en el update.",
+    "Buenas prácticas: envolver operaciones de escritura en try/except, validar los datos antes del update, y devolver estados HTTP coherentes (200 en actualizaciones exitosas)."
+  ],
+  "comandos_consola": [
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "categorias/views.py"
+  ],
+  "snippet_cambios_relevantes": [
+    "from django.utils.text import slugify",
+    "def put(self, request, id):",
+    "    if request.data.get('nombre') is None or not request.data.get('nombre'):",
+    "        return JsonResponse({'estado': 'error', 'mensaje': 'El campo nombre es obligatorio'}, status=status.HTTP_400_BAD_REQUEST)",
+    "    try:",
+    "        Categoria.objects.filter(pk=id).update(nombre=request.data.get('nombre'), slug=slugify(request.data.get('nombre')))",
+    "        return JsonResponse({'estado': 'ok', 'mensaje': 'Se modifica el registro exitosamente'}, status=status.HTTP_200_OK)",
+    "    except Categoria.DoesNotExist:",
+    "        raise Http404"
+  ]
+}
