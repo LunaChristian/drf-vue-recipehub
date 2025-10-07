@@ -292,9 +292,12 @@
       "tema": "Creación del método POST para registrar recetas (inicio de carga con FormData)",
       "archivo_dialogo": "documentacion/clase_49/dialogo.txt",
       "archivo_notas": "documentacion/clase_49/notas.json"
+    },
+    {
+      "numero": 50,
+      "tema": "Validaciones en POST de recetas (campos requeridos y HTTP 400)",
+      "archivo_dialogo": "documentacion/clase_50/dialogo.txt",
+      "archivo_notas": "documentacion/clase_50/notas.json"
     }
-
-
-
   ]
 }

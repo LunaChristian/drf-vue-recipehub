@@ -20,8 +20,23 @@ class Class_Receta_View(APIView):
         return JsonResponse({"data":data_json.data}, status=HTTPStatus.OK)
     
     def post(self, request):
-        if request.data.get('titulo_receta')==None or not request.data['titulo_receta']:
-            return JsonResponse({"estado":"error", "mensaje":"campo obligatorio"}, status=HTTPStatus.BAD_REQUEST)
+        required_fields = ["titulo_receta", "tiempo", "descripcion", "categoria_id"]
+        for field in required_fields:
+            if not request.data.get(field):
+                return JsonResponse(
+                    {"estado": "error", "mensaje": f"El campo '{field}' es obligatorio"},
+                    status=HTTPStatus.BAD_REQUEST,
+                )
+                
+        if Receta.objects.filter(titulo_receta=request.data.get("titulo_receta")).exists():
+            return JsonResponse(
+                {
+                    "estado":"error",
+                    "mensaje":f"Ya existe otro registro con el nombre '{request.data['titulo_receta']}'"
+                }, 
+                status=HTTPStatus.BAD_REQUEST,
+            )
+        
         try:
             Receta.objects.create(
                 titulo_receta=request.data['titulo_receta'],

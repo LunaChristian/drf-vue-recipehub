@@ -1,1 +1,60 @@
-{}
+{
+  "clase": 50,
+  "titulo": "Validaciones iniciales en método POST de recetas (required + 400 Bad Request)",
+  "contenido": [
+    "Se reforzó el método POST de la clase Clase1 en la app 'recetas' agregando validaciones de campos obligatorios.",
+    "Campos validados: 'nombre', 'tiempo', 'descripcion', 'categoria_id'.",
+    "Si falta un campo o viene vacío, se retorna JsonResponse con {estado:'error', mensaje:'...'} y HTTP 400 (Bad Request).",
+    "Se mantiene la creación del registro cuando todas las validaciones pasan.",
+    "Se dejó planteado el siguiente paso: validar unicidad por nombre/slug para evitar recetas duplicadas."
+  ],
+  "codigo_relevante": {
+    "ubicacion": "recetas/views.py (Clase1.post)",
+    "snippet": [
+      "from http import HTTPStatus",
+      "from django.http import JsonResponse",
+      "",
+      "class Clase1(APIView):",
+      "    def post(self, request):",
+      "        # Validaciones requeridos",
+      "        if request.data.get('nombre') is None or not request.data.get('nombre'):",
+      "            return JsonResponse({",
+      "                'estado': 'error',",
+      "                'mensaje': 'El campo nombre es obligatorio'",
+      "            }, status=HTTPStatus.BAD_REQUEST)",
+      "",
+      "        if request.data.get('tiempo') is None or not request.data.get('tiempo'):",
+      "            return JsonResponse({",
+      "                'estado': 'error',",
+      "                'mensaje': 'El campo tiempo es obligatorio'",
+      "            }, status=HTTPStatus.BAD_REQUEST)",
+      "",
+      "        if request.data.get('descripcion') is None or not request.data.get('descripcion'):",
+      "            return JsonResponse({",
+      "                'estado': 'error',",
+      "                'mensaje': 'El campo descripcion es obligatorio'",
+      "            }, status=HTTPStatus.BAD_REQUEST)",
+      "",
+      "        if request.data.get('categoria_id') is None or not request.data.get('categoria_id'):",
+      "            return JsonResponse({",
+      "                'estado': 'error',",
+      "                'mensaje': 'El campo categoria_id es obligatorio'",
+      "            }, status=HTTPStatus.BAD_REQUEST)",
+      "",
+      "        # (Siguiente paso propuesto) Validar duplicados por nombre/slug",
+      "        # if Receta.objects.filter(nombre=request.data.get('nombre')).exists():",
+      "        #     return JsonResponse({'estado':'error','mensaje':'La receta ya existe'}, status=HTTPStatus.CONFLICT)",
+      ""
+    ]
+  },
+  "comandos_consola": [
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "recetas/views.py"
+  ],
+  "pendientes": [
+    "Agregar validación de unicidad por nombre/slug (409 Conflict).",
+    "Implementar subida real de imagen y guardado del nombre en 'foto'."
+  ]
+}
