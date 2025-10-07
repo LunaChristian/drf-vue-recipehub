@@ -5,6 +5,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.http import Http404, HttpResponse, JsonResponse
 
+from categorias.models import Categoria
+
 from .serializers import RecetaSerializer
 from .models import Receta
 from django.utils.text import slugify
@@ -27,7 +29,15 @@ class Class_Receta_View(APIView):
                     {"estado": "error", "mensaje": f"El campo '{field}' es obligatorio"},
                     status=HTTPStatus.BAD_REQUEST,
                 )
-                
+        
+        try:
+            Categoria.objects.filter(pk=request.data["categoria_id"]).get()
+        except Categoria.DoesNotExist:
+            return JsonResponse(
+                {"estado":"error", "mensaje":"La categoria no existe"},
+                status=HTTPStatus.BAD_REQUEST,
+            )
+        
         if Receta.objects.filter(titulo_receta=request.data.get("titulo_receta")).exists():
             return JsonResponse(
                 {

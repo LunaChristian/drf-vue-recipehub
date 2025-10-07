@@ -1,1 +1,38 @@
-{}
+{
+  "clase": 52,
+  "titulo": "Validación de existencia de categoría en POST de recetas",
+  "contenido": [
+    "Se agregó una validación adicional antes de crear una receta: verificar que la categoría enviada exista en la base de datos.",
+    "Si el ID de la categoría no existe, se devuelve un error JSON con mensaje explicativo.",
+    "Esta validación evita que se creen recetas con referencias inválidas en el campo 'categoria_id'.",
+    "El profesor explica que podría hacerse mediante excepción o con exists(). Ambas son válidas, aunque la excepción es más explícita."
+  ],
+  "codigo_relevante": {
+    "ubicacion": "recetas/views.py (Clase1.post)",
+    "snippet": [
+      "from .models import Receta, Categoria",
+      "",
+      "class Clase1(APIView):",
+      "    def post(self, request):",
+      "        # Validación de existencia de categoría",
+      "        try:",
+      "            Categoria.objects.get(pk=request.data.get('categoria_id'))",
+      "        except Categoria.DoesNotExist:",
+      "            return JsonResponse({",
+      "                'estado': 'error',",
+      "                'mensaje': 'La categoría informada no existe en la base de datos.'",
+      "            }, status=HTTPStatus.BAD_REQUEST)",
+      "",
+      "        # ...validaciones anteriores (nombre, tiempo, descripción)...",
+      "        # ...validación de unicidad del nombre de receta...",
+      "        # ...creación del registro..."
+    ]
+  },
+  "archivos_modificados": [
+    "recetas/views.py"
+  ],
+  "pendientes": [
+    "Agregar la lógica para subir y guardar la imagen en el campo 'foto'.",
+    "Normalizar el tipo de dato de categoria_id (entero)."
+  ]
+}

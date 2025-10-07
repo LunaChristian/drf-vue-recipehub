@@ -304,6 +304,12 @@
       "tema": "Validación de unicidad de receta por nombre en POST (exists())",
       "archivo_dialogo": "documentacion/clase_51/dialogo.txt",
       "archivo_notas": "documentacion/clase_51/notas.json"
+    },
+    {
+      "numero": 52,
+      "tema": "Validación de existencia de categoría en POST (Categoria.DoesNotExist)",
+      "archivo_dialogo": "documentacion/clase_52/dialogo.txt",
+      "archivo_notas": "documentacion/clase_52/notas.json"
     }
 
   ]
