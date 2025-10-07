@@ -1,1 +1,62 @@
-{}
+{
+  "clase": 48,
+  "titulo": "Implementación del método GET por ID en la vista Clase2 (detalle de receta)",
+  "contenido": [
+    "En esta clase se creó una nueva vista llamada Clase2(APIView) en la aplicación 'recetas' para manejar la ruta GET /api/v1/recetas/<id>/.",
+    "El objetivo es obtener una única receta por su ID y retornar sus datos en formato JSON con estructura personalizada.",
+    "1. Se definió la clase Clase2 con el método get(self, request, id):",
+    "   - Se agregó un bloque try/except para manejar el caso de recetas no encontradas (DoesNotExist).",
+    "   - En caso de error se devuelve un JsonResponse con estado 404 y un mensaje personalizado:",
+    "       { 'estado': 'error', 'mensaje': 'Recurso no disponible' }",
+    "2. Se obtuvo la receta con:",
+    "       data = Receta.objects.get(id=id)",
+    "3. Se construyó manualmente el diccionario 'data' con los campos del modelo:",
+    "       'id': data.id, 'nombre': data.nombre, 'slug': data.slug, 'tiempo': data.tiempo, 'descripcion': data.descripcion",
+    "4. La fecha se formateó usando la clase DateFormat de Django:",
+    "       from django.utils.dateformat import DateFormat",
+    "       'fecha': DateFormat(data.fecha).format('d/m/Y')",
+    "5. Se agregó la categoría tanto por ID como por nombre:",
+    "       'categoria_id': data.categoria_id,",
+    "       'categoria': data.categoria.nombre",
+    "6. Se agregó la imagen con la misma lógica usada en el serializer:",
+    "       load_dotenv()",
+    "       'imagen': os.getenv('BASE_URL') + 'uploads/recetas/' + str(data.foto)",
+    "7. Finalmente, se devolvió la respuesta en formato JSON:",
+    "       return JsonResponse({'data': data_json, 'status': HTTPStatus.OK})",
+    "8. Este enfoque muestra una forma manual de descomponer y construir la respuesta JSON (sin usar serializers).",
+    "9. Ambas estrategias —serializer automático y armado manual— son válidas, dependiendo del nivel de control requerido.",
+    "10. Como ejercicio adicional, se propuso recorrer un queryset y construir el JSON manualmente con un ciclo for, en lugar de usar el serializer."
+  ],
+  "comandos_consola": [
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "recetas/views.py"
+  ],
+  "snippet_cambios_relevantes": [
+    "from django.http import JsonResponse",
+    "from django.utils.dateformat import DateFormat",
+    "from dotenv import load_dotenv",
+    "import os",
+    "",
+    "class Clase2(APIView):",
+    "    def get(self, request, id):",
+    "        try:",
+    "            data = Receta.objects.get(id=id)",
+    "        except Receta.DoesNotExist:",
+    "            return JsonResponse({'estado': 'error', 'mensaje': 'Recurso no disponible'}, status=HTTPStatus.NOT_FOUND)",
+    "        load_dotenv()",
+    "        data_json = {",
+    "            'id': data.id,",
+    "            'nombre': data.nombre,",
+    "            'slug': data.slug,",
+    "            'tiempo': data.tiempo,",
+    "            'descripcion': data.descripcion,",
+    "            'fecha': DateFormat(data.fecha).format('d/m/Y'),",
+    "            'categoria_id': data.categoria_id,",
+    "            'categoria': data.categoria.nombre,",
+    "            'imagen': os.getenv('BASE_URL') + 'uploads/recetas/' + str(data.foto)",
+    "        }",
+    "        return JsonResponse({'data': data_json}, status=HTTPStatus.OK)"
+  ]
+}

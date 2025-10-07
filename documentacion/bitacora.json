@@ -280,6 +280,14 @@
       "tema": "SerializerMethodField para construir URL absoluta de imagen (BASE_URL desde .env)",
       "archivo_dialogo": "documentacion/clase_47/dialogo.txt",
       "archivo_notas": "documentacion/clase_47/notas.json"
-    }
+    },
+    {
+      "numero": 48,
+      "tema": "Implementación del método GET por ID (detalle individual de receta)",
+      "archivo_dialogo": "documentacion/clase_48/dialogo.txt",
+      "archivo_notas": "documentacion/clase_48/notas.json"
+    },
+    
+
   ]
 }

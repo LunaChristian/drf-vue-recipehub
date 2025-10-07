@@ -1,4 +1,5 @@
 from http import HTTPStatus
+import os
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.http import Http404, HttpResponse, JsonResponse
@@ -6,6 +7,8 @@ from django.http import Http404, HttpResponse, JsonResponse
 from .serializers import RecetaSerializer
 from .models import Receta
 from django.utils.text import slugify
+from django.utils.dateformat import DateFormat
+from dotenv import load_dotenv
 
 # Create your views here.
 class Class_Receta_View(APIView):
@@ -27,4 +30,24 @@ class Class_Receta_View(APIView):
     
 class Class_Receta_View2(APIView):   
     
-    pass
+    def get(self, request, id):
+        try:
+            data = Receta.objects.filter(pk=id).get()
+            
+            return JsonResponse(
+                {"data":
+                    {
+                        "id": data.id,
+                        "titulo_receta": data.titulo_receta,
+                        "slug": data.slug,
+                        "tiempo": data.tiempo,
+                        "descripcion": data.descripcion,
+                        "fecha": DateFormat(data.fecha).format('d/m/Y'),
+                        "categoria": data.categoria.titulo,
+                        "categoria_id": data.categoria_id,
+                        "imagen": f"{os.getenv("BASE_URL")}uploads/recetas/{data.foto}"
+                    }
+                }, status=HTTPStatus.OK)
+            
+        except Receta.DoesNotExist:
+            raise Http404
