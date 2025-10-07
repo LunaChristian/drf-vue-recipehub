@@ -1,1 +1,41 @@
-{}
+{
+  "clase": 41,
+  "titulo": "Eliminación de registros con método DELETE en Django REST Framework",
+  "contenido": [
+    "En esta clase se implementó el método DELETE para completar el CRUD del modelo Categoría.",
+    "El endpoint usado fue: /api/v1/categorias/<id>/ con método DELETE, enviando el ID del registro a eliminar en la URL.",
+    "Se agregó el método delete(self, request, id) en la clase de vista que maneja las operaciones con ID.",
+    "Dentro del método se utilizó un bloque try/except para manejar el caso en que la categoría no exista, devolviendo HTTP 404 en ese caso.",
+    "Código base del método:",
+    "try:",
+    "    Categoria.objects.filter(pk=id).delete()",
+    "    return JsonResponse({'estado': 'ok', 'mensaje': 'Se elimina el registro exitosamente'}, status=status.HTTP_200_OK)",
+    "except Categoria.DoesNotExist:",
+    "    raise Http404",
+    "Se recordó la importancia de usar filtros (WHERE) en las operaciones de eliminación para evitar borrar todos los registros de la tabla.",
+    "También se comentó que, en sistemas reales, suele ser más recomendable desactivar registros (soft delete) en lugar de eliminarlos físicamente, pero aquí se realizó el delete real con fines de aprendizaje.",
+    "Pruebas realizadas con Insomnia/Postman:",
+    "- DELETE /api/v1/categorias/5 → respuesta 200 y eliminación confirmada en base de datos.",
+    "- Un segundo intento de eliminar el mismo ID devuelve HTTP 404, al no encontrarse el registro.",
+    "Con esta implementación, el CRUD del modelo Categorías queda completamente funcional:",
+    "- GET → listar todos los registros o uno por ID.",
+    "- POST → crear nuevas categorías.",
+    "- PUT → actualizar nombre y slug.",
+    "- DELETE → eliminar registros por ID.",
+    "Se destacó que este CRUD sirve como base para el próximo módulo de recetas, donde se trabajará con relaciones y carga de archivos."
+  ],
+  "comandos_consola": [
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "categorias/views.py"
+  ],
+  "snippet_cambios_relevantes": [
+    "def delete(self, request, id):",
+    "    try:",
+    "        Categoria.objects.filter(pk=id).delete()",
+    "        return JsonResponse({'estado': 'ok', 'mensaje': 'Se elimina el registro exitosamente'}, status=status.HTTP_200_OK)",
+    "    except Categoria.DoesNotExist:",
+    "        raise Http404"
+  ]
+}

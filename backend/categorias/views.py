@@ -25,6 +25,7 @@ class Class_Categoria_View(APIView):
             raise Http404
     
 class Class_Categoria_View2(APIView):   
+    
     def get(self, request, id):
         try:
             data = Categoria.objects.filter(pk=id).get()
@@ -33,11 +34,21 @@ class Class_Categoria_View2(APIView):
             raise Http404
         
     def put(self, request, id):
+        
         if request.data.get('titulo')==None or not request.data['titulo']:
             return JsonResponse({"estado":"error", "mensaje":"campo obligatorio"}, status=HTTPStatus.BAD_REQUEST)
         try:
             data = Categoria.objects.filter(pk=id).get()
             Categoria.objects.filter(pk=id).update(titulo=request.data['titulo'], slug=slugify(request.data.get('titulo')))
             return JsonResponse({"estado":"ok", "mensaje":"modificacion exitosa"}, status=HTTPStatus.OK)
+        except Categoria.DoesNotExist:
+            raise Http404
+        
+    def delete(sefl, request, id):
+        
+        try:
+            #data = Categoria.objects.filter(pk=id).get()
+            Categoria.objects.filter(pk=id).delete()
+            return JsonResponse({"estado":"ok", "mensaje":"eliminacion exitosa"}, status=HTTPStatus.OK)
         except Categoria.DoesNotExist:
             raise Http404

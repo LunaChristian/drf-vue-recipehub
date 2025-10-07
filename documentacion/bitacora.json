@@ -238,7 +238,14 @@
       "tema": "Implementación del método PUT para editar categorías con regeneración de slug",
       "archivo_dialogo": "documentacion/clase_40/dialogo.txt",
       "archivo_notas": "documentacion/clase_40/notas.json"
+    },
+    {
+      "numero": 41,
+      "tema": "Implementación del método DELETE en /api/v1/categorias/<id>/ y cierre del CRUD completo",
+      "archivo_dialogo": "documentacion/clase_41/dialogo.txt",
+      "archivo_notas": "documentacion/clase_41/notas.json"
     }
+
 
 
   ]
