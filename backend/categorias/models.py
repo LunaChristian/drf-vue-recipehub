@@ -3,8 +3,8 @@ from autoslug import AutoSlugField
 
 # Create your models here.
 class Categoria(models.Model):
-    titulo = models.CharField(max_length=50, null=True)
-    slug = AutoSlugField(populate_from=titulo)
+    titulo = models.CharField(max_length=100, null=False)
+    slug = AutoSlugField(populate_from='titulo')
     
     def __str__(self):
         return self.titulo

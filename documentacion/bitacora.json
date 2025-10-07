@@ -220,6 +220,12 @@
       "tema": "GET /categorias/<id> con manejo de DoesNotExist → Http404",
       "archivo_dialogo": "documentacion/clase_37/dialogo.txt",
       "archivo_notas": "documentacion/clase_37/notas.json"
+    },
+    {
+      "numero": 38,
+      "tema": "Creación de categorías mediante método POST en Django REST Framework",
+      "archivo_dialogo": "documentacion/clase_38/dialogo.txt",
+      "archivo_notas": "documentacion/clase_38/notas.json"
     }
   ]
 }

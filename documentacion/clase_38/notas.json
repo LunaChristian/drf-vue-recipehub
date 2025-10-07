@@ -1,1 +1,36 @@
-{}
+{
+  "clase": 38,
+  "titulo": "Creación de registros con método POST en Django REST Framework",
+  "contenido": [
+    "En esta clase se implementó el método POST para crear nuevas categorías en la base de datos.",
+    "El endpoint utilizado fue el mismo que el del listado general: /api/v1/categorias/, pero cambiando el método a POST.",
+    "Se agregó el método post(self, request) dentro de la clase de vista correspondiente (sin parámetros en la URL).",
+    "Dentro del método se usó un bloque try/except para capturar posibles errores y retornar respuestas controladas.",
+    "La creación del registro se realiza mediante el ORM:",
+    "Categoria.objects.create(nombre=request.data['nombre'])",
+    "Dado que el modelo utiliza AutoSlugField, el slug se genera automáticamente a partir del nombre recibido.",
+    "Se retorna un JsonResponse con un mensaje genérico de confirmación y el estado HTTP 201 (Created):",
+    "return JsonResponse({'estado': 'ok', 'mensaje': 'Se crea el registro exitosamente'}, status=status.HTTP_201_CREATED)",
+    "Pruebas realizadas con Insomnia/Postman:",
+    "- Se envió un JSON: {'nombre': 'Categoría Ñandú'}",
+    "- La categoría se creó correctamente y el slug se generó automáticamente ('categoria-nandu').",
+    "Se verificó la creación con un GET posterior, confirmando que el nuevo registro aparece en la lista.",
+    "También se analizó el caso de error al no enviar el campo 'nombre', lo cual genera una excepción y retornará un error controlado en la siguiente clase.",
+    "Buenas prácticas: devolver código 201 en creaciones y mensajes claros en formato JSON, sin incluir información sensible ni estructuras innecesarias."
+  ],
+  "comandos_consola": [
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "categorias/views.py"
+  ],
+  "snippet_cambios_relevantes": [
+    "class ClaseUno(APIView):",
+    "    def post(self, request):",
+    "        try:",
+    "            Categoria.objects.create(nombre=request.data['nombre'])",
+    "            return JsonResponse({'estado': 'ok', 'mensaje': 'Se crea el registro exitosamente'}, status=status.HTTP_201_CREATED)",
+    "        except Exception as e:",
+    "            raise Http404"
+  ]
+}
