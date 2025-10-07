@@ -1,1 +1,47 @@
-{}
+{
+  "clase": 42,
+  "titulo": "Inicio del módulo Recetas: creación de la app y configuración inicial de rutas",
+  "contenido": [
+    "En esta clase comenzó el nuevo bloque del curso enfocado en la creación de la API para gestionar recetas dentro del proyecto Recetario Flaite.",
+    "El objetivo principal fue crear la nueva aplicación Django llamada 'recetas' y configurarla correctamente dentro del proyecto.",
+    "Comandos utilizados para crear la app:",
+    "django-admin startapp recetas",
+    "A continuación, se agregó la ruta general en el archivo de URLs principal del proyecto:",
+    "path('api/v1/recetas/', include('recetas.urls'))",
+    "Dentro de la nueva app 'recetas' se creó el archivo urls.py con la estructura base:",
+    "from django.urls import path",
+    "from .views import *",
+    "urlpatterns = [",
+    "    path('recetas', Clase1.as_view()),",
+    "]",
+    "En views.py se agregó la clase inicial:",
+    "from rest_framework.views import APIView",
+    "from django.http import JsonResponse",
+    "from rest_framework import status",
+    "from django.http import Http404",
+    "from django.utils.text import slugify",
+    "class Clase1(APIView):",
+    "    def get(self, request):",
+    "        pass",
+    "Esta configuración deja lista la estructura básica para trabajar con endpoints de recetas.",
+    "Se destacó la importancia de reutilizar código y mantener consistencia con las apps previas (por ejemplo, categorías).",
+    "También se reforzó la idea de abstraer el contenido y concentrarse en la funcionalidad: las técnicas y patrones aprendidos pueden aplicarse en cualquier tipo de sistema (no solo un recetario).",
+    "En las próximas clases se crearán los modelos, vistas y endpoints CRUD para la app de recetas."
+  ],
+  "comandos_consola": [
+    "django-admin startapp recetas",
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "recetas/views.py",
+    "recetas/urls.py",
+    "project/urls.py"
+  ],
+  "snippet_cambios_relevantes": [
+    "django-admin startapp recetas",
+    "path('api/v1/recetas/', include('recetas.urls'))",
+    "class Clase1(APIView):",
+    "    def get(self, request):",
+    "        pass"
+  ]
+}

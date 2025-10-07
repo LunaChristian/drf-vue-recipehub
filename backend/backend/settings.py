@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'home',
     'ejemplo',
     'categorias',
+    'recetas',
 ]
 
 MIDDLEWARE = [

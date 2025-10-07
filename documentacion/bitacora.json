@@ -244,9 +244,13 @@
       "tema": "Implementación del método DELETE en /api/v1/categorias/<id>/ y cierre del CRUD completo",
       "archivo_dialogo": "documentacion/clase_41/dialogo.txt",
       "archivo_notas": "documentacion/clase_41/notas.json"
+    },
+    {
+      "numero": 42,
+      "tema": "Creación de la app 'recetas' y configuración base de URLs y vistas",
+      "archivo_dialogo": "documentacion/clase_42/dialogo.txt",
+      "archivo_notas": "documentacion/clase_42/notas.json"
     }
-
-
 
   ]
 }
