@@ -268,6 +268,12 @@
       "tema": "Implementación del listado de recetas con APIView y RecetaSerializer",
       "archivo_dialogo": "documentacion/clase_45/dialogo.txt",
       "archivo_notas": "documentacion/clase_45/notas.json"
+    },
+    {
+      "numero": 46,
+      "tema": "Serializer personalizado: nombre de categoría y fecha formateada",
+      "archivo_dialogo": "documentacion/clase_46/dialogo.txt",
+      "archivo_notas": "documentacion/clase_46/notas.json"
     }
   ]
 }

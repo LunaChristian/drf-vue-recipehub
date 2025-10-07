@@ -1,1 +1,34 @@
-{}
+{
+  "clase": 46,
+  "titulo": "Serializer con campos personalizados: categoría legible y fecha formateada",
+  "contenido": [
+    "Se mejoró la representación del JSON de recetas moviendo el formateo al serializer (recomendación de Django REST Framework).",
+    "Se limitaron los campos expuestos en el serializer a: id, nombre, slug, tiempo, descripcion, fecha, categoria, categoria_id.",
+    "Se mostró el nombre de la categoría en lugar del ID usando un campo calculado:",
+    "  - Opción 1 (recomendada): serializers.ReadOnlyField(source='categoria.nombre')",
+    "  - Opción 2 (equivalente): serializers.CharField(source='categoria.nombre', read_only=true)",
+    "Se mantuvo el campo categoria_id (entero) para disponer del ID bruto si es necesario.",
+    "Se formateó la fecha a un formato legible con serializers.DateTimeField(format='%d/%m/%Y').",
+    "Se dejó preparado el serializer para próximas mejoras (URL absoluta de la imagen)."
+  ],
+  "comandos_consola": [
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "recetas/serializers.py"
+  ],
+  "snippet_cambios_relevantes": [
+    "from rest_framework import serializers",
+    "from .models import Receta",
+    "",
+    "class RecetaSerializer(serializers.ModelSerializer):",
+    "    categoria = serializers.ReadOnlyField(source='categoria.nombre')",
+    "    # Alternativa equivalente:",
+    "    # categoria = serializers.CharField(source='categoria.nombre', read_only=True)",
+    "    fecha = serializers.DateTimeField(format='%d/%m/%Y')",
+    "",
+    "    class Meta:",
+    "        model = Receta",
+    "        fields = ('id', 'nombre', 'slug', 'tiempo', 'descripcion', 'fecha', 'categoria', 'categoria_id')"
+  ]
+}
