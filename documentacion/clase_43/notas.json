@@ -1,1 +1,55 @@
-{}
+{
+  "clase": 43,
+  "titulo": "Creación del modelo Receta y relación ForeignKey con Categoría",
+  "contenido": [
+    "En esta clase se creó el modelo principal de la app 'recetas' y se configuró su relación con el modelo 'Categoría'.",
+    "Primero se registró la app 'recetas' en el archivo settings.py, dentro de la lista INSTALLED_APPS.",
+    "INSTALLED_APPS = [ ..., 'recetas', ]",
+    "Luego se creó el modelo 'Receta' dentro del archivo recetas/models.py con los siguientes campos:",
+    "- categoria: ForeignKey al modelo 'Categoria' (uno a muchos).",
+    "- nombre: CharField (máx. 100).",
+    "- slug: AutoSlugField basado en el nombre, con maxlength=100.",
+    "- tiempo: CharField (máx. 100) para el tiempo de preparación.",
+    "- foto: CharField (máx. 100) para guardar solo el nombre del archivo de imagen.",
+    "- descripcion: TextField para almacenar texto largo.",
+    "- fecha: DateTimeField con auto_now=True para registrar automáticamente la fecha de creación.",
+    "Relación entre Receta y Categoría:",
+    "categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)",
+    "Import necesario para acceder al modelo de Categorías:",
+    "from categorias.models import Categoria",
+    "Se explicó la razón por la que el campo 'foto' es CharField: solo se almacena el nombre del archivo, no la imagen en sí. Las imágenes se guardan físicamente en la carpeta /uploads configurada en MEDIA_URL.",
+    "Se mencionó que en proyectos reales se podrían usar campos ImageField, pero se evita aquí por simplicidad y para mostrar el control manual del nombre de archivo.",
+    "Pasos ejecutados para generar la tabla en la base de datos:",
+    "python manage.py makemigrations",
+    "python manage.py migrate",
+    "Se verificó desde la base de datos que:",
+    "- Se creó correctamente la tabla 'recetas_receta'.",
+    "- El campo de relación se generó como 'categoria_id'.",
+    "- El campo 'slug' es único y el AutoSlugField funciona correctamente.",
+    "Se confirmó que la relación ForeignKey permite elegir categorías existentes al crear una receta.",
+    "Próximo paso: crear el serializador y las vistas para listar y gestionar las recetas vía API."
+  ],
+  "comandos_consola": [
+    "python manage.py makemigrations",
+    "python manage.py migrate",
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "recetas/models.py",
+    "project/settings.py"
+  ],
+  "snippet_cambios_relevantes": [
+    "from categorias.models import Categoria",
+    "class Receta(models.Model):",
+    "    categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)",
+    "    nombre = models.CharField(max_length=100, null=False, blank=False)",
+    "    slug = AutoSlugField(populate_from='nombre', max_length=100, unique=True)",
+    "    tiempo = models.CharField(max_length=100, null=False, blank=False)",
+    "    foto = models.CharField(max_length=100, null=False, blank=False)",
+    "    descripcion = models.TextField()",
+    "    fecha = models.DateTimeField(auto_now=True)",
+    "    class Meta:",
+    "        verbose_name = 'Receta'",
+    "        verbose_name_plural = 'Recetas'"
+  ]
+}

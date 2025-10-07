@@ -250,7 +250,14 @@
       "tema": "Creación de la app 'recetas' y configuración base de URLs y vistas",
       "archivo_dialogo": "documentacion/clase_42/dialogo.txt",
       "archivo_notas": "documentacion/clase_42/notas.json"
+    },
+    {
+      "numero": 43,
+      "tema": "Creación del modelo Receta y relación ForeignKey con Categoría. Migraciones y registro en settings.py",
+      "archivo_dialogo": "documentacion/clase_43/dialogo.txt",
+      "archivo_notas": "documentacion/clase_43/notas.json"
     }
+
 
   ]
 }
