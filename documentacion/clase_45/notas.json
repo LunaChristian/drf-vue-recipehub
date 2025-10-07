@@ -1,1 +1,47 @@
-{}
+{
+  "clase": 45,
+  "titulo": "Listado de recetas mediante APIView y RecetaSerializer",
+  "contenido": [
+    "En esta clase se implementó el método GET dentro de la vista principal de la app 'recetas' para listar todos los registros de la tabla Receta.",
+    "Primero, se agregaron los imports necesarios en views.py:",
+    "from .serializers import *",
+    "from .models import *",
+    "from django.http import JsonResponse",
+    "Luego, dentro de la clase Clase1(APIView), se creó el método get:",
+    "def get(self, request):",
+    "    recetas = Receta.objects.order_by('-id').all()",
+    "    datos_json = RecetaSerializer(recetas, many=True)",
+    "    return JsonResponse({'data': datos_json.data}, safe=False)",
+    "Se probó el endpoint en el cliente HTTP (Insomnia/Postman) con la URL:",
+    "GET /api/v1/recetas/",
+    "El resultado mostró correctamente todas las recetas registradas en formato JSON, incluyendo:",
+    "- id",
+    "- nombre",
+    "- slug",
+    "- tiempo",
+    "- foto",
+    "- descripción",
+    "- fecha",
+    "- categoría (actualmente solo el ID numérico)",
+    "El profesor explicó que, aunque el listado funciona correctamente, hay aspectos que se pueden mejorar:",
+    "1. Mostrar el nombre de la categoría (no solo su ID numérico).",
+    "2. Formatear la fecha en un formato más legible (por ejemplo, dd/mm/yyyy).",
+    "3. Mostrar la foto con su URL absoluta (ej: 'uploads/foto.png').",
+    "Estos ajustes se realizarán directamente en el serializer en la siguiente clase.",
+    "También se remarcó la importancia de mantener el foco en la funcionalidad del sistema y no en los datos reales (las recetas de ejemplo pueden ser ficticias)."
+  ],
+  "comandos_consola": [
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "recetas/views.py"
+  ],
+  "snippet_cambios_relevantes": [
+    "from .serializers import *",
+    "from .models import *",
+    "def get(self, request):",
+    "    recetas = Receta.objects.order_by('-id').all()",
+    "    datos_json = RecetaSerializer(recetas, many=True)",
+    "    return JsonResponse({'data': datos_json.data}, safe=False)"
+  ]
+}

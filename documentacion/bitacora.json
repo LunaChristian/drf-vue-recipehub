@@ -262,6 +262,12 @@
       "tema": "Creación del serializer RecetaSerializer para el modelo Receta",
       "archivo_dialogo": "documentacion/clase_44/dialogo.txt",
       "archivo_notas": "documentacion/clase_44/notas.json"
+    },
+    {
+      "numero": 45,
+      "tema": "Implementación del listado de recetas con APIView y RecetaSerializer",
+      "archivo_dialogo": "documentacion/clase_45/dialogo.txt",
+      "archivo_notas": "documentacion/clase_45/notas.json"
     }
   ]
 }
