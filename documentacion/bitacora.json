@@ -298,6 +298,13 @@
       "tema": "Validaciones en POST de recetas (campos requeridos y HTTP 400)",
       "archivo_dialogo": "documentacion/clase_50/dialogo.txt",
       "archivo_notas": "documentacion/clase_50/notas.json"
+    },
+    {
+      "numero": 51,
+      "tema": "Validación de unicidad de receta por nombre en POST (exists())",
+      "archivo_dialogo": "documentacion/clase_51/dialogo.txt",
+      "archivo_notas": "documentacion/clase_51/notas.json"
     }
+
   ]
 }

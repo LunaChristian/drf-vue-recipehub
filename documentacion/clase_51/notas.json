@@ -1,1 +1,40 @@
-{}
+{
+  "clase": 51,
+  "titulo": "Validación de unicidad en POST de recetas (nombre no disponible)",
+  "contenido": [
+    "Antes de crear la receta se valida que no exista otra con el mismo 'nombre'.",
+    "Se utiliza ORM: Receta.objects.filter(nombre=request.data.get('nombre')).exists().",
+    "Si existe, se retorna JsonResponse con estado='error' y mensaje indicando que el nombre no está disponible.",
+    "Código de estado recomendado: 409 (Conflict). También es aceptable 400 si se prefiere unificar con otras validaciones."
+  ],
+  "codigo_relevante": {
+    "ubicacion": "recetas/views.py (Clase1.post)",
+    "snippet": [
+      "from http import HTTPStatus",
+      "from django.http import JsonResponse",
+      "from .models import Receta",
+      "",
+      "class Clase1(APIView):",
+      "    def post(self, request):",
+      "        # ...validaciones de campos requeridos (nombre, tiempo, descripcion, categoria_id)...",
+      "",
+      "        # Validación de unicidad por nombre",
+      "        if Receta.objects.filter(nombre=request.data.get('nombre')).exists():",
+      "            return JsonResponse({",
+      "                'estado': 'error',",
+      "                'mensaje': f\"El nombre '{request.data.get('nombre')}' no está disponible\"",
+      "            }, status=HTTPStatus.CONFLICT)  # 409 recomendado",
+      "",
+      "        # Creación del registro (create)",
+      "        # Receta.objects.create(...)",
+      "        # return JsonResponse({'estado':'ok','mensaje':'Se crea el registro exitosamente'}, status=HTTPStatus.CREATED)"
+    ]
+  },
+  "archivos_modificados": [
+    "recetas/views.py"
+  ],
+  "pendientes": [
+    "Subida real de imagen (form-data) y guardado del nombre en 'foto'.",
+    "Posible normalización del nombre (trim, case-insensitive) antes de validar/crear."
+  ]
+}
