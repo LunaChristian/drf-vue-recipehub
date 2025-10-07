@@ -256,8 +256,12 @@
       "tema": "Creación del modelo Receta y relación ForeignKey con Categoría. Migraciones y registro en settings.py",
       "archivo_dialogo": "documentacion/clase_43/dialogo.txt",
       "archivo_notas": "documentacion/clase_43/notas.json"
+    },
+    {
+      "numero": 44,
+      "tema": "Creación del serializer RecetaSerializer para el modelo Receta",
+      "archivo_dialogo": "documentacion/clase_44/dialogo.txt",
+      "archivo_notas": "documentacion/clase_44/notas.json"
     }
-
-
   ]
 }

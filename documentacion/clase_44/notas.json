@@ -1,1 +1,37 @@
-{}
+{
+  "clase": 44,
+  "titulo": "Creación del serializer para el modelo Receta",
+  "contenido": [
+    "En esta clase se creó el serializer para la app 'recetas', permitiendo transformar los objetos del modelo Receta en formatos JSON para ser consumidos desde la API.",
+    "El archivo creado fue serializers.py dentro de la app 'recetas'.",
+    "Se reutilizó la estructura del serializer de 'categorías' adaptándolo al modelo Receta.",
+    "Código base del serializer:",
+    "from rest_framework import serializers",
+    "from .models import Receta",
+    "class RecetaSerializer(serializers.ModelSerializer):",
+    "    class Meta:",
+    "        model = Receta",
+    "        fields = '__all__'",
+    "Explicación:",
+    "- Se importó la clase base ModelSerializer desde rest_framework.",
+    "- Se vinculó el modelo 'Receta' al serializer.",
+    "- Se indicaron todos los campos del modelo con fields = '__all__'.",
+    "Este serializer permitirá serializar los objetos Receta para listarlos, crearlos o modificarlos desde las vistas.",
+    "En las próximas clases se implementará la vista (APIView) que listará todas las recetas utilizando este serializer.",
+    "También se mencionó que más adelante se introducirán mejoras y validaciones personalizadas dentro del serializer, pero por ahora se deja la configuración básica."
+  ],
+  "comandos_consola": [
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "recetas/serializers.py"
+  ],
+  "snippet_cambios_relevantes": [
+    "from rest_framework import serializers",
+    "from .models import Receta",
+    "class RecetaSerializer(serializers.ModelSerializer):",
+    "    class Meta:",
+    "        model = Receta",
+    "        fields = '__all__'"
+  ]
+}
