@@ -287,7 +287,14 @@
       "archivo_dialogo": "documentacion/clase_48/dialogo.txt",
       "archivo_notas": "documentacion/clase_48/notas.json"
     },
-    
+    {
+      "numero": 49,
+      "tema": "Creación del método POST para registrar recetas (inicio de carga con FormData)",
+      "archivo_dialogo": "documentacion/clase_49/dialogo.txt",
+      "archivo_notas": "documentacion/clase_49/notas.json"
+    }
+
+
 
   ]
 }

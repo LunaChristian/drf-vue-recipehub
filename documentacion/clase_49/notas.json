@@ -1,1 +1,61 @@
-{}
+{
+  "clase": 49,
+  "titulo": "Implementación inicial del método POST para crear recetas (sin foto aún)",
+  "contenido": [
+    "En esta clase se implementó el método POST dentro de la clase Clase1 de la vista 'recetas'.",
+    "A diferencia de la creación de categorías, aquí los datos se envían mediante 'multipart/form-data' (FormData) en lugar de JSON, ya que la receta incluye una imagen.",
+    "1. Se definió el método POST en la clase Clase1 (APIView):",
+    "       def post(self, request):",
+    "           try:",
+    "               Receta.objects.create(",
+    "                   nombre=request.data.get('nombre'),",
+    "                   tiempo=request.data.get('tiempo'),",
+    "                   descripcion=request.data.get('descripcion'),",
+    "                   categoria_id=request.data.get('categoria_id'),",
+    "                   fecha=datetime.now(),",
+    "                   foto='S'  # temporalmente se asigna un valor fijo",
+    "               )",
+    "           except Exception as e:",
+    "               raise Http404",
+    "2. Se importó el módulo datetime:",
+    "       from datetime import datetime",
+    "3. Se retornó una respuesta JSON con estado 201 (Created):",
+    "       return JsonResponse({",
+    "           'estado': 'ok',",
+    "           'mensaje': 'Se crea el registro exitosamente'",
+    "       }, status=HTTPStatus.CREATED)",
+    "4. Se probó desde Insomnia enviando el formulario con los campos: nombre, tiempo, descripcion, categoria_id.",
+    "   El registro se creó correctamente en la base de datos.",
+    "5. El campo foto quedó con un valor temporal ('S') a la espera de implementar la lógica para subir archivos.",
+    "6. En la base de datos se confirmó que la fecha se guardó correctamente con la hora actual y la categoría asociada.",
+    "7. Próximos pasos: agregar validaciones de datos y lógica para guardar la foto físicamente en 'uploads/recetas/'."
+  ],
+  "comandos_consola": [
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "recetas/views.py"
+  ],
+  "snippet_cambios_relevantes": [
+    "from datetime import datetime",
+    "",
+    "class Clase1(APIView):",
+    "    def post(self, request):",
+    "        try:",
+    "            Receta.objects.create(",
+    "                nombre=request.data.get('nombre'),",
+    "                tiempo=request.data.get('tiempo'),",
+    "                descripcion=request.data.get('descripcion'),",
+    "                categoria_id=request.data.get('categoria_id'),",
+    "                fecha=datetime.now(),",
+    "                foto='S'  # Temporal",
+    "            )",
+    "        except Exception as e:",
+    "            raise Http404",
+    "",
+    "        return JsonResponse({",
+    "            'estado': 'ok',",
+    "            'mensaje': 'Se crea el registro exitosamente'",
+    "        }, status=HTTPStatus.CREATED)"
+  ]
+}

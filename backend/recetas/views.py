@@ -1,3 +1,4 @@
+from datetime import datetime
 from http import HTTPStatus
 import os
 from rest_framework.response import Response
@@ -18,15 +19,22 @@ class Class_Receta_View(APIView):
         data_json = RecetaSerializer(data, many=True)
         return JsonResponse({"data":data_json.data}, status=HTTPStatus.OK)
     
-    """def post(self, request):
-        if request.data.get('titulo')==None or not request.data['titulo']:
+    def post(self, request):
+        if request.data.get('titulo_receta')==None or not request.data['titulo_receta']:
             return JsonResponse({"estado":"error", "mensaje":"campo obligatorio"}, status=HTTPStatus.BAD_REQUEST)
         try:
-            Receta.objects.create(titulo=request.data['titulo'])
+            Receta.objects.create(
+                titulo_receta=request.data['titulo_receta'],
+                tiempo = request.data['tiempo'],
+                descripcion = request.data['descripcion'],
+                categoria_id = request.data['categoria_id'],
+                fecha = datetime.now(),
+                foto = "sss"            
+                )
             return JsonResponse({"estado":"ok", "mensaje":"registro exitoso"}, status=HTTPStatus.CREATED)
         except Exception as e:
             print(f'error: {e}')
-            raise Http404 """
+            raise Http404
     
 class Class_Receta_View2(APIView):   
     
