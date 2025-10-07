@@ -274,6 +274,12 @@
       "tema": "Serializer personalizado: nombre de categoría y fecha formateada",
       "archivo_dialogo": "documentacion/clase_46/dialogo.txt",
       "archivo_notas": "documentacion/clase_46/notas.json"
+    },
+    {
+      "numero": 47,
+      "tema": "SerializerMethodField para construir URL absoluta de imagen (BASE_URL desde .env)",
+      "archivo_dialogo": "documentacion/clase_47/dialogo.txt",
+      "archivo_notas": "documentacion/clase_47/notas.json"
     }
   ]
 }

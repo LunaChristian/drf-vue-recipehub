@@ -1,1 +1,52 @@
-{}
+{
+  "clase": 47,
+  "titulo": "Campo calculado en el serializer para mostrar la URL absoluta de la imagen",
+  "contenido": [
+    "En esta clase se agregó al serializer de recetas un campo personalizado para construir la URL absoluta de la imagen.",
+    "Se utilizó un método de Django REST Framework llamado SerializerMethodField, el cual permite definir un campo calculado basado en lógica personalizada.",
+    "1. Se creó en el archivo .env (o variable global) una nueva variable:",
+    "   BASE_URL=http://127.0.0.1:8000/",
+    "   Esta servirá como base para construir las rutas absolutas dependiendo del entorno (local, staging, producción).",
+    "2. En el serializer se agregó un nuevo campo llamado imagen:",
+    "   imagen = serializers.SerializerMethodField()",
+    "3. Se definió el método get_imagen(self, obj) que construye la URL completa:",
+    "   def get_imagen(self, obj):",
+    "       import os",
+    "       from dotenv import load_dotenv",
+    "       load_dotenv()",
+    "       return os.getenv('BASE_URL') + 'uploads/recetas/' + str(obj.foto)",
+    "4. El campo 'imagen' se añadió a la lista de fields dentro de la clase Meta.",
+    "5. Se explicó que el método get_imagen puede retornar cualquier valor calculado dinámicamente (texto, formato, cálculos, etc.), lo que permite una gran flexibilidad.",
+    "6. Se probó el endpoint GET /api/v1/recetas/ y se verificó que la imagen se mostraba correctamente con la ruta completa:",
+    "   'imagen': 'http://127.0.0.1:8000/uploads/recetas/ejemplo.png'",
+    "7. También se discutió que en entornos productivos es común almacenar las imágenes en servicios externos (AWS S3, Google Cloud Storage, etc.), pero la lógica para construir la URL sigue siendo la misma.",
+    "8. Finalmente, se remarcó que la gestión de la URL desde una variable de entorno permite mantener un único código y cambiar solo la configuración según el ambiente."
+  ],
+  "comandos_consola": [
+    "pip install python-dotenv",
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "recetas/serializers.py",
+    ".env"
+  ],
+  "snippet_cambios_relevantes": [
+    "from rest_framework import serializers",
+    "from .models import Receta",
+    "from dotenv import load_dotenv",
+    "import os",
+    "",
+    "class RecetaSerializer(serializers.ModelSerializer):",
+    "    categoria = serializers.ReadOnlyField(source='categoria.nombre')",
+    "    fecha = serializers.DateTimeField(format='%d/%m/%Y')",
+    "    imagen = serializers.SerializerMethodField()",
+    "",
+    "    def get_imagen(self, obj):",
+    "        load_dotenv()",
+    "        return os.getenv('BASE_URL') + 'uploads/recetas/' + str(obj.foto)",
+    "",
+    "    class Meta:",
+    "        model = Receta",
+    "        fields = ('id', 'nombre', 'slug', 'tiempo', 'descripcion', 'fecha', 'categoria', 'categoria_id', 'imagen')"
+  ]
+}
