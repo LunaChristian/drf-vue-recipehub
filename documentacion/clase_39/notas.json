@@ -1,1 +1,29 @@
-{}
+{
+  "clase": 39,
+  "titulo": "Validación de campos requeridos en peticiones POST (Django REST)",
+  "contenido": [
+    "En esta clase se agregó validación al método POST de la vista de categorías para controlar que el campo 'nombre' sea obligatorio antes de crear el registro.",
+    "Se explicó que, aunque se puede validar desde el serializer, no conviene en este caso porque el modelo incluye un slug autogenerado que el cliente no debería enviar.",
+    "Por ese motivo, se implementó la validación directamente en la vista usando condiciones lógicas con el cuerpo del request.",
+    "Se agregó la siguiente condición antes de crear el registro:",
+    "if request.data.get('nombre') is None or not request.data.get('nombre'):",
+    "    return JsonResponse({'estado': 'error', 'mensaje': 'El campo nombre es obligatorio'}, status=status.HTTP_400_BAD_REQUEST)",
+    "Si el valor no viene o está vacío, se devuelve un JSON con estado 'error' y un mensaje descriptivo, junto con el código HTTP 400 (Bad Request).",
+    "Si el nombre está presente, el código procede a crear el registro normalmente y devuelve una respuesta con estado HTTP 201 (Created).",
+    "Se realizaron pruebas con Postman/Insomnia:",
+    "- Caso 1: Enviar JSON vacío o sin 'nombre' → Respuesta con código 400 y mensaje de error.",
+    "- Caso 2: Enviar {'nombre': 'Tortas y postres'} → Respuesta 201, registro creado correctamente y slug autogenerado.",
+    "Se enfatizó la importancia de no mezclar validaciones lógicas de datos con bloques try/except, para mantener un flujo de errores controlado y claro."
+  ],
+  "comandos_consola": [
+    "python manage.py runserver"
+  ],
+  "archivos_modificados": [
+    "categorias/views.py"
+  ],
+  "snippet_cambios_relevantes": [
+    "if request.data.get('nombre') is None or not request.data.get('nombre'):",
+    "    return JsonResponse({'estado': 'error', 'mensaje': 'El campo nombre es obligatorio'}, status=status.HTTP_400_BAD_REQUEST)",
+    "Categoria.objects.create(nombre=request.data['nombre'])"
+  ]
+}

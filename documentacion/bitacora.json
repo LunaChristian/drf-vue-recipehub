@@ -226,6 +226,13 @@
       "tema": "Creación de categorías mediante método POST en Django REST Framework",
       "archivo_dialogo": "documentacion/clase_38/dialogo.txt",
       "archivo_notas": "documentacion/clase_38/notas.json"
+    },
+    {
+      "numero": 39,
+      "tema": "Validación del campo 'nombre' en POST de categorías con respuesta HTTP 400",
+      "archivo_dialogo": "documentacion/clase_39/dialogo.txt",
+      "archivo_notas": "documentacion/clase_39/notas.json"
     }
+
   ]
 }

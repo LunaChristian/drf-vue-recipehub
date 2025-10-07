@@ -14,6 +14,8 @@ class Class_Categoria_View(APIView):
         return JsonResponse({"data":data_json.data}, status=HTTPStatus.OK)
     
     def post(self, request):
+        if request.data.get('titulo')==None or not request.data['titulo']:
+            return JsonResponse({"estado":"error", "mensaje":"campo obligatorio"}, status=HTTPStatus.BAD_REQUEST)
         try:
             Categoria.objects.create(titulo=request.data['titulo'])
             return JsonResponse({"estado":"ok", "mensaje":"registro exitoso"}, status=HTTPStatus.CREATED)
