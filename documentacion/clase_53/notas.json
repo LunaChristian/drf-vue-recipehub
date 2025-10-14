@@ -1,1 +1,61 @@
-{}
+{
+  "clase": 53,
+  "titulo": "Implementación de subida de foto en POST de recetas (FileSystemStorage)",
+  "contenido": [
+    "Se completó la funcionalidad del método POST para permitir la subida de una imagen (campo 'foto') al crear una receta.",
+    "Se utiliza FileSystemStorage para guardar el archivo físicamente en la carpeta 'uploads/recetas/'.",
+    "El nombre del archivo se genera dinámicamente con la fecha/hora actual para evitar colisiones.",
+    "El campo 'foto' del modelo guarda solo el nombre del archivo, mientras que el archivo real se almacena en el sistema.",
+    "Se añadieron validaciones con excepciones para detectar si el campo de imagen está vacío o si ocurre un error durante la subida.",
+    "Al finalizar, el registro se crea correctamente con su nombre de imagen asociado y disponible para mostrar en el frontend mediante la URL absoluta construida en el serializer."
+  ],
+  "codigo_relevante": {
+    "ubicacion": "recetas/views.py (Clase1.post)",
+    "snippet": [
+      "from django.core.files.storage import FileSystemStorage",
+      "from datetime import datetime",
+      "",
+      "class Clase1(APIView):",
+      "    def post(self, request):",
+      "        # ...validaciones previas (nombre, tiempo, descripcion, categoria_id, unicidad)...",
+      "",
+      "        # Subida de foto",
+      "        try:",
+      "            fs = FileSystemStorage()",
+      "            fecha = datetime.now()",
+      "            foto = request.FILES.get('foto')",
+      "            if not foto:",
+      "                raise Exception('Debe adjuntar una foto en el campo foto')",
+      "",
+      "            nombre_foto = f\"receta_{fecha.strftime('%Y%m%d%H%M%S')}_{foto.name}\"",
+      "            fs.save(f\"recetas/{nombre_foto}\", foto)",
+      "        except Exception as e:",
+      "            return JsonResponse({",
+      "                'estado': 'error',",
+      "                'mensaje': 'Debe adjuntar una foto para la receta.'",
+      "            }, status=HTTPStatus.BAD_REQUEST)",
+      "",
+      "        # Creación de la receta con referencia al nombre del archivo",
+      "        Receta.objects.create(",
+      "            nombre=request.data.get('nombre'),",
+      "            tiempo=request.data.get('tiempo'),",
+      "            descripcion=request.data.get('descripcion'),",
+      "            categoria_id=request.data.get('categoria_id'),",
+      "            fecha=datetime.now(),",
+      "            foto=nombre_foto",
+      "        )",
+      "",
+      "        return JsonResponse({",
+      "            'estado': 'ok',",
+      "            'mensaje': 'Se crea el registro exitosamente.'",
+      "        }, status=HTTPStatus.CREATED)"
+    ]
+  },
+  "archivos_modificados": [
+    "recetas/views.py"
+  ],
+  "pendientes": [
+    "Agregar validación de tipo y tamaño del archivo de imagen.",
+    "Centralizar configuración del directorio de uploads (en settings o variable de entorno)."
+  ]
+}

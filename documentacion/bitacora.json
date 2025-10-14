@@ -310,7 +310,14 @@
       "tema": "Validación de existencia de categoría en POST (Categoria.DoesNotExist)",
       "archivo_dialogo": "documentacion/clase_52/dialogo.txt",
       "archivo_notas": "documentacion/clase_52/notas.json"
+    },
+    {
+      "numero": 53,
+      "tema": "Subida de imagen en POST de recetas con FileSystemStorage",
+      "archivo_dialogo": "documentacion/clase_53/dialogo.txt",
+      "archivo_notas": "documentacion/clase_53/notas.json"
     }
+
 
   ]
 }

@@ -1,17 +1,21 @@
+import os
 from datetime import datetime
 from http import HTTPStatus
-import os
+
+from django.core.files.storage import FileSystemStorage
+from django.http import Http404, HttpResponse, JsonResponse
+from django.utils.dateformat import DateFormat
+from django.utils.text import slugify
+# Third-party
+from dotenv import load_dotenv
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.http import Http404, HttpResponse, JsonResponse
 
 from categorias.models import Categoria
 
-from .serializers import RecetaSerializer
 from .models import Receta
-from django.utils.text import slugify
-from django.utils.dateformat import DateFormat
-from dotenv import load_dotenv
+from .serializers import RecetaSerializer
+
 
 # Create your views here.
 class Class_Receta_View(APIView):
@@ -22,7 +26,7 @@ class Class_Receta_View(APIView):
         return JsonResponse({"data":data_json.data}, status=HTTPStatus.OK)
     
     def post(self, request):
-        required_fields = ["titulo_receta", "tiempo", "descripcion", "categoria_id"]
+        required_fields = ["titulo_receta", "tiempo", "descripcion", "categoria_id", "archivo"]
         for field in required_fields:
             if not request.data.get(field):
                 return JsonResponse(
@@ -47,14 +51,23 @@ class Class_Receta_View(APIView):
                 status=HTTPStatus.BAD_REQUEST,
             )
         
+        fs = FileSystemStorage()
+        img = f"{datetime.timestamp(datetime.now())}{os.path.splitext(str(request.FILES['archivo']))[1]}"
+        
+        try:
+            fs.save(f"recetas/{img}", request.FILES['archivo'])
+            fs.url(request.FILES['archivo'])
+        except Exception as e:
+            return JsonResponse({"estado":"error", "mensaje":"Error al cargar el archivo"}, status=HTTPStatus.BAD_REQUEST)
+        
         try:
             Receta.objects.create(
-                titulo_receta=request.data['titulo_receta'],
+                titulo_receta = request.data['titulo_receta'],
                 tiempo = request.data['tiempo'],
                 descripcion = request.data['descripcion'],
                 categoria_id = request.data['categoria_id'],
                 fecha = datetime.now(),
-                foto = "sss"            
+                foto = img
                 )
             return JsonResponse({"estado":"ok", "mensaje":"registro exitoso"}, status=HTTPStatus.CREATED)
         except Exception as e:

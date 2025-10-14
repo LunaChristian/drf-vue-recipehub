@@ -1,6 +1,8 @@
-from django.db import models
 from autoslug import AutoSlugField
+from django.db import models
+
 from categorias.models import Categoria
+
 
 # Create your models here.
 class Receta(models.Model):

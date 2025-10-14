@@ -1,10 +1,13 @@
 from http import HTTPStatus
+
+from django.http import Http404, HttpResponse, JsonResponse
+from django.utils.text import slugify
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.utils.text import slugify
-from django.http import Http404, HttpResponse, JsonResponse
+
 from .models import Categoria
 from .serializers import CategoriaSerializer
+
 
 # Create your views here.
 class Class_Categoria_View(APIView):

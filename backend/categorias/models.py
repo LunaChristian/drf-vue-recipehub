@@ -1,5 +1,6 @@
-from django.db import models
 from autoslug import AutoSlugField
+from django.db import models
+
 
 # Create your models here.
 class Categoria(models.Model):
