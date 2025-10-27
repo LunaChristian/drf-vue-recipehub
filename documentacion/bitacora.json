@@ -340,8 +340,12 @@
   "tema": "Validación en DELETE de Categorías: bloquear eliminación si hay recetas asociadas",
   "archivo_dialogo": "documentacion/clase_57/dialogo.txt",
   "archivo_notas": "documentacion/clase_57/notas.json"
+},
+{
+  "numero": "58-65",
+  "tema": "Omitido: módulo de Contacto (POST + SMTP)",
+  "archivo_dialogo": "documentacion/clase_58_65/dialogo.txt",
+  "archivo_notas": "documentacion/clase_58_65/notas.json"
 }
-
-
   ]
 }
