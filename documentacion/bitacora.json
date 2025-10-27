@@ -369,6 +369,18 @@
     "docs(clase_67): notas sobre modelo de usuarios y autenticación base en Django",
     "docs(bitacora): actualización con resumen de clase 67"
   ]
+},
+{
+  "numero": 68,
+  "tema": "Extensión del modelo User mediante UserMetadata",
+  "archivo_dialogo": "documentacion/clase_68/dialogo.txt",
+  "archivo_notas": "documentacion/clase_68/notas.json",
+  "resumen_corto": "Se crea el modelo UserMetadata vinculado al modelo User. Se agrega un campo token y se ejecutan las migraciones.",
+  "commit_msgs": [
+    "feat(seguridad): crear modelo UserMetadata y relación con User",
+    "docs(clase_68): agregar notas de la clase sobre extensión del modelo User",
+    "docs(bitacora): actualización con resumen de clase 68"
+  ]
 }
 
 
