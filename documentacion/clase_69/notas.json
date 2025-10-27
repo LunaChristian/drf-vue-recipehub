@@ -1,1 +1,70 @@
-{}
+{
+  "clase": 69,
+  "titulo": "Seguridad - Registro de usuario (validaciones básicas)",
+  "contexto": {
+    "modulo": "seguridad",
+    "ruta": "seguridad/registro",
+    "vista": "Clase1 (POST)",
+    "estado": "endpoint en construcción con validaciones iniciales"
+  },
+  "objetivos": [
+    "Crear endpoint de registro de usuarios",
+    "Validar campos mínimos requeridos",
+    "Responder con errores HTTP 400 cuando falten datos"
+  ],
+  "puntos_clave": [
+    "Validaciones: `nombre`, `correo`, `password` son obligatorios",
+    "Formato de entrada: puede ser `form-data` o `JSON` (ambos soportables)",
+    "Respuesta de error: `JsonResponse` con `status=HTTPStatus.BAD_REQUEST`",
+    "Mensajería estándar: `{estado: 'error'|'ok', mensaje: '...'}`"
+  ],
+  "flujo_basico": [
+    "POST /seguridad/registro",
+    "1) Validar campos requeridos",
+    "2) (Futuro) Crear usuario en `auth_user` y su `users_metadata` asociado",
+    "3) (Futuro) Hash de contraseña y token de verificación",
+    "4) Responder 201/200 con confirmación"
+  ],
+  "validaciones": {
+    "requeridos": ["nombre", "correo", "password"],
+    "status_error": 400,
+    "estructura_error": {
+      "estado": "error",
+      "mensaje": "Campo X es obligatorio"
+    }
+  },
+  "formato_entrada": {
+    "opciones": ["application/json", "multipart/form-data"],
+    "nota": "La API debe ser tolerante a ambos formatos según el cliente (JSON / form-data)."
+  },
+  "snippets": {
+    "pseudo_codigo_post": [
+      "if not request.data.get('nombre'): return JsonResponse({...}, status=400)",
+      "if not request.data.get('correo'): return JsonResponse({...}, status=400)",
+      "if not request.data.get('password'): return JsonResponse({...}, status=400)"
+    ]
+  },
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/seguridad/registro",
+      "auth": "public",
+      "body": {
+        "nombre": "string",
+        "correo": "string",
+        "password": "string"
+      },
+      "respuestas": [
+        { "status": 400, "body": {"estado": "error", "mensaje": "..." } },
+        { "status": 201, "body": {"estado": "ok", "mensaje": "registro creado"} }
+      ]
+    }
+  ],
+  "tareas_pendientes": [
+    "Crear usuario en `auth_user` con hash de contraseña",
+    "Crear registro en `users_metadata` (FK a user) con `token`",
+    "Evitar duplicados por `username/email` (validar existencia previa)",
+    "Retornar 201 y, si aplica, enviar email de verificación",
+    "Tests: JSON y form-data; casos de error/éxito"
+  ]
+}

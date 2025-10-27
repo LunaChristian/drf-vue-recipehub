@@ -381,7 +381,28 @@
     "docs(clase_68): agregar notas de la clase sobre extensión del modelo User",
     "docs(bitacora): actualización con resumen de clase 68"
   ]
+},
+{
+  "numero": 69,
+  "tema": "Registro de usuario: validaciones básicas (nombre, correo, password) en /seguridad/registro",
+  "archivo_dialogo": "documentacion/clase_69/dialogo.txt",
+  "archivo_notas": "documentacion/clase_69/notas.json",
+  "resumen_corto": "Se define el endpoint de registro y se agregan validaciones de campos requeridos con respuestas HTTP 400.",
+  "commit_msgs": [
+    "docs(clase_69): registro de usuario — validaciones básicas (nombre, correo, password)"
+  ]
+},
+{
+  "numero": 69,
+  "tema": "Registro de usuario: validaciones básicas (nombre, correo, password) en /seguridad/registro",
+  "archivo_dialogo": "documentacion/clase_69/dialogo.txt",
+  "archivo_notas": "documentacion/clase_69/notas.json",
+  "resumen_corto": "Se define el endpoint de registro y se agregan validaciones de campos requeridos con respuestas HTTP 400.",
+  "commit_msgs": [
+    "docs(clase_69): registro de usuario — validaciones básicas (nombre, correo, password)"
+  ]
 }
+
 
 
   ]
