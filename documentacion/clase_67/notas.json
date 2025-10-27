@@ -1,1 +1,44 @@
-{}
+{
+  "numero": 67,
+  "tema": "Modelo de usuarios en Django y autenticación base",
+  "resumen": [
+    "Se analiza la estructura interna del modelo auth_user de Django.",
+    "Se explica el significado de los campos clave como is_staff, is_active y password (hash).",
+    "Se muestra cómo crear un superusuario mediante la consola.",
+    "Se detalla cómo extender el modelo de usuario mediante una tabla complementaria (UserMetadata)."
+  ],
+  "objetivos": [
+    "Comprender cómo Django maneja usuarios y contraseñas de forma segura.",
+    "Aprender a crear y administrar superusuarios con permisos administrativos.",
+    "Conocer las buenas prácticas para extender el modelo de usuario sin modificar auth_user."
+  ],
+  "comandos": [
+    "python manage.py createsuperuser"
+  ],
+  "conceptos_tecnicos": [
+    "Modelo auth_user",
+    "Campos is_staff e is_active",
+    "Hash de contraseñas vs encriptación",
+    "Extensión del modelo de usuario mediante una tabla externa"
+  ],
+  "snippets_clave": {
+    "creación_superusuario": [
+      "python manage.py createsuperuser",
+      "Username: correo electrónico (recomendado)",
+      "Password: se guarda como hash en la base de datos"
+    ]
+  },
+  "panel_admin": {
+    "ruta": "/admin",
+    "acceso": "Usuario con is_staff=True",
+    "funcion": "Administrar tablas del framework y modelos propios"
+  },
+  "decisiones": [
+    "No modificar el modelo auth_user directamente.",
+    "Agregar futuras extensiones mediante una tabla UserMetadata vinculada al usuario."
+  ],
+  "pendientes": [
+    "Implementar sistema de registro y autenticación personalizada en la app 'seguridad'.",
+    "Definir modelo extendido para almacenar datos adicionales del usuario."
+  ]
+}

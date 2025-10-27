@@ -358,7 +358,19 @@
     "chore(urls): incluir rutas de seguridad en backend/urls.py",
     "docs: agregar notas de clase 66 (módulo de seguridad)"
   ]
+},
+{
+  "numero": 67,
+  "tema": "Modelo de usuarios y autenticación base en Django",
+  "archivo_dialogo": "documentacion/clase_67/dialogo.txt",
+  "archivo_notas": "documentacion/clase_67/notas.json",
+  "resumen_corto": "Se estudia el modelo auth_user, sus campos, la diferencia entre hash y encriptación, y la creación de superusuarios.",
+  "commit_msgs": [
+    "docs(clase_67): notas sobre modelo de usuarios y autenticación base en Django",
+    "docs(bitacora): actualización con resumen de clase 67"
+  ]
 }
+
 
   ]
 }
