@@ -328,6 +328,20 @@
   "tema": "PUT de Receta: actualización con validación de campos (titulo_receta, tiempo, descripcion, categoria_id) y verificación de categoría",
   "archivo_dialogo": "documentacion/clase_55/dialogo.txt",
   "archivo_notas": "documentacion/clase_55/notas.json"
+},
+{
+  "numero": 56,
+  "tema": "Método DELETE de Receta: eliminación de registro y archivo físico (os.remove con MEDIA_ROOT)",
+  "archivo_dialogo": "documentacion/clase_56/dialogo.txt",
+  "archivo_notas": "documentacion/clase_56/notas.json"
+},
+{
+  "numero": 57,
+  "tema": "Validación en DELETE de Categorías: bloquear eliminación si hay recetas asociadas",
+  "archivo_dialogo": "documentacion/clase_57/dialogo.txt",
+  "archivo_notas": "documentacion/clase_57/notas.json"
 }
+
+
   ]
 }

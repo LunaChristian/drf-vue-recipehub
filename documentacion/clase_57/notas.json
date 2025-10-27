@@ -1,1 +1,62 @@
-{}
+{
+  "clase": 57,
+  "titulo": "Categorías: impedir eliminación si tiene recetas asociadas",
+  "resumen": [
+    "Se agrega una validación en DELETE /categorias/<id> para NO permitir la eliminación de una categoría que esté siendo usada por alguna receta.",
+    "Se consulta la existencia de recetas vinculadas mediante exists() antes de borrar.",
+    "Se retorna 400 (Bad Request) con mensaje genérico si la categoría está asociada a recetas.",
+    "Si la categoría no existe -> 404.",
+    "Si no tiene recetas asociadas -> se elimina y retorna 200."
+  ],
+  "detalles_implementacion": {
+    "endpoint": "DELETE /api/v1/categorias/<id>",
+    "flujo": [
+      "Intentar obtener la categoría por pk=id (si no existe -> Http404).",
+      "Comprobar si existe alguna receta vinculada: Receta.objects.filter(categoria_id=id).exists().",
+      "Si existe al menos una, devolver 400 con mensaje genérico.",
+      "Si no existen, eliminar la categoría y devolver 200."
+    ],
+    "importaciones_necesarias": [
+      "from recetas.models import Receta"
+    ],
+    "consideraciones": [
+      "Usar mensajes de error genéricos por seguridad.",
+      "Este control es a nivel de aplicación; como mejora, puedes reforzarlo a nivel de modelo con ForeignKey(..., on_delete=models.PROTECT) en Receta.categoria."
+    ]
+  },
+  "codigo_relevante": {
+    "ubicacion": "categorias/views.py (vista DELETE con parámetro id)",
+    "snippet": [
+      "from recetas.models import Receta",
+      "",
+      "def delete(self, request, id):",
+      "    # 1) ¿Existe la categoría?",
+      "    try:",
+      "        categoria = Categoria.objects.filter(pk=id).get()",
+      "    except Categoria.DoesNotExist:",
+      "        raise Http404",
+      "",
+      "    # 2) ¿Tiene recetas asociadas?",
+      "    if Receta.objects.filter(categoria_id=id).exists():",
+      "        return JsonResponse(",
+      "            {\"estado\": \"error\", \"mensaje\": \"Ocurrió un error inesperado\"},",
+      "            status=HTTPStatus.BAD_REQUEST",
+      "        )",
+      "",
+      "    # 3) Eliminar la categoría",
+      "    Categoria.objects.filter(pk=id).delete()",
+      "    return JsonResponse(",
+      "        {\"estado\": \"ok\", \"mensaje\": \"se elimina el registro exitosamente\"},",
+      "        status=HTTPStatus.OK",
+      "    )"
+    ]
+  },
+  "mejoras_sugeridas": [
+    "Cambiar la FK en Receta.categoria a on_delete=models.PROTECT para blindar a nivel BD.",
+    "Añadir logs (categoría eliminada, intentos bloqueados por tener recetas).",
+    "Tests: cubrir casos (404 si no existe; 400 si tiene recetas; 200 si no tiene y se borra)."
+  ],
+  "archivos_modificados": [
+    "categorias/views.py"
+  ]
+}

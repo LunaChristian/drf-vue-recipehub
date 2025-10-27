@@ -7,6 +7,7 @@ from rest_framework.views import APIView
 
 from .models import Categoria
 from .serializers import CategoriaSerializer
+from recetas.models import Receta
 
 
 # Create your views here.
@@ -18,8 +19,15 @@ class Class_Categoria_View(APIView):
         return JsonResponse({"data":data_json.data}, status=HTTPStatus.OK)
     
     def post(self, request):
-        if request.data.get('titulo')==None or not request.data['titulo']:
-            return JsonResponse({"estado":"error", "mensaje":"campo obligatorio"}, status=HTTPStatus.BAD_REQUEST)
+        
+        required_fields = ["titulo"] 
+        for field in required_fields:
+            if not request.data.get(field):
+                return JsonResponse(
+                    {"estado": "error", "mensaje": f"El campo '{field}' es obligatorio"},
+                    status=HTTPStatus.BAD_REQUEST,
+                )
+                
         try:
             Categoria.objects.create(titulo=request.data['titulo'])
             return JsonResponse({"estado":"ok", "mensaje":"registro exitoso"}, status=HTTPStatus.CREATED)
@@ -50,8 +58,13 @@ class Class_Categoria_View2(APIView):
     def delete(sefl, request, id):
         
         try:
-            #data = Categoria.objects.filter(pk=id).get()
-            Categoria.objects.filter(pk=id).delete()
-            return JsonResponse({"estado":"ok", "mensaje":"eliminacion exitosa"}, status=HTTPStatus.OK)
+            data = Categoria.objects.filter(pk=id).get()
+            
         except Categoria.DoesNotExist:
             raise Http404
+        
+        if Receta.objects.filter(categoria_id=id).exists():
+            return JsonResponse({"estado":"error", "mensaje":"Error al eliminar Categoria"}, status=HTTPStatus.BAD_REQUEST)
+
+        Categoria.objects.filter(pk=id).delete()
+        return JsonResponse({"estado":"ok", "mensaje":"eliminacion exitosa"}, status=HTTPStatus.OK)
