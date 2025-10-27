@@ -3,7 +3,10 @@ from http import HTTPStatus
 from django.http import Http404, JsonResponse
 from rest_framework.views import APIView
 
-from .models import *
+from django.contrib.auth.models import User
+import uuid, os
+from dotenv import load_dotenv
+from .models import UsersMetada
 
 # Create your views here.
 
@@ -20,3 +23,6 @@ class Clase_1(APIView):
                 
         if User.objects.filter(email=request.data["correo"]).exists():
             return JsonResponse({"estado":"error", "mensaje":"Error: el correo ya existe"}, status=HTTPStatus.BAD_REQUEST)
+        
+        token = uuid.uuid4()
+        url = f"{os.getenv("BASE_URL")}api/v1/seguridad/verificacion/{token}"

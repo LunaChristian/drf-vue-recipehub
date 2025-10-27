@@ -1,1 +1,31 @@
-{}
+{
+  "numero": 71,
+  "titulo": "Generación de token de activación con UUID y construcción de URL de verificación",
+  "resumen": "Se prepara el flujo de registro de usuario con validación por correo electrónico. Se genera un token único usando la librería UUID, que se almacena en UserMetadata y se incluye en una URL de verificación enviada al usuario.",
+  "detalles": {
+    "app": "seguridad",
+    "endpoint": "POST /seguridad/registro",
+    "descripcion": "Durante el registro del usuario, se genera un token único con UUID4. Este token se almacena junto al usuario en la tabla UserMetadata. Luego se construye una URL de verificación con la variable BASE_URL cargada desde .env y el token como parámetro path."
+  },
+  "flujo_verificacion": {
+    "pasos": [
+      "Registrar el usuario en la tabla auth_user con is_active = False (0).",
+      "Crear un registro en UserMetadata asociado al usuario con el token generado.",
+      "Construir una URL con el token: {BASE_URL}/api/v1/seguridad/verificacion/<token>/",
+      "Enviar esa URL por correo electrónico al usuario.",
+      "El endpoint de verificación (a implementar) validará el token, eliminará el token del usuario y activará su cuenta."
+    ]
+  },
+  "notas_tecnicas": [
+    "Se utiliza `uuid.uuid4()` para generar tokens únicos.",
+    "El módulo `os` y `dotenv` permiten leer BASE_URL desde el archivo .env.",
+    "El token se reutiliza para guardar en la base de datos y generar la URL; debe crearse una sola vez por usuario.",
+    "No se utiliza JWT, ya que solo se requiere una validación puntual de cuenta."
+  ],
+  "proximos_pasos": [
+    "Registrar efectivamente al usuario en auth_user y crear el registro en UserMetadata.",
+    "Enviar correo con la URL generada.",
+    "Crear endpoint GET /seguridad/verificacion/<token>/ para activar usuarios.",
+    "Eliminar el token de UserMetadata tras la verificación."
+  ]
+}

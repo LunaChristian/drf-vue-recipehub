@@ -402,7 +402,19 @@
     "feat(seguridad): validación de duplicidad de correo en registro de usuario",
     "docs(clase_70): notas sobre verificación de correo existente"
   ]
+},
+{
+  "numero": 71,
+  "tema": "Generación de token de activación con UUID y construcción de URL de verificación",
+  "archivo_dialogo": "documentacion/clase_71/dialogo.txt",
+  "archivo_notas": "documentacion/clase_71/notas.json",
+  "resumen_corto": "Se genera un token único con UUID4 para validar la activación de cuentas y se construye la URL de verificación con BASE_URL del .env.",
+  "commit_msgs": [
+    "feat(seguridad): generación de token UUID para verificación de usuario",
+    "docs(clase_71): notas sobre flujo de activación de cuenta con token"
+  ]
 }
+
 
   ]
 }
