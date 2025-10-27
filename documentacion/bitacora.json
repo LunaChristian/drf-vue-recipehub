@@ -324,86 +324,85 @@
       "archivo_notas": "documentacion/clase_54/notas.json"
     },
     {
-  "numero": 55,
-  "tema": "PUT de Receta: actualización con validación de campos (titulo_receta, tiempo, descripcion, categoria_id) y verificación de categoría",
-  "archivo_dialogo": "documentacion/clase_55/dialogo.txt",
-  "archivo_notas": "documentacion/clase_55/notas.json"
-},
-{
-  "numero": 56,
-  "tema": "Método DELETE de Receta: eliminación de registro y archivo físico (os.remove con MEDIA_ROOT)",
-  "archivo_dialogo": "documentacion/clase_56/dialogo.txt",
-  "archivo_notas": "documentacion/clase_56/notas.json"
-},
-{
-  "numero": 57,
-  "tema": "Validación en DELETE de Categorías: bloquear eliminación si hay recetas asociadas",
-  "archivo_dialogo": "documentacion/clase_57/dialogo.txt",
-  "archivo_notas": "documentacion/clase_57/notas.json"
-},
-{
-  "numero": "58-65",
-  "tema": "Omitido: módulo de Contacto (POST + SMTP)",
-  "archivo_dialogo": "documentacion/clase_58_65/dialogo.txt",
-  "archivo_notas": "documentacion/clase_58_65/notas.json"
-},
-{
-  "numero": 66,
-  "tema": "Inicio del módulo de seguridad y configuración de la app 'seguridad'",
-  "archivo_dialogo": "documentacion/clase_66/dialogo.txt",
-  "archivo_notas": "documentacion/clase_66/notas.json",
-  "resumen_corto": "Se crea la app 'seguridad' y se prepara una ruta de registro base. Se define el enfoque de seguridad selectiva: endpoints públicos vs. privados.",
+      "numero": 55,
+      "tema": "PUT de Receta: actualización con validación de campos (titulo_receta, tiempo, descripcion, categoria_id) y verificación de categoría",
+      "archivo_dialogo": "documentacion/clase_55/dialogo.txt",
+      "archivo_notas": "documentacion/clase_55/notas.json"
+    },
+    {
+      "numero": 56,
+      "tema": "Método DELETE de Receta: eliminación de registro y archivo físico (os.remove con MEDIA_ROOT)",
+      "archivo_dialogo": "documentacion/clase_56/dialogo.txt",
+      "archivo_notas": "documentacion/clase_56/notas.json"
+    },
+    {
+      "numero": 57,
+      "tema": "Validación en DELETE de Categorías: bloquear eliminación si hay recetas asociadas",
+      "archivo_dialogo": "documentacion/clase_57/dialogo.txt",
+      "archivo_notas": "documentacion/clase_57/notas.json"
+    },
+    {
+      "numero": "58-65",
+      "tema": "Omitido: módulo de Contacto (POST + SMTP)",
+      "archivo_dialogo": "documentacion/clase_58_65/dialogo.txt",
+      "archivo_notas": "documentacion/clase_58_65/notas.json"
+    },
+    {
+      "numero": 66,
+      "tema": "Inicio del módulo de seguridad y configuración de la app 'seguridad'",
+      "archivo_dialogo": "documentacion/clase_66/dialogo.txt",
+      "archivo_notas": "documentacion/clase_66/notas.json",
+      "resumen_corto": "Se crea la app 'seguridad' y se prepara una ruta de registro base. Se define el enfoque de seguridad selectiva: endpoints públicos vs. privados.",
+      "commit_msgs": [
+        "feat(seguridad): crear app y ruta base de registro",
+        "chore(urls): incluir rutas de seguridad en backend/urls.py",
+        "docs: agregar notas de clase 66 (módulo de seguridad)"
+      ]
+    },
+    {
+      "numero": 67,
+      "tema": "Modelo de usuarios y autenticación base en Django",
+      "archivo_dialogo": "documentacion/clase_67/dialogo.txt",
+      "archivo_notas": "documentacion/clase_67/notas.json",
+      "resumen_corto": "Se estudia el modelo auth_user, sus campos, la diferencia entre hash y encriptación, y la creación de superusuarios.",
+      "commit_msgs": [
+        "docs(clase_67): notas sobre modelo de usuarios y autenticación base en Django",
+        "docs(bitacora): actualización con resumen de clase 67"
+      ]
+    },
+    {
+      "numero": 68,
+      "tema": "Extensión del modelo User mediante UserMetadata",
+      "archivo_dialogo": "documentacion/clase_68/dialogo.txt",
+      "archivo_notas": "documentacion/clase_68/notas.json",
+      "resumen_corto": "Se crea el modelo UserMetadata vinculado al modelo User. Se agrega un campo token y se ejecutan las migraciones.",
+      "commit_msgs": [
+        "feat(seguridad): crear modelo UserMetadata y relación con User",
+        "docs(clase_68): agregar notas de la clase sobre extensión del modelo User",
+        "docs(bitacora): actualización con resumen de clase 68"
+      ]
+    },
+    {
+      "numero": 69,
+      "tema": "Registro de usuario: validaciones básicas (nombre, correo, password) en /seguridad/registro",
+      "archivo_dialogo": "documentacion/clase_69/dialogo.txt",
+      "archivo_notas": "documentacion/clase_69/notas.json",
+      "resumen_corto": "Se define el endpoint de registro y se agregan validaciones de campos requeridos con respuestas HTTP 400.",
+      "commit_msgs": [
+        "docs(clase_69): registro de usuario — validaciones básicas (nombre, correo, password)"
+      ]
+    },
+    {
+  "numero": 70,
+  "tema": "Validación de duplicidad de correo en registro de usuario",
+  "archivo_dialogo": "documentacion/clase_70/dialogo.txt",
+  "archivo_notas": "documentacion/clase_70/notas.json",
+  "resumen_corto": "Se agrega verificación para evitar registros con correos existentes en auth_user. Retorna error HTTP 400 si el correo ya está registrado.",
   "commit_msgs": [
-    "feat(seguridad): crear app y ruta base de registro",
-    "chore(urls): incluir rutas de seguridad en backend/urls.py",
-    "docs: agregar notas de clase 66 (módulo de seguridad)"
-  ]
-},
-{
-  "numero": 67,
-  "tema": "Modelo de usuarios y autenticación base en Django",
-  "archivo_dialogo": "documentacion/clase_67/dialogo.txt",
-  "archivo_notas": "documentacion/clase_67/notas.json",
-  "resumen_corto": "Se estudia el modelo auth_user, sus campos, la diferencia entre hash y encriptación, y la creación de superusuarios.",
-  "commit_msgs": [
-    "docs(clase_67): notas sobre modelo de usuarios y autenticación base en Django",
-    "docs(bitacora): actualización con resumen de clase 67"
-  ]
-},
-{
-  "numero": 68,
-  "tema": "Extensión del modelo User mediante UserMetadata",
-  "archivo_dialogo": "documentacion/clase_68/dialogo.txt",
-  "archivo_notas": "documentacion/clase_68/notas.json",
-  "resumen_corto": "Se crea el modelo UserMetadata vinculado al modelo User. Se agrega un campo token y se ejecutan las migraciones.",
-  "commit_msgs": [
-    "feat(seguridad): crear modelo UserMetadata y relación con User",
-    "docs(clase_68): agregar notas de la clase sobre extensión del modelo User",
-    "docs(bitacora): actualización con resumen de clase 68"
-  ]
-},
-{
-  "numero": 69,
-  "tema": "Registro de usuario: validaciones básicas (nombre, correo, password) en /seguridad/registro",
-  "archivo_dialogo": "documentacion/clase_69/dialogo.txt",
-  "archivo_notas": "documentacion/clase_69/notas.json",
-  "resumen_corto": "Se define el endpoint de registro y se agregan validaciones de campos requeridos con respuestas HTTP 400.",
-  "commit_msgs": [
-    "docs(clase_69): registro de usuario — validaciones básicas (nombre, correo, password)"
-  ]
-},
-{
-  "numero": 69,
-  "tema": "Registro de usuario: validaciones básicas (nombre, correo, password) en /seguridad/registro",
-  "archivo_dialogo": "documentacion/clase_69/dialogo.txt",
-  "archivo_notas": "documentacion/clase_69/notas.json",
-  "resumen_corto": "Se define el endpoint de registro y se agregan validaciones de campos requeridos con respuestas HTTP 400.",
-  "commit_msgs": [
-    "docs(clase_69): registro de usuario — validaciones básicas (nombre, correo, password)"
+    "feat(seguridad): validación de duplicidad de correo en registro de usuario",
+    "docs(clase_70): notas sobre verificación de correo existente"
   ]
 }
-
-
 
   ]
 }

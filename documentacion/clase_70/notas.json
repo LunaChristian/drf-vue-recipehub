@@ -1,1 +1,31 @@
-{}
+{
+  "numero": 70,
+  "titulo": "Validación de existencia de correo antes del registro de usuario",
+  "resumen": "Se agrega validación para impedir el registro de usuarios con correos ya existentes en la tabla auth_user. Se usa el modelo User propio de Django y se verifica tanto el campo 'email' como 'username'.",
+  "detalles": {
+    "app": "seguridad",
+    "endpoint": "POST /seguridad/registro",
+    "vista": "Clase1 (APIView)",
+    "descripcion": "Antes de crear un nuevo usuario, se verifica si el correo ya existe en la base de datos utilizando User.objects.filter().exists(). Si existe, se retorna un error HTTP 400 con un mensaje informativo."
+  },
+  "validaciones": {
+    "nueva_validacion": "Verificación de duplicidad de correo (email/username)",
+    "consulta": "User.objects.filter(email=request.data['correo']).exists()",
+    "respuesta_error": {
+      "estado": "error",
+      "mensaje": "El correo <correo> no está disponible",
+      "status": 400
+    }
+  },
+  "notas_tecnicas": [
+    "El modelo User debe importarse desde django.contrib.auth.models, no desde los modelos locales.",
+    "Se recomienda separar los imports de Django y los del proyecto propio para mantener orden.",
+    "El campo 'email' y 'username' contienen el mismo valor en este curso, pero se podría optimizar usando solo uno de ellos."
+  ],
+  "proximos_pasos": [
+    "Implementar la creación real del usuario (User.objects.create_user).",
+    "Hashear la contraseña automáticamente al guardar el usuario.",
+    "Crear el registro en UserMetadata con token asociado.",
+    "Evaluar si mantener duplicado el correo en 'email' y 'username' o solo en uno."
+  ]
+}
