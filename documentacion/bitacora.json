@@ -346,6 +346,19 @@
   "tema": "Omitido: módulo de Contacto (POST + SMTP)",
   "archivo_dialogo": "documentacion/clase_58_65/dialogo.txt",
   "archivo_notas": "documentacion/clase_58_65/notas.json"
+},
+{
+  "numero": 66,
+  "tema": "Inicio del módulo de seguridad y configuración de la app 'seguridad'",
+  "archivo_dialogo": "documentacion/clase_66/dialogo.txt",
+  "archivo_notas": "documentacion/clase_66/notas.json",
+  "resumen_corto": "Se crea la app 'seguridad' y se prepara una ruta de registro base. Se define el enfoque de seguridad selectiva: endpoints públicos vs. privados.",
+  "commit_msgs": [
+    "feat(seguridad): crear app y ruta base de registro",
+    "chore(urls): incluir rutas de seguridad en backend/urls.py",
+    "docs: agregar notas de clase 66 (módulo de seguridad)"
+  ]
 }
+
   ]
 }

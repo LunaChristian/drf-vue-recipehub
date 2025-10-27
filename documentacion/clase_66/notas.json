@@ -1,1 +1,69 @@
-{}
+{
+  "numero": 66,
+  "tema": "Inicio del módulo de seguridad y protección de rutas",
+  "resumen": [
+    "Se introduce el criterio de seguridad selectiva: no todas las rutas requieren autenticación.",
+    "Casos típicos: endpoints públicos (home, listar recetas) vs. privados (CRUD en panel del usuario).",
+    "Se crea la app 'seguridad' que centralizará registro, login y protección de endpoints."
+  ],
+  "objetivos": [
+    "Crear la app 'seguridad' para aislar la lógica de autenticación/autorización.",
+    "Configurar rutas base para el futuro registro de usuarios.",
+    "Preparar el proyecto para aplicar protección de rutas según reglas de negocio."
+  ],
+  "comandos": [
+    "python manage.py startapp seguridad"
+  ],
+  "rutas_nuevas": [
+    {
+      "archivo": "seguridad/urls.py",
+      "path": "seguridad/registro/",
+      "vista": "ClaseUno.as_view()",
+      "metodo": "POST",
+      "descripcion": "Punto de entrada para el registro de usuarios (estructura base, sin lógica aún)."
+    }
+  ],
+  "archivos_modificados_o_creados": [
+    "seguridad/apps.py",
+    "seguridad/views.py",
+    "seguridad/urls.py",
+    "seguridad/__init__.py",
+    "seguridad/migrations/__init__.py",
+    "backend/urls.py (include de seguridad.urls)",
+    "settings.py (INSTALLED_APPS: 'seguridad')"
+  ],
+  "snippets_clave": {
+    "seguridad/urls.py": [
+      "from django.urls import path",
+      "from .views import ClaseUno",
+      "",
+      "urlpatterns = [",
+      "  path('registro/', ClaseUno.as_view(), name='registro_seguridad'),",
+      "]"
+    ],
+    "seguridad/views.py": [
+      "from rest_framework.views import APIView",
+      "from django.http import JsonResponse",
+      "",
+      "class ClaseUno(APIView):",
+      "    def post(self, request):",
+      "        pass"
+    ],
+    "backend/urls.py (ejemplo de include)": [
+      "from django.urls import path, include",
+      "",
+      "urlpatterns = [",
+      "  path('api/seguridad/', include('seguridad.urls')),",
+      "]"
+    ]
+  },
+  "decisiones": [
+    "Separar la app 'seguridad' para mantener desacoplada la autenticación.",
+    "Mantener endpoints públicos (listar recetas, home) sin protección; CRUD del panel sí protegido."
+  ],
+  "pendientes": [
+    "Implementar registro de usuarios.",
+    "Definir mecanismo de autenticación (p. ej., JWT) y decoradores para protección de rutas.",
+    "Aplicar permisos selectivos según reglas de negocio."
+  ]
+}
