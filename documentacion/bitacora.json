@@ -322,6 +322,12 @@
       "tema": "Validación de tipo MIME (image/jpeg, image/png) antes de subir imagen",
       "archivo_dialogo": "documentacion/clase_54/dialogo.txt",
       "archivo_notas": "documentacion/clase_54/notas.json"
-    }
+    },
+    {
+  "numero": 55,
+  "tema": "PUT de Receta: actualización con validación de campos (titulo_receta, tiempo, descripcion, categoria_id) y verificación de categoría",
+  "archivo_dialogo": "documentacion/clase_55/dialogo.txt",
+  "archivo_notas": "documentacion/clase_55/notas.json"
+}
   ]
 }

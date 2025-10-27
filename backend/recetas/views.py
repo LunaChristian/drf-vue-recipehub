@@ -101,3 +101,35 @@ class Class_Receta_View2(APIView):
             
         except Receta.DoesNotExist:
             raise Http404
+        
+    def put(self, request, id):
+        required_fields = ["titulo_receta", "tiempo", "descripcion", "categoria_id"]
+        for field in required_fields:
+            if not request.data.get(field):
+                return JsonResponse(
+                    {"estado": "error", "mensaje": f"El campo '{field}' es obligatorio"},
+                    status=HTTPStatus.BAD_REQUEST,
+                )
+                
+        try:
+            Categoria.objects.filter(pk=request.data["categoria_id"]).get()
+        except Categoria.DoesNotExist:
+            return JsonResponse(
+                {"estado":"error", "mensaje":"La categoria no existe"},
+                status=HTTPStatus.BAD_REQUEST,
+            )
+            
+        try:
+            data = Receta.objects.filter(pk=id).get()
+            Receta.objects.filter(pk=id).update(
+                titulo_receta = request.data['titulo_receta'],
+                slug = slugify(request.data['titulo_receta']),
+                tiempo = request.data['tiempo'],
+                descripcion = request.data['descripcion'],
+                categoria_id = request.data['categoria_id']
+            )
+            
+            return JsonResponse({"estado":"ok", "mensaje":"actualizacion de registro exitoso"}, status=HTTPStatus.OK)
+            
+        except Receta.DoesNotExist:
+            raise Http404

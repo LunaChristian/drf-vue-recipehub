@@ -1,1 +1,64 @@
-{}
+{
+  "clase": 55,
+  "titulo": "PUT de Receta: actualización por ID con validación de campos y categoría",
+  "resumen": [
+    "Se implementa el método PUT para editar una receta existente usando JSON.",
+    "Se valida la presencia de campos obligatorios: titulo_receta, tiempo, descripcion, categoria_id.",
+    "Se verifica que la categoría referenciada exista antes de actualizar.",
+    "Se actualizan los campos: titulo_receta, slug (derivado), tiempo, descripcion y categoria_id.",
+    "Se retorna respuesta JSON estandarizada con estado HTTP 200 en éxito y 400/404 en error."
+  ],
+  "detalles_implementacion": {
+    "endpoint": "PUT /api/v1/recetas/<id>",
+    "validaciones": [
+      "Faltantes: {'estado':'error','mensaje':\"El campo '<field>' es obligatorio\"} (400)",
+      "Categoría inexistente: {'estado':'error','mensaje':'La categoria no existe'} (400)",
+      "Receta inexistente: 404"
+    ],
+    "actualizacion": {
+      "estrategia": "QuerySet.update() sobre filtro pk=id",
+      "campos": ["titulo_receta", "slug (slugify(titulo_receta))", "tiempo", "descripcion", "categoria_id"]
+    },
+    "respuesta_ok": {
+      "json": {"estado":"ok","mensaje":"actualizacion de registro exitoso"},
+      "status": 200
+    }
+  },
+  "codigo_relevante": {
+    "ubicacion": "recetas/views.py (Clase que maneja recetas con ID)",
+    "snippet": [
+      "def put(self, request, id):",
+      "    required_fields = [\"titulo_receta\", \"tiempo\", \"descripcion\", \"categoria_id\"]",
+      "    for field in required_fields:",
+      "        if not request.data.get(field):",
+      "            return JsonResponse({\"estado\": \"error\", \"mensaje\": f\"El campo '{field}' es obligatorio\"}, status=HTTPStatus.BAD_REQUEST)",
+      "",
+      "    try:",
+      "        Categoria.objects.get(pk=request.data[\"categoria_id\"])",
+      "    except Categoria.DoesNotExist:",
+      "        return JsonResponse({\"estado\":\"error\", \"mensaje\":\"La categoria no existe\"}, status=HTTPStatus.BAD_REQUEST)",
+      "",
+      "    try:",
+      "        Receta.objects.get(pk=id)  # valida existencia",
+      "        Receta.objects.filter(pk=id).update(",
+      "            titulo_receta=request.data['titulo_receta'],",
+      "            slug=slugify(request.data['titulo_receta']),",
+      "            tiempo=request.data['tiempo'],",
+      "            descripcion=request.data['descripcion'],",
+      "            categoria_id=request.data['categoria_id']",
+      "        )",
+      "        return JsonResponse({\"estado\":\"ok\",\"mensaje\":\"actualizacion de registro exitoso\"}, status=HTTPStatus.OK)",
+      "    except Receta.DoesNotExist:",
+      "        raise Http404"
+    ]
+  },
+  "mejoras_sugeridas": [
+    "Usar Categoria.objects.filter(pk=...).exists() para abaratar la verificación.",
+    "Usar el valor de retorno de update() para evitar un get() anterior y decidir 404 si no hay filas afectadas.",
+    "Considerar save() en lugar de update() si hay señales/validaciones de modelo.",
+    "Opcional: devolver también el id actualizado en la respuesta."
+  ],
+  "archivos_modificados": [
+    "recetas/views.py"
+  ]
+}
