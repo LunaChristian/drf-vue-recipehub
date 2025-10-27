@@ -103,7 +103,7 @@ class Class_Receta_View2(APIView):
             raise Http404
         
     def put(self, request, id):
-        required_fields = ["titulo_receta", "tiempo", "descripcion", "categoria_id"]
+        required_fields = ["titulo_receta", "tiempo", "descripcion", "categoria_id"] 
         for field in required_fields:
             if not request.data.get(field):
                 return JsonResponse(
@@ -133,3 +133,19 @@ class Class_Receta_View2(APIView):
             
         except Receta.DoesNotExist:
             raise Http404
+        
+    def delete(self, request, id):
+        
+        try:
+            data = Receta.objects.filter(pk=id).get()
+        except Receta.DoesNotExist:
+            raise Http404
+        
+        try:
+            os.remove(f"./uploads/recetas/{data.foto}")
+        except FileNotFoundError:
+            pass
+        
+        Receta.objects.filter(pk=id).delete()
+        
+        return JsonResponse({"estado":"ok", "mensaje":"eliminacion exitosa"}, status=HTTPStatus.OK)

@@ -1,1 +1,62 @@
-{}
+{
+  "clase": 56,
+  "titulo": "Método DELETE de Receta: eliminación del registro y archivo físico asociado",
+  "resumen": [
+    "Se implementa el método DELETE en la vista de recetas con ID.",
+    "Elimina tanto el registro de la base de datos como el archivo de imagen asociado en el servidor.",
+    "Se utiliza os.remove() para eliminar el archivo físico, y Receta.objects.filter(pk=id).delete() para eliminar el registro.",
+    "Se maneja correctamente la excepción Receta.DoesNotExist cuando el ID no existe.",
+    "Se agrega manejo de FileNotFoundError para evitar errores si la imagen ya no existe en disco."
+  ],
+  "detalles_implementacion": {
+    "endpoint": "DELETE /api/v1/recetas/<id>",
+    "pasos": [
+      "Intentar obtener la receta por su ID con Receta.objects.filter(pk=id).get().",
+      "Si no existe, se lanza Http404.",
+      "Si existe, se intenta eliminar el archivo físico asociado a la receta utilizando os.remove().",
+      "Si el archivo ya no existe, se ignora el error con FileNotFoundError.",
+      "Finalmente, se elimina el registro de la base de datos y se retorna un mensaje JSON con estado 200."
+    ],
+    "entorno_produccion": {
+      "nota": "En producción se recomienda usar rutas absolutas con settings.MEDIA_ROOT para eliminar archivos de forma segura.",
+      "ejemplo": "os.remove(os.path.join(settings.MEDIA_ROOT, 'recetas', str(data.foto)))"
+    }
+  },
+  "codigo_relevante": {
+    "ubicacion": "recetas/views.py (vista con parámetro ID)",
+    "snippet": [
+      "from django.http import JsonResponse, Http404",
+      "from django.conf import settings",
+      "from http import HTTPStatus",
+      "import os",
+      "",
+      "def delete(self, request, id):",
+      "    try:",
+      "        data = Receta.objects.filter(pk=id).get()",
+      "    except Receta.DoesNotExist:",
+      "        raise Http404",
+      "",
+      "    # Intentar eliminar el archivo físico asociado",
+      "    try:",
+      "        os.remove(os.path.join(settings.MEDIA_ROOT, 'recetas', str(data.foto)))",
+      "    except FileNotFoundError:",
+      "        pass  # El archivo no existe, continuar con la eliminación del registro",
+      "",
+      "    # Eliminar el registro de la base de datos",
+      "    Receta.objects.filter(pk=id).delete()",
+      "",
+      "    return JsonResponse(",
+      "        {'estado': 'ok', 'mensaje': 'eliminacion exitosa'},",
+      "        status=HTTPStatus.OK",
+      "    )"
+    ]
+  },
+  "mejoras_sugeridas": [
+    "Agregar logs para registrar qué receta y qué archivo fueron eliminados.",
+    "Agregar permisos de usuario (solo administradores/autores pueden eliminar).",
+    "En entornos productivos, preferir una eliminación lógica (soft delete) con campo 'activo' o 'is_deleted'."
+  ],
+  "archivos_modificados": [
+    "recetas/views.py"
+  ]
+}
