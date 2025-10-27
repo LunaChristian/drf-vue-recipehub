@@ -1,1 +1,43 @@
-{}
+{
+  "clase": 54,
+  "titulo": "Validación de tipo MIME en la subida de imágenes (seguridad de archivos)",
+  "contenido": [
+    "Se implementó una validación para asegurarse de que el archivo subido en el campo 'foto' sea de tipo JPG o PNG.",
+    "La validación se realiza comprobando el MIME type del archivo (propiedad 'content_type').",
+    "Si el tipo de archivo no es válido, la API retorna un mensaje de error y no intenta guardar el archivo.",
+    "Se enfatiza que no basta con validar la extensión del archivo, ya que puede ser falsificada. La verificación del MIME type es la forma segura.",
+    "Esta es una práctica de seguridad esencial para prevenir la subida de archivos maliciosos (ej. exploits, troyanos)."
+  ],
+  "codigo_relevante": {
+    "ubicacion": "recetas/views.py (Clase1.post)",
+    "snippet": [
+      "# Validación de tipo MIME del archivo",
+      "foto = request.FILES.get('foto')",
+      "if not foto:",
+      "    return JsonResponse({",
+      "        'estado': 'error',",
+      "        'mensaje': 'Debe adjuntar una foto para la receta.'",
+      "    }, status=HTTPStatus.BAD_REQUEST)",
+      "",
+      "mime_type = foto.content_type",
+      "if mime_type not in ['image/jpeg', 'image/png']:",
+      "    return JsonResponse({",
+      "        'estado': 'error',",
+      "        'mensaje': 'La foto solo puede ser formato JPG o PNG.'",
+      "    }, status=HTTPStatus.BAD_REQUEST)",
+      "",
+      "# Si el tipo es válido, continúa con la subida mediante FileSystemStorage",
+      "fs = FileSystemStorage()",
+      "nombre_foto = f\"receta_{datetime.now().strftime('%Y%m%d%H%M%S')}_{foto.name}\"",
+      "fs.save(f\"recetas/{nombre_foto}\", foto)"
+    ]
+  },
+  "archivos_modificados": [
+    "recetas/views.py"
+  ],
+  "pendientes": [
+    "Agregar límite de tamaño máximo para las imágenes (ej. 5 MB).",
+    "Registrar logs de intentos fallidos de subida para auditoría.",
+    "Posible refactor: mover la validación MIME a un helper o middleware para reutilización."
+  ]
+}

@@ -316,8 +316,12 @@
       "tema": "Subida de imagen en POST de recetas con FileSystemStorage",
       "archivo_dialogo": "documentacion/clase_53/dialogo.txt",
       "archivo_notas": "documentacion/clase_53/notas.json"
+    },
+    {
+      "numero": 54,
+      "tema": "Validación de tipo MIME (image/jpeg, image/png) antes de subir imagen",
+      "archivo_dialogo": "documentacion/clase_54/dialogo.txt",
+      "archivo_notas": "documentacion/clase_54/notas.json"
     }
-
-
   ]
 }

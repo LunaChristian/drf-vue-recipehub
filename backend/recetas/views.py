@@ -53,26 +53,30 @@ class Class_Receta_View(APIView):
         
         fs = FileSystemStorage()
         img = f"{datetime.timestamp(datetime.now())}{os.path.splitext(str(request.FILES['archivo']))[1]}"
+        type_img = request.FILES['archivo']
         
-        try:
-            fs.save(f"recetas/{img}", request.FILES['archivo'])
-            fs.url(request.FILES['archivo'])
-        except Exception as e:
-            return JsonResponse({"estado":"error", "mensaje":"Error al cargar el archivo"}, status=HTTPStatus.BAD_REQUEST)
-        
-        try:
-            Receta.objects.create(
-                titulo_receta = request.data['titulo_receta'],
-                tiempo = request.data['tiempo'],
-                descripcion = request.data['descripcion'],
-                categoria_id = request.data['categoria_id'],
-                fecha = datetime.now(),
-                foto = img
-                )
-            return JsonResponse({"estado":"ok", "mensaje":"registro exitoso"}, status=HTTPStatus.CREATED)
-        except Exception as e:
-            print(f'error: {e}')
-            raise Http404
+        if type_img.content_type.startswith("image/"):
+            try:
+                fs.save(f"recetas/{img}", request.FILES['archivo'])
+                fs.url(request.FILES['archivo'])
+            except Exception as e:
+                return JsonResponse({"estado":"error", "mensaje":"Error al cargar el archivo"}, status=HTTPStatus.BAD_REQUEST)
+            
+            try:
+                Receta.objects.create(
+                    titulo_receta = request.data['titulo_receta'],
+                    tiempo = request.data['tiempo'],
+                    descripcion = request.data['descripcion'],
+                    categoria_id = request.data['categoria_id'],
+                    fecha = datetime.now(),
+                    foto = img
+                    )
+                return JsonResponse({"estado":"ok", "mensaje":"registro exitoso"}, status=HTTPStatus.CREATED)
+            except Exception as e:
+                print(f'error: {e}')
+                raise Http404
+        else:
+            return JsonResponse({"estado": "error", "mensaje": "El archivo debe ser una imagen"}, status=HTTPStatus.BAD_REQUEST)
     
 class Class_Receta_View2(APIView):   
     
@@ -91,7 +95,7 @@ class Class_Receta_View2(APIView):
                         "fecha": DateFormat(data.fecha).format('d/m/Y'),
                         "categoria": data.categoria.titulo,
                         "categoria_id": data.categoria_id,
-                        "imagen": f"{os.getenv("BASE_URL")}uploads/recetas/{data.foto}"
+                        "imagen": f"{os.getenv('BASE_URL')}uploads/recetas/{data.foto}"
                     }
                 }, status=HTTPStatus.OK)
             
