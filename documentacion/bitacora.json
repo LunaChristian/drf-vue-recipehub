@@ -413,7 +413,19 @@
     "feat(seguridad): generación de token UUID para verificación de usuario",
     "docs(clase_71): notas sobre flujo de activación de cuenta con token"
   ]
+},{
+  "numero": 72,
+  "tema": "Registro de usuario con inserción en cascada en User y UserMetadata",
+  "archivo_dialogo": "documentacion/clase_72/dialogo.txt",
+  "archivo_notas": "documentacion/clase_72/notas.json",
+  "resumen_corto": "Se implementa el registro funcional de usuarios. Se usa create_user() para manejar hash de contraseña y se inserta registro en UserMetadata con token mediante inserción en cascada.",
+  "commit_msgs": [
+    "feat(seguridad): implementar registro real de usuario con inserción en cascada (User y UserMetadata)",
+    "docs(clase_72): notas sobre registro funcional y create_user()"
+  ]
 }
+
+
 
 
   ]

@@ -26,3 +26,19 @@ class Clase_1(APIView):
         
         token = uuid.uuid4()
         url = f"{os.getenv("BASE_URL")}api/v1/seguridad/verificacion/{token}"
+        
+        try:
+            user = User.objects.create_user(
+                username=request.data["user"],
+                password=request.data["password"],
+                email=request.data["correo"],
+                first_name="",
+                last_name="",
+                is_active=1
+            )
+            
+            UsersMetada.objects.create(token=token, user_id=user.id)
+        except Exception as e:
+            raise Http404
+        
+        return JsonResponse({"estado":"ok", "mensaje":"registro exitoso"}, status=HTTPStatus.CREATED)

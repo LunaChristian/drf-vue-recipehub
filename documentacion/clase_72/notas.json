@@ -1,1 +1,38 @@
-{}
+{
+  "numero": 72,
+  "titulo": "Registro real de usuario con inserción en cascada (User y UserMetadata)",
+  "resumen": "Se implementa el registro funcional de usuarios. Se crea el usuario con create_user() de Django (que genera el hash de contraseña automáticamente) y se registra su token en UserMetadata mediante una inserción en cascada. El usuario queda inactivo hasta la verificación del token.",
+  "detalles": {
+    "app": "seguridad",
+    "endpoint": "POST /seguridad/registro",
+    "vista": "Clase1 (APIView)",
+    "descripcion": "El endpoint crea un nuevo usuario en la tabla auth_user con is_active=False y simultáneamente genera un registro en la tabla UserMetadata con el token asociado. Se utiliza create_user() en lugar de create() para que Django maneje el hash del password internamente."
+  },
+  "logica_principal": {
+    "pasos": [
+      "Validar campos requeridos y existencia previa del correo.",
+      "Generar token con uuid.uuid4() (clase anterior).",
+      "Crear usuario con User.objects.create_user():",
+      " - username = request.data['correo']",
+      " - password = request.data['password'] (se hashea automáticamente)",
+      " - email = request.data['correo']",
+      " - first_name = request.data['nombre']",
+      " - last_name = ''",
+      " - is_active = False",
+      "Guardar referencia del usuario recién creado en variable `u`.",
+      "Crear registro en UserMetadata con `token=token` y `user_id=u.id` (inserción en cascada)."
+    ]
+  },
+  "notas_tecnicas": [
+    "El método create_user() debe usarse exclusivamente con el modelo User de Django, ya que incluye manejo automático de hash de contraseña.",
+    "Para otros modelos se continúa utilizando .create().",
+    "El insert en cascada consiste en crear un registro dependiente utilizando la clave primaria del registro recién insertado en otra tabla.",
+    "El retorno HTTP 201 (Created) confirma la creación exitosa del usuario y su metadata."
+  ],
+  "proximos_pasos": [
+    "Implementar envío del correo con la URL de verificación.",
+    "Desarrollar endpoint GET /seguridad/verificacion/<token>/ para activar usuario.",
+    "Eliminar token tras la activación.",
+    "Agregar manejo de errores detallado (IntegrityError, ValueError)."
+  ]
+}
