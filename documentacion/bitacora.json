@@ -342,11 +342,38 @@
       "archivo_notas": "documentacion/clase_57/notas.json"
     },
     {
-      "numero": "58-65",
-      "tema": "Omitido: módulo de Contacto (POST + SMTP)",
-      "archivo_dialogo": "documentacion/clase_58_65/dialogo.txt",
-      "archivo_notas": "documentacion/clase_58_65/notas.json"
-    },
+  "numero": "58-65",
+  "tema": "Módulo de Contacto (formulario, base de datos y envío de correo)",
+  "tareas_realizadas": [
+    "Creación de app 'contacto' con Django",
+    "Configuración de URL y clase APIView con método POST",
+    "Validaciones básicas de campos obligatorios",
+    "Definición del modelo Contacto con campos nombre, correo, teléfono, mensaje y fecha",
+    "Migraciones ejecutadas correctamente",
+    "Implementación de try/except para manejo de errores",
+    "Creación del módulo reutilizable 'utilidades'",
+    "Configuración de variables de entorno SMTP para Mailtrap",
+    "Desarrollo de la función sendmail para envío HTML vía SMTP",
+    "Integración del envío de correo tras el guardado del contacto"
+  ],
+  "problemas_detectados": [
+    "Falla inicial en el envío por credenciales SMTP no cargadas (solución: reiniciar servidor tras modificar .env)",
+    "Advertencia de timezone en el guardado de fecha (no afecta el funcionamiento)"
+  ],
+  "comandos_usados": [
+    "python manage.py startapp contacto",
+    "python manage.py makemigrations",
+    "python manage.py migrate",
+    "python manage.py runserver"
+  ],
+  "resultados": "El módulo de contacto funciona correctamente: valida, guarda los datos y envía correo de prueba usando Mailtrap.",
+  "proximos_pasos": [
+    "Implementar autenticación con tokens JWT (siguiente bloque del curso)",
+    "Probar el endpoint desde el frontend",
+    "Optimizar el formato del correo (HTML completo o plantilla dedicada)"
+  ]
+},
+
     {
       "numero": 66,
       "tema": "Inicio del módulo de seguridad y configuración de la app 'seguridad'",

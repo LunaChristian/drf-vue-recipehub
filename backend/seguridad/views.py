@@ -38,6 +38,8 @@ class Clase_1(APIView):
             )
             
             UsersMetada.objects.create(token=token, user_id=user.id)
+            
+            
         except Exception as e:
             raise Http404
         
