@@ -1,1 +1,26 @@
-{}
+{
+  "clase": 73,
+  "titulo": "Envío de correo de verificación de cuenta",
+  "descripcion": "Se implementa el envío de un correo de verificación tras el registro de usuario, reutilizando la función sendmail del módulo utilidades.",
+  "objetivos": [
+    "Notificar al usuario su registro exitoso mediante un correo HTML.",
+    "Enviar un enlace de verificación con token incluido.",
+    "Reforzar el uso de módulos reutilizables (utilidades.sendmail)."
+  ],
+  "contenido": {
+    "1": "Creación de la variable HTML que conforma el cuerpo del correo.",
+    "2": "Incorporación de saludo personalizado y enlace de verificación.",
+    "3": "Reutilización de la función sendmail para el envío.",
+    "4": "Importación del módulo utilidades en la vista correspondiente.",
+    "5": "Prueba de envío correcta al correo del usuario registrado."
+  },
+  "fragmento_codigo": {
+    "descripcion": "Estructura básica del envío de correo de verificación.",
+    "codigo": "html = f\"\"\"\n<h3>Verificación de cuenta</h3>\n<p>Hola {request.data['nombre']}, te has registrado exitosamente.</p>\n<p>Para activar tu cuenta, haz clic en el siguiente enlace:</p>\n<a href=\"{url}\">{url}</a>\n<p>O copia y pega la siguiente URL en tu navegador favorito:</p>\n<p>{url}</p>\n\"\"\"\nutilidades.sendmail(html, \"Verificación de cuenta\", request.data['correo'])"
+  },
+  "conclusiones": [
+    "La función sendmail se integra correctamente en el flujo de registro.",
+    "El correo se envía exitosamente con contenido HTML dinámico.",
+    "Se consolida la relación entre autenticación y notificación por correo."
+  ]
+}

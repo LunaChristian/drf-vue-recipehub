@@ -1,6 +1,8 @@
 from django.urls import path
 
-from .views import Clase_1
+from .views import Seguridad, Verificacion
+
 urlpatterns = [
-    path('seguridad/registro', Clase_1.as_view())
+    path('seguridad/registro', Seguridad.as_view()),
+    path('seguridad/verificacion/<str:token>', Verificacion.as_view())
 ]

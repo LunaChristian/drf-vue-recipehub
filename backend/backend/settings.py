@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'categorias',
     'recetas',
     'seguridad',
+    'contacto',
 ]
 
 MIDDLEWARE = [

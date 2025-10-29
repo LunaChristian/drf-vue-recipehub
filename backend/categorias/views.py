@@ -32,7 +32,6 @@ class Class_Categoria_View(APIView):
             Categoria.objects.create(titulo=request.data['titulo'])
             return JsonResponse({"estado":"ok", "mensaje":"registro exitoso"}, status=HTTPStatus.CREATED)
         except Exception as e:
-            print(f'error: {e}')
             raise Http404
     
 class Class_Categoria_View2(APIView):   

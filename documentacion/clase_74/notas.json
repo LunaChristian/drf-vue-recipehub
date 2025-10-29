@@ -1,1 +1,53 @@
-{}
+{
+  "clase": 74,
+  "titulo": "Endpoint de verificación de cuenta (GET con token) y redirección al frontend",
+  "descripcion": "Se crea un endpoint de verificación que recibe un token, valida su existencia en UserMetadata, limpia el token, activa al usuario y redirige al frontend (login).",
+  "objetivos": [
+    "Exponer un endpoint público de verificación con token (método GET).",
+    "Validar token y manejar 404 cuando falte o no exista.",
+    "Actualizar en cascada: vaciar token en UserMetadata y activar usuario en User.",
+    "Redirigir al frontend al finalizar (login)."
+  ],
+  "rutas": [
+    {
+      "path": "/api/v1/seguridad/verificacion/<str:token>/",
+      "metodo": "GET",
+      "vista": "ClaseDos (APIView.get)"
+    }
+  ],
+  "reglas_negocio": [
+    "Si no hay token o no se encuentra en BD → 404 Recurso no disponible.",
+    "Si el token existe → limpiar token y activar usuario.",
+    "No devolver JSON al navegador: usar redirección HTTP al front."
+  ],
+  "detalles_tecnicos": {
+    "modelo_busqueda": "UserMetadata (por token)",
+    "update_cascada": [
+      "UserMetadata.token = ''",
+      "User.is_active = True (1)"
+    ],
+    "redireccion": "HttpResponseRedirect a FRONTEND_URL + '/login' (p.ej. http://localhost:5173/login)",
+    "env": [
+      "FRONTEND_URL (ej. http://localhost:5173)"
+    ],
+    "importantes": [
+      "Reiniciar el servidor cuando cambie .env (para que tome FRONTEND_URL).",
+      "Manejo de DoesNotExist en la búsqueda del token."
+    ]
+  },
+  "fragmentos_codigo": [
+    {
+      "descripcion": "URL y vista GET con token",
+      "codigo": "from django.http import HttpResponseRedirect\nfrom rest_framework.views import APIView\nfrom django.http import JsonResponse\nfrom dotenv import load_dotenv\nimport os\n\nclass ClaseDos(APIView):\n    def get(self, request, token: str):\n        load_dotenv()\n        if not token:\n            return JsonResponse({\"estado\": \"error\", \"mensaje\": \"Recurso no disponible\"}, status=404)\n        try:\n            data = UserMetadata.objects.filter(token=token).get()\n        except UserMetadata.DoesNotExist:\n            return JsonResponse({\"estado\": \"error\", \"mensaje\": \"Recurso no disponible\"}, status=404)\n\n        # Update en cascada\n        UserMetadata.objects.filter(token=token).update(token=\"\")\n        User.objects.filter(id=data.user_id).update(is_active=True)\n\n        # Redirección al front\n        frontend = os.getenv(\"FRONTEND_URL\", \"http://localhost:5173\")\n        return HttpResponseRedirect(f\"{frontend}/login\")"
+    }
+  ],
+  "pruebas": [
+    "Visitar la URL desde el correo (con token válido) ⇒ activa y redirige.",
+    "Token ausente o inválido ⇒ 404 con mensaje 'Recurso no disponible'."
+  ],
+  "mejoras_sugeridas": [
+    "Agregar expiración lógica del token (timestamp + validaciones).",
+    "Verificar que el usuario no esté ya activo antes de actualizar.",
+    "Registrar auditoría del evento (IP, timestamp)."
+  ]
+}

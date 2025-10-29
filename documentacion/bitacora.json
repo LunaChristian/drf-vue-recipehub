@@ -450,10 +450,55 @@
     "feat(seguridad): implementar registro real de usuario con inserción en cascada (User y UserMetadata)",
     "docs(clase_72): notas sobre registro funcional y create_user()"
   ]
+},
+{
+  "clase": 73,
+  "tema": "Envío de correo de verificación de cuenta",
+  "tareas_realizadas": [
+    "Reutilización de la función sendmail del módulo utilidades",
+    "Generación dinámica de correo HTML con enlace de verificación",
+    "Importación del módulo utilidades en la vista de registro",
+    "Prueba exitosa de envío de correo con URL de activación"
+  ],
+  "problemas_detectados": [],
+  "comandos_usados": [
+    "python manage.py runserver"
+  ],
+  "resultados": "El sistema envía correctamente un correo de verificación al usuario con la URL y token correspondientes.",
+  "proximos_pasos": [
+    "Implementar la vista que procese el enlace de verificación",
+    "Registrar la activación del usuario en base de datos",
+    "Agregar una plantilla HTML más profesional al correo"
+  ]
+},
+{
+  "clase": 74,
+  "tema": "Verificación de cuenta por token y redirección",
+  "tareas_realizadas": [
+    "Definición de ruta GET con parámetro <str:token> para verificación.",
+    "Implementación de ClaseDos(APIView.get) con validaciones de token.",
+    "Manejo de errores con 404 cuando token falta o no existe.",
+    "Update en cascada: limpiar token en UserMetadata y activar usuario en User.",
+    "Redirección a FRONTEND_URL/login mediante HttpResponseRedirect.",
+    "Carga de variables de entorno con load_dotenv."
+  ],
+  "problemas_detectados": [
+    "Página en blanco por no tomar FRONTEND_URL tras cambio en .env (solución: reiniciar servidor)."
+  ],
+  "comandos_usados": [
+    "python manage.py runserver",
+    "curl -i http://localhost:8000/api/v1/seguridad/verificacion/TOKEN_DE_EJEMPLO/"
+  ],
+  "archivos_afectados": [
+    "seguridad/urls.py",
+    "seguridad/views.py"
+  ],
+  "resultados": "La visita al enlace de verificación limpia el token, activa al usuario y redirige al login del frontend.",
+  "proximos_pasos": [
+    "Agregar control de expiración del token y mensajes de estado en el frontend.",
+    "Evitar reuso del token validando que ya esté vacío.",
+    "Tests automatizados para el flujo de activación."
+  ]
 }
-
-
-
-
   ]
 }
