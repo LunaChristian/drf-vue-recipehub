@@ -499,6 +499,30 @@
     "Evitar reuso del token validando que ya esté vacío.",
     "Tests automatizados para el flujo de activación."
   ]
+},
+{
+  "clase": 75,
+  "tema": "Validación de usuario inactivo al verificar token",
+  "tareas_realizadas": [
+    "Modificación de la query del endpoint GET de verificación.",
+    "Incorporación del filtro cruzado 'user__is_active=0'.",
+    "Prueba con nuevo registro de usuario inactivo (Juanito Pérez 5).",
+    "Confirmación del flujo: token válido → activación → redirección exitosa."
+  ],
+  "problemas_detectados": [],
+  "comandos_usados": [
+    "python manage.py runserver"
+  ],
+  "archivos_afectados": [
+    "seguridad/views.py"
+  ],
+  "resultados": "El endpoint solo permite activar cuentas inactivas. Tokens de usuarios ya activos devuelven 404 con mensaje 'Recurso no disponible o usuario ya activo'.",
+  "proximos_pasos": [
+    "Registrar logs de intentos de activación fallidos.",
+    "Agregar control de expiración de tokens por tiempo.",
+    "Mostrar mensajes personalizados en el frontend según el código de error."
+  ]
 }
+
   ]
 }

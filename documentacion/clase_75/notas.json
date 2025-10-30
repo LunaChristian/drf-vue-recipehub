@@ -1,1 +1,40 @@
-{}
+{
+  "clase": 75,
+  "titulo": "Validación del token junto con el estado del usuario (is_active)",
+  "descripcion": "Se mejora el endpoint de verificación agregando un filtro condicional que solo valida tokens de usuarios inactivos, utilizando consultas relacionadas en el ORM de Django.",
+  "objetivos": [
+    "Asegurar que solo usuarios inactivos puedan activar su cuenta.",
+    "Aplicar filtros cruzando relaciones de modelos con doble guión bajo (__).",
+    "Evitar reactivaciones o accesos indebidos de usuarios ya activos."
+  ],
+  "conceptos_clave": [
+    "Consultas relacionales en el ORM de Django.",
+    "Uso de doble guión bajo (__) para acceder a campos de modelos relacionados.",
+    "Validación combinada: token válido + usuario inactivo."
+  ],
+  "detalles_tecnicos": {
+    "query_mejorada": "UserMetadata.objects.filter(token=token, user__is_active=0).get()",
+    "relacion": "UserMetadata → User (ForeignKey)",
+    "efecto": "Ignora tokens válidos si el usuario ya fue activado.",
+    "resultado": "Solo se ejecuta la activación y limpieza de token si el usuario no estaba activo."
+  },
+  "fragmentos_codigo": [
+    {
+      "descripcion": "Filtro combinado por token y estado de usuario",
+      "codigo": "try:\n    data = UserMetadata.objects.filter(token=token, user__is_active=0).get()\nexcept UserMetadata.DoesNotExist:\n    return JsonResponse({\n        'estado': 'error',\n        'mensaje': 'Recurso no disponible o usuario ya activo'\n    }, status=404)"
+    }
+  ],
+  "beneficios": [
+    "Evita múltiples activaciones con el mismo enlace.",
+    "Reduce falsos positivos en validación de tokens.",
+    "Muestra cómo el ORM permite condiciones en campos de modelos relacionados."
+  ],
+  "ejemplo_practico": {
+    "descripcion": "Validar token del usuario inactivo antes de activar la cuenta",
+    "codigo": "UserMetadata.objects.filter(token='abc123', user__is_active=0).update(token='')"
+  },
+  "conclusiones": [
+    "La activación ahora considera el estado del usuario, mejorando la seguridad y la integridad de los datos.",
+    "Se introduce el uso práctico del doble guión bajo para navegar relaciones del ORM."
+  ]
+}
