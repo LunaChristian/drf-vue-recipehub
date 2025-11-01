@@ -10,6 +10,8 @@ from django.utils.text import slugify
 from dotenv import load_dotenv
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.conf import settings
+from jose import jwt
 
 from categorias.models import Categoria
 
@@ -76,6 +78,9 @@ class Class_Receta_View(APIView):
                 fs.url(request.FILES['archivo'])
             except Exception as e:
                 return JsonResponse({"estado":"error", "mensaje":"Error al cargar el archivo"}, status=HTTPStatus.BAD_REQUEST)
+            
+            header = request.headers.get('Authorization').split(" ")
+            resuelto=jwt.decode(header[1], settings.SECRET_KEY, algorithms=['HS512'])
             
             try:
                 Receta.objects.create(
