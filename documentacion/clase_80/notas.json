@@ -1,1 +1,29 @@
-{}
+{
+  "numero": 80,
+  "titulo": "Creación de la app 'recetas_helpers' para métodos adicionales del backend",
+  "resumen": "Se inicia un nuevo módulo destinado a agrupar métodos auxiliares relacionados con las recetas, sin sobrecargar la API principal de 'recetas'. Se crea la aplicación 'recetas_helpers', se configura su ruta base y se deja lista una clase inicial para pruebas.",
+  "detalles": {
+    "app": "recetas_helpers",
+    "descripcion": "La nueva app 'recetas_helpers' centralizará endpoints adicionales relacionados con recetas, como el listado de recetas para el home, recetas por usuario y actualización de la foto de receta. Esto permite mantener la API principal de recetas más limpia y enfocada en las operaciones CRUD básicas.",
+    "endpoint_base": "api/v1/recetas_helpers/",
+    "configuracion_inicial": [
+      "Creación de la app con `python manage.py startapp recetas_helpers`.",
+      "Registro de la app en settings.py.",
+      "Configuración de la ruta en urls.py principal.",
+      "Creación del archivo urls.py dentro de la app y adición de una ruta base provisional.",
+      "Creación de la clase `RecetaHelperView` (APIView) con método GET placeholder."
+    ]
+  },
+  "notas_tecnicas": [
+    "El módulo servirá para centralizar métodos 'sueltos' que no encajan directamente en la lógica CRUD de recetas.",
+    "El nombre de la app puede incluir guion bajo (`recetas_helpers`) pero no guion medio (`-`), ya que Django no lo permite.",
+    "Se importan los módulos comunes (`JsonResponse`, `HTTPStatus`) para preparar la estructura estándar de las vistas.",
+    "Mantener un orden modular en las rutas ayuda a escalar proyectos sin romper convenciones REST."
+  ],
+  "proximos_pasos": [
+    "Implementar endpoint GET para listar recetas visibles en el home.",
+    "Agregar método para listar recetas por usuario autenticado.",
+    "Incorporar método PUT o PATCH para actualizar la foto de receta.",
+    "Integrar lógica de autenticación en los endpoints que lo requieran."
+  ]
+}
