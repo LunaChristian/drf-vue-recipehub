@@ -1,1 +1,47 @@
-{}
+{
+  "clase": 76,
+  "titulo": "Implementación del endpoint de Login (autenticación con correo y password)",
+  "descripcion": "Se desarrolla el método de inicio de sesión que valida un usuario por correo y contraseña utilizando la función authenticate() de Django. Este endpoint será la base para retornar un JWT en clases siguientes.",
+  "objetivos": [
+    "Crear el endpoint POST de login en la app de seguridad.",
+    "Validar la existencia del correo antes de autenticar.",
+    "Usar la función authenticate() para comparar el hash del password.",
+    "Preparar el flujo para retornar un JWT en la siguiente etapa."
+  ],
+  "rutas": [
+    {
+      "path": "/api/v1/seguridad/login/",
+      "metodo": "POST",
+      "vista": "ClaseTres (APIView.post)"
+    }
+  ],
+  "detalles_tecnicos": {
+    "modelo": "User",
+    "librerias_usadas": [
+      "from django.contrib.auth import authenticate",
+      "from django.http import JsonResponse"
+    ],
+    "validaciones": [
+      "Campos requeridos: correo y password.",
+      "Si el correo no existe → 404 o mensaje personalizado.",
+      "Si authenticate() retorna None → credenciales inválidas."
+    ],
+    "nota": "La función authenticate() valida internamente el hash del password y también verifica si el usuario está activo (is_active = 1)."
+  },
+  "fragmentos_codigo": [
+    {
+      "descripcion": "Implementación básica del método POST en ClaseTres",
+      "codigo": "from django.contrib.auth import authenticate\nfrom django.http import JsonResponse\n\nclass ClaseTres(APIView):\n    def post(self, request):\n        correo = request.data.get('correo')\n        password = request.data.get('password')\n        \n        if not correo:\n            return JsonResponse({'estado': 'error', 'mensaje': 'El campo correo es obligatorio.'}, status=400)\n        if not password:\n            return JsonResponse({'estado': 'error', 'mensaje': 'El campo password es obligatorio.'}, status=400)\n\n        # Buscar usuario por correo\n        try:\n            User.objects.filter(email=correo).get()\n        except User.DoesNotExist:\n            return JsonResponse({'estado': 'error', 'mensaje': 'Credenciales inválidas.'}, status=404)\n\n        # Validar combinación correo/password\n        user = authenticate(request, username=correo, password=password)\n        if user is None:\n            return JsonResponse({'estado': 'error', 'mensaje': 'Credenciales ingresadas no son correctas.'}, status=400)\n\n        # Por ahora no retorna nada (JWT se implementará después)\n        return JsonResponse({'estado': 'ok', 'mensaje': 'Login exitoso (pendiente JWT).'}, status=200)"
+    }
+  ],
+  "conceptos_clave": [
+    "authenticate() compara contraseñas encriptadas (hash).",
+    "Django valida automáticamente si el usuario está activo (is_active = 1).",
+    "Nunca se hace una comparación directa entre password plano y encriptado."
+  ],
+  "conclusiones": [
+    "El endpoint permite validar login por correo y password con seguridad.",
+    "La autenticación interna de Django maneja el hash y el estado activo.",
+    "Próximo paso: generar y devolver un JWT tras la autenticación exitosa."
+  ]
+}

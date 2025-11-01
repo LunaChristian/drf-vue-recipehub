@@ -522,7 +522,38 @@
     "Agregar control de expiración de tokens por tiempo.",
     "Mostrar mensajes personalizados en el frontend según el código de error."
   ]
+},
+{
+  "clase": 76,
+  "tema": "Creación del endpoint de login con authenticate()",
+  "tareas_realizadas": [
+    "Creación de nueva ruta POST /api/v1/seguridad/login/",
+    "Definición de la clase ClaseTres(APIView) en seguridad/views.py.",
+    "Validación de los campos correo y password.",
+    "Búsqueda del usuario por correo en la base de datos.",
+    "Uso de la función authenticate() para validar credenciales.",
+    "Confirmación de que authenticate() considera is_active = 1.",
+    "Pruebas de login con usuario activo e inactivo."
+  ],
+  "problemas_detectados": [
+    "Prueba inicial sin retorno JSON (resuelta con respuesta temporal).",
+    "Usuarios inactivos devuelven error de credenciales (comportamiento esperado)."
+  ],
+  "comandos_usados": [
+    "python manage.py runserver"
+  ],
+  "archivos_afectados": [
+    "seguridad/urls.py",
+    "seguridad/views.py"
+  ],
+  "resultados": "El endpoint de login valida correctamente las credenciales y el estado activo del usuario. Falta integrar la generación del JWT en la siguiente clase.",
+  "proximos_pasos": [
+    "Incorporar librería JWT (SimpleJWT o PyJWT).",
+    "Generar y retornar token tras autenticación exitosa.",
+    "Proteger endpoints con autenticación JWT."
+  ]
 }
+
 
   ]
 }
