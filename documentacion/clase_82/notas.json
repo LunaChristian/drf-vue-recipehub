@@ -1,1 +1,34 @@
-{}
+{
+  "numero": 82,
+  "titulo": "Asociar receta creada con el usuario logueado mediante token JWT",
+  "resumen": "Se modifica el método POST de la vista de Recetas para que cada receta quede asociada automáticamente al usuario autenticado, utilizando el token JWT enviado en el encabezado de la petición.",
+  "detalles": {
+    "contexto": "Hasta ahora, las recetas se asociaban por defecto al usuario con ID=1. En esta clase se implementa la lógica para vincularlas con el usuario real que realiza la creación.",
+    "logica_aplicada": [
+      "Se obtiene el token JWT desde el encabezado Authorization.",
+      "Se decodifica con JWT decode y la clave SECRET_KEY de settings.",
+      "Del token decodificado se extrae el ID del usuario autenticado.",
+      "Se pasa el user_id al crear la receta en el ORM."
+    ],
+    "fragmento_relevante": "Receta.objects.create(..., user_id=resuelto['user_id'])",
+    "dependencias": [
+      "from django.conf import settings",
+      "import jwt"
+    ]
+  },
+  "validaciones_y_riesgos": [
+    "El flujo asume que el token JWT ya fue validado por los decoradores de autenticación.",
+    "Podría agregarse una validación adicional para comprobar que el usuario existe y está activo antes de crear la receta.",
+    "Si el token es inválido o caducado, la ejecución no debería alcanzar el método POST (bloqueada por el decorador)."
+  ],
+  "ejemplo_practico": {
+    "usuario": "Juanito5 (ID=6)",
+    "operacion": "POST /api/v1/recetas/",
+    "resultado": "La receta 'Tallarines con salsa 4' se creó asociada al usuario con ID=6."
+  },
+  "proximos_pasos": [
+    "Agregar validación explícita para verificar existencia y estado activo del usuario extraído del token.",
+    "Aplicar este mismo principio a las operaciones de edición y eliminación (PUT, DELETE).",
+    "Incluir pruebas unitarias para verificar que el token se traduce correctamente al usuario correspondiente."
+  ]
+}

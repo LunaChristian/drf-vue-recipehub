@@ -669,7 +669,20 @@
     "feat(clase_81): asociar modelo Receta con usuarios mediante ForeignKey",
     "docs(clase_81): notas sobre relación Receta-User y migraciones correspondientes"
   ]
+},
+{
+  "numero": 82,
+  "tema": "Asociar receta creada con el usuario logueado mediante token JWT",
+  "archivo_dialogo": "documentacion/clase_82/dialogo.txt",
+  "archivo_notas": "documentacion/clase_82/notas.json",
+  "resumen_corto": "Se modifica el método POST de Recetas para obtener el user_id desde el token JWT y asociar la receta al usuario autenticado.",
+  "commit_msgs": [
+    "feat(clase_82): asociar recetas creadas al usuario autenticado usando token JWT",
+    "refactor(clase_82): extraer user_id del token en vista POST de Recetas",
+    "docs(clase_82): agregar notas sobre asociación de recetas con usuario logueado"
+  ]
 }
+
 
 
 

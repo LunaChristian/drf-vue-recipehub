@@ -44,6 +44,19 @@ class Class_Receta_View(APIView):
                 status=HTTPStatus.BAD_REQUEST,
             )
         
+        try:
+            img = f"{datetime.timestamp(datetime.now())}{os.path.splitext(str(request.FILES['file']))[1]}"
+        except Exception as e:
+            return JsonResponse({"estado":"error", "mensaje":"Error al crear el archivo"}, status=HTTPStatus.BAD_REQUEST)
+        
+        fs = FileSystemStorage()
+        
+        try:
+            fs.save(f"recetas/{img}", request.FILES['file'])
+            fs.url(request.FILES['file'])
+        except Exception as e:
+            return JsonResponse({"estado":"error", "mensaje":"Error al cargar el archivo"}, status=HTTPStatus.BAD_REQUEST)
+        
         if Receta.objects.filter(titulo_receta=request.data.get("titulo_receta")).exists():
             return JsonResponse(
                 {
