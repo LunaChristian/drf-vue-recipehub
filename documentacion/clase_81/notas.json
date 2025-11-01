@@ -1,1 +1,36 @@
-{}
+{
+  "numero": 81,
+  "titulo": "Asociación de recetas con usuarios mediante ForeignKey",
+  "resumen": "Se modifica el modelo Receta para asociar cada receta a un usuario del sistema mediante una ForeignKey hacia el modelo User. Se asigna por defecto el usuario con ID=1 para mantener compatibilidad con registros existentes.",
+  "detalles": {
+    "app": "recetas",
+    "modelo_modificado": "Receta",
+    "nuevo_campo": {
+      "nombre": "user",
+      "tipo": "ForeignKey(User, on_delete=models.DO_NOTHING, default=1)"
+    },
+    "descripcion": "El modelo Receta ahora incluye una relación directa con el modelo User. Esto permite identificar qué usuario creó cada receta. El valor por defecto (default=1) asegura compatibilidad con las recetas ya existentes."
+  },
+  "importaciones": [
+    "from django.contrib.auth.models import User"
+  ],
+  "pasos_realizados": [
+    "Agregar campo user = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=1) al modelo Receta.",
+    "Importar el modelo User desde django.contrib.auth.models.",
+    "Ejecutar los comandos de migración:",
+    "  - python manage.py makemigrations",
+    "  - python manage.py migrate",
+    "Verificar en la base de datos que todas las recetas se asocian al usuario con ID=1."
+  ],
+  "notas_tecnicas": [
+    "La práctica recomendada es reservar el usuario con ID=1 como usuario administrador o de sistema.",
+    "El parámetro default=1 evita errores durante la migración cuando existen registros previos.",
+    "Es posible agregar o modificar campos en modelos existentes sin necesidad de recrear la tabla, siempre que se manejen correctamente los valores por defecto.",
+    "El uso de DO_NOTHING evita eliminaciones en cascada si se borra un usuario accidentalmente."
+  ],
+  "proximos_pasos": [
+    "Agregar lógica para filtrar recetas por usuario autenticado.",
+    "Actualizar endpoints de creación de recetas para asignar automáticamente el usuario que crea la receta.",
+    "Proteger rutas de edición/eliminación de recetas según el propietario."
+  ]
+}

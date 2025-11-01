@@ -1,11 +1,14 @@
 from autoslug import AutoSlugField
 from django.db import models
+from django.contrib.auth.models import User
 
 from categorias.models import Categoria
 
 
+
 # Create your models here.
 class Receta(models.Model):
+    user = models.ForeignKey(User, models.DO_NOTHING, default=1)
     categoria = models.ForeignKey(Categoria, models.DO_NOTHING)
     titulo_receta = models.CharField(max_length=100, null=False)
     slug = AutoSlugField(populate_from='titulo_receta', max_length=100)

@@ -11,7 +11,7 @@ urlpatterns = [
     path('api/v1/', include('recetas.urls'),name='recetas'),
     path('api/v1/', include('seguridad.urls'),name='seguridad'),
     path('api/v1/', include('contacto.urls'),name='contacto'),
-    path('api/v1/', include('recetas_helpers.urls'),name='recetas_herlpers')
+    path('api/v1/', include('recetas_helper.urls'),name='recetas_herlpers')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

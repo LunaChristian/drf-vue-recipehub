@@ -646,6 +646,29 @@
     "Implementar logs de auditoría para accesos no autorizados.",
     "Crear la API auxiliar 'receta_helper' para gestionar consultas avanzadas."
   ]
+},
+{
+  "numero": 80,
+  "tema": "Creación de la app 'recetas_helpers' para métodos adicionales del backend",
+  "archivo_dialogo": "documentacion/clase_80/dialogo.txt",
+  "archivo_notas": "documentacion/clase_80/notas.json",
+  "resumen_corto": "Se crea la app 'recetas_helpers' para agrupar endpoints auxiliares (listado home, recetas por usuario, actualización de foto). Se configuran URLs y clase base.",
+  "commit_msgs": [
+    "feat(recetas_helpers): crear app base para métodos auxiliares del backend",
+    "chore(urls): registrar rutas de recetas_helpers en urls.py principal",
+    "docs(clase_80): notas sobre creación y propósito de la app recetas_helpers"
+  ]
+},
+{
+  "numero": 81,
+  "tema": "Asociación de recetas con usuarios mediante ForeignKey",
+  "archivo_dialogo": "documentacion/clase_81/dialogo.txt",
+  "archivo_notas": "documentacion/clase_81/notas.json",
+  "resumen_corto": "Se modifica el modelo Receta para incluir un campo ForeignKey hacia User, permitiendo identificar el usuario creador. Se usa default=1 para compatibilidad con registros existentes.",
+  "commit_msgs": [
+    "feat(clase_81): asociar modelo Receta con usuarios mediante ForeignKey",
+    "docs(clase_81): notas sobre relación Receta-User y migraciones correspondientes"
+  ]
 }
 
 
