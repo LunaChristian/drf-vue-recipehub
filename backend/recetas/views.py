@@ -15,6 +15,7 @@ from categorias.models import Categoria
 
 from .models import Receta
 from .serializers import RecetaSerializer
+from seguridad.decorators import login_successful
 
 
 # Create your views here.
@@ -25,6 +26,7 @@ class Class_Receta_View(APIView):
         data_json = RecetaSerializer(data, many=True)
         return JsonResponse({"data":data_json.data}, status=HTTPStatus.OK)
     
+    @login_successful()
     def post(self, request):
         required_fields = ["titulo_receta", "tiempo", "descripcion", "categoria_id", "archivo"]
         for field in required_fields:
@@ -102,6 +104,7 @@ class Class_Receta_View2(APIView):
         except Receta.DoesNotExist:
             raise Http404
         
+    @login_successful()
     def put(self, request, id):
         required_fields = ["titulo_receta", "tiempo", "descripcion", "categoria_id"] 
         for field in required_fields:
@@ -134,6 +137,7 @@ class Class_Receta_View2(APIView):
         except Receta.DoesNotExist:
             raise Http404
         
+    @login_successful()
     def delete(self, request, id):
         
         try:

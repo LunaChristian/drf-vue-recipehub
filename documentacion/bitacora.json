@@ -619,6 +619,33 @@
     "Implementar middleware o permisos DRF equivalentes.",
     "Probar acceso protegido desde frontend con token JWT válido."
   ]
+},
+{
+  "clase": 79,
+  "tema": "Aplicación práctica del decorador @logueado sobre rutas protegidas",
+  "tareas_realizadas": [
+    "Importación del decorador desde seguridad.decorators.",
+    "Aplicación de @logueado a los métodos POST, PUT y DELETE en la vista Recetas.",
+    "Corrección de variable mal referenciada ('resuelto' en lugar de 'req').",
+    "Importación del módulo 'time' en decorators.py.",
+    "Pruebas con token ausente → respuesta 401 no autorizado.",
+    "Pruebas con token alterado → 401 no autorizado.",
+    "Pruebas con token válido → ejecución correcta del método POST.",
+    "Liberación de métodos GET y GET por ID para acceso público."
+  ],
+  "comandos_usados": [
+    "python manage.py runserver"
+  ],
+  "resultados": "El decorador valida correctamente el token antes de ejecutar los endpoints protegidos. Los errores menores en el código fueron corregidos y las rutas quedaron protegidas según lo previsto.",
+  "problemas_detectados": [
+    "Nombre de variable incorrecto ('req' en lugar de 'resuelto') corregido.",
+    "Falta import 'time' corregida."
+  ],
+  "proximos_pasos": [
+    "Configurar CORS en el backend para permitir solicitudes desde el frontend.",
+    "Implementar logs de auditoría para accesos no autorizados.",
+    "Crear la API auxiliar 'receta_helper' para gestionar consultas avanzadas."
+  ]
 }
 
 

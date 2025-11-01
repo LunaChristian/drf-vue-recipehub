@@ -1,1 +1,47 @@
-{}
+{
+  "clase": 79,
+  "titulo": "Aplicación del decorador @logueado para proteger rutas",
+  "descripcion": "Se implementa la protección de endpoints sensibles (crear, editar y eliminar recetas) utilizando el decorador @logueado, que valida el token JWT antes de ejecutar la vista.",
+  "objetivos": [
+    "Importar y aplicar el decorador @logueado sobre los métodos protegidos.",
+    "Verificar la protección efectiva mediante respuestas 401 Unauthorized al no enviar token.",
+    "Corregir errores en el decorador (variables mal nombradas e import faltante).",
+    "Confirmar validación de token incorrecto o expirado.",
+    "Dejar liberadas las rutas públicas (GET y GET por ID)."
+  ],
+  "archivos_afectados": [
+    "recetas/views.py",
+    "seguridad/decorators.py"
+  ],
+  "flujo_de_trabajo": [
+    "Importar el decorador: from seguridad.decorators import logueado.",
+    "Aplicar @logueado sobre los métodos post, put y delete.",
+    "Probar la respuesta sin token → 401 'no autorizado'.",
+    "Enviar token válido → ejecución normal del endpoint.",
+    "Probar token alterado o inválido → 401 'no autorizado'."
+  ],
+  "errores_corregidos": [
+    "Variable 'req' mal referenciada (cambiar a 'resuelto').",
+    "Falta de importación del módulo 'time'."
+  ],
+  "fragmento_codigo": {
+    "descripcion": "Protección de métodos sensibles con @logueado",
+    "codigo": "from seguridad.decorators import logueado\n\nclass RecetasView(APIView):\n    def get(self, request):\n        # ruta pública\n        return JsonResponse({'mensaje': 'Listado de recetas'})\n\n    @logueado\n    def post(self, request):\n        # ruta protegida\n        return JsonResponse({'mensaje': 'Receta creada exitosamente'})\n\n    @logueado\n    def put(self, request, id):\n        # ruta protegida para editar\n        return JsonResponse({'mensaje': 'Receta actualizada'})\n\n    @logueado\n    def delete(self, request, id):\n        # ruta protegida para eliminar\n        return JsonResponse({'mensaje': 'Receta eliminada'})"
+  },
+  "resultados": [
+    "Los endpoints protegidos requieren un token JWT válido.",
+    "Los tokens inválidos o manipulados retornan 401 'no autorizado'.",
+    "Los endpoints públicos continúan accesibles sin autenticación."
+  ],
+  "buenas_practicas": [
+    "Proteger solo rutas que modifiquen datos (POST, PUT, DELETE).",
+    "Evitar sobreproteger endpoints de lectura si deben ser públicos.",
+    "Mantener el decorador centralizado para fácil mantenimiento.",
+    "Registrar logs de intentos de acceso no autorizado para auditoría."
+  ],
+  "conclusiones": [
+    "El flujo JWT está completamente funcional: login → token → validación decorador → autorización.",
+    "El proyecto ahora cuenta con un sistema de autenticación y protección de endpoints centralizado.",
+    "El siguiente paso será habilitar CORS para conexión desde el frontend."
+  ]
+}
