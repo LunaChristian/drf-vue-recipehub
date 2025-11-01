@@ -1,1 +1,48 @@
-{}
+{
+  "clase": 77,
+  "titulo": "Retorno JWT (Json Web Token) con python-jose (HS512)",
+  "descripcion": "Tras autenticar al usuario se genera un JWT firmado con SECRET_KEY usando HS512 y se retorna junto con datos básicos.",
+  "objetivos": [
+    "Emitir un JWT después de authenticate() exitoso.",
+    "Incluir claims estándar: iss, iat, exp (24h).",
+    "Firmar con algoritmo HS512 usando settings.SECRET_KEY.",
+    "Responder al cliente con {id, nombre, token}."
+  ],
+  "dependencias": [
+    "python-jose==3.3.0"
+  ],
+  "requisitos_env": [
+    "BASE_URL (usada en iss)",
+    "SECRET_KEY (settings.SECRET_KEY)"
+  ],
+  "flujo": [
+    "Validar correo y password (authenticate).",
+    "Calcular exp en UTC: now + 1 día.",
+    "Construir payload con id, iss, iat, exp.",
+    "Firmar: jwt.encode(payload, SECRET_KEY, algorithm='HS512').",
+    "Devolver JSON con id, nombre y token."
+  ],
+  "fragmento_codigo": {
+    "descripcion": "Generación y retorno del JWT tras login exitoso",
+    "codigo": "from jose import jwt\nfrom datetime import datetime, timedelta, timezone\nimport time, os\nfrom django.conf import settings\nfrom http import HTTPStatus\nfrom django.http import JsonResponse\n\n# Dentro de la vista luego de authenticate() exitoso (user en variable 'auth'):\nexp_time = datetime.now(timezone.utc) + timedelta(days=1)\npayload = {\n    \"id\": auth.id,\n    \"iss\": os.getenv(\"BASE_URL\"),\n    \"iat\": int(time.time()),\n    \"exp\": int(exp_time.timestamp()),\n}\ntry:\n    token = jwt.encode(payload, settings.SECRET_KEY, algorithm=\"HS512\")\n    return JsonResponse({\n        \"id\": auth.id,\n        \"nombre\": auth.first_name,\n        \"token\": token,\n    }, status=HTTPStatus.OK)\nexcept Exception:\n    return JsonResponse({\n        \"estado\": \"error\",\n        \"mensaje\": \"Error inesperado\"\n    }, status=HTTPStatus.BAD_REQUEST)"
+  },
+  "buenas_practicas": [
+    "No incluir información sensible en el payload (solo IDs/claims mínimos).",
+    "Usar zona horaria UTC en iat/exp.",
+    "Rotar SECRET_KEY en entornos productivos con estrategia de key rotation.",
+    "Validar presencia de BASE_URL en el .env; fallback controlado si falta."
+  ],
+  "salida_api": {
+    "status_ok": 200,
+    "body_ok_ejemplo": {
+      "id": 123,
+      "nombre": "Juan",
+      "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9..."
+    },
+    "status_error": 400,
+    "body_error": {
+      "estado": "error",
+      "mensaje": "Error inesperado"
+    }
+  }
+}

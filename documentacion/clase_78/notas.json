@@ -1,1 +1,49 @@
-{}
+{
+  "clase": 78,
+  "titulo": "Creación de decorador para validar JWT y proteger rutas",
+  "descripcion": "Se implementa un decorador personalizado (@logueado) que valida el encabezado Authorization, decodifica el JWT usando python-jose y verifica su vigencia antes de ejecutar la vista.",
+  "objetivos": [
+    "Centralizar la validación del JWT mediante un decorador reutilizable.",
+    "Recuperar el token desde el header Authorization.",
+    "Decodificar el token con jose.jwt.decode y la SECRET_KEY.",
+    "Verificar expiración (exp > now) y retornar 401 Unauthorized cuando corresponda.",
+    "Aplicar el decorador sobre métodos o vistas que requieran autenticación."
+  ],
+  "dependencias": [
+    "python-jose==3.3.0"
+  ],
+  "archivo_creado": "seguridad/decorators.py",
+  "estructura_basica": {
+    "funcion": "@logueado",
+    "ubicacion": "Arriba del método protegido (por ejemplo, post, get)",
+    "proposito": "Interceptar el request, validar el token y autorizar la ejecución"
+  },
+  "flujo": [
+    "El cliente envía el token en el header: Authorization: Bearer <token>",
+    "El decorador recupera el header desde request.headers.get('Authorization')",
+    "Si falta → retorna JsonResponse 401 Unauthorized.",
+    "Si existe → separa el token ('Bearer', 'token') con split(' ').",
+    "Decodifica con jwt.decode(token, settings.SECRET_KEY, algorithms=['HS512','HS256']).",
+    "Verifica que exp > time.time().",
+    "Si válido → ejecuta la vista; si no → retorna 401 Unauthorized."
+  ],
+  "fragmento_codigo": {
+    "descripcion": "Decorador @logueado para validar y decodificar JWT",
+    "codigo": "from functools import wraps\nfrom jose import jwt\nfrom django.http import JsonResponse\nfrom django.conf import settings\nfrom http import HTTPStatus\nimport time\n\ndef logueado(func):\n    @wraps(func)\n    def decorador(*args, **kwargs):\n        req = args[0]  # request de la vista\n        auth_header = req.headers.get('Authorization')\n        if not auth_header:\n            return JsonResponse({'estado': 'error', 'mensaje': 'Sin autorización'}, status=HTTPStatus.UNAUTHORIZED)\n\n        try:\n            partes = auth_header.split(' ')\n            token = partes[1] if len(partes) == 2 else None\n            payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS512', 'HS256'])\n            if int(payload['exp']) <= int(time.time()):\n                return JsonResponse({'estado': 'error', 'mensaje': 'Token expirado'}, status=HTTPStatus.UNAUTHORIZED)\n        except Exception:\n            return JsonResponse({'estado': 'error', 'mensaje': 'Token inválido'}, status=HTTPStatus.UNAUTHORIZED)\n\n        return func(*args, **kwargs)\n\n    return decorador"
+  },
+  "buenas_practicas": [
+    "Siempre usar @wraps(func) para preservar metadatos de la función original.",
+    "Evitar repetir lógica de validación en cada vista.",
+    "Agregar logs para monitorear intentos fallidos de acceso.",
+    "Mantener consistencia en el header Authorization: Bearer <token>."
+  ],
+  "ejemplo_uso": {
+    "descripcion": "Aplicar el decorador sobre un método protegido",
+    "codigo": "from seguridad.decorators import logueado\n\nclass RecetaView(APIView):\n    @logueado\n    def post(self, request):\n        # lógica protegida\n        return JsonResponse({'mensaje': 'Receta creada exitosamente'})"
+  },
+  "conclusiones": [
+    "El decorador @logueado centraliza la validación del token JWT.",
+    "Permite aplicar autenticación a cualquier endpoint sin duplicar código.",
+    "La estructura puede ampliarse para verificar estado activo del usuario o roles."
+  ]
+}

@@ -8,6 +8,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 import uuid, os
 from dotenv import load_dotenv
+from jose import jwt
+from django.conf import settings
+import time
 
 from utilidades.utilidades import build_singup_email, send_email
 from utilidades.auth_utils import verify_user_by_token

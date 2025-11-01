@@ -552,7 +552,76 @@
     "Generar y retornar token tras autenticación exitosa.",
     "Proteger endpoints con autenticación JWT."
   ]
+},
+{
+  "clase": 77,
+  "tema": "Retorno de JWT firmado (HS512) tras login",
+  "tareas_realizadas": [
+    "Instalación de python-jose==3.3.0.",
+    "Cálculo de exp en UTC (now + 1 día) y iat en epoch.",
+    "Construcción de payload con {id, iss, iat, exp}.",
+    "Firma del token con settings.SECRET_KEY y HS512.",
+    "Respuesta JSON con {id, nombre, token}.",
+    "Manejo de excepción genérica con 400 y mensaje estándar."
+  ],
+  "comandos_usados": [
+    "pip install python-jose==3.3.0",
+    "python manage.py runserver"
+  ],
+  "archivos_afectados": [
+    "seguridad/views.py",
+    ".env (BASE_URL)",
+    "requirements.txt (o pipfile/poetry) para python-jose"
+  ],
+  "pruebas": [
+    "Login válido: retorna 200 con token no vacío.",
+    "Login inválido: mantiene lógica previa (400/404 según validaciones).",
+    "Decodificación del token: contiene claims id/iss/iat/exp y firma HS512.",
+    "Exp mira a ~24h desde iat."
+  ],
+  "problemas_detectados": [
+    "BASE_URL ausente en .env → iss = None. (Solución: definir BASE_URL)."
+  ],
+  "resultados": "El endpoint de login ahora devuelve un JWT usable por el frontend para mantener sesión.",
+  "proximos_pasos": [
+    "Crear verificación de JWT en middleware/permiso DRF para proteger endpoints.",
+    "Definir expiración/renovación (refresh/rotación) si aplica.",
+    "Agregar pruebas unitarias para verificación y expiración del token."
+  ]
+},
+{
+  "clase": 78,
+  "tema": "Protección de rutas con decorador personalizado para JWT",
+  "tareas_realizadas": [
+    "Creación del archivo seguridad/decorators.py.",
+    "Implementación del decorador @logueado con estructura estándar de funciones anidadas.",
+    "Importación de wraps, jwt, settings, JsonResponse, HTTPStatus, time.",
+    "Recuperación del request real mediante args[0].",
+    "Lectura del header Authorization y separación del token con split(' ').",
+    "Decodificación del token con jwt.decode y verificación de expiración.",
+    "Retorno 401 Unauthorized si falta header, token inválido o expirado.",
+    "Aplicación de @logueado sobre un método POST para prueba (ej. crear receta)."
+  ],
+  "problemas_detectados": [
+    "Error inicial por archivo inexistente (solucionado creando decorators.py).",
+    "Falta de importaciones (JsonResponse, HTTPStatus, wraps) detectadas y corregidas."
+  ],
+  "comandos_usados": [
+    "python manage.py runserver"
+  ],
+  "archivos_afectados": [
+    "seguridad/decorators.py",
+    "seguridad/views.py (aplicación del decorador)"
+  ],
+  "resultados": "El decorador valida correctamente el JWT antes de ejecutar las vistas protegidas. Si el token falta, es inválido o expiró, retorna 401 Unauthorized.",
+  "proximos_pasos": [
+    "Agregar validación adicional (usuario activo o roles).",
+    "Implementar middleware o permisos DRF equivalentes.",
+    "Probar acceso protegido desde frontend con token JWT válido."
+  ]
 }
+
+
 
 
   ]
