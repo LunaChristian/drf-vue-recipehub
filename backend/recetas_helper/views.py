@@ -125,8 +125,9 @@ class RecetaSearchView(APIView):
         
         receta_data = (
             Receta.objects.filter(
-            categoria_id= categoria_id ,name__icontains=search)
-            .order_by('id').all()
+            categoria_id= categoria_id,
+            name__icontains=search
+            ).order_by('id').all()
         )
 
         datos_json = RecetaSerializer(receta_data, many=True)
