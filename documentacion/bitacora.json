@@ -728,7 +728,20 @@
     "refactor(clase_86): aplicar order_by('?')[0:3] para obtener recetas aleatorias",
     "docs(clase_86): agregar notas técnicas y flujo del método para recetas destacadas"
   ]
+},
+{
+  "numero": 87,
+  "tema": "Extensión del RecetaSerializer para incluir información del usuario asociado",
+  "archivo_dialogo": "documentacion/clase_87/dialogo.txt",
+  "archivo_notas": "documentacion/clase_87/notas.json",
+  "resumen_corto": "Se actualiza RecetaSerializer para mostrar el nombre del usuario asociado en todas las APIs que devuelven recetas.",
+  "commit_msgs": [
+    "feat(clase_87): agregar campo 'user' al RecetaSerializer para mostrar nombre del usuario asociado",
+    "refactor(clase_87): actualizar lista de fields en RecetaSerializer incluyendo user_id y user",
+    "docs(clase_87): documentar impacto global del cambio en todas las APIs que usan RecetaSerializer"
+  ]
 }
+
 
   ]
 }

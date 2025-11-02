@@ -1,1 +1,49 @@
-{}
+{
+  "numero": 87,
+  "titulo": "Extensión del RecetaSerializer para incluir información del usuario asociado",
+  "resumen": "Se modifica el serializer de Recetas para incluir los datos del usuario creador de la receta, mostrando el nombre completo (almacenado en el campo firstname del modelo User). Este cambio impacta automáticamente en todas las APIs que utilizan este serializer.",
+  "detalles": {
+    "archivo": "recetas/serializers.py",
+    "clase_modificada": "RecetaSerializer",
+    "nuevo_campo": "user",
+    "descripcion": "El serializer ahora agrega información del usuario mediante una relación de llave foránea (ForeignKey) al modelo User."
+  },
+  "flujo_logico": [
+    "1. Se copia la estructura de los campos de relación ya definidos (como categoría).",
+    "2. Se agrega un campo 'user' en el serializer usando `serializers.ReadOnlyField(source='user.first_name')`.",
+    "3. Se incluye el nuevo campo en la lista de fields junto a 'user_id'.",
+    "4. Los métodos que devuelven recetas ahora incluirán el nombre del usuario automáticamente."
+  ],
+  "codigo_agregado": {
+    "nuevo_campo": "user = serializers.ReadOnlyField(source='user.first_name')",
+    "fields_actualizados": "fields = ['id', 'titulo', 'slug', 'descripcion', 'categoria', 'foto', 'fecha', 'user_id', 'user']"
+  },
+  "impacto_en_apis": [
+    "GET /recetas/home/",
+    "GET /recetas/slug/<slug>/",
+    "GET /recetas/panel/<id>/",
+    "Cualquier endpoint que utilice RecetaSerializer"
+  ],
+  "ejemplo_practico": {
+    "request": "GET /api/v1/recetas/home/",
+    "respuesta_exitosa": {
+      "id": 11,
+      "titulo": "Tallarines con salsa",
+      "categoria": "Pasta",
+      "foto": "uploads/recetas/tallarines.jpg",
+      "user_id": 6,
+      "user": "Juan Pérez"
+    }
+  },
+  "notas_tecnicas": [
+    "La modificación aplica a todos los endpoints que serializan recetas.",
+    "El campo 'user' se obtiene directamente desde el modelo User a través de la relación foránea.",
+    "El uso de `ReadOnlyField` evita que el campo sea editable en peticiones POST o PUT.",
+    "El cambio es retrocompatible con los métodos existentes, no requiere migraciones."
+  ],
+  "proximos_pasos": [
+    "Incluir también el email del usuario o su username en el serializer, si es útil para el frontend.",
+    "Agregar pruebas automáticas para verificar que los datos del usuario se serializan correctamente.",
+    "Controlar la exposición de datos sensibles del usuario (por ejemplo, ocultar email o estado)."
+  ]
+}
