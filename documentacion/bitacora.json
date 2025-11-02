@@ -740,7 +740,32 @@
     "refactor(clase_87): actualizar lista de fields en RecetaSerializer incluyendo user_id y user",
     "docs(clase_87): documentar impacto global del cambio en todas las APIs que usan RecetaSerializer"
   ]
+},
+{
+  "numero": 88,
+  "tema": "Incluir datos del usuario en las respuestas de búsqueda individual (por ID y por Slug)",
+  "archivo_dialogo": "documentacion/clase_88/dialogo.txt",
+  "archivo_notas": "documentacion/clase_88/notas.json",
+  "resumen_corto": "Se agregan los campos 'user_id' y 'user' a las respuestas JSON de los endpoints de detalle por ID y por Slug.",
+  "commit_msgs": [
+    "feat(clase_88): agregar user_id y nombre de usuario a respuestas de detalle de recetas por ID y Slug",
+    "refactor(clase_88): unificar formato de salida incluyendo datos del usuario en endpoints individuales",
+    "docs(clase_88): actualizar documentación de endpoints de detalle con inclusión de usuario"
+  ]
+},
+{
+  "numero": 89,
+  "tema": "GET /recetas/buscador: Implementar búsqueda filtrada por categoría e término de texto",
+  "archivo_dialogo": "documentacion/clase_89/dialogo.txt",
+  "archivo_notas": "documentacion/clase_89/notas.json",
+  "resumen_corto": "Se crea endpoint GET /recetas/buscador que permite buscar recetas filtrando por categoría y texto, con validaciones y seguridad básica.",
+  "commit_msgs": [
+    "feat(clase_89): crear endpoint GET /recetas/buscador para búsqueda por categoría y término de texto",
+    "refactor(clase_89): agregar validaciones para parámetros 'categoria_id' y 'search'",
+    "docs(clase_89): documentar proceso de búsqueda con filtros y consideraciones de seguridad"
+  ]
 }
+
 
 
   ]

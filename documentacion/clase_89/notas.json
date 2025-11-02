@@ -1,1 +1,65 @@
-{}
+{
+  "numero": 89,
+  "titulo": "GET /recetas/buscador: Implementar búsqueda filtrada por categoría e término de texto",
+  "resumen": "Se implementa un endpoint GET en la app 'recetas_helper' que permite realizar búsquedas filtradas de recetas por categoría y texto. Los parámetros se reciben vía query string (`categoria_id` y `search`). El sistema valida los parámetros y retorna los resultados coincidentes.",
+  "detalles": {
+    "app": "recetas_helper",
+    "endpoint": "/api/v1/recetas/buscador/",
+    "metodo_http": "GET",
+    "clase_vista": "ClaseCinco (APIView)",
+    "parametros_recibidos": {
+      "categoria_id": "int — ID de la categoría de recetas.",
+      "search": "str — texto a buscar dentro del nombre de la receta (búsqueda parcial)."
+    }
+  },
+  "flujo_logico": [
+    "1. Recuperar parámetros desde la query string con `request.GET.get()`.",
+    "2. Validar que ambos parámetros estén presentes (`categoria_id` y `search`).",
+    "3. Verificar que la categoría exista en la base de datos.",
+    "4. Filtrar las recetas usando el ORM de Django:",
+    "   - `filter(categoria_id=valor)` para la categoría.",
+    "   - `filter(nombre__icontains=valor)` para la búsqueda textual.",
+    "5. Serializar y retornar las recetas coincidentes."
+  ],
+  "validaciones": [
+    "Si `categoria_id` o `search` son nulos o vacíos → se retorna error HTTP 400.",
+    "Si la categoría indicada no existe → error HTTP 400.",
+    "Si no hay coincidencias, se retorna una lista vacía pero con HTTP 200."
+  ],
+  "codigo_principal": {
+    "query_params": [
+      "categoria_id = request.GET.get('categoria_id')",
+      "search = request.GET.get('search')"
+    ],
+    "filtro": "Receta.objects.filter(categoria_id=categoria_id, nombre__icontains=search)",
+    "respuesta": "JsonResponse({'data': serializer.data}, status=HTTP_200_OK)"
+  },
+  "ejemplo_practico": {
+    "request": "GET /api/v1/recetas/buscador?categoria_id=4&search=pasta",
+    "respuesta_exitosa": {
+      "data": [
+        {"id": 3, "titulo": "Pasta boloñesa", "categoria": "Pastas", "user": "Juan Pérez"}
+      ],
+      "status": 200
+    },
+    "respuesta_error": {
+      "mensaje": "Ocurrió un error inesperado.",
+      "status": 400
+    }
+  },
+  "importaciones": [
+    "from recetas.models import Receta",
+    "from categorias.models import Categoria",
+    "from recetas.serializers import RecetaSerializer"
+  ],
+  "notas_tecnicas": [
+    "El filtro `__icontains` realiza una búsqueda insensible a mayúsculas/minúsculas y aplica comodines internos.",
+    "Se deben validar las entradas para evitar riesgos de inyección SQL, especialmente en búsquedas abiertas.",
+    "La vista utiliza `APIView` de Django REST Framework, pero se mantiene estilo procedural para la lógica."
+  ],
+  "proximos_pasos": [
+    "Agregar paginación para búsquedas con muchos resultados.",
+    "Permitir filtros adicionales (por ejemplo, fecha o usuario).",
+    "Implementar sanitización avanzada de texto de búsqueda."
+  ]
+}

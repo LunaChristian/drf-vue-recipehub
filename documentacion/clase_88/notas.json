@@ -1,1 +1,52 @@
-{}
+{
+  "numero": 88,
+  "titulo": "Incluir datos del usuario en las respuestas de búsqueda individual (por ID y por Slug)",
+  "resumen": "Se amplían las vistas de detalle de recetas (búsqueda por ID y por Slug) para incluir los datos del usuario (user_id y nombre del usuario) en las respuestas JSON, logrando consistencia con los listados generales.",
+  "detalles": {
+    "archivos_modificados": [
+      "recetas/views.py",
+      "recetas_helper/views.py"
+    ],
+    "metodos_afectados": [
+      "GET /recetas/<id>/",
+      "GET /recetas/slug/<slug>/"
+    ],
+    "descripcion": "Ambos endpoints de detalle de recetas ahora incluyen los campos 'user_id' y 'user' (nombre del usuario creador) en la respuesta JSON, obtenidos directamente desde el modelo relacionado."
+  },
+  "flujo_logico": [
+    "1. Localizar los métodos que retornan los detalles de una receta por ID y por Slug.",
+    "2. Al final de la construcción del diccionario `data`, agregar los campos 'user_id' y 'user'.",
+    "3. Obtener el ID mediante `data.user.id` y el nombre mediante `data.user.first_name`.",
+    "4. Retornar la respuesta JSON extendida con esta nueva información."
+  ],
+  "codigo_agregado": {
+    "user_id": "data['user_id'] = data.user.id",
+    "user_nombre": "data['user'] = data.user.first_name"
+  },
+  "ejemplo_practico": {
+    "request": "GET /api/v1/recetas/slug/tallarines-con-salsa/",
+    "respuesta_exitosa": {
+      "id": 11,
+      "titulo": "Tallarines con salsa",
+      "categoria": "Pasta",
+      "foto": "uploads/recetas/tallarines_salsa.jpg",
+      "user_id": 6,
+      "user": "Juan Pérez"
+    }
+  },
+  "impacto": [
+    "Ahora todas las búsquedas (por ID, por Slug, y listados) devuelven consistentemente los datos del usuario.",
+    "El cambio mejora la homogeneidad del API para su uso desde el frontend.",
+    "No se requieren migraciones ni cambios en el serializer."
+  ],
+  "notas_tecnicas": [
+    "La modificación se realiza manualmente dentro de las vistas que retornan objetos individuales.",
+    "El acceso a `data.user.first_name` requiere que el modelo `Receta` tenga correctamente configurada la ForeignKey a `User`.",
+    "El campo 'user' ahora aparece tanto en listados como en detalles, asegurando consistencia en las respuestas del backend."
+  ],
+  "proximos_pasos": [
+    "Centralizar la inclusión de datos del usuario en un serializer común para reducir repetición de código.",
+    "Agregar validaciones de seguridad para ocultar campos sensibles del usuario (por ejemplo, email).",
+    "Implementar pruebas automáticas para verificar la presencia de 'user' y 'user_id' en ambos endpoints."
+  ]
+}
