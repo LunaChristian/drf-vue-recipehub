@@ -704,6 +704,19 @@
     "fix(clase_84): eliminar archivo anterior tras carga exitosa para evitar duplicados",
     "docs(clase_84): agregar notas y flujo detallado de validaciones y reemplazo de imagen"
   ]
+},
+{
+  "numero": 85,
+  "tema": "GET /recetas/slug/<slug>: Obtener detalle de receta por slug",
+  "archivo_dialogo": "documentacion/clase_85/dialogo.txt",
+  "archivo_notas": "documentacion/clase_85/notas.json",
+  "resumen_corto": "Se implementa el endpoint público GET /recetas/slug/<slug> en recetas_helper para obtener el detalle de una receta a partir de su slug.",
+  "commit_msgs": [
+    "feat(clase_85): crear endpoint GET /recetas/slug/<slug> para obtener receta por slug",
+    "fix(clase_85): importar DateFormat para formatear fecha en respuesta JSON",
+    "docs(clase_85): agregar notas sobre método de búsqueda por slug y validaciones"
+  ]
 }
+
   ]
 }

@@ -1,1 +1,55 @@
-{}
+{
+  "numero": 85,
+  "titulo": "GET /recetas/slug/<slug>: Obtener detalle de receta por slug",
+  "resumen": "Se implementa un nuevo endpoint GET en la app 'recetas_helper' que permite obtener el detalle de una receta a partir de su slug, reutilizando el serializer de Recetas y el mismo formato de respuesta JSON del método que busca por ID.",
+  "detalles": {
+    "app": "recetas_helper",
+    "endpoint": "/api/v1/recetas/slug/<slug>/",
+    "metodo_http": "GET",
+    "clase_vista": "ClaseDos (APIView)",
+    "descripcion": "Permite recuperar la información completa de una receta usando el slug en lugar del ID. Es un endpoint público, no requiere autenticación.",
+    "proposito": "Facilitar la carga del detalle de receta en el frontend mediante URL legible (slug)."
+  },
+  "flujo_logico": [
+    "1. Recibir el parámetro <slug> desde la URL.",
+    "2. Buscar la receta en la base de datos mediante `Receta.objects.get(slug=slug)`.",
+    "3. Si no se encuentra, retornar error 404 con mensaje genérico.",
+    "4. Si se encuentra, serializar la receta con `RecetaSerializer`.",
+    "5. Devolver los datos en formato JSON con estado HTTP 200."
+  ],
+  "importaciones_clave": [
+    "from recetas.models import Receta",
+    "from recetas.serializers import RecetaSerializer",
+    "from django.http import Http404",
+    "from django.utils.dateformat import DateFormat"
+  ],
+  "validaciones": [
+    "El slug debe corresponder a una receta existente, de lo contrario se lanza Http404.",
+    "El método no requiere autenticación (endpoint público).",
+    "El formateo de fecha usa DateFormat, que debe ser importado explícitamente."
+  ],
+  "ejemplo_practico": {
+    "request": "GET /api/v1/recetas/slug/tallarines-con-salsa/",
+    "respuesta_exitosa": {
+      "titulo_receta": "Tallarines con salsa",
+      "categoria": "Carne y Pollo",
+      "fecha_creacion": "2025-10-27",
+      "foto": "https://miapp.com/uploads/recetas/tallarines_salsa.jpg"
+    },
+    "respuesta_error": {
+      "detalle": "Recurso no encontrado",
+      "status": 404
+    }
+  },
+  "notas_tecnicas": [
+    "El método es análogo al existente que busca por ID, solo cambia el filtro a slug.",
+    "Se reutiliza el serializer original de Recetas para mantener consistencia.",
+    "Es importante importar DateFormat para evitar errores de referencia.",
+    "El endpoint no necesita protección con @logueado, ya que solo realiza lectura pública."
+  ],
+  "proximos_pasos": [
+    "Agregar manejo explícito de excepciones personalizadas para mejorar la respuesta de error.",
+    "Extender el serializer para incluir información del autor o etiquetas de la receta.",
+    "Incluir pruebas unitarias que verifiquen la búsqueda por slug válido e inválido."
+  ]
+}

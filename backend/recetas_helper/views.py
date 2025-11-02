@@ -68,4 +68,36 @@ class ImgEditorHelperView(APIView):
             except Exception as e:
                 return JsonResponse({"estado":"error", "mensaje":"Ocurrió un error inesperado"}, status=HTTPStatus.BAD_REQUEST)
         else:
-            return JsonResponse({"estado":"error", "mensaje":"La foto sólo puede ser PNG y JPG"}, status=HTTPStatus.BAD_REQUEST)
+            return JsonResponse({"estado":"error", "mensaje":"class La foto sólo puede ser PNG y JPG"}, status=HTTPStatus.BAD_REQUEST)
+
+class RecetaDetailView(APIView):
+    """ Mostrar/listar una receta filtrada por slug"""
+    
+    def get(self, request, slug):
+        try:
+            data = Receta.objects.filter(slug=slug).get()
+            return JsonResponse({
+                "data":
+                    {
+                        "id": data.id,
+                        "nombre":data.titulo_receta,
+                        "slug":data.slug,
+                        "tiempo":data.tiempo,
+                        "descripcion":data.descripcion,
+                        "fecha":DateFormat(data.fecha).format('d/m/Y'),
+                        "categoria_id":data.categoria_id,
+                        "categoria":data.categoria.titulo,
+                        "imagen":f"{os.getenv('BASE_URL')}uploads/recetas/{data.foto}",
+                        "user_id":data.user_id,
+                        "user":data.user.first_name
+                    }
+                },status=HTTPStatus.OK)
+            
+        except Receta.DoesNotExist:
+            return JsonResponse({"estado":"error", "mensaje":"Recurso no disponible"}, status=HTTPStatus.NOT_FOUND)
+
+class RecetasHome(APIView):
+    pass
+
+class RecetaSearchView(APIView):
+    pass
