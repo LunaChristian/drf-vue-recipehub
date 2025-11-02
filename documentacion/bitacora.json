@@ -764,7 +764,32 @@
     "refactor(clase_89): agregar validaciones para parámetros 'categoria_id' y 'search'",
     "docs(clase_89): documentar proceso de búsqueda con filtros y consideraciones de seguridad"
   ]
+},
+{
+  "numero": 90,
+  "tema": "Configuración de CORS en Django para habilitar acceso desde frontends externos",
+  "archivo_dialogo": "documentacion/clase_90/dialogo.txt",
+  "archivo_notas": "documentacion/clase_90/notas.json",
+  "resumen_corto": "Se instala y configura django-cors-headers para permitir el acceso al backend desde orígenes externos como Vue, React o aplicaciones móviles.",
+  "commit_msgs": [
+    "feat(clase_90): instalar y configurar django-cors-headers para habilitar CORS en el proyecto",
+    "chore(clase_90): agregar corsheaders en INSTALLED_APPS y middleware del settings.py",
+    "docs(clase_90): documentar configuración de CORS y buenas prácticas de seguridad"
+  ]
+},
+{
+  "numero": 91,
+  "tema": "Instalación y configuración inicial de DRF Yasg (Swagger) para documentación del API",
+  "archivo_dialogo": "documentacion/clase_91/dialogo.txt",
+  "archivo_notas": "documentacion/clase_91/notas.json",
+  "resumen_corto": "Se instala y configura DRF Yasg para documentar automáticamente las APIs REST mediante Swagger.",
+  "commit_msgs": [
+    "feat(clase_91): agregar drf-yasg para documentación Swagger de la API",
+    "chore(clase_91): registrar 'drf_yasg' en INSTALLED_APPS antes de rest_framework",
+    "docs(clase_91): iniciar configuración de documentación automática de endpoints"
+  ]
 }
+
 
 
 

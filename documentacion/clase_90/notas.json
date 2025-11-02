@@ -1,1 +1,63 @@
-{}
+{
+  "numero": 90,
+  "titulo": "Configuración de CORS en el proyecto Django para habilitar acceso desde frontends externos",
+  "resumen": "Se instala y configura la librería 'django-cors-headers' para habilitar el intercambio de recursos de origen cruzado (CORS) en el proyecto Django. Esto permite que las APIs puedan ser consumidas desde aplicaciones externas (React, Vue, Angular, Android, iOS, etc.) sin restricciones de origen.",
+  "detalles": {
+    "libreria": "django-cors-headers==4.4.0",
+    "archivo_modificado": "settings.py",
+    "configuracion_realizada": [
+      "Agregar 'corsheaders' en INSTALLED_APPS",
+      "Agregar 'corsheaders.middleware.CorsMiddleware' al inicio de MIDDLEWARE",
+      "Definir constantes de configuración CORS en settings.py"
+    ],
+    "motivo": "Por defecto, Django bloquea solicitudes provenientes de orígenes distintos al dominio del backend. Esta configuración elimina esa restricción para permitir conexiones externas seguras."
+  },
+  "pasos_de_configuracion": [
+    "1. Agregar la dependencia en requirements.txt:",
+    "   django-cors-headers==4.4.0",
+    "2. Instalar dependencias: `pip install -r requirements.txt`",
+    "3. Editar settings.py:",
+    "   - Añadir 'corsheaders' a INSTALLED_APPS",
+    "   - Insertar 'corsheaders.middleware.CorsMiddleware' antes de CommonMiddleware en MIDDLEWARE",
+    "4. Añadir las constantes de configuración globales:"
+  ],
+  "codigo_agregado": {
+    "requirements.txt": "django-cors-headers==4.4.0",
+    "settings.py": [
+      "INSTALLED_APPS = [",
+      "    ...",
+      "    'corsheaders',",
+      "]",
+      "MIDDLEWARE = [",
+      "    'corsheaders.middleware.CorsMiddleware',",
+      "    ...",
+      "]",
+      "CORS_ALLOW_ALL_ORIGINS = True",
+      "CORS_ALLOW_CREDENTIALS = True",
+      "CORS_ORIGIN_WHITELIST = [",
+      "    'http://127.0.0.1:8080',",
+      "    'http://localhost:8080'",
+      "]"
+    ]
+  },
+  "explicacion_tecnica": [
+    "CORS (Cross-Origin Resource Sharing) es un mecanismo de seguridad implementado por los navegadores para restringir las solicitudes HTTP desde dominios externos.",
+    "El middleware `CorsMiddleware` intercepta cada solicitud antes de llegar a las vistas para determinar si el origen está permitido.",
+    "CORS_ALLOW_ALL_ORIGINS=True permite que cualquier dominio acceda temporalmente a las APIs; útil en desarrollo, no recomendado en producción.",
+    "CORS_ORIGIN_WHITELIST define una lista segura de dominios permitidos para consumir la API (por ejemplo, el puerto del frontend en desarrollo)."
+  ],
+  "verificacion": {
+    "comando": "python manage.py runserver",
+    "prueba": "Verificar que los endpoints del API sigan respondiendo normalmente tras activar el middleware."
+  },
+  "consideraciones_seguridad": [
+    "No dejar CORS_ALLOW_ALL_ORIGINS=True en producción; definir whitelist de dominios de frontend.",
+    "El middleware CORS actúa antes de los decoradores, por lo tanto, las validaciones de autenticación siguen funcionando correctamente.",
+    "Las aplicaciones móviles y de escritorio también se benefician de esta configuración, ya que acceden al backend a través de HTTP."
+  ],
+  "proximos_pasos": [
+    "Mover las URLs de frontend a variables de entorno en .env para mayor flexibilidad.",
+    "Crear configuración separada (dev/prod) con diferentes políticas de CORS.",
+    "Verificar interoperabilidad con frameworks frontend como Vue o React mediante fetch/Axios."
+  ]
+}

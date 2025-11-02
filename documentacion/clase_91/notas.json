@@ -1,1 +1,48 @@
-{}
+{
+  "numero": 91,
+  "titulo": "Instalación y configuración inicial de DRF Yasg (Swagger) para documentación automática del API",
+  "resumen": "Se inicia la integración de la librería DRF Yasg para generar documentación interactiva del API REST mediante Swagger UI y Redoc. Se agrega la dependencia al proyecto y se realiza su primera configuración en settings.py.",
+  "detalles": {
+    "libreria": "drf-yasg==1.21.7",
+    "objetivo": "Permitir la generación automática de documentación interactiva para las APIs desarrolladas con Django REST Framework.",
+    "ubicacion_configuracion": "settings.py",
+    "estado": "Configuración inicial — instalación y registro en INSTALLED_APPS completados."
+  },
+  "pasos_realizados": [
+    "1. Agregar la dependencia en el archivo requirements.txt:",
+    "   drf-yasg==1.21.7",
+    "2. Instalar dependencias con:",
+    "   pip install -r requirements.txt",
+    "3. Registrar la app en settings.py antes de 'rest_framework':",
+    "   'drf_yasg',",
+    "4. Verificar que no existan errores al levantar el servidor."
+  ],
+  "codigo_agregado": {
+    "requirements.txt": "drf-yasg==1.21.7",
+    "settings.py": [
+      "INSTALLED_APPS = [",
+      "    'drf_yasg',",
+      "    'rest_framework',",
+      "    ...",
+      "]"
+    ]
+  },
+  "conceptos_clave": [
+    "Swagger es un estándar para la documentación de APIs REST, que permite describir endpoints, parámetros y respuestas de manera interactiva.",
+    "DRF Yasg (Yet Another Swagger Generator) genera automáticamente la documentación en base a las vistas, serializers y configuraciones de Django REST Framework.",
+    "La documentación generada puede visualizarse en dos formatos: Swagger UI y Redoc."
+  ],
+  "problemas_detectados": [
+    "Durante la ejecución inicial se reportó un error posiblemente relacionado con la instalación incompleta de la librería.",
+    "Se recomienda reinstalar con `pip install drf-yasg` si la instalación vía requirements falló."
+  ],
+  "verificacion": {
+    "comando": "python manage.py runserver",
+    "resultado_esperado": "El servidor se ejecuta sin errores; la app 'drf_yasg' aparece registrada correctamente en INSTALLED_APPS."
+  },
+  "proximos_pasos": [
+    "Configurar las rutas para exponer la documentación Swagger y Redoc (por ejemplo, /swagger/ y /redoc/).",
+    "Probar la autogeneración de endpoints documentados.",
+    "Agregar metadatos del proyecto (título, descripción, versión, contacto)."
+  ]
+}
