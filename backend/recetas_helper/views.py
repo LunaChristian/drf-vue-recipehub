@@ -97,7 +97,37 @@ class RecetaDetailView(APIView):
             return JsonResponse({"estado":"error", "mensaje":"Recurso no disponible"}, status=HTTPStatus.NOT_FOUND)
 
 class RecetasHome(APIView):
-    pass
-
+    
+    def get(self, request):
+        data = Receta.objects.order_by('id').all()
+        datos_json = RecetaSerializer(data, many=True)
+        return JsonResponse({"data": datos_json.data}, status=HTTPStatus.OK)
+    
 class RecetaSearchView(APIView):
-    pass
+    
+    def get(self, request):
+        categoria_id = request.GET.get("categoria_id")
+        search = request.GET.get("search", "")
+        
+        if not categoria_id:
+            return JsonResponse(
+                {"estado": "error", "mensaje": "El campo 'categoria_id' es obligatorio"},
+                status=HTTPStatus.BAD_REQUEST,
+            )
+            
+        try:
+            Categoria.objects.get(id=categoria_id)
+        except Categoria.DoesNotExist:
+            return JsonResponse(
+                {"estado": "error", "mensaje": "La categoría no existe"},
+                status=HTTPStatus.BAD_REQUEST,
+            )
+        
+        receta_data = (
+            Receta.objects.filter(
+            categoria_id= categoria_id ,name__icontains=search)
+            .order_by('id').all()
+        )
+
+        datos_json = RecetaSerializer(receta_data, many=True)
+        return JsonResponse({"data": datos_json.data}, status=HTTPStatus.OK)

@@ -716,6 +716,18 @@
     "fix(clase_85): importar DateFormat para formatear fecha en respuesta JSON",
     "docs(clase_85): agregar notas sobre método de búsqueda por slug y validaciones"
   ]
+},
+{
+  "numero": 86,
+  "tema": "GET /recetas/home: Listar tres recetas aleatorias o recientes para el Home",
+  "archivo_dialogo": "documentacion/clase_86/dialogo.txt",
+  "archivo_notas": "documentacion/clase_86/notas.json",
+  "resumen_corto": "Se implementa un endpoint GET en recetas_helper que devuelve tres recetas para el Home, seleccionadas aleatoriamente o por ID descendente.",
+  "commit_msgs": [
+    "feat(clase_86): crear endpoint GET /recetas/home para listar tres recetas en el Home",
+    "refactor(clase_86): aplicar order_by('?')[0:3] para obtener recetas aleatorias",
+    "docs(clase_86): agregar notas técnicas y flujo del método para recetas destacadas"
+  ]
 }
 
   ]

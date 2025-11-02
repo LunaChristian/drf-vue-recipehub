@@ -1,1 +1,56 @@
-{}
+{
+  "numero": 86,
+  "titulo": "GET /recetas/home: Listar tres recetas aleatorias o recientes para el Home",
+  "resumen": "Se implementa un endpoint GET en la app 'recetas_helper' que permite listar tres recetas para mostrar en la página principal. Por defecto se devuelven de forma aleatoria, pero se puede ajustar fácilmente para mostrar las más recientes.",
+  "detalles": {
+    "app": "recetas_helper",
+    "endpoint": "/api/v1/recetas/home/",
+    "metodo_http": "GET",
+    "clase_vista": "ClaseTres (APIView)",
+    "descripcion": "Devuelve un conjunto limitado de recetas (por defecto tres) en formato JSON, ya sea seleccionadas al azar o según orden descendente de ID."
+  },
+  "flujo_logico": [
+    "1. Se realiza una consulta ORM sobre el modelo Receta.",
+    "2. Se aplica `order_by('?')` para ordenar los resultados aleatoriamente.",
+    "3. Se limita el queryset a los primeros tres resultados `[0:3]`.",
+    "4. Se serializan los datos con RecetaSerializer.",
+    "5. Se retorna la lista de recetas en formato JSON con estado HTTP 200."
+  ],
+  "importaciones_clave": [
+    "from recetas.models import Receta",
+    "from recetas.serializers import RecetaSerializer",
+    "from rest_framework.response import Response",
+    "from rest_framework import status"
+  ],
+  "validaciones": [
+    "El endpoint es público, no requiere autenticación.",
+    "No recibe parámetros; solo devuelve un subconjunto de recetas existentes.",
+    "Puede personalizarse para devolver los últimos registros usando `.order_by('-id')`."
+  ],
+  "variantes_posibles": {
+    "aleatorio": "Receta.objects.order_by('?')[0:3]",
+    "ultimos": "Receta.objects.order_by('-id')[0:3]"
+  },
+  "ejemplo_practico": {
+    "request": "GET /api/v1/recetas/home/",
+    "respuesta_exitosa": {
+      "data": [
+        {"id": 7, "titulo": "Pizza Margarita", "categoria": "Italiana"},
+        {"id": 3, "titulo": "Empanadas", "categoria": "Criolla"},
+        {"id": 10, "titulo": "Tallarines con salsa", "categoria": "Pastas"}
+      ],
+      "status": 200
+    },
+    "comportamiento": "Cada ejecución devuelve tres recetas distintas al azar."
+  },
+  "notas_tecnicas": [
+    "El uso de `order_by('?')` puede ser costoso en bases de datos grandes; en producción se recomienda otra estrategia.",
+    "El límite se define con slicing `[0:3]`, lo que traduce internamente a `LIMIT 3` en SQL.",
+    "Ideal para alimentar componentes dinámicos en el frontend (Home o secciones destacadas)."
+  ],
+  "proximos_pasos": [
+    "Agregar cache para optimizar el rendimiento del endpoint.",
+    "Permitir definir dinámicamente la cantidad de recetas a retornar mediante query params.",
+    "Incluir validación de disponibilidad (solo recetas activas/publicadas)."
+  ]
+}
