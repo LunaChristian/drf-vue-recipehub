@@ -12,10 +12,11 @@ class RecetaSerializer(serializers.ModelSerializer):
     #fecha = serializers.DateTimeField(format="%d/%m/%Y")
     fecha = serializers.SerializerMethodField()
     imagen = serializers.SerializerMethodField()
+    user = serializers.ReadOnlyField(source='user_metadata.username')
     
     class Meta:
         model = Receta
-        fields = ('id', 'titulo_receta', 'slug', 'tiempo', 'descripcion', 'fecha', 'categoria', 'categoria_id', 'imagen')
+        fields = ('id', 'titulo_receta', 'slug', 'tiempo', 'descripcion', 'fecha', 'categoria', 'categoria_id', 'imagen', 'username')
         
     def get_fecha(self, obj):
         return DateFormat(obj.fecha).format('d/m/Y')
