@@ -89,7 +89,8 @@ class Class_Receta_View(APIView):
                     descripcion = request.data['descripcion'],
                     categoria_id = request.data['categoria_id'],
                     fecha = datetime.now(),
-                    foto = img
+                    foto = img,
+                    user_id = resuelto
                     )
                 return JsonResponse({"estado":"ok", "mensaje":"registro exitoso"}, status=HTTPStatus.CREATED)
             except Exception as e:

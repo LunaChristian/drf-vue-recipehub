@@ -1,1 +1,57 @@
-{}
+{
+  "numero": 84,
+  "titulo": "POST /recetas/editar-foto: Actualización de imagen de receta con reemplazo físico del archivo",
+  "resumen": "Se implementa un endpoint POST en la app recetas_helper para modificar la foto de una receta existente. El método valida el ID de la receta, verifica la existencia del archivo, comprueba el tipo MIME y reemplaza la imagen anterior en el servidor.",
+  "detalles": {
+    "app": "recetas_helper",
+    "endpoint": "/api/v1/recetas/editar-foto/",
+    "metodo_http": "POST",
+    "clase_vista": "ClaseUno (APIView)",
+    "descripcion": "Permite actualizar la foto de una receta existente, recibiendo los datos mediante FormData. Si la receta o el archivo no existen, devuelve errores específicos con estado HTTP 400."
+  },
+  "flujo_logico": [
+    "1. Validar que el campo 'id' esté presente en request.data.",
+    "2. Verificar que exista una receta con ese ID (Receta.DoesNotExist).",
+    "3. Validar que el campo 'foto' esté presente y tenga formato válido (image/jpeg o image/png).",
+    "4. Subir la nueva foto al directorio MEDIA_ROOT/uploads/recetas.",
+    "5. Actualizar el registro de la receta con la nueva ruta de foto.",
+    "6. Eliminar físicamente la foto anterior del servidor.",
+    "7. Retornar un mensaje de éxito con HTTP 200."
+  ],
+  "importaciones_clave": [
+    "import os",
+    "import datetime",
+    "from django.core.files.storage import FileSystemStorage",
+    "from recetas.models import Receta"
+  ],
+  "validaciones": [
+    "Se devuelve HTTP 400 si falta el campo 'id' o 'foto'.",
+    "Se devuelve HTTP 400 si la receta no existe.",
+    "Se devuelve HTTP 400 si el formato del archivo no es JPG o PNG.",
+    "El archivo anterior se elimina con os.remove tras una carga exitosa."
+  ],
+  "mecanismo_archivos": {
+    "upload_dir": "uploads/recetas/",
+    "nueva_foto": "Se guarda con nombre único generado mediante timestamp.",
+    "eliminacion_anterior": "Se obtiene el nombre anterior desde el campo 'foto' y se borra físicamente."
+  },
+  "ejemplo_practico": {
+    "request": "POST /api/v1/recetas/editar-foto/ con form-data: { id: 11, foto: 'tallarines_verdes.jpg' }",
+    "respuesta_exitosa": {
+      "estado": "ok",
+      "mensaje": "Se modifica el registro exitosamente"
+    },
+    "resultado": "La foto anterior se elimina del servidor y el campo 'foto' se actualiza con la nueva imagen."
+  },
+  "notas_tecnicas": [
+    "La carga se realiza con FormData porque incluye archivos (multipart/form-data).",
+    "El método POST es preferido frente a PUT en este caso, por manejar carga de archivos.",
+    "Es importante retornar mensajes genéricos en los errores para evitar exponer información sensible.",
+    "La eliminación del archivo anterior evita acumulación de basura en el servidor."
+  ],
+  "proximos_pasos": [
+    "Agregar validación de tamaño máximo de archivo.",
+    "Registrar logs para auditoría de cambios de imágenes.",
+    "Agregar pruebas unitarias para asegurar que se borre correctamente la imagen anterior."
+  ]
+}

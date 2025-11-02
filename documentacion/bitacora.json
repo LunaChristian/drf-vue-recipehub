@@ -681,11 +681,29 @@
     "refactor(clase_82): extraer user_id del token en vista POST de Recetas",
     "docs(clase_82): agregar notas sobre asociación de recetas con usuario logueado"
   ]
+},
+{
+  "numero": 83,
+  "tema": "GET /recetas-panel/<id>: Listar recetas por usuario autenticado",
+  "archivo_dialogo": "documentacion/clase_83/dialogo.txt",
+  "archivo_notas": "documentacion/clase_83/notas.json",
+  "resumen_corto": "Se crea el endpoint /recetas-panel/<id> en la app recetas_helper, protegido con @logueado. Lista las recetas asociadas al usuario indicado y devuelve JSON con estado HTTP 200.",
+  "commit_msgs": [
+    "feat(clase_83): crear endpoint GET /recetas-panel/<id> para listar recetas por usuario",
+    "refactor(clase_83): reutilizar RecetaSerializer y validar existencia de usuario",
+    "docs(clase_83): agregar notas sobre implementación de recetas_helper y flujo de validación"
+  ]
+},{
+  "numero": 84,
+  "tema": "POST /recetas/editar-foto: Actualización de imagen de receta con reemplazo físico del archivo",
+  "archivo_dialogo": "documentacion/clase_84/dialogo.txt",
+  "archivo_notas": "documentacion/clase_84/notas.json",
+  "resumen_corto": "Se implementa un endpoint POST que permite cambiar la foto de una receta, validando ID, tipo MIME y eliminando la imagen anterior del servidor.",
+  "commit_msgs": [
+    "feat(clase_84): implementar endpoint POST /recetas/editar-foto para actualizar imagen de receta",
+    "fix(clase_84): eliminar archivo anterior tras carga exitosa para evitar duplicados",
+    "docs(clase_84): agregar notas y flujo detallado de validaciones y reemplazo de imagen"
+  ]
 }
-
-
-
-
-
   ]
 }

@@ -1,1 +1,49 @@
-{}
+{
+  "numero": 83,
+  "titulo": "GET /recetas-panel/<id>: Listar recetas por usuario autenticado",
+  "resumen": "Se implementa en la app 'recetas_helper' un endpoint protegido que lista todas las recetas asociadas a un usuario específico, identificado por su ID. El método reutiliza el serializer del módulo 'recetas' y valida la existencia del usuario antes de devolver los datos.",
+  "detalles": {
+    "app": "recetas_helper",
+    "endpoint": "/api/v1/recetas-panel/<id>/",
+    "metodo_http": "GET",
+    "clase_vista": "ClaseCuatro (APIView)",
+    "decoradores": ["@logueado"],
+    "modelo_usado": "Receta",
+    "serializer_usado": "RecetaSerializer (importado desde recetas.serializers)"
+  },
+  "flujo_logico": [
+    "1. El endpoint recibe el parámetro <id> (ID del usuario) en la URL.",
+    "2. Se valida la existencia del usuario en la tabla auth_user.",
+    "3. Si no existe, se retorna JSON con estado 'error' y HTTP 400 (Bad Request).",
+    "4. Si existe, se listan todas las recetas donde user_id = <id>.",
+    "5. Se serializan los datos con RecetaSerializer y se devuelven en formato JSON con estado HTTP 200."
+  ],
+  "importaciones_clave": [
+    "from django.contrib.auth.models import User",
+    "from recetas.models import Receta",
+    "from recetas.serializers import *",
+    "from rest_framework.views import APIView",
+    "from rest_framework.response import Response",
+    "from rest_framework import status"
+  ],
+  "validaciones": [
+    "El decorador @logueado garantiza que solo usuarios autenticados puedan acceder.",
+    "Se verifica que el usuario con el ID recibido exista (User.DoesNotExist).",
+    "En caso de error, se devuelve estado 400 con mensaje genérico."
+  ],
+  "ejemplo_practico": {
+    "request": "GET /api/v1/recetas-panel/6 con token válido (Bearer ...)",
+    "respuesta_exitosa": "200 OK con listado de recetas del usuario 6.",
+    "respuesta_error": "400 Bad Request si el usuario no existe o no está autorizado."
+  },
+  "notas_tecnicas": [
+    "El endpoint no requiere registrar la app 'recetas_helper' en settings.py porque no posee modelos.",
+    "Se recomienda usar códigos HTTP coherentes (200 para éxito, 400 para errores de validación).",
+    "El uso del parámetro <id> en la URL simplifica pruebas, pero también podría derivarse del token JWT."
+  ],
+  "proximos_pasos": [
+    "Agregar paginación o filtros de búsqueda por título de receta.",
+    "Crear endpoint para editar o eliminar recetas del usuario autenticado.",
+    "Unificar esta lógica con el frontend para mostrar el panel de recetas personalizadas."
+  ]
+}
