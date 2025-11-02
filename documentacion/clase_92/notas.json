@@ -1,1 +1,39 @@
-{}
+{
+  "numero": 92,
+  "titulo": "Corrección de error en DRF Yasg — instalación de setuptools requerida",
+  "resumen": "Se corrige el error generado tras la instalación de DRF Yasg (Swagger) agregando la dependencia 'setuptools', necesaria para el correcto funcionamiento de la librería. Se actualiza el archivo requirements.txt para incluirla de manera permanente.",
+  "detalles": {
+    "problema_detectado": "Durante la configuración inicial de DRF Yasg (Swagger), el servidor arrojaba errores al ejecutar el proyecto debido a la ausencia de la librería 'setuptools'.",
+    "causa": "El paquete 'setuptools' es requerido por DRF Yasg y no estaba presente en el entorno virtual ni listado en requirements.txt.",
+    "solucion": "Instalar setuptools y agregarlo al archivo requirements.txt para evitar futuros errores en despliegues o instalaciones en otros entornos."
+  },
+  "pasos_realizados": [
+    "1. Detener la ejecución del servidor Django.",
+    "2. Instalar setuptools mediante el comando:",
+    "   pip install setuptools",
+    "3. Confirmar la instalación correcta con:",
+    "   pip freeze | grep setuptools",
+    "4. Agregar setuptools al archivo requirements.txt con la versión instalada.",
+    "5. Ejecutar nuevamente:",
+    "   python manage.py runserver",
+    "   para verificar que el backend inicia sin errores."
+  ],
+  "codigo_agregado": {
+    "requirements.txt": "setuptools==<versión_instalada>",
+    "comando_verificacion": "pip freeze | grep setuptools"
+  },
+  "verificacion": {
+    "resultado": "El servidor Django vuelve a ejecutarse sin errores y la configuración de DRF Yasg queda estable.",
+    "observacion": "Se eliminan los errores relacionados a la inicialización del módulo Swagger."
+  },
+  "notas_tecnicas": [
+    "Setuptools es una librería fundamental de Python que gestiona la instalación y distribución de paquetes. Algunas librerías avanzadas (como drf-yasg) dependen de ella para funcionar correctamente.",
+    "Su ausencia puede generar errores de importación o de inicialización en paquetes que se basan en el sistema de empaquetado de Python.",
+    "Es buena práctica incluir setuptools explícitamente en los proyectos que se distribuyen mediante requirements.txt."
+  ],
+  "proximos_pasos": [
+    "Verificar que Swagger y Redoc generen correctamente la documentación una vez configuradas las rutas.",
+    "Actualizar el repositorio para incluir el cambio en el requirements.txt.",
+    "Realizar pruebas en un entorno limpio (nuevo entorno virtual) para validar la instalación completa sin dependencias faltantes."
+  ]
+}

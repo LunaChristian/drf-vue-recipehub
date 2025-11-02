@@ -8,7 +8,7 @@ from categorias.models import Categoria
 
 # Create your models here.
 class Receta(models.Model):
-    user = models.ForeignKey(User, models.DO_NOTHING, default=1)
+    user = models.ForeignKey(User, models.DO_NOTHING, null=True, blank=True)
     categoria = models.ForeignKey(Categoria, models.DO_NOTHING)
     titulo_receta = models.CharField(max_length=100, null=False)
     slug = AutoSlugField(populate_from='titulo_receta', max_length=100)
@@ -16,7 +16,6 @@ class Receta(models.Model):
     foto = models.CharField(max_length=100, null=True)
     descripcion = models.TextField()
     fecha = models.DateTimeField(auto_now=True)
-    
     
     
     def __str__(self):

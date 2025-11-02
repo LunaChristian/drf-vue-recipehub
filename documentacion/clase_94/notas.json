@@ -1,1 +1,90 @@
-{}
+{
+  "numero": "93-94",
+  "titulo": "Implementación completa de documentación automática con Swagger (DRF Yasg) y cierre del módulo Backend",
+  "resumen": "Se configura la documentación automática del API REST con Swagger mediante la librería drf-yasg. Se implementan las rutas principales para visualizar la documentación en formato JSON, Swagger UI y Redoc. Además, se añade documentación detallada a los endpoints, incluyendo descripción, tipos de datos, estructura del cuerpo del request, respuestas esperadas y campos obligatorios. Con esto se da por finalizado el desarrollo del backend.",
+  "detalles": {
+    "libreria": "drf-yasg==1.21.7",
+    "archivos_modificados": [
+      "urls.py (principal del proyecto)",
+      "views.py (módulo contacto)"
+    ],
+    "funcionalidad_principal": "Generación automática de documentación OpenAPI (Swagger y Redoc) basada en las vistas y serializers de Django REST Framework.",
+    "estado": "Implementación finalizada y probada — backend completamente documentado y funcional."
+  },
+  "pasos_realizados": [
+    "1. Importar los módulos necesarios en urls.py:",
+    "   from drf_yasg import openapi",
+    "   from drf_yasg.views import get_schema_view",
+    "   from rest_framework import permissions",
+    "",
+    "2. Crear la vista del esquema:",
+    "   schema_view = get_schema_view(",
+    "       openapi.Info(",
+    "           title='Curso Fullstack Django + Django REST Framework + Vue',",
+    "           default_version='v1',",
+    "           description='API desarrollada para implementación de backend del sistema de recetas',",
+    "           terms_of_service='https://cesarcansino.com/cursos',",
+    "           contact=openapi.Contact(email='yo@cesarcansino.com'),",
+    "           license=openapi.License(name='BSD License'),",
+    "       ),",
+    "       public=True,",
+    "       permission_classes=[permissions.AllowAny],",
+    "   )",
+    "",
+    "3. Definir rutas para documentación en urls.py:",
+    "   path('documentacion.json/', schema_view.without_ui(cache_timeout=0), name='schema-json'),",
+    "   path('documentacion/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),",
+    "   path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),",
+    "",
+    "4. Probar en el navegador las rutas:",
+    "   - /documentacion.json → estructura OpenAPI en JSON",
+    "   - /documentacion/ → interfaz Swagger interactiva",
+    "   - /redoc/ → interfaz Redoc minimalista",
+    "",
+    "5. En la app 'contacto', importar:",
+    "   from drf_yasg.utils import swagger_auto_schema",
+    "   from drf_yasg import openapi",
+    "",
+    "6. Documentar el endpoint con decoradores:",
+    "   @swagger_auto_schema(",
+    "       operation_description='Endpoint para envío de contacto',",
+    "       request_body=openapi.Schema(",
+    "           type=openapi.TYPE_OBJECT,",
+    "           properties={",
+    "               'nombre': openapi.Schema(type=openapi.TYPE_STRING, description='Nombre del usuario'),",
+    "               'email': openapi.Schema(type=openapi.TYPE_STRING, description='Correo de contacto'),",
+    "               'telefono': openapi.Schema(type=openapi.TYPE_STRING, description='Teléfono de contacto'),",
+    "               'mensaje': openapi.Schema(type=openapi.TYPE_STRING, description='Mensaje del usuario')",
+    "           },",
+    "           required=['nombre', 'email', 'telefono', 'mensaje']",
+    "       ),",
+    "       responses={200: 'OK', 400: 'Bad Request'}",
+    "   )"
+  ],
+  "verificacion": {
+    "resultado": "Swagger y Redoc generan documentación completa del backend. Se visualizan correctamente los endpoints, los tipos de datos esperados y las respuestas HTTP.",
+    "urls_probadas": [
+      "http://127.0.0.1:8000/documentacion/",
+      "http://127.0.0.1:8000/redoc/"
+    ]
+  },
+  "conceptos_clave": [
+    "Swagger (OpenAPI) permite documentar APIs REST de forma estandarizada e interactiva.",
+    "drf-yasg genera la documentación automáticamente a partir de las vistas y serializers definidos.",
+    "Los decoradores `@swagger_auto_schema` permiten añadir descripciones personalizadas a cada endpoint.",
+    "La documentación puede servir como contrato de la API, definiendo estructura de request y response.",
+    "Las herramientas Swagger UI y Redoc ofrecen interfaces interactivas para probar los endpoints."
+  ],
+  "buenas_practicas": [
+    "No memorizar las configuraciones de Swagger; consultarlas o copiarlas de la documentación oficial cuando sea necesario.",
+    "Usar el decorador `swagger_auto_schema` en cada vista o endpoint relevante para mantener una documentación coherente.",
+    "Incluir los campos requeridos y los tipos de datos para evitar confusiones con el formato del JSON.",
+    "Separar las rutas del Swagger en el archivo urls.py principal para mantener la estructura ordenada."
+  ],
+  "proximos_pasos": [
+    "Agregar autenticación JWT en Swagger para probar endpoints protegidos directamente desde la interfaz.",
+    "Documentar el resto de los endpoints del proyecto (categorías, recetas, buscador, etc.).",
+    "Iniciar el desarrollo del frontend para consumir las APIs documentadas desde Vue o React."
+  ],
+  "estado_final_backend": "Completado — El backend cuenta con APIs funcionales, autenticación, documentación Swagger y validaciones de seguridad listas para consumo desde frontend."
+}

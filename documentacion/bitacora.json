@@ -788,8 +788,31 @@
     "chore(clase_91): registrar 'drf_yasg' en INSTALLED_APPS antes de rest_framework",
     "docs(clase_91): iniciar configuración de documentación automática de endpoints"
   ]
+},
+{
+  "numero": 92,
+  "tema": "Corrección de error en Swagger — instalación de setuptools requerida para DRF Yasg",
+  "archivo_dialogo": "documentacion/clase_92/dialogo.txt",
+  "archivo_notas": "documentacion/clase_92/notas.json",
+  "resumen_corto": "Se instala setuptools para resolver el error de inicialización de DRF Yasg y se actualiza el archivo requirements.txt.",
+  "commit_msgs": [
+    "fix(clase_92): instalar setuptools para resolver dependencia faltante de drf-yasg",
+    "chore(clase_92): agregar setuptools al requirements.txt para evitar futuros errores de instalación",
+    "docs(clase_92): documentar corrección de error relacionado con Swagger y setuptools"
+  ]
+},
+{
+  "numero": "93-94",
+  "tema": "Implementación completa de documentación Swagger con DRF Yasg y cierre del módulo Backend",
+  "archivo_dialogo": "documentacion/clase_93_94/dialogo.txt",
+  "archivo_notas": "documentacion/clase_93_94/notas.json",
+  "resumen_corto": "Se configura Swagger (drf-yasg) para generar documentación automática del API REST, incluyendo metadatos, endpoints, esquemas de request/response y permisos. Con esto se da por finalizado el backend.",
+  "commit_msgs": [
+    "feat(clase_93_94): implementar documentación Swagger completa con drf-yasg en urls y vistas",
+    "chore(clase_93_94): configurar rutas /documentacion y /redoc en urls.py principal",
+    "docs(clase_93_94): documentar endpoints con swagger_auto_schema y cerrar módulo backend"
+  ]
 }
-
 
 
 
