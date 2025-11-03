@@ -12,7 +12,7 @@ from drf_yasg.utils import swagger_auto_schema
 
 # Create your views here.
 
-class Contactos_1(APIView):
+class Contacto_View(APIView):
     @swagger_auto_schema(
         operation_descripcion="Endpoint para Contacto",
         responses={
@@ -42,7 +42,7 @@ class Contactos_1(APIView):
         
         try:
             contacto = Contacto.objects.create(
-                name=request.data['nombre'],
+                nombre=request.data['nombre'],
                 correo=request.data['correo'],
                 telefono=request.data['telefono'],
                 mensaje=request.data['mensaje'], 

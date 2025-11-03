@@ -22,4 +22,4 @@ class RecetaSerializer(serializers.ModelSerializer):
         return DateFormat(obj.fecha).format('d/m/Y')
     
     def get_imagen(self, obj):
-        return f"{os.getenv("BASE_URL")}uploads/recetas/{obj.foto}"
+        return f"{os.getenv('BASE_URL')}uploads/recetas/{obj.foto}"

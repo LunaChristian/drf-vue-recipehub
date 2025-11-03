@@ -34,7 +34,7 @@ class Seguridad(APIView):
             return JsonResponse({"estado":"error", "mensaje":"Error: el correo ya existe"}, status=HTTPStatus.BAD_REQUEST)
         
         token = uuid.uuid4()
-        url_token = f"{os.getenv("BASE_URL")}api/v1/seguridad/verificacion/{token}"
+        url_token = f"{os.getenv('BASE_URL')}api/v1/seguridad/verificacion/{token}"
         
         try:
             user = User.objects.create_user(

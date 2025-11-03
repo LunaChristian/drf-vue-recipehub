@@ -68,7 +68,7 @@ class ImgEditorHelperView(APIView):
             except Exception as e:
                 return JsonResponse({"estado":"error", "mensaje":"Ocurrió un error inesperado"}, status=HTTPStatus.BAD_REQUEST)
         else:
-            return JsonResponse({"estado":"error", "mensaje":"class La foto sólo puede ser PNG y JPG"}, status=HTTPStatus.BAD_REQUEST)
+            return JsonResponse({"estado":"error", "mensaje":"La foto sólo puede ser PNG y JPG"}, status=HTTPStatus.BAD_REQUEST)
 
 class RecetaDetailView(APIView):
     """ Mostrar/listar una receta filtrada por slug"""
@@ -126,7 +126,7 @@ class RecetaSearchView(APIView):
         receta_data = (
             Receta.objects.filter(
             categoria_id= categoria_id,
-            name__icontains=search
+            titulo_receta__icontains=search
             ).order_by('id').all()
         )
 

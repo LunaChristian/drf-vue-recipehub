@@ -28,7 +28,7 @@ urlpatterns = [
     path('api/v1/', include('recetas.urls'),name='recetas'),
     path('api/v1/', include('seguridad.urls'),name='seguridad'),
     path('api/v1/', include('contacto.urls'),name='contacto'),
-    path('api/v1/', include('recetas_helper.urls'),name='recetas_herlpers'),
+    path('api/v1/', include('recetas_helper.urls'),name='recetas_herlper'),
     path('documentation<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('documentation/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),

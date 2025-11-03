@@ -47,15 +47,15 @@ class Class_Receta_View(APIView):
             )
         
         try:
-            img = f"{datetime.timestamp(datetime.now())}{os.path.splitext(str(request.FILES['file']))[1]}"
+            img = f"{datetime.timestamp(datetime.now())}{os.path.splitext(str(request.FILES['archivo']))[1]}"
         except Exception as e:
             return JsonResponse({"estado":"error", "mensaje":"Error al crear el archivo"}, status=HTTPStatus.BAD_REQUEST)
         
         fs = FileSystemStorage()
         
         try:
-            fs.save(f"recetas/{img}", request.FILES['file'])
-            fs.url(request.FILES['file'])
+            fs.save(f"recetas/{img}", request.FILES['archivo'])
+            fs.url(request.FILES['archivo'])
         except Exception as e:
             return JsonResponse({"estado":"error", "mensaje":"Error al cargar el archivo"}, status=HTTPStatus.BAD_REQUEST)
         
@@ -90,7 +90,7 @@ class Class_Receta_View(APIView):
                     categoria_id = request.data['categoria_id'],
                     fecha = datetime.now(),
                     foto = img,
-                    user_id = resuelto
+                    user_id = resuelto['id']
                     )
                 return JsonResponse({"estado":"ok", "mensaje":"registro exitoso"}, status=HTTPStatus.CREATED)
             except Exception as e:
